@@ -1,25 +1,23 @@
 # What I'm doing now
 
-*Last updated: {{date}} (from {{location}})*
+*Last updated: August 20, 2025 (from Lithuania)*
 
 ## Current Focus
 
-Write about what you're focusing on right now. This could include:
+Right now I'm focused on building my personal web presence and learning new technologies. This includes:
 
-- **Work projects** you're passionate about
-- **Learning goals** you're pursuing  
-- **Books** you're currently reading
-- **Habits** you're building or changing
-- **Relationships** you're investing in
-- **Health/fitness** goals you're working toward
+- **Building** this personal "now" page following Derek Sivers' philosophy
+- **Learning** modern web development and automation tools
+- **Exploring** how to integrate Obsidian with web publishing workflows
+- **Setting up** a sustainable system for regular updates
 
 ## Recent Changes
 
-What has changed since your last update? What have you stopped doing? What new things have you started?
+Just launched this "now" page! Moving away from scattered social media updates toward a more intentional way of sharing what I'm actually working on. 
 
 ## Location & Context
 
-Where are you based right now? What season of life are you in?
+Based in Lithuania, currently in an exploration phase of personal website development and finding better ways to document and share my journey.
 
 ---
 
