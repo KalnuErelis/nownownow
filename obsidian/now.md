@@ -1,15 +1,14 @@
 # What I'm doing now
 
-*Last updated: August 20, 2025 (from Lithuania) - Testing deployment*
+*Last updated: August 20, 2025 (from Lithuania)
 
 ## Current Focus
 
 Right now I'm focused on building my personal web presence and learning new technologies. This includes:
 
-- **Building** this personal "now" page following Derek Sivers' philosophy
-- **Learning** modern web development and automation tools
-- **Exploring** how to integrate Obsidian with web publishing workflows
-- **Setting up** a sustainable system for regular updates
+- Building small apps with ClaudeCode at WhiteBridge.ai
+- Preparing for 104k Trail Run in October.
+- Living between Vilnius and Vienna.
 
 ## Recent Changes
 
