@@ -43,12 +43,26 @@ jobs:
           
       - name: Build site
         run: |
+          echo "📁 Files before build:"
+          ls -la
+          echo "🔄 Running build script..."
           python build.py
+          echo "📁 Files after build:"
+          ls -la
+          echo "📄 Content of index.html (first 20 lines):"
+          head -20 index.html
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
       - name: Upload artifact
+        run: |
+          echo "📦 Files being uploaded:"
+          find . -name "*.html" -o -name "*.css" -o -name "*.js" | head -10
+          echo "📄 Final index.html content check:"
+          head -10 index.html
+        
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
