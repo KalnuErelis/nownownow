@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now - What I'm Focused On</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>What I'm doing now</h1>
+            <p class="subtitle">Updated <span id="last-updated">{{ last_updated }}</span></p>
+        </header>
+        
+        <article class="now-content">
+            {{ content }}
+        </article>
+        
+        <footer>
+            <p>This is a <a href="https://nownownow.com/about" target="_blank">now page</a>, inspired by <a href="https://sive.rs/now" target="_blank">Derek Sivers</a>.</p>
+            <p><a href="mailto:your-email@example.com">Get in touch</a> if you'd like to connect!</p>
+        </footer>
+    </main>
+</body>
+</html>
