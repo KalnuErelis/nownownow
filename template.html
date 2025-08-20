@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Jaunius Kadunas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <nav class="navigation">
+            <a href="index.html" class="{{ now_active }}">Now</a>
+            <a href="me.html" class="{{ me_active }}">About Me</a>
+        </nav>
+        
+        <header>
+            <h1>{{ page_title }}</h1>
+            <p class="subtitle">{{ subtitle }}</p>
+        </header>
+        
+        <article class="content">
+            {{ content }}
+        </article>
+        
+        <footer>
+            <p>This site follows the <a href="https://nownownow.com/about" target="_blank">now page</a> philosophy by <a href="https://sive.rs/now" target="_blank">Derek Sivers</a>.</p>
+            <p><a href="mailto:your-email@example.com">Get in touch</a> if you'd like to connect!</p>
+        </footer>
+    </main>
+</body>
+</html>

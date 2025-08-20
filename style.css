@@ -19,6 +19,35 @@ body {
     padding: 2rem 1.5rem;
 }
 
+/* Navigation styles */
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.navigation a {
+    color: #7f8c8d;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.navigation a:hover {
+    color: #3498db;
+    background-color: #f8f9fa;
+}
+
+.navigation a.active {
+    color: #3498db;
+    background-color: #f8f9fa;
+}
+
 /* Header styles */
 header {
     margin-bottom: 3rem;
@@ -39,7 +68,7 @@ h1 {
 }
 
 /* Content styles */
-.now-content {
+.content {
     background: white;
     padding: 2.5rem;
     border-radius: 8px;
@@ -47,14 +76,14 @@ h1 {
     margin-bottom: 3rem;
 }
 
-.now-content h2 {
+.content h2 {
     color: #2c3e50;
     margin-bottom: 1rem;
     font-size: 1.5rem;
     font-weight: 400;
 }
 
-.now-content h3 {
+.content h3 {
     color: #34495e;
     margin-bottom: 0.8rem;
     margin-top: 1.5rem;
@@ -62,22 +91,30 @@ h1 {
     font-weight: 500;
 }
 
-.now-content p {
+.content h4 {
+    color: #34495e;
+    margin-bottom: 0.6rem;
+    margin-top: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.content p {
     margin-bottom: 1.2rem;
     color: #555;
 }
 
-.now-content ul, .now-content ol {
+.content ul, .content ol {
     margin-bottom: 1.2rem;
     padding-left: 2rem;
 }
 
-.now-content li {
+.content li {
     margin-bottom: 0.5rem;
     color: #555;
 }
 
-.now-content blockquote {
+.content blockquote {
     border-left: 4px solid #3498db;
     margin: 1.5rem 0;
     padding: 1rem 1.5rem;
@@ -85,15 +122,21 @@ h1 {
     font-style: italic;
 }
 
-.now-content a {
+.content a {
     color: #3498db;
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-bottom 0.2s ease;
 }
 
-.now-content a:hover {
+.content a:hover {
     border-bottom: 1px solid #3498db;
+}
+
+.content hr {
+    border: none;
+    border-top: 1px solid #ecf0f1;
+    margin: 2rem 0;
 }
 
 /* Footer styles */
@@ -128,7 +171,7 @@ footer p {
         font-size: 2rem;
     }
     
-    .now-content {
+    .content {
         padding: 1.5rem;
     }
     
