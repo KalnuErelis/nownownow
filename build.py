@@ -15,14 +15,18 @@ PAGES = {
     'now.md': {
         'output': 'index.html',
         'title': 'Now - What I\'m Focused On',
-        'page_title': 'What I\'m doing now',
-        'nav_key': 'now'
+        'page_title': 'Jaunius Kadunas',
+        'nav_key': 'now',
+        'roles': 'Growth engineer / Endurance athlete / AI tinkerer',
+        'summary': 'Growth engineering at <a href="https://whitebridge.ai">WhiteBridge AI</a>, where I blend sales tech, AI tooling, and sustainability-minded strategies to help teams scale responsibly.'
     },
     'me.md': {
         'output': 'me.html', 
         'title': 'About Me',
         'page_title': 'About Jaunius Kadunas',
-        'nav_key': 'me'
+        'nav_key': 'me',
+        'roles': 'Growth engineer / Endurance athlete / AI enthusiast',
+        'summary': 'I help teams turn AI and sales technology into sustainable growth systems, currently as a Growth Engineer at <a href="https://whitebridge.ai">WhiteBridge AI</a>.'
     }
 }
 
@@ -92,6 +96,8 @@ def build_page(filename, config):
     final_html = template.replace('{{ title }}', config['title'])
     final_html = final_html.replace('{{ page_title }}', config['page_title'])
     final_html = final_html.replace('{{ subtitle }}', subtitle)
+    final_html = final_html.replace('{{ roles }}', config.get('roles', ''))
+    final_html = final_html.replace('{{ summary }}', config.get('summary', ''))
     final_html = final_html.replace('{{ content }}', html_content)
     final_html = final_html.replace('{{ now_active }}', nav_states['now_active'])
     final_html = final_html.replace('{{ me_active }}', nav_states['me_active'])

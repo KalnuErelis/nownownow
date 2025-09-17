@@ -1,126 +1,169 @@
-# About Me
+# About Jaunius Kadunas
 
-**Jaunius Kadunas** — Growth Engineer, Endurance Athlete, AI Enthusiast
+<section class="section" id="snapshot">
+<div class="section-header">
+<h2>Snapshot</h2>
+</div>
+<div class="section-body">
+<p><strong>Jaunius Kadunas</strong> — growth engineering leader, endurance athlete, human-centered technologist.</p>
+<p><em>7+ years navigating AI, SaaS, cybersecurity, and e-commerce across Lithuania, the UK, Austria, and the US.</em></p>
+</div>
+</section>
 
-*Currently based between Vienna, Austria and Vilnius, Lithuania*
+<section class="section" id="professional-journey">
+<div class="section-header">
+<h2>🚀 Professional Journey</h2>
+</div>
+<div class="section-body">
+<h3>Current Role</h3>
+<p><strong>Growth Engineer</strong> at <a href="https://whitebridge.ai">WhiteBridge AI</a><br>
+<em>Driving innovation and sustainable business growth through AI-powered sales and retention programs.</em></p>
+<p>I partner with go-to-market and product teams to ship experiments that compound revenue while keeping customer experience front and center.</p>
 
----
+<h3>Career Evolution</h3>
+<p>I began in hospitality and marketing, learning service design the hard way. That curiosity pulled me into technology, where I've since specialized in B2B growth and sales automation.</p>
+<p><strong>Highlights</strong></p>
+<ul class="stacked-list">
+<li>Growth and product motion builder for <strong>carVertical</strong>, <strong>Nord Security</strong>, <strong>PINPROOF</strong>, and <strong>WhiteBridge AI</strong>.</li>
+<li>Longest tenure: 2+ years scaling automotive intelligence at carVertical; shortest: a rapid two-month go-to-market sprint with PINPROOF.</li>
+<li>Comfortable switching between startup scrappiness and enterprise-scale rigor.</li>
+</ul>
 
-## 🚀 Professional Journey
+<h3>Industry Footprint</h3>
+<ul class="stacked-list">
+<li>AI &amp; machine learning — translating frontier tooling into real revenue.</li>
+<li>SaaS platforms — building predictable growth loops for B2B teams.</li>
+<li>Cybersecurity — amplifying secure-by-design narratives at Nord Security.</li>
+<li>E-commerce &amp; mobility — data-driven storytelling in the automotive space at carVertical.</li>
+</ul>
+</div>
+</section>
 
-### Current Role
-**Growth Engineer** at [WhiteBridge AI](https://whitebridge.ai)  
-*Driving innovation and sustainable business growth through AI-powered solutions*
+<section class="section" id="achievements">
+<div class="section-header">
+<h2>🏆 Achievements &amp; Recognition</h2>
+</div>
+<div class="section-body">
+<h3>🥈 AI Hackathon Success</h3>
+<ul class="stacked-list">
+<li><strong>2nd Place</strong> and <strong>People's Choice Award</strong> for building an applied AI solution under intense five-hour constraints.</li>
+<li>Recognized for combining fast experimentation, clear storytelling, and user-first design.</li>
+</ul>
 
-I specialize in growth hacking, sales technology, and AI implementations that help businesses scale efficiently and sustainably.
+<h3>Leadership</h3>
+<ul class="stacked-list">
+<li>Trusted as an <strong>Experienced Manager</strong>—mentoring sales and product teams toward resilient, data-informed playbooks.</li>
+<li>Championing sustainable growth practices that favor long-term relationships over quick wins.</li>
+</ul>
+</div>
+</section>
 
-### Career Evolution
-My path into technology wasn't traditional — I transitioned from hospitality and marketing into the tech world, bringing a unique perspective on customer experience and business growth.
+<section class="section" id="education">
+<div class="section-header">
+<h2>🎓 Education &amp; Background</h2>
+</div>
+<div class="section-body">
+<p><strong>Bachelor's Degree</strong> in Communication and Media Studies<br>
+<em>Coventry University, UK (2017-2021).</em></p>
+<p>That communications lens helps me translate complex technical work into narratives that sales, product, and executive teams can rally behind.</p>
+</div>
+</section>
 
-**Key Experience:**
-- **7+ years** in technology sectors across multiple markets
-- **Growth expertise** in AI, SaaS, and cybersecurity
-- **International experience** across Lithuania 🇱🇹, UK 🇬🇧, Austria 🇦🇹, and US 🇺🇸
+<section class="section" id="expertise">
+<div class="section-header">
+<h2>💪 Core Expertise</h2>
+</div>
+<div class="section-body">
+<h3>Technical Skills</h3>
+<ul class="stacked-list">
+<li><strong>Growth engineering</strong> — orchestrating data-informed experiments and pricing motions.</li>
+<li><strong>Sales technology</strong> — building automation stacks that keep sales teams close to the signal.</li>
+<li><strong>AI &amp; machine learning</strong> — evaluating and integrating LLM tooling into workflows.</li>
+<li><strong>Digital transformation</strong> — reshaping processes for scalability and resilience.</li>
+</ul>
 
-### Notable Companies
-- **WhiteBridge AI** — Current role in growth engineering
-- **carVertical** — Automotive blockchain technology
-- **PINPROOF** — Digital identity verification tools
-- **Nord Security** — Cybersecurity solutions
+<h3>Industry Focus</h3>
+<ul class="stacked-list">
+<li><strong>AI &amp; startups</strong> — shipping practical experiments that survive beyond the hype.</li>
+<li><strong>SaaS platforms</strong> — aligning marketing, sales, and product motions.</li>
+<li><strong>Cybersecurity</strong> — balancing trust, privacy, and growth goals.</li>
+<li><strong>Sustainability</strong> — helping tech teams scale without abandoning impact goals.</li>
+</ul>
+</div>
+</section>
 
----
+<section class="section" id="beyond-work">
+<div class="section-header">
+<h2>🏃‍♂️ Beyond Work</h2>
+</div>
+<div class="section-body">
+<h3>Endurance Sports</h3>
+<p>I'm passionate about pushing physical and mental limits:</p>
+<ul class="stacked-list">
+<li><strong>Trail running</strong> — currently training for a 104k ultra trail run.</li>
+<li><strong>Swimming</strong> — open water and pool training.</li>
+<li><strong>Triathlon</strong> — multi-sport endurance challenges.</li>
+<li><strong>Windsurfing</strong> — wind and water adventures.</li>
+</ul>
 
-## 🏆 Achievements & Recognition
+<h3>Personal Philosophy</h3>
+<p>I believe in <strong>sustainable growth</strong> — both in business and personal life. Whether I'm optimizing a growth funnel or training for an ultra marathon, I focus on:</p>
+<ul class="stacked-list">
+<li><strong>Long-term thinking</strong> over short-term gains.</li>
+<li><strong>Sustainable practices</strong> that benefit everyone.</li>
+<li><strong>Continuous learning</strong> and adaptation.</li>
+<li><strong>Community building</strong> and knowledge sharing.</li>
+</ul>
 
-### 🥈 AI Hackathon Success
-- **2nd Place** and **People's Choice Award** winner
-- Developed innovative AI solutions under pressure
-- Recognized for technical creativity and user-focused design
+<h3>Interests &amp; Learning</h3>
+<ul class="stacked-list">
+<li><strong>AI technology</strong> — experimenting with new tools and frameworks.</li>
+<li><strong>Sustainability</strong> — environmental and business sustainability advocate.</li>
+<li><strong>Reading</strong> — always learning from diverse sources.</li>
+<li><strong>Innovation</strong> — staying at the forefront of technological advancement.</li>
+</ul>
+</div>
+</section>
 
-### 💡 Innovation Impact
-- Contributed to **digital identity verification** technologies
-- Developed **award-winning AI projects** 
-- Expertise in **sustainable business growth** strategies
+<section class="section" id="location">
+<div class="section-header">
+<h2>🌍 Location &amp; Lifestyle</h2>
+</div>
+<div class="section-body">
+<p>Currently splitting time between:</p>
+<ul class="stacked-list">
+<li><strong>Vienna, Austria</strong> — Central European tech hub.</li>
+<li><strong>Vilnius, Lithuania</strong> — home base and Baltic innovation center.</li>
+</ul>
+<p>This dual-location lifestyle gives me unique perspectives on European tech markets and allows me to work with diverse international teams.</p>
+</div>
+</section>
 
----
+<section class="section" id="connect">
+<div class="section-header">
+<h2>💬 Let's Connect</h2>
+</div>
+<div class="section-body">
+<p>Interested in growth engineering, AI innovation, or endurance sports? I'm always excited to connect with like-minded people who are pushing boundaries in their fields.</p>
+<p><strong>Professional Focus</strong></p>
+<ul class="stacked-list">
+<li>Growth strategy and implementation.</li>
+<li>AI technology applications.</li>
+<li>Sustainable business practices.</li>
+<li>International market expansion.</li>
+</ul>
+<p><strong>Personal Interests</strong></p>
+<ul class="stacked-list">
+<li>Ultra-endurance training and events.</li>
+<li>Sustainable living practices.</li>
+<li>Technology experimentation.</li>
+<li>Community building.</li>
+</ul>
+</div>
+</section>
 
-## 🎓 Education & Background
-
-**Bachelor's Degree** in Communication and Media Studies  
-*Coventry University, UK (2017-2021)*
-
-My communications background gives me a unique edge in tech — I understand how to translate complex technical concepts into compelling growth strategies and user experiences.
-
----
-
-## 💪 Core Expertise
-
-### Technical Skills
-- **Growth Engineering** — Data-driven growth strategies
-- **Sales Technology** — Automation and optimization tools  
-- **AI & Machine Learning** — Implementation and innovation
-- **Digital Transformation** — Business process evolution
-
-### Industry Focus
-- **AI & Startups** — Cutting-edge technology adoption
-- **SaaS Platforms** — Scalable software solutions
-- **Cybersecurity** — Privacy and security-first approaches
-- **Sustainability** — Environmentally conscious business practices
-
----
-
-## 🏃‍♂️ Beyond Work
-
-### Endurance Sports
-I'm passionate about pushing physical and mental limits:
-
-- **Trail Running** — Currently training for a 104k ultra trail run
-- **Swimming** — Open water and pool training
-- **Triathlon** — Multi-sport endurance challenges
-- **Windsurfing** — Wind and water adventures
-
-### Personal Philosophy
-I believe in **sustainable growth** — both in business and personal life. Whether I'm optimizing a growth funnel or training for an ultra marathon, I focus on:
-
-- **Long-term thinking** over short-term gains
-- **Sustainable practices** that benefit everyone
-- **Continuous learning** and adaptation
-- **Community building** and knowledge sharing
-
-### Interests & Learning
-- **AI Technology** — Experimenting with new tools and frameworks
-- **Sustainability** — Environmental and business sustainability advocate  
-- **Reading** — Always learning from diverse sources
-- **Innovation** — Staying at the forefront of technological advancement
-
----
-
-## 🌍 Location & Lifestyle
-
-Currently splitting time between:
-- **Vienna, Austria** — Central European tech hub
-- **Vilnius, Lithuania** — Home base and Baltic innovation center
-
-This dual-location lifestyle gives me unique perspectives on European tech markets and allows me to work with diverse international teams.
-
----
-
-## 💬 Let's Connect
-
-Interested in growth engineering, AI innovation, or endurance sports? I'm always excited to connect with like-minded people who are pushing boundaries in their fields.
-
-**Professional Focus:**
-- Growth strategy and implementation
-- AI technology applications  
-- Sustainable business practices
-- International market expansion
-
-**Personal Interests:**
-- Ultra-endurance training and events
-- Sustainable living practices
-- Technology experimentation
-- Community building
-
----
-
-*This page represents my journey as of August 2025. Like any good growth engineer, I'm constantly evolving and optimizing — both professionally and personally.*
+<section class="section note">
+<div class="section-body">
+<p><em>This page represents my journey as of August 2025. Like any good growth engineer, I'm constantly evolving and optimizing — both professionally and personally.</em></p>
+</div>
+</section>

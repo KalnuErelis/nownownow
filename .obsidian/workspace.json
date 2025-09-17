@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "obsidian/me.md",
+                "file": "obsidian/now.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "me"
+              "title": "now"
             }
           }
         ]
@@ -220,10 +220,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ff4580cfc96d7d2c",
+  "active": "68259f0d474c5e19",
   "lastOpenFiles": [
-    "obsidian/me.md",
     "obsidian/now.md",
+    "obsidian/me.md",
     "README.md",
     "learning german.md",
     "me.html",
