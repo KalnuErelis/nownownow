@@ -1,47 +1,81 @@
+/* style.css - Modern Bento Box Design */
+
+:root {
+    --page-width: 1000px;
+    --radius: 16px;
+    --section-spacing: 1.5rem;
+    --line-height: 1.6;
+    
+    /* Typography */
+    --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    --font-mono: "SFMono-Regular", "JetBrains Mono", "Menlo", "Consolas", monospace;
+    
+    /* Light Theme (Default) */
+    --background-color: #f4f4f5;
+    --surface-color: #ffffff;
+    --surface-alt: #fafafa;
+    --border-color: #e4e4e7;
+    --text-color: #3f3f46;
+    --text-muted: #71717a;
+    --heading-color: #18181b;
+    --link-color: #52525b;
+    --link-hover: #000000;
+    --accent-color: #3b82f6;
+    --list-background: #fdfdfd;
+    --shadow-color: rgba(0, 0, 0, 0.04);
+    --shadow-hover: rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #09090b;
+        --surface-color: #18181b;
+        --surface-alt: #27272a;
+        --border-color: #3f3f46;
+        --text-color: #d4d4d8;
+        --text-muted: #a1a1aa;
+        --heading-color: #ffffff;
+        --link-color: #a1a1aa;
+        --link-hover: #ffffff;
+        --accent-color: #60a5fa;
+        --list-background: #1f1f22;
+        --shadow-color: rgba(0, 0, 0, 0.2);
+        --shadow-hover: rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* 1. Reset & Base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    --page-width: 66ch;
-    --background-color: #f6f1e7;
-    --surface-color: #fffaf3;
-    --surface-alt: #f2e8d7;
-    --border-color: #e0d4c2;
-    --text-color: #2d2723;
-    --text-muted: #7d7367;
-    --heading-color: #1c1612;
-    --link-color: #2d2723;
-    --link-hover: #000000;
-    --accent-color: #d9a548;
-    --radius: 14px;
-    --section-spacing: 2.5rem;
-    --line-height: 1.6;
-    --font-mono: "SFMono-Regular", "JetBrains Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
-    --list-background: #f7eedc;
-}
-
 body {
     background: var(--background-color);
     color: var(--text-color);
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-size: 16px;
     line-height: var(--line-height);
-    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .page {
     max-width: var(--page-width);
     margin: 0 auto;
-    padding: 3.5rem 1.75rem 4rem;
+    padding: 4rem 2rem;
+}
+
+/* 2. Typography */
+h1, h2, h3, .navigation, .roles, .update-note {
+    font-family: var(--font-mono);
 }
 
 a {
     color: var(--link-color);
     text-decoration: none;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid var(--border-color);
     transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
 
@@ -50,64 +84,64 @@ a:hover {
     border-bottom-color: var(--link-hover);
 }
 
+em { color: var(--text-muted); font-style: italic; }
+strong { color: var(--heading-color); font-weight: 600; }
+
+/* 3. Header & Navigation */
 .navigation {
     display: flex;
     gap: 1.5rem;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.78rem;
-    margin-bottom: 3rem;
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    margin-bottom: 3.5rem;
 }
 
 .navigation a {
     color: var(--text-muted);
-    padding-bottom: 0.35rem;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.4rem;
+    font-weight: 500;
 }
 
-.navigation a.active {
-    color: var(--heading-color);
-    border-bottom-color: var(--heading-color);
-}
-
-.navigation a:hover {
+.navigation a.active, .navigation a:hover {
     color: var(--heading-color);
     border-bottom-color: var(--heading-color);
 }
 
 .intro {
-    margin-bottom: var(--section-spacing);
+    margin-bottom: 3rem;
 }
 
 .intro h1 {
-    font-size: 1.9rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    background: var(--heading-color);
-    color: var(--background-color);
-    padding: 0.25rem 0.6rem;
-    display: inline-block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--heading-color);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
 }
 
 .intro .roles {
-    margin-top: 1.25rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text-muted);
+    margin-bottom: 1.5rem;
 }
 
 .intro .summary {
-    margin-top: 1.25rem;
-    max-width: 52ch;
+    font-size: 1.15rem;
+    max-width: 65ch;
+    color: var(--text-color);
 }
 
 .update-note {
     margin-top: 1.5rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.8rem;
     color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .update-note:empty {
@@ -119,17 +153,51 @@ a:hover {
     color: var(--heading-color);
 }
 
+/* 4. Layout & Bento Grid */
+.content-grid {
+    display: grid;
+    gap: var(--section-spacing);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 800px) {
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: start;
+    }
+    
+    /* Make specific prominent sections span the full width */
+    .content-grid > .section#snapshot,
+    .content-grid > .section#professional-journey,
+    .content-grid > .section#current-focus,
+    .content-grid > .section#intro,
+    .content-grid > .section.note,
+    .content-grid > p {
+        grid-column: 1 / -1;
+    }
+}
+
+/* 5. Cards / Sections */
 .section {
+    background: var(--surface-color);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    background: var(--surface-color);
-    margin-bottom: var(--section-spacing);
+    box-shadow: 0 4px 20px var(--shadow-color);
     overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px var(--shadow-hover);
 }
 
 .section-header {
     background: var(--surface-alt);
-    padding: 0.85rem 1.5rem;
+    padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -137,25 +205,17 @@ a:hover {
     font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     color: var(--heading-color);
 }
 
 .section-body {
-    padding: 1.6rem 1.5rem;
-}
-
-.section.note {
-    border-style: dashed;
-    background: var(--surface-alt);
-}
-
-.section.note .section-body {
-    padding: 1.3rem 1.5rem;
+    padding: 1.5rem;
+    flex-grow: 1;
 }
 
 .section-body p {
-    margin-bottom: 1.1rem;
+    margin-bottom: 1.2rem;
 }
 
 .section-body p:last-child {
@@ -163,24 +223,36 @@ a:hover {
 }
 
 .section-body h3 {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     color: var(--heading-color);
-    margin: 1.8rem 0 0.75rem;
+    margin: 2rem 0 1rem;
 }
 
 .section-body h3:first-of-type {
     margin-top: 0;
 }
 
+.section.note {
+    background: transparent;
+    border: 2px dashed var(--border-color);
+    box-shadow: none;
+}
+
+.section.note:hover {
+    transform: none;
+    border-color: var(--text-muted);
+}
+
+/* 6. Components */
 .stacked-list {
     list-style: none;
-    margin: 1.1rem 0 1.6rem;
+    margin: 1.2rem 0;
     padding: 0;
     border: 1px solid var(--border-color);
-    border-radius: calc(var(--radius) - 4px);
+    border-radius: calc(var(--radius) - 6px);
     background: var(--list-background);
     overflow: hidden;
 }
@@ -190,31 +262,27 @@ a:hover {
 }
 
 .stacked-list li {
-    padding: 0.85rem 1.1rem;
+    padding: 0.85rem 1.25rem;
     border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
 }
 
 .stacked-list li:last-child {
     border-bottom: none;
 }
 
-em {
-    color: var(--text-muted);
-}
-
-strong {
-    color: var(--heading-color);
-}
-
+/* 7. Footer */
 footer {
-    font-size: 0.78rem;
-    color: var(--text-muted);
+    margin-top: 4rem;
+    padding-top: 2rem;
     border-top: 1px solid var(--border-color);
-    padding-top: 1.8rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-align: center;
 }
 
 footer p {
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
 }
 
 footer p:last-child {
@@ -222,28 +290,27 @@ footer p:last-child {
 }
 
 footer a {
-    color: var(--heading-color);
+    color: var(--text-color);
+    font-weight: 500;
 }
 
-@media (max-width: 720px) {
-    body {
-        font-size: 15px;
-    }
-
+/* 8. Mobile Responsiveness */
+@media (max-width: 767px) {
     .page {
-        padding: 2.5rem 1.25rem 3.5rem;
+        padding: 2.5rem 1.25rem;
     }
-
+    
+    .intro h1 {
+        font-size: 2rem;
+    }
+    
     .navigation {
         flex-wrap: wrap;
-        gap: 0.75rem;
+        gap: 1rem;
+        margin-bottom: 2.5rem;
     }
-
-    .intro h1 {
-        font-size: 1.6rem;
-    }
-
+    
     .section-body {
-        padding: 1.4rem 1.25rem;
+        padding: 1.25rem;
     }
 }
