@@ -73,10 +73,7 @@ export const NOW_PAGE = {
   updated: "March 21, 2026",
   quickLinks: [
     { href: WRITING.archive, label: "Substack Archive" },
-    { href: SITE.company, label: "WhiteBridge.ai" },
-    { href: SITE.linkedin, label: "LinkedIn" },
-    { href: SITE.github, label: "GitHub" },
-    { href: `mailto:${SITE.email}`, label: SITE.email }
+    { href: SITE.company, label: "WhiteBridge.ai" }
   ],
   sections: [
     {
