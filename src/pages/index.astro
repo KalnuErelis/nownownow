@@ -38,15 +38,6 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
         <p class="hero-copy__lede">{NOW_PAGE.heroBody}</p>
         <p class="hero-copy__support">{NOW_PAGE.heroSupport}</p>
         <Socials />
-        <ul class="hero-links">
-          {NOW_PAGE.quickLinks.map((link) => (
-            <li>
-              <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined}>
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
         <div class="hero-meta">
           <span>{SITE.location}</span>
           <span>Updated {SITE.updated}</span>
