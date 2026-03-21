@@ -1,11 +1,13 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import Icon from "@/components/Icon.astro";
-import { SEARCH_PAGE, WRITING } from "@/data/site";
+import { importedArticles } from "@/data/articles";
+import { SEARCH_PAGE } from "@/data/site";
 
-const searchablePosts = WRITING.posts.map((post) => ({
+const searchablePosts = importedArticles.map((post) => ({
   ...post,
-  searchText: [post.title, post.excerpt, post.source, ...(post.tags ?? [])].join(" ").toLowerCase()
+  source: "Website",
+  searchText: [post.title, post.excerpt, post.subtitle].join(" ").toLowerCase()
 }));
 ---
 
@@ -29,7 +31,7 @@ const searchablePosts = WRITING.posts.map((post) => ({
             data-title={post.title}
           >
             <h3>
-              <a href={post.href} target="_blank" rel="noreferrer">
+              <a href={post.href}>
                 {post.title}
               </a>
             </h3>

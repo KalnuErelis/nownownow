@@ -1,3 +1,5 @@
+import { importedArticles } from "./articles";
+
 export const SITE = {
   title: "Jaunius Kadunas",
   description:
@@ -33,64 +35,15 @@ export const WRITING = {
   archive: "https://jauniuskadunas.substack.com/archive",
   feed: "https://jauniuskadunas.substack.com/feed",
   subscribe: "https://jauniuskadunas.substack.com/subscribe",
-  posts: [
-    {
-      title: "How I’m Learning German in Vienna: What’s Working So Far",
-      href: "https://jauniuskadunas.substack.com/p/how-im-learning-german-in-vienna",
-      excerpt: "Pathing my self learning way to reach B2 in German.",
-      publishedAt: "2025-09-28",
-      source: "Substack",
-      readingTime: "4 min read",
-      tags: ["german", "vienna", "learning"]
-    },
-    {
-      title: "Why You Shouldn’t Be Ashamed of Using AI for Proofreading",
-      href: "https://jauniuskadunas.substack.com/p/why-you-shouldnt-be-ashamed-of-using",
-      excerpt: "I used to feel ashamed of using AI to proofread my writing.",
-      publishedAt: "2025-09-11",
-      source: "Substack",
-      readingTime: "4 min read",
-      tags: ["ai", "writing", "proofreading"]
-    },
-    {
-      title: "PART 2: lessons from spending $1000 on vibe coding",
-      href: "https://jauniuskadunas.substack.com/p/part-2-lessons-from-spending-1000",
-      excerpt:
-        "From ChatGPT 3.5 prompt engineer to full stack vibe coder (Part 2: 2024-2025).",
-      publishedAt: "2025-09-04",
-      source: "Substack",
-      readingTime: "6 min read",
-      tags: ["ai", "coding", "vibe coding"]
-    },
-    {
-      title: "PART 1: lessons from spending $1000 on vibe coding",
-      href: "https://jauniuskadunas.substack.com/p/part-1-lessons-from-spending-1000",
-      excerpt:
-        "From ChatGPT 3.5 prompt engineer to full stack vibe coder (Part 1: 2023).",
-      publishedAt: "2025-08-28",
-      source: "Substack",
-      readingTime: "6 min read",
-      tags: ["ai", "coding", "vibe coding"]
-    },
-    {
-      title: "How I’m Building an AI-First System for Writing Better",
-      href: "https://jauniuskadunas.substack.com",
-      excerpt: "A practical system for using AI in drafts without losing voice or judgment.",
-      publishedAt: "2025-08-12",
-      source: "Substack",
-      readingTime: "5 min read",
-      tags: ["writing", "ai", "workflow"]
-    },
-    {
-      title: "Operator Notes on What Makes Agentic Systems Useful",
-      href: "https://jauniuskadunas.substack.com",
-      excerpt: "The bar is not novelty. The bar is whether the system reduces work and stays legible.",
-      publishedAt: "2025-07-29",
-      source: "Substack",
-      readingTime: "5 min read",
-      tags: ["agents", "systems", "operations"]
-    }
-  ]
+  posts: importedArticles.map((article) => ({
+    title: article.title,
+    href: article.href,
+    excerpt: article.excerpt,
+    publishedAt: article.publishedAt,
+    source: "Website",
+    readingTime: article.readingTime,
+    tags: []
+  }))
 };
 
 export const NOW_PAGE = {

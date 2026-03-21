@@ -3,6 +3,7 @@ import SiteLayout from "@/layouts/SiteLayout.astro";
 import Hr from "@/components/Hr.astro";
 import Icon from "@/components/Icon.astro";
 import Socials from "@/components/Socials.astro";
+import { importedArticles } from "@/data/articles";
 import { NOW_PAGE, SITE, WRITING } from "@/data/site";
 
 const dateFormatter = new Intl.DateTimeFormat("en", {
@@ -52,16 +53,16 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
         <div>
           <h2>Latest Posts</h2>
         </div>
-        <a href={WRITING.archive} class="section-link" target="_blank" rel="noreferrer">
+        <a href="/search/" class="section-link">
           All Posts
         </a>
       </div>
 
       <div class="post-list">
-        {WRITING.posts.map((post) => (
+        {importedArticles.map((post) => (
           <article class="post-card">
             <h3>
-              <a href={post.href} target="_blank" rel="noreferrer">
+              <a href={post.href}>
                 {post.title}
               </a>
             </h3>
@@ -72,7 +73,7 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
                   {dateFormatter.format(new Date(`${post.publishedAt}T00:00:00Z`))}
                 </time>
               </span>
-              <span>{post.source}</span>
+              <span>Website</span>
               <span>{post.readingTime}</span>
             </p>
             <p>{post.excerpt}</p>

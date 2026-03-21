@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "check": "astro check",
-    "lint": "oxlint src/data public"
+    "lint": "oxlint src/data public",
+    "import:substack": "python3 scripts/import_substack_export.py"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
