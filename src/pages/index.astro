@@ -1,0 +1,42 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import Hr from "@/components/Hr.astro";
+import { NOW_PAGE } from "@/data/site";
+---
+
+<SiteLayout title="Jaunius Kadunas" description={NOW_PAGE.description}>
+  <main id="main-content" data-layout="home" class="page-shell">
+    <section class="hero hero--home">
+      <div class="avatar-block" aria-hidden="true">
+        <span>JK</span>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">{NOW_PAGE.eyebrow}</p>
+        <h1>{NOW_PAGE.heroTitle}</h1>
+        <p>{NOW_PAGE.heroBody}</p>
+        <div class="hero-meta">
+          <span>{NOW_PAGE.location}</span>
+          <span>Updated {NOW_PAGE.updated}</span>
+        </div>
+      </div>
+    </section>
+
+    <Hr />
+
+    {NOW_PAGE.sections.map((section) => (
+      <section class="content-section">
+        <h2>{section.title}</h2>
+        {section.body.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+        {section.bullets && (
+          <ul class="section-list">
+            {section.bullets.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        )}
+      </section>
+    ))}
+  </main>
+</SiteLayout>

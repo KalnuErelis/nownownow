@@ -1,0 +1,41 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import Hr from "@/components/Hr.astro";
+import { ABOUT_PAGE } from "@/data/site";
+---
+
+<SiteLayout title="About | Jaunius Kadunas" description={ABOUT_PAGE.description}>
+  <main id="main-content" class="page-shell">
+    <section class="hero hero--about">
+      <div class="hero-card">
+        <p class="eyebrow">{ABOUT_PAGE.eyebrow}</p>
+        <h1>{ABOUT_PAGE.heroTitle}</h1>
+        <p>{ABOUT_PAGE.heroBody}</p>
+      </div>
+      <div class="fact-card">
+        <p class="fact-card__title">Quick Context</p>
+        <ul class="fact-list">
+          {ABOUT_PAGE.introFacts.map((fact) => (
+            <li>{fact}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <Hr />
+
+    {ABOUT_PAGE.sections.map((section) => (
+      <section class="content-section">
+        <h2>{section.title}</h2>
+        {section.body.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+        <ul class="section-list">
+          {section.bullets.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </main>
+</SiteLayout>

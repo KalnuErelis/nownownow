@@ -1,0 +1,52 @@
+---
+import { NAV_ITEMS, SITE } from "@/data/site";
+
+const pathname = Astro.url.pathname;
+const currentPath =
+  pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
+---
+
+<header class="site-header">
+  <a
+    id="skip-to-content"
+    href="#main-content"
+    class="skip-link"
+  >
+    Skip to content
+  </a>
+
+  <div class="nav-wrap">
+    <a href="/" class="site-title">{SITE.title}</a>
+
+    <nav aria-label="Primary" class="nav-menu">
+      <ul id="menu-items">
+        {NAV_ITEMS.map((item) => {
+          const itemPath =
+            item.href.endsWith("/") && item.href !== "/"
+              ? item.href.slice(0, -1)
+              : item.href;
+          const active = currentPath === itemPath;
+
+          return (
+            <li>
+              <a href={item.href} class:list={{ "active-nav": active }}>
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+        <li>
+          <button
+            id="theme-btn"
+            class="theme-button"
+            title="Toggle theme"
+            aria-label="Toggle theme"
+          >
+            <span class="theme-button__sun">Light</span>
+            <span class="theme-button__moon">Dark</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

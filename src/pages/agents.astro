@@ -1,0 +1,32 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import Hr from "@/components/Hr.astro";
+import { AGENTS_PAGE } from "@/data/site";
+---
+
+<SiteLayout title="Agents | Jaunius Kadunas" description={AGENTS_PAGE.description}>
+  <main id="main-content" class="page-shell">
+    <section class="hero">
+      <div class="hero-copy hero-copy--wide">
+        <p class="eyebrow">{AGENTS_PAGE.eyebrow}</p>
+        <h1>{AGENTS_PAGE.heroTitle}</h1>
+        <p>{AGENTS_PAGE.heroBody}</p>
+      </div>
+    </section>
+
+    <Hr />
+
+    <section class="card-grid">
+      {AGENTS_PAGE.cards.map((card) => (
+        <article class="agent-card">
+          <h2>{card.title}</h2>
+          <p>{card.body}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="content-section content-section--tight">
+      <p>{AGENTS_PAGE.closing}</p>
+    </section>
+  </main>
+</SiteLayout>
