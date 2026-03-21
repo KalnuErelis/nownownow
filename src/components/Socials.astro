@@ -2,17 +2,15 @@
 import Icon from "@/components/Icon.astro";
 import { SOCIALS } from "@/data/site";
 
-const { centered = false } = Astro.props;
+interface Props {
+  centered?: boolean;
+  compact?: boolean;
+}
 
-const iconNameByLabel = {
-  GitHub: "github",
-  LinkedIn: "linkedin",
-  X: "x",
-  Email: "email"
-} as const;
+const { centered = false, compact = false } = Astro.props;
 ---
 
-<ul class:list={["socials", { "socials--centered": centered }]}>
+<ul class:list={["socials", { "socials--centered": centered, "socials--compact": compact }]}>
   {SOCIALS.map((social) => (
     <li>
       <a
@@ -22,10 +20,8 @@ const iconNameByLabel = {
         target={social.href.startsWith("http") ? "_blank" : undefined}
         rel={social.href.startsWith("http") ? "noreferrer" : undefined}
       >
-        <Icon
-          name={iconNameByLabel[social.label as keyof typeof iconNameByLabel]}
-          class="ui-icon socials__icon"
-        />
+        <Icon name={social.icon} class="ui-icon socials__icon" />
+        <span class="sr-only">{social.label}</span>
       </a>
     </li>
   ))}

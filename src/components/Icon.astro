@@ -9,7 +9,8 @@ interface Props {
     | "rss"
     | "calendar"
     | "sun"
-    | "moon";
+    | "moon"
+    | "arrow-right";
   class?: string;
 }
 
@@ -18,65 +19,95 @@ const { name, class: className } = Astro.props;
 
 {
   name === "github" && (
-    <svg viewBox="0 0 24 24" aria-hidden="true" class={className}>
-      <path fill="currentColor" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504c.5.092.682-.217.682-.483c0-.237-.008-.866-.013-1.7c-2.782.605-3.369-1.344-3.369-1.344c-.455-1.158-1.11-1.466-1.11-1.466c-.908-.62.069-.608.069-.608c1.003.07 1.531 1.032 1.531 1.032c.892 1.53 2.341 1.088 2.91.832c.091-.647.35-1.088.636-1.338c-2.22-.253-4.555-1.113-4.555-4.951c0-1.093.39-1.988 1.029-2.688c-.103-.253-.446-1.272.098-2.65c0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027c.546 1.379.202 2.398.1 2.651c.64.7 1.028 1.595 1.028 2.688c0 3.848-2.339 4.695-4.566 4.943c.359.31.678.92.678 1.855c0 1.338-.012 2.419-.012 2.747c0 .269.18.58.688.481A10.02 10.02 0 0 0 22 12.017C22 6.484 17.523 2 12 2Z"/>
+    <svg viewBox="0 0 24 24" aria-hidden="true" class={className} fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 19c-4.3 1.4-4.3-2.5-6-3" />
+      <path d="M15 21v-3.5c0-1 .1-1.4-.5-2c2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2a4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0c-2.4-1.6-3.5-1.3-3.5-1.3a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6c-.6.6-.6 1.2-.5 2V21" />
     </svg>
   )
 }
 {
   name === "linkedin" && (
-    <svg viewBox="0 0 24 24" aria-hidden="true" class={className}>
-      <path fill="currentColor" d="M6.94 8.5A1.56 1.56 0 1 1 6.93 5.38A1.56 1.56 0 0 1 6.94 8.5Zm1.32 2.06H5.62V19h2.64v-8.44Zm4.22 0H9.87V19h2.61v-4.43c0-2.47 3.22-2.67 3.22 0V19h2.62v-5.34c0-4.16-4.72-4-5.84-1.95v-1.15Z"/>
-      <path fill="currentColor" d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" fill-opacity=".08"/>
+    <svg viewBox="0 0 24 24" aria-hidden="true" class={className} fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 11v5" />
+      <path d="M8 8v.01" />
+      <path d="M12 16v-5" />
+      <path d="M16 16v-3a2 2 0 1 0-4 0" />
+      <path d="M3 7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z" />
     </svg>
   )
 }
 {
   name === "x" && (
-    <svg viewBox="0 0 24 24" aria-hidden="true" class={className}>
-      <path fill="currentColor" d="M18.901 2H21l-6.87 7.852L22 22h-6.172l-4.834-7.39L4.53 22H2.43l7.347-8.4L2 2h6.328l4.37 6.674L18.901 2Zm-1.09 18.13h1.163L7.696 3.807H6.448L17.81 20.13Z"/>
+    <svg viewBox="0 0 24 24" aria-hidden="true" class={className} fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 4l11.733 16H20L8.267 4z" />
+      <path d="M4 20l6.768-6.768" />
+      <path d="M13.228 10.772L20 4" />
     </svg>
   )
 }
 {
   name === "email" && (
-    <svg viewBox="0 0 24 24" aria-hidden="true" class={className}>
-      <path fill="currentColor" d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Zm1.75-.25a.25.25 0 0 0-.25.25v.228l7.5 5.25l7.5-5.25V6.75a.25.25 0 0 0-.25-.25H4.75Zm14.75 2.307l-6.927 4.849a1 1 0 0 1-1.146 0L4.5 8.807v8.443c0 .138.112.25.25.25h14.5a.25.25 0 0 0 .25-.25V8.807Z"/>
+    <svg viewBox="0 0 24 24" aria-hidden="true" class={className} fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      <path d="M3 7l9 6l9-6" />
     </svg>
   )
 }
 {
   name === "search" && (
-    <svg viewBox="0 0 24 24" aria-hidden="true" class={className}>
-      <path fill="currentColor" d="M10.5 4a6.5 6.5 0 1 0 4.03 11.6l4.44 4.44l1.06-1.06l-4.44-4.44A6.5 6.5 0 0 0 10.5 4Zm0 1.5a5 5 0 1 1 0 10a5 5 0 0 1 0-10Z"/>
+    <svg viewBox="0 0 24 24" aria-hidden="true" class={className} fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+      <path d="M21 21l-6-6" />
     </svg>
   )
 }
 {
   name === "rss" && (
-    <svg viewBox="0 0 24 24" aria-hidden="true" class={className}>
-      <path fill="currentColor" d="M6.18 17.82a1.64 1.64 0 1 0 0-3.28a1.64 1.64 0 0 0 0 3.28Zm-1.64-9.78v2.55c4.91 0 8.89 3.98 8.89 8.89h2.55c0-6.32-5.12-11.44-11.44-11.44Zm0-4.04v2.55c7.14 0 12.93 5.79 12.93 12.93H20C20 10.93 13.07 4 4.54 4Z"/>
+    <svg viewBox="0 0 24 24" aria-hidden="true" class={className} fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 4a16 16 0 0 1 16 16" />
+      <path d="M4 11a9 9 0 0 1 9 9" />
+      <path d="M5 19a1 1 0 1 0 0-.01" />
     </svg>
   )
 }
 {
   name === "calendar" && (
-    <svg viewBox="0 0 24 24" aria-hidden="true" class={className}>
-      <path fill="currentColor" d="M7 2h2v2h6V2h2v2h1.25C19.22 4 20 4.78 20 5.75v12.5c0 .97-.78 1.75-1.75 1.75H5.75A1.75 1.75 0 0 1 4 18.25V5.75C4 4.78 4.78 4 5.75 4H7V2Zm11.5 7h-13v9.25c0 .14.11.25.25.25h12.5a.25.25 0 0 0 .25-.25V9Zm-13-1.5h13V5.75a.25.25 0 0 0-.25-.25h-1.25v2h-2v-2H9v2H7v-2H5.75a.25.25 0 0 0-.25.25V7.5Z"/>
+    <svg viewBox="0 0 24 24" aria-hidden="true" class={className} fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />
+      <path d="M16 3v4" />
+      <path d="M8 3v4" />
+      <path d="M4 11h16" />
     </svg>
   )
 }
 {
   name === "sun" && (
-    <svg viewBox="0 0 24 24" aria-hidden="true" class={className}>
-      <path fill="currentColor" d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10Zm0-5h1.5v3H12V2Zm0 17h1.5v3H12v-3ZM4.222 5.282l1.06-1.06l2.12 2.12l-1.06 1.06l-2.12-2.12Zm12.378 12.378l1.06-1.06l2.12 2.12l-1.06 1.06l-2.12-2.12ZM2 11.25h3v1.5H2v-1.5Zm17 0h3v1.5h-3v-1.5ZM5.282 19.778l-1.06-1.06l2.12-2.12l1.06 1.06l-2.12 2.12ZM16.6 6.342l2.12-2.12l1.06 1.06l-2.12 2.12l-1.06-1.06Z"/>
+    <svg viewBox="0 0 24 24" aria-hidden="true" class={className} fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+      <path d="M3 12h1" />
+      <path d="M20 12h1" />
+      <path d="M12 3v1" />
+      <path d="M12 20v1" />
+      <path d="M5.6 5.6l.7.7" />
+      <path d="M17.7 17.7l.7.7" />
+      <path d="M18.4 5.6l-.7.7" />
+      <path d="M6.3 17.7l-.7.7" />
     </svg>
   )
 }
 {
   name === "moon" && (
-    <svg viewBox="0 0 24 24" aria-hidden="true" class={className}>
-      <path fill="currentColor" d="M14.768 3c.106 0 .19.098.168.202A8.5 8.5 0 0 0 4.702 13.436c1.01 4.295 5.325 6.956 9.62 5.946a8.48 8.48 0 0 0 5.625-4.622c.047-.095.18-.109.249-.03c.29.333.56.685.809 1.055c.052.078.054.179.004.258a10 10 0 1 1-6.498-15.01A9.18 9.18 0 0 1 14.768 3Z"/>
+    <svg viewBox="0 0 24 24" aria-hidden="true" class={className} fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 3z" />
+    </svg>
+  )
+}
+{
+  name === "arrow-right" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" class={className} fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14" />
+      <path d="M13 18l6-6" />
+      <path d="M13 6l6 6" />
     </svg>
   )
 }

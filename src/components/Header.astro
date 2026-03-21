@@ -1,6 +1,6 @@
 ---
 import Icon from "@/components/Icon.astro";
-import { NAV_ITEMS, SITE, WRITING } from "@/data/site";
+import { NAV_ITEMS, SITE } from "@/data/site";
 
 const pathname = Astro.url.pathname;
 const currentPath =
@@ -8,11 +8,7 @@ const currentPath =
 ---
 
 <header class="site-header">
-  <a
-    id="skip-to-content"
-    href="#main-content"
-    class="skip-link"
-  >
+  <a id="skip-to-content" href="#main-content" class="skip-link">
     Skip to content
   </a>
 
@@ -38,12 +34,10 @@ const currentPath =
         })}
         <li>
           <a
-            href={WRITING.archive}
-            class="nav-icon-link"
-            aria-label="Open writing archive"
-            title="Open writing archive"
-            target="_blank"
-            rel="noreferrer"
+            href="/search/"
+            class:list={["nav-icon-link", { "active-nav": currentPath === "/search" }]}
+            aria-label="Search"
+            title="Search"
           >
             <Icon name="search" class="ui-icon" />
           </a>
@@ -56,8 +50,8 @@ const currentPath =
             aria-label="Toggle theme"
           >
             <span class="sr-only">Toggle theme</span>
-            <Icon name="sun" class="ui-icon theme-button__sun" />
             <Icon name="moon" class="ui-icon theme-button__moon" />
+            <Icon name="sun" class="ui-icon theme-button__sun" />
           </button>
         </li>
       </ul>

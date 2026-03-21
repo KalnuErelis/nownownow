@@ -4,9 +4,23 @@ const theme = storedTheme || (systemPrefersDark ? "dark" : "light");
 
 document.documentElement.setAttribute("data-theme", theme);
 
-window.addEventListener("DOMContentLoaded", () => {
+const syncThemeButton = () => {
   const button = document.getElementById("theme-btn");
   if (!button) return;
+
+  const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+  button.setAttribute("aria-label", currentTheme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+  button.setAttribute("title", currentTheme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+};
+
+const setupThemeToggle = () => {
+  const button = document.getElementById("theme-btn");
+  if (!button || button.dataset.bound === "true") {
+    syncThemeButton();
+    return;
+  }
+
+  button.dataset.bound = "true";
 
   button.addEventListener("click", () => {
     const nextTheme =
@@ -16,5 +30,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document.documentElement.setAttribute("data-theme", nextTheme);
     localStorage.setItem("theme", nextTheme);
+    syncThemeButton();
   });
-});
+
+  syncThemeButton();
+};
+
+window.addEventListener("DOMContentLoaded", setupThemeToggle);
+document.addEventListener("astro:after-swap", setupThemeToggle);

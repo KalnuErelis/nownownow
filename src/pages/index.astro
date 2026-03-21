@@ -20,30 +20,23 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
           src={SITE.avatar}
           alt="Jaunius Kadunas"
           class="avatar-image"
-          width="152"
-          height="152"
+          width="160"
+          height="160"
         />
       </a>
       <div class="hero-copy">
-        <p class="eyebrow">{NOW_PAGE.eyebrow}</p>
         <div class="hero-heading">
-          <h1>{NOW_PAGE.heroTitle}</h1>
-          <a href={WRITING.feed} class="hero-rss" target="_blank" rel="noreferrer">
+          <div>
+            <p class="eyebrow">{NOW_PAGE.eyebrow}</p>
+            <h1>{NOW_PAGE.heroTitle}</h1>
+          </div>
+          <a href={WRITING.feed} class="hero-rss" target="_blank" rel="noreferrer" aria-label="RSS feed" title="RSS feed">
             <Icon name="rss" class="ui-icon hero-rss__icon" />
-            <span class="sr-only">RSS feed</span>
           </a>
         </div>
         <p class="hero-role">{NOW_PAGE.role}</p>
-        <p>{NOW_PAGE.heroBody}</p>
-        <p class="hero-writing">
-          I publish longer notes on <a href={WRITING.home} target="_blank" rel="noreferrer">{WRITING.title}</a>.
-          {` `}
-          {WRITING.intro}
-        </p>
-        <div class="hero-meta">
-          <span>{NOW_PAGE.location}</span>
-          <span>Updated {NOW_PAGE.updated}</span>
-        </div>
+        <p class="hero-copy__lede">{NOW_PAGE.heroBody}</p>
+        <p class="hero-copy__support">{NOW_PAGE.heroSupport}</p>
         <Socials />
         <ul class="hero-links">
           {NOW_PAGE.quickLinks.map((link) => (
@@ -54,6 +47,10 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
             </li>
           ))}
         </ul>
+        <div class="hero-meta">
+          <span>{SITE.location}</span>
+          <span>Updated {SITE.updated}</span>
+        </div>
       </div>
     </section>
 
@@ -62,7 +59,6 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
     <section class="content-section content-section--tight">
       <div class="section-heading">
         <div>
-          <p class="section-kicker">Writing</p>
           <h2>Latest Posts</h2>
         </div>
         <a href={WRITING.archive} class="section-link" target="_blank" rel="noreferrer">
@@ -73,6 +69,11 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
       <div class="post-list">
         {WRITING.posts.map((post) => (
           <article class="post-card">
+            <h3>
+              <a href={post.href} target="_blank" rel="noreferrer">
+                {post.title}
+              </a>
+            </h3>
             <p class="post-meta">
               <span class="post-meta__item">
                 <Icon name="calendar" class="ui-icon post-meta__icon" />
@@ -80,39 +81,31 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
                   {dateFormatter.format(new Date(`${post.publishedAt}T00:00:00Z`))}
                 </time>
               </span>
-              <span>Substack</span>
+              <span>{post.source}</span>
+              <span>{post.readingTime}</span>
             </p>
-            <h3>
-              <a href={post.href} target="_blank" rel="noreferrer">
-                {post.title}
-              </a>
-            </h3>
             <p>{post.excerpt}</p>
           </article>
         ))}
       </div>
     </section>
 
-    {NOW_PAGE.sections.map((section) => (
-      <section class="content-section content-section--summary">
-        <div class="section-heading">
-          <div>
-            <p class="section-kicker">{section.title}</p>
-            <h2>What I’m Focused On</h2>
-          </div>
-          <a href="/about/" class="section-link">More About Me</a>
+    <section class="content-section content-section--summary">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Now</p>
+          <h2>{NOW_PAGE.nowTitle}</h2>
         </div>
-        {section.body.map((paragraph) => (
-          <p>{paragraph}</p>
+        <a href="/about/" class="section-link">More About Me</a>
+      </div>
+      {NOW_PAGE.nowBody.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+      <ul class="section-list">
+        {NOW_PAGE.bullets.map((item) => (
+          <li>{item}</li>
         ))}
-        {section.bullets && (
-          <ul class="section-list">
-            {section.bullets.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
-        )}
-      </section>
-    ))}
+      </ul>
+    </section>
   </main>
 </SiteLayout>

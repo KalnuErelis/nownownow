@@ -1,0 +1,76 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import Icon from "@/components/Icon.astro";
+import { SEARCH_PAGE, WRITING } from "@/data/site";
+
+const searchablePosts = WRITING.posts.map((post) => ({
+  ...post,
+  searchText: [post.title, post.excerpt, post.source, ...(post.tags ?? [])].join(" ").toLowerCase()
+}));
+---
+
+<SiteLayout title="Search | Jaunius Kadunas" description={SEARCH_PAGE.description}>
+  <main id="main-content" class="page-shell">
+    <section class="search-page">
+      <h1>{SEARCH_PAGE.title}</h1>
+      <p class="search-page__helper">{SEARCH_PAGE.helper}</p>
+      <label class="search-input-wrap">
+        <Icon name="search" class="ui-icon search-input__icon" />
+        <input id="search-input" type="search" name="q" placeholder={SEARCH_PAGE.prompt} autocomplete="off" />
+      </label>
+
+      <p id="search-state" class="search-page__state">{SEARCH_PAGE.empty}</p>
+
+      <div id="search-results" class="post-list">
+        {searchablePosts.map((post) => (
+          <article
+            class="post-card search-result"
+            data-search={post.searchText}
+            data-title={post.title}
+          >
+            <h3>
+              <a href={post.href} target="_blank" rel="noreferrer">
+                {post.title}
+              </a>
+            </h3>
+            <p class="post-meta">
+              <span class="post-meta__item">
+                <Icon name="calendar" class="ui-icon post-meta__icon" />
+                <time datetime={post.publishedAt}>{post.publishedAt}</time>
+              </span>
+              <span>{post.source}</span>
+              <span>{post.readingTime}</span>
+            </p>
+            <p>{post.excerpt}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <script is:inline define:vars={{ noResults: SEARCH_PAGE.noResults, empty: SEARCH_PAGE.empty }}>
+    const input = document.getElementById("search-input");
+    const state = document.getElementById("search-state");
+    const cards = Array.from(document.querySelectorAll(".search-result"));
+
+    const renderSearch = () => {
+      const query = input instanceof HTMLInputElement ? input.value.trim().toLowerCase() : "";
+      let visible = 0;
+
+      for (const card of cards) {
+        const haystack = (card.getAttribute("data-search") || "").toLowerCase();
+        const match = query.length === 0 || haystack.includes(query);
+        card.toggleAttribute("hidden", !match);
+        if (match) visible += 1;
+      }
+
+      if (!state) return;
+      state.textContent = query.length === 0 ? empty : visible > 0 ? `${visible} result${visible === 1 ? "" : "s"}` : noResults;
+    };
+
+    if (input instanceof HTMLInputElement) {
+      input.addEventListener("input", renderSearch);
+      renderSearch();
+    }
+  </script>
+</SiteLayout>

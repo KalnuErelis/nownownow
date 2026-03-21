@@ -1,5 +1,6 @@
 ---
 import Hr from "./Hr.astro";
+import Icon from "./Icon.astro";
 import Socials from "./Socials.astro";
 import { SITE, WRITING } from "@/data/site";
 ---
@@ -7,13 +8,17 @@ import { SITE, WRITING } from "@/data/site";
 <footer class="site-footer">
   <Hr noPadding />
   <div class="site-footer__inner">
-    <Socials centered />
+    <Socials compact />
     <div class="site-footer__links">
-      <a href={WRITING.archive} target="_blank" rel="noreferrer">Writing</a>
+      <a href={WRITING.archive} target="_blank" rel="noreferrer">Posts</a>
       <a href="/about/">About</a>
       <a href="/agents/">Agents</a>
-      <a href={SITE.github} target="_blank" rel="noreferrer">GitHub</a>
     </div>
-    <p>Writing on Substack. Built on Astro. Hosted on Vercel.</p>
+    <p class="site-footer__credit">
+      <a href={SITE.github} target="_blank" rel="noreferrer">
+        Built in public
+        <Icon name="arrow-right" class="ui-icon footer-arrow" />
+      </a>
+    </p>
   </div>
 </footer>
