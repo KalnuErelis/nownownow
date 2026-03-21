@@ -1,6 +1,6 @@
 # Jaunius Kadunas — Now
 
-*Last updated: August 20, 2025 (from Lithuania) - Force Update*
+*Last updated: September 18, 2025 (from Austria) - Force Update*
 
 <section class="section" id="current-focus">
 <div class="section-header">
