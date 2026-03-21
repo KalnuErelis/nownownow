@@ -2,7 +2,13 @@
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import Hr from "@/components/Hr.astro";
 import Socials from "@/components/Socials.astro";
-import { NOW_PAGE, SITE } from "@/data/site";
+import { NOW_PAGE, SITE, WRITING } from "@/data/site";
+
+const dateFormatter = new Intl.DateTimeFormat("en", {
+  month: "short",
+  day: "numeric",
+  year: "numeric"
+});
 ---
 
 <SiteLayout title="Jaunius Kadunas" description={NOW_PAGE.description}>
@@ -17,9 +23,19 @@ import { NOW_PAGE, SITE } from "@/data/site";
       />
       <div class="hero-copy">
         <p class="eyebrow">{NOW_PAGE.eyebrow}</p>
-        <h1>{NOW_PAGE.heroTitle}</h1>
+        <div class="hero-heading">
+          <h1>{NOW_PAGE.heroTitle}</h1>
+          <a href={WRITING.feed} class="hero-rss" target="_blank" rel="noreferrer">
+            RSS
+          </a>
+        </div>
         <p class="hero-role">{NOW_PAGE.role}</p>
         <p>{NOW_PAGE.heroBody}</p>
+        <p class="hero-writing">
+          I publish longer notes on <a href={WRITING.home} target="_blank" rel="noreferrer">{WRITING.title}</a>.
+          {` `}
+          {WRITING.intro}
+        </p>
         <div class="hero-meta">
           <span>{NOW_PAGE.location}</span>
           <span>Updated {NOW_PAGE.updated}</span>
@@ -39,9 +55,46 @@ import { NOW_PAGE, SITE } from "@/data/site";
 
     <Hr />
 
+    <section class="content-section content-section--tight">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Writing</p>
+          <h2>Latest Posts</h2>
+        </div>
+        <a href={WRITING.archive} class="section-link" target="_blank" rel="noreferrer">
+          All Posts
+        </a>
+      </div>
+
+      <div class="post-list">
+        {WRITING.posts.map((post) => (
+          <article class="post-card">
+            <p class="post-meta">
+              <time datetime={post.publishedAt}>
+                {dateFormatter.format(new Date(`${post.publishedAt}T00:00:00Z`))}
+              </time>
+              <span>Substack</span>
+            </p>
+            <h3>
+              <a href={post.href} target="_blank" rel="noreferrer">
+                {post.title}
+              </a>
+            </h3>
+            <p>{post.excerpt}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
     {NOW_PAGE.sections.map((section) => (
-      <section class="content-section">
-        <h2>{section.title}</h2>
+      <section class="content-section content-section--summary">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">{section.title}</p>
+            <h2>What I’m Focused On</h2>
+          </div>
+          <a href="/about/" class="section-link">More About Me</a>
+        </div>
         {section.body.map((paragraph) => (
           <p>{paragraph}</p>
         ))}

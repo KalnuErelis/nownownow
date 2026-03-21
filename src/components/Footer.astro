@@ -1,7 +1,7 @@
 ---
 import Hr from "./Hr.astro";
 import Socials from "./Socials.astro";
-import { SITE } from "@/data/site";
+import { SITE, WRITING } from "@/data/site";
 ---
 
 <footer class="site-footer">
@@ -9,9 +9,10 @@ import { SITE } from "@/data/site";
   <div class="site-footer__inner">
     <Socials centered />
     <div class="site-footer__links">
+      <a href={WRITING.archive} target="_blank" rel="noreferrer">Writing</a>
       <a href={SITE.github} target="_blank" rel="noreferrer">GitHub</a>
       <a href={SITE.company} target="_blank" rel="noreferrer">WhiteBridge AI</a>
     </div>
-    <p>Built with Astro. Source in public.</p>
+    <p>Writing on Substack. Site on Astro.</p>
   </div>
 </footer>

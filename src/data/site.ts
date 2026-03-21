@@ -19,23 +19,61 @@ export const SOCIALS = [
 ];
 
 export const NAV_ITEMS = [
-  { href: "/", label: "Now" },
+  { href: "/", label: "Posts" },
   { href: "/about/", label: "About" },
   { href: "/agents/", label: "Agents" }
 ];
 
+export const WRITING = {
+  title: "Internet Diet",
+  intro:
+    "Notes on AI, work, systems, and whatever else survives first contact with real life.",
+  home: "https://jauniuskadunas.substack.com",
+  archive: "https://jauniuskadunas.substack.com/archive",
+  feed: "https://jauniuskadunas.substack.com/feed",
+  posts: [
+    {
+      title: "How I’m Learning German in Vienna: What’s Working So Far",
+      href: "https://jauniuskadunas.substack.com/p/how-im-learning-german-in-vienna",
+      excerpt: "Pathing my self learning way to reach B2 in German.",
+      publishedAt: "2025-09-28"
+    },
+    {
+      title: "Why You Shouldn’t Be Ashamed of Using AI for Proofreading",
+      href: "https://jauniuskadunas.substack.com/p/why-you-shouldnt-be-ashamed-of-using",
+      excerpt: "I used to feel ashamed of using AI to proofread my writing.",
+      publishedAt: "2025-09-11"
+    },
+    {
+      title: "PART 2: lessons from spending $1000 on vibe coding",
+      href: "https://jauniuskadunas.substack.com/p/part-2-lessons-from-spending-1000",
+      excerpt:
+        "From ChatGPT 3.5 prompt engineer to full stack vibe coder (Part 2: 2024-2025).",
+      publishedAt: "2025-09-04"
+    },
+    {
+      title: "PART 1: lessons from spending $1000 on vibe coding",
+      href: "https://jauniuskadunas.substack.com/p/part-1-lessons-from-spending-1000",
+      excerpt:
+        "From ChatGPT 3.5 prompt engineer to full stack vibe coder (Part 1: 2023).",
+      publishedAt: "2025-08-28"
+    }
+  ]
+};
+
 export const NOW_PAGE = {
   title: "Jaunius Kadunas",
   description:
-    "What Jaunius Kadunas is focused on right now across agentic engineering, AI workflows, and endurance sport.",
-  eyebrow: "Now",
+    "Writing, systems work, and what Jaunius Kadunas is focused on right now.",
+  eyebrow: "Jaunius Kadunas",
   heroTitle: "Hi, I'm Jaunius.",
   role: "Agentic Engineer at WhiteBridge.ai",
   heroBody:
-    "I build agentic systems that make work more useful: research loops, sales operations, internal tooling, and the connective tissue between AI output and real-world execution.",
+    "I build agentic systems that make work more useful, then write about the methods, edges, and mistakes that show up along the way.",
   location: "Vienna, Austria",
   updated: "March 21, 2026",
   quickLinks: [
+    { href: WRITING.archive, label: "Substack Archive" },
     { href: SITE.company, label: "WhiteBridge.ai" },
     { href: SITE.linkedin, label: "LinkedIn" },
     { href: SITE.github, label: "GitHub" },
@@ -43,47 +81,15 @@ export const NOW_PAGE = {
   ],
   sections: [
     {
-      title: "Current Focus",
+      title: "Now",
       body: [
-        "Right now I'm deep in agentic engineering at WhiteBridge.ai, building systems that help teams move from promising demos to repeatable output."
+        "Right now I'm deep in agentic engineering at WhiteBridge.ai, building systems that help teams move from promising demos to repeatable output.",
+        "Outside work, the recurring themes are writing, endurance sport, sustainability, and learning German in Vienna."
       ],
       bullets: [
         "Designing AI workflows that stay inspectable instead of turning into black boxes.",
         "Working at the edge between sales technology, operational tooling, and internal research automation.",
-        "Sharpening this site into a durable home for my work, notes, and public experiments."
-      ]
-    },
-    {
-      title: "Career Snapshot",
-      body: [
-        "My path started in hospitality and communications, then moved through growth, sales technology, and into AI-heavy systems work."
-      ],
-      bullets: [
-        "7+ years across AI, SaaS, cybersecurity, sustainability, and e-commerce.",
-        "Recent roles include WhiteBridge.ai, carVertical, PINPROOF, and Nord Security.",
-        "I've worked across Lithuania, the United Kingdom, the United States, and Austria."
-      ]
-    },
-    {
-      title: "Recent Signals",
-      body: [
-        "The themes showing up repeatedly in my work are agentic tooling, practical AI use cases, and a bias toward systems that reduce coordination drag."
-      ],
-      bullets: [
-        "Started a new chapter at WhiteBridge.ai in February 2025.",
-        "Part of the team that took 2nd place and the People's Choice Award at Tesonet's AI-only hackathon in October 2024.",
-        "Still spending time around sales-tech and applied AI communities rather than just building in isolation."
-      ]
-    },
-    {
-      title: "Outside Work",
-      body: [
-        "I need some friction outside the screen. Endurance sport, movement, and language learning keep the rest of the work honest."
-      ],
-      bullets: [
-        "Running, triathlon, swimming, and long-form endurance training.",
-        "Ongoing interest in sustainability, urban mobility, and cleaner systems.",
-        "Using code and AI tools for personal experiments, including language learning."
+        "Sharpening this site into a durable home for writing and public experiments."
       ]
     }
   ]
