@@ -1,6 +1,7 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import Hr from "@/components/Hr.astro";
+import Icon from "@/components/Icon.astro";
 import Socials from "@/components/Socials.astro";
 import { NOW_PAGE, SITE, WRITING } from "@/data/site";
 
@@ -26,7 +27,8 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
         <div class="hero-heading">
           <h1>{NOW_PAGE.heroTitle}</h1>
           <a href={WRITING.feed} class="hero-rss" target="_blank" rel="noreferrer">
-            RSS
+            <Icon name="rss" class="ui-icon hero-rss__icon" />
+            <span class="sr-only">RSS feed</span>
           </a>
         </div>
         <p class="hero-role">{NOW_PAGE.role}</p>
@@ -70,9 +72,12 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
         {WRITING.posts.map((post) => (
           <article class="post-card">
             <p class="post-meta">
-              <time datetime={post.publishedAt}>
-                {dateFormatter.format(new Date(`${post.publishedAt}T00:00:00Z`))}
-              </time>
+              <span class="post-meta__item">
+                <Icon name="calendar" class="ui-icon post-meta__icon" />
+                <time datetime={post.publishedAt}>
+                  {dateFormatter.format(new Date(`${post.publishedAt}T00:00:00Z`))}
+                </time>
+              </span>
               <span>Substack</span>
             </p>
             <h3>

@@ -1,4 +1,5 @@
 ---
+import Icon from "@/components/Icon.astro";
 import { NAV_ITEMS, SITE } from "@/data/site";
 
 const pathname = Astro.url.pathname;
@@ -42,8 +43,9 @@ const currentPath =
             title="Toggle theme"
             aria-label="Toggle theme"
           >
-            <span class="theme-button__sun">Light</span>
-            <span class="theme-button__moon">Dark</span>
+            <span class="sr-only">Toggle theme</span>
+            <Icon name="sun" class="ui-icon theme-button__sun" />
+            <Icon name="moon" class="ui-icon theme-button__moon" />
           </button>
         </li>
       </ul>

@@ -1,7 +1,15 @@
 ---
+import Icon from "@/components/Icon.astro";
 import { SOCIALS } from "@/data/site";
 
 const { centered = false } = Astro.props;
+
+const iconNameByLabel = {
+  GitHub: "github",
+  LinkedIn: "linkedin",
+  X: "x",
+  Email: "email"
+} as const;
 ---
 
 <ul class:list={["socials", { "socials--centered": centered }]}>
@@ -14,7 +22,10 @@ const { centered = false } = Astro.props;
         target={social.href.startsWith("http") ? "_blank" : undefined}
         rel={social.href.startsWith("http") ? "noreferrer" : undefined}
       >
-        <span aria-hidden="true">{social.shortLabel}</span>
+        <Icon
+          name={iconNameByLabel[social.label as keyof typeof iconNameByLabel]}
+          class="ui-icon socials__icon"
+        />
       </a>
     </li>
   ))}
