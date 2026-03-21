@@ -187,8 +187,8 @@ export const ABOUT_PAGE = {
     title: "GitHub Activity",
     body:
       "The best public signal is usually shipped work, not self-description. GitHub is the clearest ongoing record of what I’m building and refining.",
-    chartUrl: "https://ghchart.rshah.org/KalnuErelis",
-    chartAlt: "Jaunius Kadunas GitHub contribution chart",
+    chartUrl: "https://green-wall.leoku.dev/api/og/share/KalnuErelis?year=2026",
+    chartAlt: "Jaunius Kadunas 2026 GitHub contribution chart",
     links: [
       { href: SITE.github, label: "GitHub profile" },
       { href: WRITING.archive, label: "Writing archive" }
