@@ -31,10 +31,10 @@ export const WRITING = {
   title: "Internet Diet",
   intro:
     "Notes on AI, work, systems, and whatever else survives first contact with real life.",
-  home: "https://jauniuskadunas.substack.com",
-  archive: "https://jauniuskadunas.substack.com/archive",
-  feed: "https://jauniuskadunas.substack.com/feed",
-  subscribe: "https://jauniuskadunas.substack.com/subscribe",
+  home: SITE.url,
+  archive: `${SITE.url}/search/`,
+  feed: "",
+  subscribe: "https://buttondown.com/jaunius",
   posts: importedArticles.map((article) => ({
     title: article.title,
     href: article.href,
@@ -57,10 +57,7 @@ export const NOW_PAGE = {
     "I build agentic systems that make work more useful, then write about the methods, edges, and mistakes that show up along the way.",
   heroSupport:
     "Notes on AI, work, systems, and whatever else survives first contact with real life.",
-  quickLinks: [
-    { href: WRITING.archive, label: "Substack Archive" },
-    { href: SITE.company, label: "WhiteBridge.ai" }
-  ],
+  quickLinks: [{ href: SITE.company, label: "WhiteBridge.ai" }],
   nowTitle: "What I’m Focused On",
   nowBody: [
     "Right now I’m deep in agentic engineering at WhiteBridge.ai, building systems that help teams move from promising demos to repeatable output.",
@@ -88,7 +85,7 @@ export const ABOUT_PAGE = {
   ],
   summaryLinks: [
     { href: SITE.github, label: "GitHub" },
-    { href: WRITING.home, label: "Substack" },
+    { href: WRITING.archive, label: "Writing" },
     { href: SITE.linkedin, label: "LinkedIn" },
     { href: SITE.company, label: "WhiteBridge.ai" }
   ],
@@ -159,9 +156,9 @@ export const ABOUT_PAGE = {
     aside: "Pure signal. No fake growth loops."
   },
   note:
-    "If you want to connect, the fastest route is usually Substack, GitHub, or a direct email.",
+    "If you want to connect, the fastest route is usually Buttondown, GitHub, or a direct email.",
   utilityNote:
-    "Writing lives on Internet Diet. The best way to keep up is via email or the archive.",
+    "Writing lives here on the site. The best way to keep up is via email or the archive.",
   imprint: "Based in Vienna, building in public."
 };
 

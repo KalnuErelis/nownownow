@@ -2,7 +2,7 @@
 import Hr from "./Hr.astro";
 import Icon from "./Icon.astro";
 import Socials from "./Socials.astro";
-import { SITE, WRITING } from "@/data/site";
+import { SITE } from "@/data/site";
 ---
 
 <footer class="site-footer">
@@ -10,7 +10,7 @@ import { SITE, WRITING } from "@/data/site";
   <div class="site-footer__inner">
     <Socials compact />
     <div class="site-footer__links">
-      <a href={WRITING.archive} target="_blank" rel="noreferrer">Posts</a>
+      <a href="/">Posts</a>
       <a href="/about/">About</a>
       <a href="/agents/">Agents</a>
     </div>

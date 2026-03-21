@@ -4,7 +4,7 @@ import Hr from "@/components/Hr.astro";
 import Icon from "@/components/Icon.astro";
 import Socials from "@/components/Socials.astro";
 import { importedArticles } from "@/data/articles";
-import { NOW_PAGE, SITE, WRITING } from "@/data/site";
+import { NOW_PAGE, SITE } from "@/data/site";
 
 const dateFormatter = new Intl.DateTimeFormat("en", {
   month: "short",
@@ -31,9 +31,6 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
             <p class="eyebrow">{NOW_PAGE.eyebrow}</p>
             <h1>{NOW_PAGE.heroTitle}</h1>
           </div>
-          <a href={WRITING.feed} class="hero-rss" target="_blank" rel="noreferrer" aria-label="RSS feed" title="RSS feed">
-            <Icon name="rss" class="ui-icon hero-rss__icon" />
-          </a>
         </div>
         <p class="hero-role">{NOW_PAGE.role}</p>
         <p class="hero-copy__lede">{NOW_PAGE.heroBody}</p>

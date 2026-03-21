@@ -1,6 +1,6 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
-import { ABOUT_PAGE, SITE, WRITING } from "@/data/site";
+import { ABOUT_PAGE, SITE } from "@/data/site";
 ---
 
 <SiteLayout title="About | Jaunius Kadunas" description={ABOUT_PAGE.description}>
@@ -112,7 +112,7 @@ import { ABOUT_PAGE, SITE, WRITING } from "@/data/site";
       <section class="about-section about-section--note">
         <p>{ABOUT_PAGE.note}</p>
         <p>
-          Writing lives on <a href={WRITING.home} target="_blank" rel="noreferrer">{WRITING.title}</a>. The fastest way to reach me is still <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+          Writing lives in the <a href="/search/">archive here</a>. The fastest way to reach me is still <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
         </p>
         <p class="about-utility-note">{ABOUT_PAGE.utilityNote}</p>
         <p class="about-imprint">{ABOUT_PAGE.imprint}</p>

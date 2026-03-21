@@ -1,14 +1,24 @@
-const storedTheme = localStorage.getItem("theme");
-const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-const theme = storedTheme || (systemPrefersDark ? "dark" : "light");
+const getPreferredTheme = () => {
+  const storedTheme = localStorage.getItem("theme");
+  if (storedTheme === "light" || storedTheme === "dark") {
+    return storedTheme;
+  }
 
-document.documentElement.setAttribute("data-theme", theme);
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+};
+
+const applyTheme = (theme = getPreferredTheme()) => {
+  document.documentElement.setAttribute("data-theme", theme);
+  return theme;
+};
+
+applyTheme();
 
 const syncThemeButton = () => {
   const button = document.getElementById("theme-btn");
   if (!button) return;
 
-  const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+  const currentTheme = applyTheme();
   button.setAttribute("aria-label", currentTheme === "dark" ? "Switch to light mode" : "Switch to dark mode");
   button.setAttribute("title", currentTheme === "dark" ? "Switch to light mode" : "Switch to dark mode");
 };
@@ -23,12 +33,9 @@ const setupThemeToggle = () => {
   button.dataset.bound = "true";
 
   button.addEventListener("click", () => {
-    const nextTheme =
-      document.documentElement.getAttribute("data-theme") === "dark"
-        ? "light"
-        : "dark";
+    const nextTheme = applyTheme() === "dark" ? "light" : "dark";
 
-    document.documentElement.setAttribute("data-theme", nextTheme);
+    applyTheme(nextTheme);
     localStorage.setItem("theme", nextTheme);
     syncThemeButton();
   });
@@ -37,4 +44,9 @@ const setupThemeToggle = () => {
 };
 
 window.addEventListener("DOMContentLoaded", setupThemeToggle);
+document.addEventListener("astro:before-swap", () => applyTheme());
 document.addEventListener("astro:after-swap", setupThemeToggle);
+document.addEventListener("astro:page-load", () => {
+  applyTheme();
+  setupThemeToggle();
+});
