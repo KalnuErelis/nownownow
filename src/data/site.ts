@@ -184,11 +184,9 @@ export const ABOUT_PAGE = {
     }
   ],
   activity: {
-    title: "GitHub Activity",
+    title: "Selected Links",
     body:
-      "The best public signal is usually shipped work, not self-description. GitHub is the clearest ongoing record of what I’m building and refining.",
-    chartUrl: "https://green-wall.leoku.dev/api/og/share/KalnuErelis?year=2026",
-    chartAlt: "Jaunius Kadunas 2026 GitHub contribution chart",
+      "The best public signal is usually shipped work, not self-description. These are the places where that shows up.",
     links: [
       { href: SITE.github, label: "GitHub profile" },
       { href: WRITING.archive, label: "Writing archive" }
