@@ -1,6 +1,5 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
-import Icon from "@/components/Icon.astro";
 import { importedArticles } from "@/data/articles";
 
 export function getStaticPaths() {
@@ -24,17 +23,13 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
     <article class="article-page">
       <p class="eyebrow">Post</p>
       <h1>{article.title}</h1>
-      {article.subtitle && <p class="article-subtitle">{article.subtitle}</p>}
-
       <p class="post-meta article-meta">
-        <span class="post-meta__item">
-          <Icon name="calendar" class="ui-icon post-meta__icon" />
-          <time datetime={article.publishedAt}>
-            {dateFormatter.format(new Date(`${article.publishedAt}T00:00:00Z`))}
-          </time>
-        </span>
+        <time datetime={article.publishedAt}>
+          {dateFormatter.format(new Date(`${article.publishedAt}T00:00:00Z`))}
+        </time>
         <span>{article.readingTime}</span>
       </p>
+      {article.subtitle && <p class="article-subtitle">{article.subtitle}</p>}
 
       <div class="article-content" set:html={article.bodyHtml} />
     </article>

@@ -6,6 +6,7 @@ import { ABOUT_PAGE, SITE } from "@/data/site";
 <SiteLayout title="About | Jaunius Kadunas" description={ABOUT_PAGE.description}>
   <main id="main-content" class="page-shell page-shell--about">
     <section class="about-page">
+      <p class="eyebrow">About</p>
       <h1>{ABOUT_PAGE.heading}</h1>
 
       <div class="about-intro">
@@ -22,7 +23,7 @@ import { ABOUT_PAGE, SITE } from "@/data/site";
           {ABOUT_PAGE.intro.map((paragraph) => (
             <p>{paragraph}</p>
           ))}
-          <ul class="link-list">
+          <ul class="link-list about-intro__links">
             {ABOUT_PAGE.summaryLinks.map((link) => (
               <li>
                 <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined}>
@@ -35,6 +36,7 @@ import { ABOUT_PAGE, SITE } from "@/data/site";
       </div>
 
       <section class="about-section">
+        <p class="section-kicker">Snapshot</p>
         <h2>Quick Context</h2>
         <ul class="section-list">
           {ABOUT_PAGE.current.map((item) => (
@@ -45,6 +47,7 @@ import { ABOUT_PAGE, SITE } from "@/data/site";
 
       {ABOUT_PAGE.sections.map((section) => (
         <section class="about-section">
+          <p class="section-kicker">Section</p>
           <h2>{section.title}</h2>
           {section.body.map((paragraph) => (
             <p>{paragraph}</p>
@@ -58,6 +61,7 @@ import { ABOUT_PAGE, SITE } from "@/data/site";
       ))}
 
       <section class="about-section">
+        <p class="section-kicker">Current Signal</p>
         <h2>{ABOUT_PAGE.activity.title}</h2>
         <p>{ABOUT_PAGE.activity.body}</p>
         <div class="activity-card">
@@ -80,6 +84,7 @@ import { ABOUT_PAGE, SITE } from "@/data/site";
       </section>
 
       <section class="subscribe-card">
+        <p class="section-kicker">Subscribe</p>
         <h2>{ABOUT_PAGE.subscribe.title}</h2>
         <p>{ABOUT_PAGE.subscribe.body}</p>
         <form
@@ -110,6 +115,7 @@ import { ABOUT_PAGE, SITE } from "@/data/site";
       </section>
 
       <section class="about-section about-section--note">
+        <p class="section-kicker">Notes</p>
         <p>{ABOUT_PAGE.note}</p>
         <p>
           Writing lives in the <a href="/search/">archive here</a>. The fastest way to reach me is still <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.

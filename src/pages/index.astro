@@ -1,7 +1,6 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import Hr from "@/components/Hr.astro";
-import Icon from "@/components/Icon.astro";
 import Socials from "@/components/Socials.astro";
 import { importedArticles } from "@/data/articles";
 import { NOW_PAGE, SITE } from "@/data/site";
@@ -58,22 +57,18 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
       <div class="post-list">
         {importedArticles.map((post) => (
           <article class="post-card">
+            <p class="post-meta">
+              <time datetime={post.publishedAt}>
+                {dateFormatter.format(new Date(`${post.publishedAt}T00:00:00Z`))}
+              </time>
+              <span>{post.readingTime}</span>
+            </p>
             <h3>
               <a href={post.href}>
                 {post.title}
               </a>
             </h3>
-            <p class="post-meta">
-              <span class="post-meta__item">
-                <Icon name="calendar" class="ui-icon post-meta__icon" />
-                <time datetime={post.publishedAt}>
-                  {dateFormatter.format(new Date(`${post.publishedAt}T00:00:00Z`))}
-                </time>
-              </span>
-              <span>Website</span>
-              <span>{post.readingTime}</span>
-            </p>
-            <p>{post.excerpt}</p>
+            <p class="post-excerpt">{post.excerpt}</p>
           </article>
         ))}
       </div>
