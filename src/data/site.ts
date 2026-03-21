@@ -12,6 +12,13 @@ export const SITE = {
     "https://ik.imagekit.io/whitebridge/lookups/972d643c-d565-4784-a5cb-d4dbcf3fedd3/972d643c-d565-4784-a5cb-d4dbcf3fedd3_2swTKZapf"
 };
 
+export const SOCIALS = [
+  { href: SITE.github, label: "GitHub", shortLabel: "GH" },
+  { href: SITE.linkedin, label: "LinkedIn", shortLabel: "IN" },
+  { href: SITE.x, label: "X", shortLabel: "X" },
+  { href: `mailto:${SITE.email}`, label: "Email", shortLabel: "@" }
+];
+
 export const NAV_ITEMS = [
   { href: "/", label: "Now" },
   { href: "/about/", label: "About" },

@@ -1,0 +1,21 @@
+---
+import { SOCIALS } from "@/data/site";
+
+const { centered = false } = Astro.props;
+---
+
+<ul class:list={["socials", { "socials--centered": centered }]}>
+  {SOCIALS.map((social) => (
+    <li>
+      <a
+        href={social.href}
+        aria-label={social.label}
+        title={social.label}
+        target={social.href.startsWith("http") ? "_blank" : undefined}
+        rel={social.href.startsWith("http") ? "noreferrer" : undefined}
+      >
+        <span aria-hidden="true">{social.shortLabel}</span>
+      </a>
+    </li>
+  ))}
+</ul>

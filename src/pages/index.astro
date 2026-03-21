@@ -1,6 +1,7 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import Hr from "@/components/Hr.astro";
+import Socials from "@/components/Socials.astro";
 import { NOW_PAGE, SITE } from "@/data/site";
 ---
 
@@ -23,6 +24,7 @@ import { NOW_PAGE, SITE } from "@/data/site";
           <span>{NOW_PAGE.location}</span>
           <span>Updated {NOW_PAGE.updated}</span>
         </div>
+        <Socials />
         <ul class="link-list">
           {NOW_PAGE.quickLinks.map((link) => (
             <li>

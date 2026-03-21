@@ -1,11 +1,13 @@
 ---
 import Hr from "./Hr.astro";
+import Socials from "./Socials.astro";
 import { SITE } from "@/data/site";
 ---
 
 <footer class="site-footer">
   <Hr noPadding />
   <div class="site-footer__inner">
+    <Socials centered />
     <div class="site-footer__links">
       <a href={SITE.github} target="_blank" rel="noreferrer">GitHub</a>
       <a href={SITE.company} target="_blank" rel="noreferrer">WhiteBridge AI</a>
