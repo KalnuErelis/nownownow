@@ -16,25 +16,35 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="AI Agents - Jaunius Kadunas">
     <meta name="twitter:description" content="AI agents and tools by Jaunius Kadunas.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="page">
-        <nav class="navigation">
-            <a href="index.html" class="">Now</a>
-            <a href="me.html" class="">About Me</a>
-            <a href="agents.html" class="active">Agents</a>
-        </nav>
+    <div class="site-shell">
+        <aside class="sidebar">
+            <a class="brand-mark" href="index.html" aria-label="Jaunius Kadunas home">JK</a>
 
-        <header class="intro">
-            <h1>AI Agents by Jaunius Kadunas</h1>
-            <p class="roles">Growth engineer / Endurance athlete / AI tinkerer</p>
-            <p class="summary">A collection of AI agents and tools I have built or use regularly.</p>
-            <p class="update-note"></p>
-        </header>
+            <div class="sidebar-copy">
+                <p class="eyebrow">Jaunius Kadunas</p>
+                <h1>AI Agents by Jaunius Kadunas</h1>
+                <p class="roles">Growth engineer / Endurance athlete / AI tinkerer</p>
+                <p class="summary">A collection of AI agents and tools I have built or use regularly.</p>
+                <p class="update-note"></p>
+            </div>
 
-        <div class="content-grid">
-            <section class="section" id="intro">
+            <nav class="navigation" aria-label="Primary">
+                <a href="index.html" class="">Now</a>
+                <a href="me.html" class="">About</a>
+                <a href="agents.html" class="active">Agents</a>
+            </nav>
+        </aside>
+
+        <main class="content-column">
+            <div class="content-grid">
+                <section class="section" id="intro">
 <div class="section-header">
 <h2>My AI Agents</h2>
 </div>
@@ -44,12 +54,13 @@
 </section>
 
 <p><em>Last updated: March 09, 2026</em></p>
-        </div>
+            </div>
 
-        <footer>
-            <p>This site follows the <a href="https://nownownow.com/about" target="_blank" rel="noopener">now page</a> philosophy by <a href="https://sive.rs/now" target="_blank" rel="noopener">Derek Sivers</a>.</p>
-            <p><a href="mailto:your-email@example.com">Get in touch</a> if you'd like to connect!</p>
-        </footer>
-    </main>
+            <footer>
+                <p>This is a living personal site shaped by the <a href="https://nownownow.com/about" target="_blank" rel="noopener">now page</a> idea.</p>
+                <p><a href="me.html">Read more about my background</a>.</p>
+            </footer>
+        </main>
+    </div>
 </body>
 </html>
