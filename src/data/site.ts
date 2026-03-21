@@ -8,8 +8,7 @@ export const SITE = {
   linkedin: "https://www.linkedin.com/in/kadunas/",
   x: "https://twitter.com/jaunius",
   company: "https://whitebridge.ai",
-  avatar:
-    "https://ik.imagekit.io/whitebridge/lookups/972d643c-d565-4784-a5cb-d4dbcf3fedd3/972d643c-d565-4784-a5cb-d4dbcf3fedd3_2swTKZapf"
+  avatar: "https://avatars.githubusercontent.com/u/26115323?v=4"
 };
 
 export const SOCIALS = [
