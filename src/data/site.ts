@@ -124,9 +124,14 @@ export const ABOUT_PAGE = {
   title: "About",
   description:
     "Background, trajectory, and working style of Jaunius Kadunas.",
+  heading: "About",
+  image: SITE.avatar,
+  imageAlt: "Jaunius Kadunas",
   intro: [
-    "I work where AI capability meets real business process. That usually means designing systems that help teams research faster, operate cleaner, and make better decisions without adding more dashboard noise.",
-    "Before that, I spent years in growth, sales technology, and business development. That left me with a practical bias: tools only matter if they survive contact with the actual workflow."
+    "I build agentic systems where AI capability meets real operating work.",
+    "Before that, I worked across growth, sales-tech, and operator systems. That left me with a practical bias: tools only matter if they survive contact with the actual workflow.",
+    "Based in Vienna, with roots in Vilnius.",
+    "Public work lives across GitHub, writing, and small experiments that try to stay useful."
   ],
   summaryLinks: [
     { href: SITE.github, label: "GitHub" },
@@ -179,26 +184,33 @@ export const ABOUT_PAGE = {
     }
   ],
   activity: {
-    title: "Selected Links",
+    title: "GitHub Activity",
     body:
-      "The best public signal is usually shipped work, not self-description. These are the places where that shows up.",
+      "The best public signal is usually shipped work, not self-description. GitHub is the clearest ongoing record of what I’m building and refining.",
+    chartUrl: "https://ghchart.rshah.org/KalnuErelis",
+    chartAlt: "Jaunius Kadunas GitHub contribution chart",
     links: [
       { href: SITE.github, label: "GitHub profile" },
-      { href: WRITING.archive, label: "Substack archive" },
-      { href: SITE.linkedin, label: "LinkedIn" },
-      { href: SITE.company, label: "WhiteBridge.ai" }
+      { href: WRITING.archive, label: "Writing archive" }
     ]
   },
   subscribe: {
     title: "Stay Connected",
     body:
-      "New posts, working notes, and whatever earns a permanent place in the stack.",
-    ctaLabel: "Subscribe on Substack",
-    ctaHref: WRITING.subscribe,
+      "New posts, working notes, and useful links. Low volume.",
+    action: "https://buttondown.com/api/emails/embed-subscribe/jaunius",
+    tag: "jaunius",
+    namePlaceholder: "Your Name",
+    emailPlaceholder: "Your Email",
+    buttonLabel: "Subscribe",
     aside: "Pure signal. No fake growth loops."
   },
   note:
     "If you want to connect, the fastest route is usually Substack, GitHub, or a direct email."
+  ,
+  utilityNote:
+    "Writing lives on Internet Diet. The best way to keep up is via email or the archive.",
+  imprint: "Based in Vienna, building in public."
 };
 
 export const SEARCH_PAGE = {

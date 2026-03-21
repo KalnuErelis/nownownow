@@ -1,18 +1,22 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import { ABOUT_PAGE, SITE, WRITING } from "@/data/site";
-
-const imageAlt = "Jaunius Kadunas";
 ---
 
 <SiteLayout title="About | Jaunius Kadunas" description={ABOUT_PAGE.description}>
   <main id="main-content" class="page-shell page-shell--about">
     <section class="about-page">
-      <h1>About</h1>
+      <h1>{ABOUT_PAGE.heading}</h1>
 
       <div class="about-intro">
         <div class="about-intro__media">
-          <img src={SITE.avatar} alt={imageAlt} class="about-image" width="320" height="320" />
+          <img
+            src={ABOUT_PAGE.image}
+            alt={ABOUT_PAGE.imageAlt}
+            class="about-image"
+            width="320"
+            height="320"
+          />
         </div>
         <div class="about-intro__copy">
           {ABOUT_PAGE.intro.map((paragraph) => (
@@ -56,6 +60,14 @@ const imageAlt = "Jaunius Kadunas";
       <section class="about-section">
         <h2>{ABOUT_PAGE.activity.title}</h2>
         <p>{ABOUT_PAGE.activity.body}</p>
+        <div class="activity-card">
+          <img
+            src={ABOUT_PAGE.activity.chartUrl}
+            alt={ABOUT_PAGE.activity.chartAlt}
+            class="activity-card__image"
+            loading="lazy"
+          />
+        </div>
         <ul class="link-list link-list--stacked">
           {ABOUT_PAGE.activity.links.map((link) => (
             <li>
@@ -70,9 +82,30 @@ const imageAlt = "Jaunius Kadunas";
       <section class="subscribe-card">
         <h2>{ABOUT_PAGE.subscribe.title}</h2>
         <p>{ABOUT_PAGE.subscribe.body}</p>
-        <a href={ABOUT_PAGE.subscribe.ctaHref} class="subscribe-card__cta" target="_blank" rel="noreferrer">
-          {ABOUT_PAGE.subscribe.ctaLabel}
-        </a>
+        <form
+          action={ABOUT_PAGE.subscribe.action}
+          method="post"
+          target="_blank"
+          class="subscribe-form"
+        >
+          <input type="hidden" name="tag" value={ABOUT_PAGE.subscribe.tag} />
+          <input
+            type="text"
+            name="name"
+            placeholder={ABOUT_PAGE.subscribe.namePlaceholder}
+            class="subscribe-form__input"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder={ABOUT_PAGE.subscribe.emailPlaceholder}
+            class="subscribe-form__input"
+            required
+          />
+          <button type="submit" class="subscribe-card__cta">
+            {ABOUT_PAGE.subscribe.buttonLabel}
+          </button>
+        </form>
         <p class="subscribe-card__aside">{ABOUT_PAGE.subscribe.aside}</p>
       </section>
 
@@ -81,6 +114,8 @@ const imageAlt = "Jaunius Kadunas";
         <p>
           Writing lives on <a href={WRITING.home} target="_blank" rel="noreferrer">{WRITING.title}</a>. The fastest way to reach me is still <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
         </p>
+        <p class="about-utility-note">{ABOUT_PAGE.utilityNote}</p>
+        <p class="about-imprint">{ABOUT_PAGE.imprint}</p>
       </section>
     </section>
   </main>

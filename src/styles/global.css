@@ -488,9 +488,9 @@ p {
 .about-intro {
   display: grid;
   grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
-  gap: 1rem;
+  gap: 1.15rem;
   align-items: start;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 
 .about-image {
@@ -498,10 +498,11 @@ p {
   height: auto;
   aspect-ratio: 1 / 1;
   border-radius: 0.5rem;
+  background: var(--card);
 }
 
 .about-section {
-  padding-top: 1.7rem;
+  padding-top: 1.45rem;
 }
 
 .about-section + .about-section,
@@ -539,19 +540,56 @@ p {
   margin-top: 0.55rem;
 }
 
+.activity-card {
+  margin: 0.85rem 0 1rem;
+  padding: 0.35rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 0.5rem;
+}
+
+.activity-card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .subscribe-card {
-  margin-top: 1.7rem;
-  padding: 1.6rem 0 0;
+  margin-top: 1.45rem;
+  padding: 1.45rem 0 0;
+}
+
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 0.9rem;
+}
+
+.subscribe-form__input {
+  width: 100%;
+  padding: 0.78rem 0.9rem;
+  border: 1px solid var(--border);
+  background: var(--background);
+  border-radius: 0.35rem;
+  color: var(--foreground);
+}
+
+.subscribe-form__input::placeholder {
+  color: var(--muted-foreground);
 }
 
 .subscribe-card__cta {
-  display: inline-block;
-  margin-top: 0.3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.65rem 1rem;
   background: var(--accent);
   color: #fff;
   border-radius: 0.35rem;
   text-decoration: none;
+  border: 0;
+  cursor: pointer;
 }
 
 .subscribe-card__cta:hover {
@@ -569,6 +607,16 @@ p {
   margin-top: 1.7rem;
   padding-top: 1.4rem;
   border-top: 1px solid var(--border);
+}
+
+.about-utility-note,
+.about-imprint {
+  color: var(--muted-foreground);
+  font-size: 0.76rem;
+}
+
+.about-imprint {
+  margin-bottom: 0;
 }
 
 .search-page {
@@ -674,6 +722,15 @@ p {
   .site-footer__links,
   .site-footer__credit {
     margin-top: 0.55rem;
+  }
+
+  .subscribe-form {
+    display: block;
+  }
+
+  .subscribe-form__input,
+  .subscribe-card__cta {
+    margin-top: 0.7rem;
   }
 
   .card-grid {
