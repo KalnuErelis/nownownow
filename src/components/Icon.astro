@@ -5,6 +5,7 @@ interface Props {
     | "linkedin"
     | "x"
     | "email"
+    | "search"
     | "rss"
     | "calendar"
     | "sun"
@@ -41,6 +42,13 @@ const { name, class: className } = Astro.props;
   name === "email" && (
     <svg viewBox="0 0 24 24" aria-hidden="true" class={className}>
       <path fill="currentColor" d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Zm1.75-.25a.25.25 0 0 0-.25.25v.228l7.5 5.25l7.5-5.25V6.75a.25.25 0 0 0-.25-.25H4.75Zm14.75 2.307l-6.927 4.849a1 1 0 0 1-1.146 0L4.5 8.807v8.443c0 .138.112.25.25.25h14.5a.25.25 0 0 0 .25-.25V8.807Z"/>
+    </svg>
+  )
+}
+{
+  name === "search" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" class={className}>
+      <path fill="currentColor" d="M10.5 4a6.5 6.5 0 1 0 4.03 11.6l4.44 4.44l1.06-1.06l-4.44-4.44A6.5 6.5 0 0 0 10.5 4Zm0 1.5a5 5 0 1 1 0 10a5 5 0 0 1 0-10Z"/>
     </svg>
   )
 }

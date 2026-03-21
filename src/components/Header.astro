@@ -1,6 +1,6 @@
 ---
 import Icon from "@/components/Icon.astro";
-import { NAV_ITEMS, SITE } from "@/data/site";
+import { NAV_ITEMS, SITE, WRITING } from "@/data/site";
 
 const pathname = Astro.url.pathname;
 const currentPath =
@@ -36,6 +36,18 @@ const currentPath =
             </li>
           );
         })}
+        <li>
+          <a
+            href={WRITING.archive}
+            class="nav-icon-link"
+            aria-label="Open writing archive"
+            title="Open writing archive"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Icon name="search" class="ui-icon" />
+          </a>
+        </li>
         <li>
           <button
             id="theme-btn"

@@ -147,6 +147,13 @@ button {
   text-decoration: none;
 }
 
+.nav-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
 .active-nav {
   text-decoration: underline;
   text-decoration-style: wavy;
@@ -198,10 +205,15 @@ html[data-theme="dark"] .theme-button__moon {
 }
 
 .avatar-block,
+.hero-avatar-link,
 .avatar-image {
   width: 9.5rem;
   height: 9.5rem;
   flex-shrink: 0;
+}
+
+.hero-avatar-link {
+  display: block;
 }
 
 .avatar-block {
@@ -327,29 +339,28 @@ p {
   font-size: 0.8rem;
 }
 
-.link-list {
+.hero-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: 0.75rem;
   list-style: none;
   margin: 1rem 0 0;
   padding: 0;
 }
 
-.link-list a {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: transparent;
-  padding: 0.45rem 0.8rem;
+.hero-links a {
+  color: var(--muted-foreground);
   text-decoration: none;
+}
+
+.hero-links a:hover {
+  color: var(--accent);
 }
 
 .socials {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  gap: 0.7rem;
   list-style: none;
   margin: 1rem 0 0;
   padding: 0;
@@ -460,7 +471,7 @@ p {
 }
 
 .post-card {
-  padding: 1.05rem 0 0;
+  padding: 1.25rem 0 0;
   border-top: 1px solid var(--border);
 }
 
@@ -471,6 +482,10 @@ p {
 
 .post-card h3 a {
   text-decoration: none;
+}
+
+.post-card p:last-child {
+  margin-bottom: 0;
 }
 
 .post-meta {
@@ -538,6 +553,7 @@ p {
 
 .site-footer__links {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 

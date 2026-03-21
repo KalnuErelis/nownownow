@@ -20,8 +20,7 @@ export const SOCIALS = [
 
 export const NAV_ITEMS = [
   { href: "/", label: "Posts" },
-  { href: "/about/", label: "About" },
-  { href: "/agents/", label: "Agents" }
+  { href: "/about/", label: "About" }
 ];
 
 export const WRITING = {

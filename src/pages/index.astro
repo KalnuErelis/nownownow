@@ -15,13 +15,15 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
 <SiteLayout title="Jaunius Kadunas" description={NOW_PAGE.description}>
   <main id="main-content" data-layout="home" class="page-shell">
     <section class="hero hero--home">
-      <img
-        src={SITE.avatar}
-        alt="Jaunius Kadunas"
-        class="avatar-image"
-        width="152"
-        height="152"
-      />
+      <a href="/about/" class="hero-avatar-link" aria-label="About Jaunius Kadunas">
+        <img
+          src={SITE.avatar}
+          alt="Jaunius Kadunas"
+          class="avatar-image"
+          width="152"
+          height="152"
+        />
+      </a>
       <div class="hero-copy">
         <p class="eyebrow">{NOW_PAGE.eyebrow}</p>
         <div class="hero-heading">
@@ -43,7 +45,7 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
           <span>Updated {NOW_PAGE.updated}</span>
         </div>
         <Socials />
-        <ul class="link-list">
+        <ul class="hero-links">
           {NOW_PAGE.quickLinks.map((link) => (
             <li>
               <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined}>
