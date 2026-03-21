@@ -184,9 +184,11 @@ export const ABOUT_PAGE = {
     }
   ],
   activity: {
-    title: "Selected Links",
+    title: "GitHub Activity",
     body:
-      "The best public signal is usually shipped work, not self-description. These are the places where that shows up.",
+      "The best signal is still shipped work. This graph is powered by a private-aware GitHub token on my own Vercel deployment, so it reflects the real contribution picture instead of only public commits.",
+    chartUrl: "https://activity.kadunas.com/api/og/share/KalnuErelis?year=2026",
+    chartAlt: "Jaunius Kadunas GitHub contributions for 2026",
     links: [
       { href: SITE.github, label: "GitHub profile" },
       { href: WRITING.archive, label: "Writing archive" }
@@ -204,8 +206,7 @@ export const ABOUT_PAGE = {
     aside: "Pure signal. No fake growth loops."
   },
   note:
-    "If you want to connect, the fastest route is usually Substack, GitHub, or a direct email."
-  ,
+    "If you want to connect, the fastest route is usually Substack, GitHub, or a direct email.",
   utilityNote:
     "Writing lives on Internet Diet. The best way to keep up is via email or the archive.",
   imprint: "Based in Vienna, building in public."
