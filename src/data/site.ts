@@ -1,10 +1,15 @@
 export const SITE = {
   title: "Jaunius Kadunas",
   description:
-    "Growth engineer building practical AI systems, durable revenue loops, and a quieter personal corner on the web.",
+    "Agentic Engineer at WhiteBridge.ai working across AI systems, sales technology, and sustainable growth.",
   url: "https://kadunas.com",
+  email: "jaunius@kadunas.com",
   github: "https://github.com/KalnuErelis",
-  company: "https://whitebridge.ai"
+  linkedin: "https://www.linkedin.com/in/kadunas/",
+  x: "https://twitter.com/jaunius",
+  company: "https://whitebridge.ai",
+  avatar:
+    "https://ik.imagekit.io/whitebridge/lookups/972d643c-d565-4784-a5cb-d4dbcf3fedd3/972d643c-d565-4784-a5cb-d4dbcf3fedd3_2swTKZapf"
 };
 
 export const NAV_ITEMS = [
@@ -16,46 +21,63 @@ export const NAV_ITEMS = [
 export const NOW_PAGE = {
   title: "Jaunius Kadunas",
   description:
-    "What Jaunius Kadunas is focused on right now across growth engineering, AI systems, and endurance sport.",
+    "What Jaunius Kadunas is focused on right now across agentic engineering, AI workflows, and endurance sport.",
   eyebrow: "Now",
   heroTitle: "Hi, I'm Jaunius.",
+  role: "Agentic Engineer at WhiteBridge.ai",
   heroBody:
-    "I build practical growth systems around AI, sales technology, and operational clarity. Most days that means finding signal, shipping experiments, and keeping the work useful.",
-  location: "Vilnius ↔ Vienna",
-  updated: "September 18, 2025",
+    "I build agentic systems that make work more useful: research loops, sales operations, internal tooling, and the connective tissue between AI output and real-world execution.",
+  location: "Vienna, Austria",
+  updated: "March 21, 2026",
+  quickLinks: [
+    { href: SITE.company, label: "WhiteBridge.ai" },
+    { href: SITE.linkedin, label: "LinkedIn" },
+    { href: SITE.github, label: "GitHub" },
+    { href: `mailto:${SITE.email}`, label: SITE.email }
+  ],
   sections: [
     {
       title: "Current Focus",
       body: [
-        "Right now I'm tightening the connection between personal publishing, AI tooling, and the work I do with B2B growth teams."
+        "Right now I'm deep in agentic engineering at WhiteBridge.ai, building systems that help teams move from promising demos to repeatable output."
       ],
       bullets: [
-        "Designing a more intentional home on the web.",
-        "Running AI-assisted sales and retention experiments at WhiteBridge AI.",
-        "Training for a 104k ultra while keeping work, recovery, and learning in balance."
+        "Designing AI workflows that stay inspectable instead of turning into black boxes.",
+        "Working at the edge between sales technology, operational tooling, and internal research automation.",
+        "Sharpening this site into a durable home for my work, notes, and public experiments."
       ]
     },
     {
       title: "Career Snapshot",
       body: [
-        "My path moved from hospitality and communications into growth engineering, where the interesting problems usually live between systems, people, and incentives."
+        "My path started in hospitality and communications, then moved through growth, sales technology, and into AI-heavy systems work."
       ],
       bullets: [
-        "7+ years across AI, SaaS, cybersecurity, and e-commerce.",
-        "Built and supported growth programs for WhiteBridge AI, carVertical, Nord Security, and PINPROOF.",
-        "Comfortable switching between zero-to-one experiments and more mature operating environments."
+        "7+ years across AI, SaaS, cybersecurity, sustainability, and e-commerce.",
+        "Recent roles include WhiteBridge.ai, carVertical, PINPROOF, and Nord Security.",
+        "I've worked across Lithuania, the United Kingdom, the United States, and Austria."
       ]
     },
     {
-      title: "Recent Highlight",
+      title: "Recent Signals",
       body: [
-        "My team and I earned 2nd place plus the People's Choice Award at a recent AI hackathon. The part I value most is that the work stayed grounded in usefulness instead of novelty."
+        "The themes showing up repeatedly in my work are agentic tooling, practical AI use cases, and a bias toward systems that reduce coordination drag."
+      ],
+      bullets: [
+        "Started a new chapter at WhiteBridge.ai in February 2025.",
+        "Part of the team that took 2nd place and the People's Choice Award at Tesonet's AI-only hackathon in October 2024.",
+        "Still spending time around sales-tech and applied AI communities rather than just building in isolation."
       ]
     },
     {
-      title: "Where I Am",
+      title: "Outside Work",
       body: [
-        "Lithuania is home base. Vienna keeps pulling me back. That split gives me enough motion to stay curious without losing continuity."
+        "I need some friction outside the screen. Endurance sport, movement, and language learning keep the rest of the work honest."
+      ],
+      bullets: [
+        "Running, triathlon, swimming, and long-form endurance training.",
+        "Ongoing interest in sustainability, urban mobility, and cleaner systems.",
+        "Using code and AI tools for personal experiments, including language learning."
       ]
     }
   ]
@@ -64,81 +86,102 @@ export const NOW_PAGE = {
 export const ABOUT_PAGE = {
   title: "About",
   description:
-    "Background, operating style, and professional trajectory of Jaunius Kadunas.",
+    "Background, trajectory, and working style of Jaunius Kadunas.",
   eyebrow: "About",
-  heroTitle: "Growth engineer, endurance athlete, systems-minded generalist.",
+  heroTitle: "Agentic engineer with a growth background and a systems bias.",
   heroBody:
-    "I work at the intersection of go-to-market execution, AI tooling, and pragmatic operations. The through-line is simple: make the system clearer, make the signal stronger, and make the outcome easier to sustain.",
+    "I work where AI capability meets real business process. That usually means designing systems that help teams research faster, operate cleaner, and make better decisions without adding more dashboard noise.",
   introFacts: [
-    "Currently: Growth Engineer at WhiteBridge AI.",
-    "Background: hospitality, communications, marketing, and technology-driven growth.",
-    "Geography: Lithuania, the UK, Austria, and the US."
+    "Current role: Agentic Engineer at WhiteBridge.ai.",
+    "Badge: Experienced Manager.",
+    "Base: Vienna, with deep ties to Vilnius.",
+    "Education: Coventry University, Communication and Media Studies."
   ],
   sections: [
     {
       title: "Professional Journey",
       body: [
-        "I learned early that service quality and growth quality are closely related. That hospitality background still shapes how I think about funnels, customer experience, and team operations.",
-        "Over time I moved into technology and B2B growth, building systems that connect positioning, outreach, experimentation, and feedback loops."
+        "The line through my career is less about titles and more about leverage. I started in hospitality, moved through marketing and business development, then into sales technology and now agentic systems.",
+        "That progression left me with a practical view of how work actually breaks: bad handoffs, noisy tools, and too much distance between insight and execution."
       ],
       bullets: [
-        "Growth and product motion work for carVertical, Nord Security, PINPROOF, and WhiteBridge AI.",
-        "Strong bias toward tools that reduce busywork instead of adding dashboard theater.",
-        "Comfortable in both startup ambiguity and more structured operating environments."
+        "WhiteBridge.ai: Agentic Engineer.",
+        "carVertical: Sales Technology Manager for just over two years.",
+        "PINPROOF: Head of Growth.",
+        "Nord Security: Affiliate Manager.",
+        "Earlier work across Calqulate, HARMAN International, and hospitality roles in the UK and US."
       ]
     },
     {
       title: "What I Work On",
       body: [
-        "The most useful work usually sits between disciplines, so I tend to operate across them rather than inside one narrow lane."
+        "I care most about systems that improve the quality of decisions and remove low-value work from the loop."
       ],
       bullets: [
-        "Growth engineering and experimentation design.",
-        "AI-assisted workflows for sales, retention, and internal operations.",
-        "Messaging systems that stay clear when the company gets more complex.",
-        "Operational cleanup when teams are moving faster than their tools can handle."
+        "Agentic workflows for research, qualification, and internal operations.",
+        "Sales technology and process design.",
+        "Growth systems that survive contact with reality.",
+        "AI implementation with a bias toward usefulness over spectacle."
+      ]
+    },
+    {
+      title: "Proof Of Work",
+      body: [
+        "The best public signal is usually shipped work, not self-description. A few highlights are strong enough to keep here."
+      ],
+      bullets: [
+        "Started the Sustainable Fridays newsletter and keep returning to sustainability as a practical theme, not just branding.",
+        "Tesonet AI-only hackathon: 2nd place and People's Choice Award with the WhiteBridge team.",
+        "Consistent participation in sales-tech, AI, and developer-adjacent communities across Europe."
       ]
     },
     {
       title: "Outside Work",
       body: [
-        "Sport is where I test patience and consistency. Endurance training has become a practical counterweight to internet-speed work."
+        "Outside the laptop, I gravitate toward activities that reward patience and repeated effort."
       ],
       bullets: [
-        "Trail running and ultra preparation.",
-        "Swimming, triathlon, and time outdoors.",
-        "Reading, note-taking, and experiments with publishing.",
-        "A long-term interest in sustainability that affects both life and work decisions."
+        "Endurance sport: running, swimming, triathlon, and longer training blocks.",
+        "Sustainability and urban mobility as ongoing interests.",
+        "Coding side experiments, AI tools, and building small systems for personal use.",
+        "German language learning."
       ]
     }
+  ],
+  timeline: [
+    "2025 to present: Agentic Engineer at WhiteBridge.ai.",
+    "2023 to 2025: Sales Technology Manager at carVertical.",
+    "Late 2022 to early 2023: Head of Growth at PINPROOF.",
+    "2021 to 2022: Affiliate Manager at Nord Security.",
+    "Earlier chapters across Calqulate, HARMAN International, Off to Work, and hospitality roles in the UK and the US."
   ]
 };
 
 export const AGENTS_PAGE = {
   title: "Agents",
   description:
-    "A small set of AI agents, workflows, and automation patterns used by Jaunius Kadunas.",
+    "The kinds of agentic systems and workflows Jaunius Kadunas builds and uses.",
   eyebrow: "Agents",
-  heroTitle: "Tools that do more than autocomplete.",
+  heroTitle: "Tools that can carry work, not just generate text.",
   heroBody:
-    "I'm interested in agents when they reduce cognitive overhead, make workflows inspectable, and create leverage without making the system opaque.",
+    "I'm interested in agents when they reduce cognitive load, preserve context, and make the next useful action easier. If the system becomes harder to inspect, it's usually not worth keeping.",
   cards: [
     {
-      title: "Prospecting Operators",
+      title: "Research Operators",
       body:
-        "Workflows that combine lead sourcing, verification, suppression, and campaign-safe routing for outbound teams."
+        "Agents that gather context from live sources, structure the signal, and hand back something a person can evaluate fast."
     },
     {
-      title: "Internal Research Loops",
+      title: "Sales And GTM Workflows",
       body:
-        "Agents that gather context, normalize signal, and hand back something a human can evaluate quickly."
+        "Operational systems around sourcing, enrichment, qualification, messaging, and campaign-safe execution."
     },
     {
-      title: "Content + Publishing Assistants",
+      title: "Internal Tooling",
       body:
-        "Drafting and structuring tools for turning live work into notes, pages, and reusable documentation."
+        "Small agentic interfaces that reduce repetitive work for teams without burying the decision path."
     }
   ],
   closing:
-    "The rule is simple: if an agent adds mystery, I don't want it. If it clarifies the system and saves real time, it stays."
+    "My bar is simple: keep the human in control, keep the system legible, and make the output materially better than the manual version."
 };

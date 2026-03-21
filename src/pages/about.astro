@@ -1,7 +1,7 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import Hr from "@/components/Hr.astro";
-import { ABOUT_PAGE } from "@/data/site";
+import { ABOUT_PAGE, SITE } from "@/data/site";
 ---
 
 <SiteLayout title="About | Jaunius Kadunas" description={ABOUT_PAGE.description}>
@@ -11,6 +11,11 @@ import { ABOUT_PAGE } from "@/data/site";
         <p class="eyebrow">{ABOUT_PAGE.eyebrow}</p>
         <h1>{ABOUT_PAGE.heroTitle}</h1>
         <p>{ABOUT_PAGE.heroBody}</p>
+        <ul class="link-list">
+          <li><a href={SITE.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
+          <li><a href={SITE.github} target="_blank" rel="noreferrer">GitHub</a></li>
+          <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+        </ul>
       </div>
       <div class="fact-card">
         <p class="fact-card__title">Quick Context</p>
@@ -37,5 +42,14 @@ import { ABOUT_PAGE } from "@/data/site";
         </ul>
       </section>
     ))}
+
+    <section class="content-section">
+      <h2>Timeline</h2>
+      <ul class="section-list">
+        {ABOUT_PAGE.timeline.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </section>
   </main>
 </SiteLayout>

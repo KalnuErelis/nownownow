@@ -160,10 +160,14 @@ html[data-theme="dark"] .theme-button__moon {
   align-items: center;
 }
 
-.avatar-block {
+.avatar-block,
+.avatar-image {
   width: 9.5rem;
   height: 9.5rem;
   flex-shrink: 0;
+}
+
+.avatar-block {
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -176,6 +180,14 @@ html[data-theme="dark"] .theme-button__moon {
   box-shadow: var(--shadow);
 }
 
+.avatar-image {
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background: var(--card);
+}
+
 .hero-copy,
 .hero-card,
 .fact-card,
@@ -185,6 +197,13 @@ html[data-theme="dark"] .theme-button__moon {
 
 .hero-copy--wide {
   max-width: 42rem;
+}
+
+.hero-role {
+  margin-top: -0.35rem;
+  margin-bottom: 0.85rem;
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
 }
 
 .eyebrow {
@@ -221,6 +240,25 @@ p {
   margin-top: 1.2rem;
   color: var(--muted-foreground);
   font-size: 0.92rem;
+}
+
+.link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.link-list a {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  padding: 0.45rem 0.8rem;
+  text-decoration: none;
 }
 
 .hero-card,
