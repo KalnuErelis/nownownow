@@ -186,7 +186,7 @@ export const ABOUT_PAGE = {
   activity: {
     title: "GitHub Activity",
     body:
-      "The best signal is still shipped work. This graph is powered by a private-aware GitHub token on my own Vercel deployment, so it reflects the real contribution picture instead of only public commits.",
+      "The best signal is still shipped work. This graph is powered by a dedicated GitHub-backed service on my own Vercel deployment and gives the About page a direct view into current contribution activity.",
     chartUrl: "https://activity.kadunas.com/api/og/share/KalnuErelis?year=2026",
     chartAlt: "Jaunius Kadunas GitHub contributions for 2026",
     links: [
