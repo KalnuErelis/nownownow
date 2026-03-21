@@ -137,7 +137,7 @@ button {
 .nav-menu ul {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1.35rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -153,8 +153,9 @@ button {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  width: 1.9rem;
-  height: 1.9rem;
+  width: 2rem;
+  height: 2rem;
+  color: color-mix(in srgb, var(--foreground) 74%, var(--muted-foreground));
 }
 
 .active-nav {
@@ -171,7 +172,7 @@ button {
   border: 1px solid var(--border);
   background: transparent;
   border-radius: 999px;
-  padding: 0.48rem;
+  padding: 0.5rem;
   font-size: 0.78rem;
 }
 
@@ -249,6 +250,7 @@ html[data-theme="dark"] .theme-button__moon {
 
 .hero-copy {
   max-width: 35rem;
+  padding-top: 0.35rem;
 }
 
 .hero-copy--wide {
@@ -336,6 +338,7 @@ p {
 
 .hero-writing {
   max-width: 37rem;
+  margin-bottom: 1.15rem;
   color: color-mix(in srgb, var(--foreground) 84%, var(--muted-foreground));
 }
 
@@ -343,7 +346,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
-  margin-top: 1rem;
+  margin-top: 0;
   color: var(--muted-foreground);
   font-size: 0.77rem;
 }
@@ -353,7 +356,7 @@ p {
   flex-wrap: wrap;
   gap: 1rem;
   list-style: none;
-  margin: 1.15rem 0 0;
+  margin: 1.05rem 0 0;
   padding: 0;
 }
 
@@ -369,15 +372,15 @@ p {
 .socials {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.9rem;
+  gap: 1rem;
   list-style: none;
-  margin: 1.15rem 0 0;
+  margin: 1.35rem 0 0;
   padding: 0;
 }
 
 .socials a {
-  width: 2rem;
-  height: 2rem;
+  width: 2.1rem;
+  height: 2.1rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -508,7 +511,7 @@ p {
   flex-wrap: wrap;
   gap: 0.8rem;
   margin-bottom: 0.5rem;
-  color: color-mix(in srgb, var(--foreground) 62%, var(--muted-foreground));
+  color: color-mix(in srgb, var(--foreground) 74%, var(--muted-foreground));
   font-size: 0.78rem;
 }
 
@@ -525,8 +528,8 @@ p {
 }
 
 .socials__icon {
-  width: 1.58rem;
-  height: 1.58rem;
+  width: 1.68rem;
+  height: 1.68rem;
 }
 
 .theme-button .ui-icon,
