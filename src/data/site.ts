@@ -155,8 +155,21 @@ export const ABOUT_PAGE = {
     buttonLabel: "Subscribe",
     aside: "Pure signal. No fake growth loops."
   },
+  labels: {
+    snapshot: "Snapshot",
+    quickContext: "Quick Context",
+    currentSignal: "Current Signal",
+    subscribe: "Subscribe",
+    notes: "Notes"
+  },
   note:
     "If you want to connect, the fastest route is usually Buttondown, GitHub, or a direct email.",
+  archiveNote: {
+    prefix: "Writing lives in the",
+    archiveLabel: "archive here",
+    middle: "The fastest way to reach me is still",
+    emailLabel: SITE.email
+  },
   utilityNote:
     "Writing lives here on the site. The best way to keep up is via email or the archive.",
   imprint: "Based in Vienna, building in public."

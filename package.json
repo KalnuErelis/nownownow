@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "check": "astro check",
+    "test:about": "playwright test tests/about.spec.ts --project=chromium",
     "lint": "oxlint src/data public",
     "import:substack": "python3 scripts/import_substack_export.py"
   },
@@ -16,6 +17,9 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
+    "@playwright/test": "^1.58.2",
+    "axe-core": "^4.11.1",
     "oxlint": "^1.16.0"
   }
 }

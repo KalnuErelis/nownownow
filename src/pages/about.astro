@@ -1,12 +1,13 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
 import { ABOUT_PAGE, SITE } from "@/data/site";
+
+const [introLede, ...introSupport] = ABOUT_PAGE.intro;
 ---
 
-<SiteLayout title="About | Jaunius Kadunas" description={ABOUT_PAGE.description}>
+<SiteLayout title={`${ABOUT_PAGE.title} | Jaunius Kadunas`} description={ABOUT_PAGE.description}>
   <main id="main-content" class="page-shell page-shell--about">
     <section class="about-page">
-      <p class="eyebrow">About</p>
       <h1>{ABOUT_PAGE.heading}</h1>
 
       <div class="about-intro">
@@ -18,12 +19,7 @@ import { ABOUT_PAGE, SITE } from "@/data/site";
             width="320"
             height="320"
           />
-        </div>
-        <div class="about-intro__copy">
-          {ABOUT_PAGE.intro.map((paragraph) => (
-            <p>{paragraph}</p>
-          ))}
-          <ul class="link-list about-intro__links">
+          <ul class="link-list about-intro__summary-links">
             {ABOUT_PAGE.summaryLinks.map((link) => (
               <li>
                 <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined}>
@@ -33,26 +29,37 @@ import { ABOUT_PAGE, SITE } from "@/data/site";
             ))}
           </ul>
         </div>
+        <div class="about-intro__copy">
+          <div class="about-intro__lede">
+            <p>{introLede}</p>
+          </div>
+          <div class="about-intro__support">
+            {introSupport.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        </div>
       </div>
 
       <section class="about-section">
-        <p class="section-kicker">Snapshot</p>
-        <h2>Quick Context</h2>
-        <ul class="section-list">
+        <p class="section-kicker">{ABOUT_PAGE.labels.snapshot}</p>
+        <h2>{ABOUT_PAGE.labels.quickContext}</h2>
+        <div class="about-facts">
           {ABOUT_PAGE.current.map((item) => (
-            <li>{item}</li>
+            <div class="about-facts__item">
+              <p>{item}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
       {ABOUT_PAGE.sections.map((section) => (
-        <section class="about-section">
-          <p class="section-kicker">Section</p>
+        <section class="about-section about-section--story">
           <h2>{section.title}</h2>
           {section.body.map((paragraph) => (
             <p>{paragraph}</p>
           ))}
-          <ul class="section-list">
+          <ul class="about-section__list">
             {section.bullets.map((item) => (
               <li>{item}</li>
             ))}
@@ -61,7 +68,7 @@ import { ABOUT_PAGE, SITE } from "@/data/site";
       ))}
 
       <section class="about-section">
-        <p class="section-kicker">Current Signal</p>
+        <p class="section-kicker">{ABOUT_PAGE.labels.currentSignal}</p>
         <h2>{ABOUT_PAGE.activity.title}</h2>
         <p>{ABOUT_PAGE.activity.body}</p>
         <div class="activity-card">
@@ -71,57 +78,73 @@ import { ABOUT_PAGE, SITE } from "@/data/site";
             class="activity-card__image"
             loading="lazy"
           />
+          <div class="activity-card__footer">
+            <ul class="link-list link-list--stacked activity-card__links">
+              {ABOUT_PAGE.activity.links.map((link) => (
+                <li>
+                  <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <ul class="link-list link-list--stacked">
-          {ABOUT_PAGE.activity.links.map((link) => (
-            <li>
-              <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined}>
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
       </section>
 
       <section class="subscribe-card">
-        <p class="section-kicker">Subscribe</p>
-        <h2>{ABOUT_PAGE.subscribe.title}</h2>
-        <p>{ABOUT_PAGE.subscribe.body}</p>
-        <form
-          action={ABOUT_PAGE.subscribe.action}
-          method="post"
-          target="_blank"
-          class="subscribe-form"
-        >
-          <input type="hidden" name="tag" value={ABOUT_PAGE.subscribe.tag} />
-          <input
-            type="text"
-            name="name"
-            placeholder={ABOUT_PAGE.subscribe.namePlaceholder}
-            class="subscribe-form__input"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder={ABOUT_PAGE.subscribe.emailPlaceholder}
-            class="subscribe-form__input"
-            required
-          />
-          <button type="submit" class="subscribe-card__cta">
-            {ABOUT_PAGE.subscribe.buttonLabel}
-          </button>
-        </form>
-        <p class="subscribe-card__aside">{ABOUT_PAGE.subscribe.aside}</p>
+        <div class="subscribe-card__copy">
+          <p class="section-kicker">{ABOUT_PAGE.labels.subscribe}</p>
+          <h2>{ABOUT_PAGE.subscribe.title}</h2>
+          <p>{ABOUT_PAGE.subscribe.body}</p>
+        </div>
+        <div class="subscribe-card__form-wrap">
+          <form
+            action={ABOUT_PAGE.subscribe.action}
+            method="post"
+            target="_blank"
+            class="subscribe-form"
+          >
+            <input type="hidden" name="tag" value={ABOUT_PAGE.subscribe.tag} />
+            <div class="subscribe-form__field">
+              <label for="subscribe-name" class="subscribe-form__label">Name</label>
+              <input
+                id="subscribe-name"
+                type="text"
+                name="name"
+                placeholder={ABOUT_PAGE.subscribe.namePlaceholder}
+                class="subscribe-form__input"
+              />
+            </div>
+            <div class="subscribe-form__field">
+              <label for="subscribe-email" class="subscribe-form__label">Email</label>
+              <input
+                id="subscribe-email"
+                type="email"
+                name="email"
+                placeholder={ABOUT_PAGE.subscribe.emailPlaceholder}
+                class="subscribe-form__input"
+                required
+              />
+            </div>
+            <button type="submit" class="subscribe-card__cta">
+              {ABOUT_PAGE.subscribe.buttonLabel}
+            </button>
+          </form>
+          <p class="subscribe-card__aside">{ABOUT_PAGE.subscribe.aside}</p>
+        </div>
       </section>
 
       <section class="about-section about-section--note">
-        <p class="section-kicker">Notes</p>
+        <p class="section-kicker">{ABOUT_PAGE.labels.notes}</p>
         <p>{ABOUT_PAGE.note}</p>
         <p>
-          Writing lives in the <a href="/search/">archive here</a>. The fastest way to reach me is still <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+          {ABOUT_PAGE.archiveNote.prefix} <a href="/search/">{ABOUT_PAGE.archiveNote.archiveLabel}</a>. {ABOUT_PAGE.archiveNote.middle} <a href={`mailto:${SITE.email}`}>{ABOUT_PAGE.archiveNote.emailLabel}</a>.
         </p>
-        <p class="about-utility-note">{ABOUT_PAGE.utilityNote}</p>
-        <p class="about-imprint">{ABOUT_PAGE.imprint}</p>
+        <div class="about-note__meta">
+          <p class="about-utility-note">{ABOUT_PAGE.utilityNote}</p>
+          <p class="about-imprint">{ABOUT_PAGE.imprint}</p>
+        </div>
       </section>
     </section>
   </main>

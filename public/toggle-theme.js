@@ -27,6 +27,13 @@ const persistTheme = (theme) => {
   localStorage.setItem(THEME_KEY, theme);
 };
 
+const syncSystemTheme = (event) => {
+  if (getStoredTheme() !== null) return;
+
+  applyTheme(event.matches ? "dark" : "light");
+  syncThemeButton();
+};
+
 const syncThemeButton = () => {
   const button = document.getElementById("theme-btn");
   if (!button) return;
@@ -59,6 +66,12 @@ const setupThemeToggle = () => {
 };
 
 applyTheme();
+
+const systemThemeMedia = window.matchMedia("(prefers-color-scheme: dark)");
+
+if (typeof systemThemeMedia.addEventListener === "function") {
+  systemThemeMedia.addEventListener("change", syncSystemTheme);
+}
 
 window.addEventListener("DOMContentLoaded", setupThemeToggle);
 document.addEventListener("astro:before-swap", () => {
