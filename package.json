@@ -7,11 +7,13 @@
     "build": "astro build",
     "check": "astro check",
     "test:about": "playwright test tests/about.spec.ts --project=chromium",
+    "test:seo": "playwright test tests/seo.spec.ts --project=chromium",
     "lint": "oxlint src/data public",
     "import:substack": "python3 scripts/import_substack_export.py"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
+    "@astrojs/rss": "^4.0.17",
     "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.16.6",
     "typescript": "^5.9.3"

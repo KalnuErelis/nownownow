@@ -2,7 +2,7 @@ import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./tests",
-  testMatch: "about.spec.ts",
+  testMatch: "**/*.spec.ts",
   outputDir: "node_modules/.cache/playwright/test-results",
   snapshotPathTemplate: "{testDir}/__screenshots__/{testFilePath}/{projectName}/{arg}{ext}",
   use: {

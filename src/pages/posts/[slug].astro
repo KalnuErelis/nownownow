@@ -1,6 +1,7 @@
 ---
 import SiteLayout from "@/layouts/SiteLayout.astro";
-import { importedArticles } from "@/data/articles";
+import { getMoreWriting, importedArticles } from "@/data/articles";
+import { SITE, WRITING } from "@/data/site";
 
 export function getStaticPaths() {
   return importedArticles.map((article) => ({
@@ -9,7 +10,30 @@ export function getStaticPaths() {
   }));
 }
 
-const { article } = Astro.props;
+const { article } = Astro.props as { article: (typeof importedArticles)[number] };
+const moreWriting = getMoreWriting(article.slug, 3);
+const publishedDateTime = `${article.publishedAt}T00:00:00Z`;
+const articleUrl = new URL(article.href, SITE.url).toString();
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: article.title,
+  description: article.seoDescription,
+  datePublished: article.publishedAt,
+  url: articleUrl,
+  mainEntityOfPage: articleUrl,
+  author: {
+    "@type": "Person",
+    name: SITE.title,
+    url: SITE.url
+  },
+  isPartOf: {
+    "@type": "Blog",
+    name: WRITING.title,
+    url: WRITING.home
+  },
+  ...(article.subtitle ? { alternativeHeadline: article.subtitle } : {})
+};
 
 const dateFormatter = new Intl.DateTimeFormat("en", {
   month: "long",
@@ -18,20 +42,55 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
 });
 ---
 
-<SiteLayout title={`${article.title} | Jaunius Kadunas`} description={article.description}>
+<SiteLayout
+  title={`${article.title} | ${SITE.title}`}
+  description={article.seoDescription}
+  ogType="article"
+  publishedTime={publishedDateTime}
+  schema={articleSchema}
+>
   <main id="main-content" class="page-shell">
     <article class="article-page">
       <p class="eyebrow">Post</p>
       <h1>{article.title}</h1>
       <p class="post-meta article-meta">
-        <time datetime={article.publishedAt}>
-          {dateFormatter.format(new Date(`${article.publishedAt}T00:00:00Z`))}
+        <time datetime={publishedDateTime}>
+          {dateFormatter.format(new Date(publishedDateTime))}
         </time>
         <span>{article.readingTime}</span>
       </p>
       {article.subtitle && <p class="article-subtitle">{article.subtitle}</p>}
 
       <div class="article-content" set:html={article.bodyHtml} />
+
+      <footer class="article-discovery" aria-labelledby="more-writing-title">
+        <div class="section-heading article-discovery__heading">
+          <div>
+            <p class="section-kicker">More Writing</p>
+            <h2 id="more-writing-title">Keep reading</h2>
+          </div>
+          <a href="/search/" class="section-link">Archive</a>
+        </div>
+        <div class="post-list article-discovery__list">
+          {moreWriting.map((post) => (
+            <article class="post-card">
+              <p class="post-meta">
+                <time datetime={`${post.publishedAt}T00:00:00Z`}>
+                  {dateFormatter.format(new Date(`${post.publishedAt}T00:00:00Z`))}
+                </time>
+                <span>{post.readingTime}</span>
+              </p>
+              <h3>
+                <a href={post.href}>{post.title}</a>
+              </h3>
+              <p class="post-excerpt">{post.excerpt}</p>
+            </article>
+          ))}
+        </div>
+        <p class="article-discovery__archive-link">
+          Browse the full archive in <a href="/search/">search</a>.
+        </p>
+      </footer>
     </article>
   </main>
 </SiteLayout>

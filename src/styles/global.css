@@ -921,6 +921,30 @@ p {
   margin: 2.4rem 0;
 }
 
+.article-discovery {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.article-discovery__heading {
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.article-discovery__list {
+  gap: 0.9rem;
+}
+
+.article-discovery__list .post-card {
+  padding-top: 0;
+}
+
+.article-discovery__archive-link {
+  margin: 1rem 0 0;
+  color: var(--muted-foreground);
+}
+
 .search-page__helper,
 .search-page__state {
   color: var(--muted-foreground);

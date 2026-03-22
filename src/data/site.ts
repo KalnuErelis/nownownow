@@ -33,7 +33,7 @@ export const WRITING = {
     "Notes on AI, work, systems, and whatever else survives first contact with real life.",
   home: SITE.url,
   archive: `${SITE.url}/search/`,
-  feed: "",
+  feed: `${SITE.url}/rss.xml`,
   subscribe: "https://buttondown.com/jaunius",
   posts: importedArticles.map((article) => ({
     title: article.title,
@@ -177,9 +177,10 @@ export const ABOUT_PAGE = {
 
 export const SEARCH_PAGE = {
   title: "Search",
-  description: "Search writing and notes by title, excerpt, or tag.",
+  description: "Search writing and notes by title, excerpt, or subtitle.",
+  robots: "noindex,follow",
   prompt: "Search posts",
-  helper: "Filter by title, excerpt, source, or tags.",
+  helper: "Filter by title, excerpt, or subtitle.",
   empty: "Start typing to search across the writing archive.",
   noResults: "No posts found for that query."
 };
