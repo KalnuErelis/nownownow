@@ -7,6 +7,7 @@
     "build": "astro build",
     "check": "astro check",
     "test:about": "playwright test tests/about.spec.ts --project=chromium",
+    "test:tools": "playwright test tests/tools.spec.ts --project=chromium",
     "test:seo": "playwright test tests/seo.spec.ts --project=chromium",
     "lint": "oxlint src/data public",
     "import:substack": "python3 scripts/import_substack_export.py"

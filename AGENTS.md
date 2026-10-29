@@ -29,7 +29,8 @@ Small Astro 5 static site for `kadunas.com`. Content and page copy live mostly i
 | Posts pipeline | `src/data/articles.ts` | Adapts generated articles into routed site data |
 | Generated article source | `src/data/articles.generated.ts` | Machine-written; do not hand-edit |
 | Post import pipeline | `scripts/import_substack_export.py` | Substack export -> generated TS data |
-| Main routes | `src/pages/` | `index`, `about`, `search`, `agents`, `posts/[slug]` |
+| Main routes | `src/pages/` | `index`, `about`, `search`, `agents`, `tools`, `posts/[slug]` |
+| Tools directory | `src/data/tools.ts` | Public tool records and category rankings. Pages under `src/pages/tools/` |
 | Global styling | `src/styles/global.css` | One shared stylesheet with page-specific sections |
 | Theme runtime | `public/toggle-theme.js` | Shared client behavior across Astro transitions |
 | Regression harness | `tests/about.spec.ts` | `/about` checks + homepage smoke for shared selectors |

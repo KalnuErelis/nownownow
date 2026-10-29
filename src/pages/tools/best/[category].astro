@@ -1,0 +1,95 @@
+---
+import AffiliateDisclosure from "@/components/AffiliateDisclosure.astro";
+import ToolCta from "@/components/ToolCta.astro";
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import { SITE } from "@/data/site";
+import {
+  COMPARISON,
+  TOOL_CATEGORIES,
+  getRankedTools,
+  type ToolCategory
+} from "@/data/tools";
+
+export function getStaticPaths() {
+  return TOOL_CATEGORIES.map((category) => ({
+    params: { category: category.id },
+    props: { category }
+  }));
+}
+
+const { category } = Astro.props as { category: ToolCategory };
+const tools = getRankedTools(category.id);
+const pageUrl = new URL(category.href, SITE.url).toString();
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Tools",
+        item: new URL("/tools/", SITE.url).toString()
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: category.title,
+        item: pageUrl
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: category.title,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    numberOfItems: tools.length,
+    itemListElement: tools.map((tool, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: tool.name,
+      url: new URL(tool.href, SITE.url).toString()
+    }))
+  }
+];
+---
+
+<SiteLayout title={`${category.title} | ${SITE.title}`} description={category.description} schema={schema}>
+  <main id="main-content" class="page-shell tools-page">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <a href="/tools/">Tools</a>
+        </p>
+        <h1>{category.title}</h1>
+        <p>{category.intro}</p>
+        {category.id === "cold-email" && (
+          <p>
+            <a href={COMPARISON.href}>{COMPARISON.title}</a> sits beside this list. The Instantly link there has no affiliate parameter.
+          </p>
+        )}
+        <AffiliateDisclosure />
+      </div>
+    </section>
+
+    <ol class="tools-rank" aria-label={category.title}>
+      {tools.map((tool, index) => (
+        <li>
+          <article class="tools-rank__item" id={tool.slug}>
+            <h2>
+              <a href={tool.href}>
+                <span class="tools-rank__number">{index + 1}</span>
+                {tool.name}
+              </a>
+            </h2>
+            <p class="tools-best-for">Best for: {tool.bestFor}</p>
+            <p>{tool.summary}</p>
+            {tool.pricing && <p class="tools-pricing">{tool.pricing}</p>}
+            <ToolCta href={tool.affiliateUrl} label={`Visit ${tool.name}`} />
+          </article>
+        </li>
+      ))}
+    </ol>
+  </main>
+</SiteLayout>

@@ -22,9 +22,14 @@ export const SOCIALS = [
   { href: `mailto:${SITE.email}`, label: "Email", icon: "email" }
 ] as const;
 
-export const NAV_ITEMS = [
+export const NAV_ITEMS: readonly {
+  href: string;
+  label: string;
+  matchPrefix?: string;
+}[] = [
   { href: "/", label: "Posts" },
-  { href: "/about/", label: "About" }
+  { href: "/about/", label: "About" },
+  { href: "/tools/", label: "Tools", matchPrefix: "/tools" }
 ];
 
 export const WRITING = {

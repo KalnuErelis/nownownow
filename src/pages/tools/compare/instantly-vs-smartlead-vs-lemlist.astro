@@ -1,0 +1,80 @@
+---
+import AffiliateDisclosure from "@/components/AffiliateDisclosure.astro";
+import ToolCta from "@/components/ToolCta.astro";
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import { SITE } from "@/data/site";
+import { COMPARISON, INSTANTLY, getCategoryById, getToolBySlug } from "@/data/tools";
+
+const smartlead = getToolBySlug("smartlead");
+const lemlist = getToolBySlug("lemlist");
+const coldEmail = getCategoryById("cold-email");
+const pageUrl = new URL(COMPARISON.href, SITE.url).toString();
+const entries = [
+  {
+    name: INSTANTLY.name,
+    summary: INSTANTLY.summary,
+    bestFor: INSTANTLY.bestFor,
+    href: INSTANTLY.homepage,
+    sponsored: false,
+    pageHref: undefined
+  },
+  {
+    name: smartlead.name,
+    summary: smartlead.summary,
+    bestFor: smartlead.bestFor,
+    href: smartlead.affiliateUrl,
+    sponsored: true,
+    pageHref: smartlead.href
+  },
+  {
+    name: lemlist.name,
+    summary: lemlist.summary,
+    bestFor: lemlist.bestFor,
+    href: lemlist.affiliateUrl,
+    sponsored: true,
+    pageHref: lemlist.href
+  }
+];
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: COMPARISON.title,
+  description: COMPARISON.description,
+  url: pageUrl
+};
+---
+
+<SiteLayout title={`${COMPARISON.title} | ${SITE.title}`} description={COMPARISON.description} schema={schema}>
+  <main id="main-content" class="page-shell tools-page">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <a href="/tools/">Tools</a>
+        </p>
+        <h1>{COMPARISON.title}</h1>
+        <p>{COMPARISON.intro}</p>
+        <AffiliateDisclosure />
+      </div>
+    </section>
+
+    <div class="tools-rank">
+      {entries.map((entry) => (
+        <article class="tools-rank__item">
+          <h2>
+            {entry.pageHref ? <a href={entry.pageHref}>{entry.name}</a> : entry.name}
+          </h2>
+          <p class="tools-best-for">Best for: {entry.bestFor}</p>
+          <p>{entry.summary}</p>
+          <ToolCta href={entry.href} label={`Visit ${entry.name}`} sponsored={entry.sponsored} />
+        </article>
+      ))}
+    </div>
+
+    <section class="tools-section">
+      <p>{COMPARISON.closing}</p>
+      <p>
+        <a href={coldEmail.href}>{coldEmail.title}</a>
+      </p>
+    </section>
+  </main>
+</SiteLayout>

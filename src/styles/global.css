@@ -1082,3 +1082,153 @@ p {
     font-size: clamp(2rem, 12vw, 2.6rem);
   }
 }
+
+.tools-page .hero-copy {
+  max-width: none;
+}
+
+.tools-disclosure {
+  margin: 1rem 0 0;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: color-mix(in srgb, var(--foreground) 84%, var(--muted-foreground));
+  font-size: 0.875rem;
+}
+
+.tools-group {
+  padding-top: 1.6rem;
+}
+
+.tools-group h2,
+.tools-rank h2 {
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.tools-rank h2 {
+  margin: 0 0 0.45rem;
+  font-size: 1.45rem;
+}
+
+.tools-group h2 a,
+.tools-rank h2 a {
+  text-decoration: none;
+}
+
+.tools-group h2 a:hover,
+.tools-rank h2 a:hover {
+  text-decoration: underline;
+}
+
+.tools-rank h2 a {
+  color: var(--accent);
+}
+
+.tools-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.7rem;
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+}
+
+.tools-index-list,
+.tools-rank,
+.tools-links,
+.tools-points {
+  margin: 0;
+  padding: 0;
+}
+
+.tools-index-list,
+.tools-rank {
+  list-style: none;
+}
+
+.tools-index-list {
+  margin-top: 0.35rem;
+}
+
+.tools-index-list li,
+.tools-rank__item {
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.tools-rank {
+  margin-top: 1.4rem;
+}
+
+.tools-rank__number {
+  display: inline-block;
+  min-width: 1.4rem;
+  margin-right: 0.35rem;
+  color: var(--muted-foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+.tools-index-list__for,
+.tools-best-for {
+  color: color-mix(in srgb, var(--foreground) 78%, var(--muted-foreground));
+}
+
+.tools-index-list__for {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.92rem;
+}
+
+.tools-best-for {
+  margin: 0 0 0.45rem;
+  font-weight: 600;
+}
+
+.tools-pricing {
+  color: color-mix(in srgb, var(--foreground) 84%, var(--muted-foreground));
+}
+
+.tools-cta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.35rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.tools-cta:hover {
+  background: var(--accent);
+  color: var(--background);
+}
+
+.tools-section {
+  padding-top: 1.4rem;
+}
+
+.tools-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1.5rem;
+}
+
+.tools-points,
+.tools-links {
+  padding-left: 1.15rem;
+}
+
+.tools-points li + li,
+.tools-links li + li {
+  margin-top: 0.35rem;
+}
+
+@media (max-width: 720px) {
+  .tools-split {
+    grid-template-columns: 1fr;
+  }
+}

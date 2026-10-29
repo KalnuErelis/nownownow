@@ -1,0 +1,63 @@
+---
+import AffiliateDisclosure from "@/components/AffiliateDisclosure.astro";
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import { SITE } from "@/data/site";
+import {
+  COMPARISON,
+  TOOL_CATEGORIES,
+  TOOLS_INDEX,
+  getRankedTools
+} from "@/data/tools";
+
+const pageUrl = new URL("/tools/", SITE.url).toString();
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: TOOLS_INDEX.title,
+  description: TOOLS_INDEX.description,
+  url: pageUrl
+};
+---
+
+<SiteLayout title={`${TOOLS_INDEX.title} | ${SITE.title}`} description={TOOLS_INDEX.description} schema={schema}>
+  <main id="main-content" class="page-shell tools-page">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">{TOOLS_INDEX.eyebrow}</p>
+        <h1>{TOOLS_INDEX.title}</h1>
+        <p>{TOOLS_INDEX.intro}</p>
+        <AffiliateDisclosure />
+      </div>
+    </section>
+
+    {TOOL_CATEGORIES.map((category) => {
+      const tools = getRankedTools(category.id);
+
+      return (
+        <section class="tools-group">
+          <p class="section-kicker">{category.label}</p>
+          <h2>
+            <a href={category.href}>{category.title}</a>
+          </h2>
+          <ol class="tools-index-list">
+            {tools.map((tool, index) => (
+              <li>
+                <span class="tools-rank__number">{index + 1}</span>
+                <a href={tool.href}>{tool.name}</a>
+                <span class="tools-index-list__for">{tool.bestFor}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+      );
+    })}
+
+    <section class="tools-group">
+      <p class="section-kicker">Comparison</p>
+      <h2>
+        <a href={COMPARISON.href}>{COMPARISON.title}</a>
+      </h2>
+      <p>{COMPARISON.intro}</p>
+    </section>
+  </main>
+</SiteLayout>

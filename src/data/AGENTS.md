@@ -5,6 +5,7 @@
 
 ## STRUCTURE
 - `site.ts` — authored site identity, nav, page metadata, and page content objects
+- `tools.ts` — public outbound tools directory: names, rankings, blurbs, and affiliate URLs only
 - `articles.generated.ts` — generated article payloads from the import script
 - `articles.ts` — thin adapter that adds route-ready post hrefs and exports the article type
 
@@ -12,6 +13,7 @@
 | Task | Location | Notes |
 |------|----------|-------|
 | Site identity / nav / page copy | `site.ts` | Main source of truth for authored content |
+| Tools directory | `tools.ts` | Ranked public tool records. Reorder `CATEGORY_RANKINGS` to change rank. No private affiliate-sheet fields |
 | Generated article source | `articles.generated.ts` | Produced by import script |
 | Article adapter | `articles.ts` | Adds routed `href` values and exported type |
 | Import pipeline | `../../scripts/import_substack_export.py` | Writes `articles.generated.ts` |

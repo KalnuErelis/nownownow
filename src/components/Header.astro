@@ -22,7 +22,10 @@ const currentPath =
             item.href.endsWith("/") && item.href !== "/"
               ? item.href.slice(0, -1)
               : item.href;
-          const active = currentPath === itemPath;
+          const active = item.matchPrefix
+            ? currentPath === item.matchPrefix ||
+              currentPath.startsWith(`${item.matchPrefix}/`)
+            : currentPath === itemPath;
 
           return (
             <li>

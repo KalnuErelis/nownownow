@@ -1,0 +1,15 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  sponsored?: boolean;
+}
+
+const { href, label, sponsored = true } = Astro.props;
+const rel = sponsored ? "sponsored noopener" : "noopener";
+---
+
+<a class="tools-cta" href={href} target="_blank" rel={rel}>
+  {label}
+  <span class="sr-only"> (opens in a new tab)</span>
+</a>
