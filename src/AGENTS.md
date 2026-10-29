@@ -9,7 +9,7 @@ All shipped site code lives here. Blast radius is high because routes share one 
 | Shared shell | `layouts/SiteLayout.astro` | Every page goes through this file |
 | Shared nav / theme button | `components/Header.astro` | Defines `theme-btn` and nav structure |
 | Shared footer | `components/Footer.astro` | Site-wide links and socials |
-| Route roots | `pages/` | Home, about, search, agents, dynamic posts |
+| Route roots | `pages/` | Home, about, search, agents, tools, dynamic posts |
 | Site/page content | `data/site.ts` | Central page copy + metadata |
 | Article adapter | `data/articles.ts` | Route-friendly wrapper over generated content |
 | Global styling | `styles/global.css` | Tokens, shell, route-specific selectors |

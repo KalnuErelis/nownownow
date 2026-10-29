@@ -14,6 +14,7 @@ This directory is a focused Playwright harness, not a general test suite. The ma
 - Mock remote assets before navigating to `/about`; the spec stubs GitHub avatar and activity chart URLs.
 - Keep visual baselines in the configured `tests/__screenshots__/...` path.
 - `/about` is the main verification surface; homepage coverage lives here only as a smoke guard for shared selectors.
+- `tools.spec.ts` is a narrow render check for the tools directory. It is not a visual baseline.
 - Use the existing viewport set for overflow and snapshots unless the contract intentionally changes.
 
 ## ANTI-PATTERNS
