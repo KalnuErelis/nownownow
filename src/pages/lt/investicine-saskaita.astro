@@ -1,0 +1,87 @@
+---
+import BrandLink from "@/components/lt/BrandLink.astro";
+import Guide from "@/components/lt/Guide.astro";
+import { LT_INVEST } from "@/data/lt";
+---
+
+<Guide page={LT_INVEST}>
+  <!-- JAUNIUS: įdėk GPM311 H dalies ekrano kopiją ir parašyk, kurią sąskaitą deklaruoji (brokeris, valstybė, nuo kurios dienos). Neįrašyk sąskaitos numerio, jei nenori jo viešinti. -->
+  <h2 id="kas-tai">Kas tai yra</h2>
+  <p>
+    Investicinė sąskaita yra nuolatinio Lietuvos gyventojo pinigų sąskaita finansų įstaigoje arba mokėjimo paslaugų teikėjuje. Įstaiga turi būti Lietuvoje, kitoje EEE ar EBPO valstybėje, arba valstybėje, su kuria Lietuva taiko dvigubo apmokestinimo išvengimo sutartį. Lėšos joje naudojamos tik
+    <a href="https://www.vmi.lt/evmi/i-kokius-finansinius-produktus-galiu-investuoti-per-investicine-saskaita-" target="_blank" rel="noopener noreferrer">VMI išvardytiems finansiniams produktams</a>.
+  </p>
+  <p>
+    Režimas įsigaliojo 2025 m. sausio 1 d. Atskiro prašymo VMI prieš pradedant investuoti teikti nereikia. Sąskaitą deklaruojate metams pasibaigus, GPM311 formoje, ir nurodote dieną, kurią pradėjote ją naudoti investicijoms.
+  </p>
+  <h2 id="zingsniai">Kaip atidaryti ir deklaruoti</h2>
+  <ol>
+    <li>Atsidarykite pinigų sąskaitą tinkamoje finansų įstaigoje. VMI rašo, kad indėlio, taupomoji ar vien vertybiniams popieriams apskaityti skirta sąskaita investicine nedeklaruojama. Netinka ir sąskaita, į kurią gaunate algą ir iš kurios mokate kasdienes išlaidas.</li>
+    <li>Naudokite lėšas tik tinkamiems produktams: prekybos vietoje kotiruojamiems vertybiniams popieriams ir pinigų rinkos priemonėms, kolektyvinio investavimo vertybiniams popieriams, su jais susietoms išvestinėms priemonėms, sutelktiniam finansavimui pagal reglamentą (ES) 2020/1503, tarpusavio skolinimui pagal vartojimo kredito ir su nekilnojamuoju turtu susijusio kredito įstatymus bei vyriausybių taupymo lakštams.</li>
+    <li>Nepirkite iš šios sąskaitos kriptovaliutų, indėlių ar akcijų, kurios įsigijimo metu nėra įtrauktos į biržos sąrašus. VMI tai laiko naudojimu ne pagal paskirtį, o kriptovaliutoms režimas iš viso netaikomas.</li>
+    <li>Už 2025 m. pateikite GPM311 per Elektroninio deklaravimo sistemą iki 2026 m. birželio 1 d. Įrašykite įstaigą, valstybę, sąskaitos numerį arba paskyros identifikatorių, atidarymo datą ir investicinės sąskaitos pradžios datą. Vėlesnių metų terminą imkite iš to meto VMI paaiškinimo, ne iš šio 2025 m. termino.</li>
+    <li>Jei per metus lėšų neišėmėte, deklaruokite bendrą įnašų sumą. Jei ėmėte, nurodykite kiekvienos dienos įnašus ir išėmimus. Įnašu laikomos įneštos lėšos, sąskaitos likutis deklaravimo pradžios dieną ir į sąskaitą įskaityti dividendai.</li>
+    <li>Pajamų mokestis skaičiuojamas nuo išimtos sumos, kuri viršija iki tol sukauptą įnašą. Nuo 2026 m. sausio 1 d. tarifas yra 15 proc., nepriklausomai nuo sumos. VMI anksčiau minėta 20 proc. riba virš 120 VDU šiam išėmimui nuo 2026 m. nebetaikoma.</li>
+  </ol>
+  <h2 id="teikejai">Kur sąskaitą galima turėti</h2>
+  <p>
+    Brokeris neparduoda lietuviškos „investicinės sąskaitos“ kaip atskiro produkto. Gyventojas deklaruoja pinigų sąskaitą, jei ji atitinka VMI sąlygas. Žemiau tik tai, ką patvirtina VMI, Lietuvos bankas arba priežiūros įstaigos įrašas. Mokesčių, kurių nepatikrinau kainyne, lentelėje nėra.
+  </p>
+  <div class="lt-table-wrap">
+    <table class="lt-table">
+      <caption>Sąskaitos, kurias VMI arba priežiūros sąrašas leidžia vertinti kaip kandidatus</caption>
+      <thead>
+        <tr>
+          <th scope="col">Įstaiga</th>
+          <th scope="col">Ką patvirtina šaltinis</th>
+          <th scope="col">Investicinės sąskaitos statusas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><BrandLink brand="interactive-brokers" label="Interactive Brokers Ireland" /></th>
+          <td>VMI pavyzdys: Lietuvos gyventojas deklaruoja Airijoje esančios Interactive Brokers Ireland Limited paskyrą.</td>
+          <td>Galima deklaruoti, jei tai pinigų sąskaita tik tinkamiems produktams.</td>
+        </tr>
+        <tr>
+          <th scope="row"><BrandLink brand="trading-212" /></th>
+          <td>VMI DUK 42 klausimas tiesiai įvardija Trading 212 kaip platformą, kurios sąskaitą galima deklaruoti.</td>
+          <td>Ta pati sąlyga. Kuri grupės įmonė laiko sąskaitą, matyti sutartyje.</td>
+        </tr>
+        <tr>
+          <th scope="row"><BrandLink brand="xtb" /></th>
+          <td>XTB Limited turi CySEC licenciją 169/12 ir teikia paslaugas Lietuvoje be filialo. Taip įrašyta CySEC ir Lietuvos banko sąrašuose.</td>
+          <td>
+            VMI XTB neįvardija. Tinka tik jei konkreti sąskaita yra pinigų sąskaita tinkamiems produktams. Mokesčiai yra gide
+            <a href="/lt/xtb-atsiliepimai/">XTB atsiliepimai</a>.
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><BrandLink brand="freedom24" label="Freedom24 (Freedom Finance Europe Ltd)" /></th>
+          <td>Freedom Finance Europe Ltd turi CySEC licenciją 275/15. Lietuvos bankas ją įrašęs kaip ES finansų maklerio įmonę, teikiančią paslaugas Lietuvoje be filialo.</td>
+          <td>
+            VMI Freedom24 neįvardija. Galioja ta pati bendra sąskaitos sąlyga. Mokesčiai yra gide
+            <a href="/lt/freedom24-atsiliepimai/">Freedom24 atsiliepimai</a>.
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Lietuvos bankai ir kredito įstaigos</th>
+          <td>VMI pavyzdžiai kalba apie sąskaitą Lietuvos finansų įstaigoje. Atskiras „investicinės sąskaitos“ produktas banko kainyne nebūtinas.</td>
+          <td>Deklaruojama pinigų sąskaita, nenaudojama algai ir kasdienėms išlaidoms. Konkrečių bankų įkainių netikrinau.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h2 id="mokesciai">Kaip skaičiuojamas mokestis</h2>
+  <p>
+    VMI pavyzdys: įnašas 10 000 eurų, išėmimas 1 000 eurų. Išimta suma neviršija įnašo, todėl GPM nėra, o įnašo likutis tampa 9 000 eurų. Jei išėmimas būtų didesnis už įnašą, apmokestinamas tik skirtumas.
+  </p>
+  <p>
+    Dividendai veikia kitaip. Jie apmokestinami išmokant. VMI pavyzdyje nuo 100 eurų dividendų išskaičiuota 15 proc., į sąskaitą įskaityta 85 eurai, ir tie 85 eurai didina įnašą. ETF pardavimo ir dividendų skirtumas yra gide
+    <a href="/lt/etf-investavimas-lietuvoje/">ETF investavimas Lietuvoje</a>.
+    Indėlių palūkanos į investicinės sąskaitos režimą neįeina. Nuo 2014 m. sudarytoms indėlių sutartims neapmokestinama bendra 500 eurų per metus neviršijanti palūkanų suma.
+  </p>
+  <p>
+    Iki 2024 m. gruodžio 31 d. įsigytus tinkamus produktus galima priskirti investicinei sąskaitai deklaruojant jų įsigijimo kainą 2025 m. GPM311 formoje, iki 2026 m. birželio 1 d. Jei sąskaitą atidarote tik vėliau, šio priskyrimo lango VMI paaiškinime nebepalikite nepatikrinę naujos redakcijos.
+  </p>
+</Guide>

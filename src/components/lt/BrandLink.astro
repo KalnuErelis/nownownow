@@ -1,0 +1,13 @@
+---
+import { resolveBrandLink, type LtBrandId } from "@/data/lt-affiliates";
+
+interface Props {
+  brand: LtBrandId;
+  label?: string;
+}
+
+const { brand, label } = Astro.props;
+const link = resolveBrandLink(brand);
+---
+
+<a href={link.href} rel={link.rel} target="_blank">{label ?? link.name}</a>

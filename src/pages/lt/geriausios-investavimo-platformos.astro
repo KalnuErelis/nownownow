@@ -1,0 +1,92 @@
+---
+import BrandLink from "@/components/lt/BrandLink.astro";
+import Guide from "@/components/lt/Guide.astro";
+import { LT_BEST } from "@/data/lt";
+---
+
+<Guide page={LT_BEST}>
+  <!-- JAUNIUS: neįrašyk, kad naudoji šias platformas, kol neįdėjai savo ekrano kopijų. Eilė yra pagal šaltinio tipą, ne pagal portfelį. -->
+  <h2 id="eile">Eilė pagal šaltinį</h2>
+  <p>
+    Vietos nėra balai ir nėra grąžos rikiuotė. Pirma eina tai, ką VMI įvardija investicinei sąskaitai. Toliau ES maklerio įmonės, kurias Lietuvos bankas įrašęs kaip teikiančias paslaugas be filialo ir kurių mokesčius patikrinau. Tada sutelktinio finansavimo licencija su paskelbta mažiausia suma. Finbee stovi atskirai, nes vartotojų svetainė tos licencijos neturi.
+  </p>
+  <div class="lt-table-wrap">
+    <table class="lt-table">
+      <caption>2026 m. trumpasis sąrašas. Tai nėra „geriausia grąža“</caption>
+      <thead>
+        <tr>
+          <th scope="col">Vieta</th>
+          <th scope="col">Platforma</th>
+          <th scope="col">Kodėl ši vieta</th>
+          <th scope="col">Kas patikrinta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td><BrandLink brand="interactive-brokers" label="Interactive Brokers Ireland" /></td>
+          <td>VMI pavyzdys Lietuvos gyventojui.</td>
+          <td>
+            Airijos įmonė. JAV akcijų pakopinis komisinis 0,0035 USD už akciją, mažiausiai 0,35 USD.
+            <a href="/lt/interactive-brokers-lietuvoje/">Sąlygos</a>.
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td><BrandLink brand="trading-212" /></td>
+          <td>VMI DUK tiesiogiai įvardija Trading 212.</td>
+          <td>
+            Invest sąskaitoje komisinis 0, saugojimas 0, valiutos keitimas 0,15 proc. CFD sąlygose 75 proc. mažmeninių sąskaitų patiria nuostolių.
+            <a href="/lt/trading-212-atsiliepimai/">Atsiliepimai</a>.
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td><BrandLink brand="xtb" /></td>
+          <td>Lietuvos banko įrašas: paslaugos Lietuvoje be filialo. Mokesčiai patikrinti Kipro kainyne.</td>
+          <td>
+            CySEC 169/12. Akcijoms ir ETF 0 proc. iki 100 000 eurų per mėnesį. CFD perspėjimas 77 proc.
+            <a href="/lt/xtb-atsiliepimai/">Atsiliepimai</a>.
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td><BrandLink brand="freedom24" /></td>
+          <td>Lietuvos banko įrašas: ES maklerio įmonė be filialo. Mokesčiai patikrinti kainyne nuo 2026-08-19.</td>
+          <td>
+            CySEC 275/15. Smart plane 2 eurai už pavedimą ir 0,02 euro už akciją. VMI neįvardija.
+            <a href="/lt/freedom24-atsiliepimai/">Atsiliepimai</a>.
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td><BrandLink brand="profitus" /></td>
+          <td>Sutelktinio finansavimo licencija ir paskelbta mažiausia suma.</td>
+          <td>
+            UAB „Profitus Crowdfunding“, Nr. 10 nuo 2023-11-10. Nuo 100 eurų. Operatoriaus vidurkis 9,84 proc.
+            <a href="/lt/profitus-atsiliepimai/">Atsiliepimai</a>.
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Atskirai</th>
+          <td><BrandLink brand="finbee" label="Finbee" /></td>
+          <td>Vartotojų svetainė sutelktinio finansavimo licencijos neturi. Mokėjimų įmonė turi kitą licenciją.</td>
+          <td>
+            EMI Nr. 87, UAB „Elektroninių pinigų bitė“. Mažiausia suma 5 eurai. 2025 m. antraštė 14,2 proc. Nr. 8 priklauso finbeeeverslui.lt.
+            <a href="/lt/finbee-atsiliepimai/">Atsiliepimai</a>.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h2 id="ko-nera">Ko eilėje nėra</h2>
+  <p>
+    Nėra eToro. Nėra kriptovaliutų platformų. EstateGuru ir Mintos 2026 m. spalio 30 d. Lietuvos banko sutelktinio finansavimo sąraše nebuvo, todėl jų čia nėra. Visos septyniolika tą dieną galiojusių licencijų, įskaitant tas, kurių sąlygų netikrinau, yra gide
+    <a href="/lt/investavimo-platformos/">Investavimo platformos</a>.
+    ETF mokesčiai fiziniam asmeniui yra gide
+    <a href="/lt/etf-investavimas-lietuvoje/">ETF investavimas Lietuvoje</a>.
+  </p>
+  <p>
+    CFD nuostolių dalis parašyta tik Trading 212 ir XTB apžvalgose, nes tik ten radau to teikėjo paskelbtą procentą. Licencija neapsaugo nuo rinkos kritimo ir nuo negrąžintos paskolos.
+  </p>
+</Guide>

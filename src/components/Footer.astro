@@ -3,6 +3,11 @@ import Hr from "./Hr.astro";
 import Icon from "./Icon.astro";
 import Socials from "./Socials.astro";
 import { SITE } from "@/data/site";
+
+const pathname = Astro.url.pathname;
+const currentPath =
+  pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
+const lithuanianHub = currentPath === "/lt";
 ---
 
 <footer class="site-footer">
@@ -14,6 +19,17 @@ import { SITE } from "@/data/site";
       <a href="/tools/">Tools</a>
       <a href="/about/">About</a>
       <a href="/agents/">Agents</a>
+      {
+        lithuanianHub ? (
+          <a href="/lt/" lang="lt" aria-current="page">
+            Lietuviškai
+          </a>
+        ) : (
+          <a href="/lt/" lang="lt">
+            Lietuviškai
+          </a>
+        )
+      }
     </div>
     <p class="site-footer__credit">
       <a href={SITE.github} target="_blank" rel="noreferrer">
