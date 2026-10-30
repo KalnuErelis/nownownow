@@ -1,0 +1,35 @@
+---
+import Guide from "@/components/lt/Guide.astro";
+import VatCalculator from "@/components/lt/VatCalculator.astro";
+import { LT_VAT } from "@/data/lt";
+---
+
+<Guide page={LT_VAT}>
+  <!-- JAUNIUS: jei nori, įdėk tikros MB sąskaitos faktūros fragmentą su uždengtais kliento duomenimis. Skaičiuoklei jis nebūtinas. -->
+  <h2 id="tarifai">Kokie tarifai galioja 2026 metais</h2>
+  <p>
+    VMI tarifų sąrašas nuo 2026 m. sausio 1 d. nurodo tris šiame puslapyje skaičiuojamus tarifus: standartinį 21 proc. ir lengvatinius 12 proc. bei 5 proc. 9 proc. tarifas tame pačiame sąraše pažymėtas kaip galiojęs iki 2025 m. gruodžio 31 d. Naujiems 2026 m. sandoriams jo nenaudokite. Yra ir 0 proc. tarifas, bet skaičiuoklė jo neskaičiuoja, nes 0 proc. taikymas priklauso nuo sandorio rūšies, ne nuo aritmetikos.
+  </p>
+  <p>
+    12 proc. nuo 2026 m. sausio 1 d. taikomas apgyvendinimo paslaugoms, keleivių vežimui reguliaraus susisiekimo maršrutais ir jų bagažui bei meno ir kultūros įstaigų ir renginių lankymui, kai netaikomas PVM įstatymo 23 straipsnis. Apgyvendinimo rezervacijai, užregistruotai iki 2025 m. gruodžio 31 d., VMI dar palieka 9 proc. išimtį. Maistas, kuris nepatenka į lengvatinį sąrašą, lieka prie 21 proc.
+  </p>
+  <p>
+    5 proc. taikomas vaistams ir medicinos priemonėms VMI išvardytomis sąlygomis, asmenų su negalia techninės pagalbos priemonėms ir jų remontui, periodiniams leidiniams, o nuo 2026 m. sausio 1 d. ir knygoms bei neperiodiniams informaciniams leidiniams. Reklamai ir kalendoriams yra išimčių, todėl prieš sąskaitą atidarykite
+    <a href="https://www.vmi.lt/evmi/lengvatinis-5-proc.-pvm-tarifas-19-str.-" target="_blank" rel="noopener noreferrer">VMI 5 proc. puslapį</a>.
+  </p>
+  <h2 id="formule">Formulė</h2>
+  <p>Pridėti PVM: suma su PVM = suma be PVM × (1 + tarifas). Išskirti PVM: suma be PVM = suma su PVM / (1 + tarifas). PVM yra šių dviejų sumų skirtumas.</p>
+  <ul>
+    <li>21 proc.: daugiklis 1,21. 100 eurų be PVM tampa 121 euru, mokestis 21 euras.</li>
+    <li>12 proc.: daugiklis 1,12. 100 eurų be PVM tampa 112 eurų, mokestis 12 eurų.</li>
+    <li>5 proc.: daugiklis 1,05. 200 eurų be PVM tampa 210 eurų, mokestis 10 eurų.</li>
+    <li>Istorinis 9 proc.: daugiklis 1,09. 100 eurų be PVM taptų 109 eurais. Tai skaičius seniems sandoriams, ne 2026 m. tarifui.</li>
+  </ul>
+  <h2 id="skaiciuokle">Skaičiuoklė</h2>
+  <VatCalculator />
+  <p>
+    Kai mažoji bendrija tampa PVM mokėtoja, tas pats tarifas atsiranda sąskaitoje faktūroje. Steigimo ir pelno mokesčio tvarka yra gide
+    <a href="/lt/mb-steigimas-ir-mokesciai/">MB steigimas ir MB mokesčiai</a>.
+    Ar konkreti MB jau yra PVM mokėtoja, šis puslapis nenusprendžia.
+  </p>
+</Guide>

@@ -1,0 +1,170 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import { affiliateDisclosureLt } from "@/data/lt-affiliates";
+import {
+  LT_AUTHOR,
+  LT_CAPITAL_WARNING,
+  LT_CFD_WARNING,
+  LT_UPDATED,
+  LT_UPDATED_LABEL,
+  hreflangAlternates,
+  type LtPageMeta
+} from "@/data/lt";
+import { SITE } from "@/data/site";
+
+interface Props {
+  page: LtPageMeta;
+}
+
+const { page } = Astro.props;
+const pageUrl = new URL(page.path, SITE.url).toString();
+const disclosure = affiliateDisclosureLt();
+
+const article = {
+  "@context": "https://schema.org",
+  "@type": page.path === "/lt/" ? "CollectionPage" : "Article",
+  headline: page.h1,
+  name: page.h1,
+  description: page.description,
+  inLanguage: "lt",
+  datePublished: LT_UPDATED,
+  dateModified: LT_UPDATED,
+  author: {
+    "@type": "Person",
+    name: LT_AUTHOR.name,
+    url: LT_AUTHOR.url
+  },
+  publisher: {
+    "@type": "Person",
+    name: LT_AUTHOR.name,
+    url: SITE.url
+  },
+  mainEntityOfPage: pageUrl,
+  url: pageUrl
+};
+
+const faq = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "lt",
+  mainEntity: page.faqs.map((entry) => ({
+    "@type": "Question",
+    name: entry.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: entry.answer
+    }
+  }))
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Pradžia",
+      item: SITE.url
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Lietuviški gidai",
+      item: new URL("/lt/", SITE.url).toString()
+    },
+    ...(page.path === "/lt/"
+      ? []
+      : [
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: page.crumb,
+            item: pageUrl
+          }
+        ])
+  ]
+};
+---
+
+<SiteLayout
+  lang="lt"
+  title={`${page.title} | ${LT_AUTHOR.name}`}
+  description={page.description}
+  ogType={page.path === "/lt/" ? "website" : "article"}
+  publishedTime={page.path === "/lt/" ? undefined : LT_UPDATED}
+  alternates={hreflangAlternates(page.path)}
+  schema={[article, faq, breadcrumb]}
+>
+  <main id="main-content" class="page-shell article-page lt-page">
+    <article class="article-content">
+      <p class="tools-breadcrumb">
+        <a href="/">Pradžia</a>
+        <span aria-hidden="true">/</span>
+        {page.path === "/lt/" ? <span>Lietuviški gidai</span> : <a href="/lt/">Lietuviški gidai</a>}
+        {
+          page.path !== "/lt/" && (
+            <>
+              <span aria-hidden="true">/</span>
+              <span>{page.crumb}</span>
+            </>
+          )
+        }
+      </p>
+      <p class="article-meta">
+        {LT_AUTHOR.name} · atnaujinta {LT_UPDATED_LABEL}
+      </p>
+      <h1>{page.h1}</h1>
+      <p class="lt-answer">{page.lede}</p>
+      {page.investing && <p class="lt-warning">{LT_CAPITAL_WARNING}</p>}
+      {page.cfd && <p class="lt-warning">{LT_CFD_WARNING}</p>}
+      {page.disclosure && <p class="tools-disclosure">{disclosure}</p>}
+      {
+        page.placeholder && (
+          <aside class="lt-placeholder">
+            <p>
+              <strong>Asmeninė patirtis dar neįdėta.</strong> {page.placeholder}
+            </p>
+          </aside>
+        )
+      }
+      <slot />
+      <section class="lt-faq" id="duk">
+        <h2>Dažni klausimai</h2>
+        {page.faqs.map((entry) => (
+          <div class="lt-faq__item">
+            <h3>{entry.question}</h3>
+            <p>{entry.answer}</p>
+          </div>
+        ))}
+      </section>
+      <section class="lt-related" id="susije">
+        <h2>Susiję gidai</h2>
+        <ul>
+          {page.related.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section class="lt-sources" id="saltiniai">
+        <h2>Šaltiniai</h2>
+        <ul>
+          {page.sources.map((source) => (
+            <li>
+              <a
+                href={source.href}
+                target={source.href.startsWith("http") ? "_blank" : undefined}
+                rel={source.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              >
+                {source.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p class="lt-sources__note">Patikrinta {LT_UPDATED_LABEL}. Tarifai keičiasi, todėl prieš deklaruojant atidarykite pirminį šaltinį.</p>
+      </section>
+    </article>
+  </main>
+</SiteLayout>
