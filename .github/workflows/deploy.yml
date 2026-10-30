@@ -46,6 +46,15 @@ jobs:
           
       - name: Build site
         run: npm run build
+
+      - name: Select Pages output
+        id: pages-output
+        run: |
+          if [ -f dist/client/index.html ]; then
+            echo "path=dist/client" >> "$GITHUB_OUTPUT"
+          else
+            echo "path=dist" >> "$GITHUB_OUTPUT"
+          fi
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -53,7 +62,7 @@ jobs:
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: ${{ steps.pages-output.outputs.path }}
           
       - name: Deploy to GitHub Pages
         id: deployment

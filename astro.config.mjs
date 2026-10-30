@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
+import vercel from "@astrojs/vercel";
 
 // `@astrojs/sitemap` emits `sitemap-index.xml` plus `sitemap-0.xml`.
 // Crawlers that request the conventional `/sitemap.xml` path get the same index.
@@ -21,6 +22,13 @@ function sitemapXmlAlias() {
 
 export default defineConfig({
   site: "https://kadunas.com",
-  integrations: [sitemap(), sitemapXmlAlias()],
-  output: "static"
+  output: "static",
+  // On-demand /go and /api routes. The rest of the site stays prerendered.
+  adapter: vercel(),
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes("/go/") && !page.includes("/api/")
+    }),
+    sitemapXmlAlias()
+  ]
 });
