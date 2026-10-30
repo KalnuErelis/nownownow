@@ -1,9 +1,12 @@
+import { goPathForAffiliateUrl } from "@/data/affiliate-links";
+
 /**
  * Public outbound tools directory.
  *
  * Ranking: reorder slugs in `CATEGORY_RANKINGS`. Earlier slugs rank higher.
  * Affiliate URLs are the public tracking links only. Do not add emails,
  * earnings, payout notes, or commission terms to this file.
+ * Rendered CTAs use `outboundHref` (`/go/<slug>`), not `affiliateUrl`.
  *
  * Salesforge.ai's sheet cell contained three URLs stuck together. They are
  * stored separately for Salesforge, Mailforge, and Infraforge.
@@ -46,6 +49,7 @@ export interface Tool {
   pros: string[];
   cons: string[];
   affiliateUrl: string;
+  outboundHref: string;
   homepage: string;
   pricing?: string;
 }
@@ -112,6 +116,7 @@ function defineTool(entry: ToolInput): Tool {
     pros: [...entry.pros],
     cons: [...entry.cons],
     affiliateUrl: entry.affiliateUrl,
+    outboundHref: goPathForAffiliateUrl(entry.affiliateUrl),
     homepage: entry.homepage,
     ...(entry.pricing ? { pricing: entry.pricing } : {})
   };
@@ -611,6 +616,9 @@ function assertPublicToolsData(): void {
 
     if (!tool.affiliateUrl.startsWith("https://") || /\s/.test(tool.affiliateUrl)) {
       throw new Error(`Affiliate URL must be a single https URL for ${tool.slug}`);
+    }
+    if (tool.outboundHref !== goPathForAffiliateUrl(tool.affiliateUrl) || !tool.outboundHref.startsWith("/go/")) {
+      throw new Error(`Affiliate CTA for ${tool.slug} must use /go/`);
     }
 
     const publicText = [
