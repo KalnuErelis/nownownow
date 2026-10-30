@@ -60,5 +60,6 @@ const schemaPayloads = Array.isArray(schema) ? schema : schema ? [schema] : [];
     <Header />
     <slot />
     <Footer />
+    {import.meta.env.PROD && <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: "2aed2f9f70de4f678a2ec227ee92e068" })}></script>}
   </body>
 </html>
