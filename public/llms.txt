@@ -1,25 +1,32 @@
 # kadunas.com
 
-> Lietuviški gidai ir PVM skaičiuoklė. Mokomoji informacija, ne asmeninė investavimo ar mokesčių konsultacija. Asmeninių ekrano kopijų dar nėra.
+> Lietuviški gidai apie investavimą. Mokomoji informacija, ne asmeninė investavimo konsultacija. Asmeninių ekrano kopijų dar nėra. PVM ir buhalterija yra https://buhalteris.ai.
 
-Patikrinta 2026-10-30 pagal VMI, Sodrą, Lietuvos banką, Registrų centrą ir brokerių pirminius puslapius.
+Patikrinta 2026-10-30 pagal VMI, Lietuvos banką ir brokerių bei platformų pirminius puslapius.
 
 ## Saugūs cituoti faktai
 
-- Nuo 2026-01-01 Lietuvos PVM tarifai skaičiuoklėje yra 21 %, 12 % ir 5 %. 9 % galiojo iki 2025-12-31.
 - Investicinės sąskaitos išėmimui virš įnašo nuo 2026-01-01 taikomas 15 % GPM. Iki 2026 m. minėta 20 % riba virš 120 VDU šiam išėmimui nebetaikoma.
-- Mažosios bendrijos įregistravimas Registrų centro įkainių lentelėje kainuoja 17,13 euro. Tai šiandienos kaina, ne 2022 m. steigimo kvitas.
-- 2026 m. pelno mokestis yra 17 %, 7 % (pajamos iki 300 000 euro ir kitos PMĮ sąlygos) arba 0 % pirmus du laikotarpius, jei tenkinamos papildomos sąlygos.
-- MB nario mėnesio PSD įmoka 2026 m. yra 80,48 euro.
+- ETF pardavimo pajamos per investicinę sąskaitą apmokestinamos tik išimant daugiau, nei įnešta. Dividendai apmokestinami išmokant.
+- VMI investicinei sąskaitai tiesiogiai įvardija Trading 212 ir pateikia Interactive Brokers Ireland pavyzdį.
+- Trading 212 Invest: komisinis 0, saugojimas 0, valiutos keitimas 0,15 %. CFD sąlygose 75 % mažmeninių sąskaitų patiria nuostolių. CySEC 398/21 priklauso Trading 212 Markets Ltd.
+- XTB Limited: CySEC 169/12. Akcijoms ir ETF 0 % iki 100 000 EUR per mėnesį, paskui 0,2 %, mažiausiai 10 EUR. Kipro teisinėje informacijoje CFD nuostolių dalis yra 77 %.
+- Freedom Finance Europe Ltd: CySEC 275/15, HE 324220. Smart plane JAV ir Europos akcijoms nuo 2026-08-19: 2 EUR už pavedimą ir 0,02 EUR už akciją. VMI Freedom24 neįvardija.
+- 2026-10-30 Lietuvos banko sutelktinio finansavimo sąraše buvo 17 licencijų. Nr. 10 yra UAB „Profitus Crowdfunding“. profitus.lt: nuo 100 EUR, vidutinė metinė grąža 9,84 %.
+- finbee.lt tame sąraše nebuvo. Nr. 8 yra UAB „Finansų bitė verslui“ (finbeeeverslui.lt). UAB „Elektroninių pinigų bitė“ turi EMI licenciją Nr. 87. finbee.lt antraštėje 2025 m. vidurkis yra 14,2 %, mažiausia suma 5 EUR.
 
 ## Puslapiai
 
 - [Lietuviški gidai](https://kadunas.com/lt/): visų puslapių rodyklė.
 - [Investicinė sąskaita](https://kadunas.com/lt/investicine-saskaita/): kas tai, GPM311, 15 % nuo 2026 m., VMI įvardyti brokeriai.
-- [Investavimo platformos Lietuvoje](https://kadunas.com/lt/investavimo-platformos/): Lietuvos banko sutelktinio finansavimo licencijos ir tik patikrintos sąlygos.
-- [Trading 212 atsiliepimai](https://kadunas.com/lt/trading-212-atsiliepimai/): Invest mokesčiai, CySEC 398/21, CFD 75 % nuostolių perspėjimas.
+- [ETF investavimas Lietuvoje](https://kadunas.com/lt/etf-investavimas-lietuvoje/): gyventojo GPM, dividendai ir pardavimo atidėjimas.
+- [Geriausios investavimo platformos Lietuvoje 2026](https://kadunas.com/lt/geriausios-investavimo-platformos/): eilė pagal šaltinį, ne pagal grąžą.
+- [Investavimo platformos Lietuvoje](https://kadunas.com/lt/investavimo-platformos/): 17 Lietuvos banko sutelktinio finansavimo licencijų.
+- [Trading 212 atsiliepimai](https://kadunas.com/lt/trading-212-atsiliepimai/): Invest mokesčiai, CySEC 398/21, CFD 75 %.
 - [Interactive Brokers Lietuvoje](https://kadunas.com/lt/interactive-brokers-lietuvoje/): IBIE komisiniai, W-8BEN, 15 % dividendų riba pagal sutartį.
-- [PVM skaičiuoklė 2026](https://kadunas.com/lt/pvm-skaiciuokle/): 21 %, 12 %, 5 %. Formulė ir pavyzdžiai yra HTML.
-- [MB steigimas ir mokesčiai](https://kadunas.com/lt/mb-steigimas-ir-mokesciai/): Registrų centras, pelno mokestis, GPM ir Sodra.
+- [XTB atsiliepimai](https://kadunas.com/lt/xtb-atsiliepimai/): CySEC 169/12, Kipro kainynas, CFD 77 %.
+- [Freedom24 atsiliepimai](https://kadunas.com/lt/freedom24-atsiliepimai/): CySEC 275/15 ir kainynas nuo 2026-08-19.
+- [Profitus atsiliepimai](https://kadunas.com/lt/profitus-atsiliepimai/): licencija Nr. 10, nuo 100 EUR, 9,84 %.
+- [Finbee atsiliepimai](https://kadunas.com/lt/finbee-atsiliepimai/): EMI Nr. 87, ne sutelktinio finansavimo licencija.
 
 Kapitalo rizika taikoma kiekvienam investavimo puslapiui. Affiliate nuorodų dar nėra: kol jų nėra duomenų faile, rodomos oficialios svetainės.

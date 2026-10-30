@@ -39,6 +39,8 @@ export interface LtPageMeta {
   placeholder: string;
   investing: boolean;
   cfd: boolean;
+  /** Used when `cfd` is true and the provider is not Trading 212. */
+  cfdWarning?: string;
   disclosure: boolean;
 }
 
@@ -52,8 +54,12 @@ export const EN_COUNTERPART: Record<string, string | null> = {
   "/lt/investavimo-platformos/": null,
   "/lt/trading-212-atsiliepimai/": null,
   "/lt/interactive-brokers-lietuvoje/": null,
-  "/lt/pvm-skaiciuokle/": null,
-  "/lt/mb-steigimas-ir-mokesciai/": null
+  "/lt/freedom24-atsiliepimai/": null,
+  "/lt/xtb-atsiliepimai/": null,
+  "/lt/etf-investavimas-lietuvoje/": null,
+  "/lt/finbee-atsiliepimai/": null,
+  "/lt/profitus-atsiliepimai/": null,
+  "/lt/geriausios-investavimo-platformos/": null
 };
 
 export function hreflangAlternates(pathname: string): { hrefLang: string; href: string }[] {
@@ -74,21 +80,32 @@ export const LT_CAPITAL_WARNING =
 export const LT_CFD_WARNING =
   "CFD yra sudėtingos priemonės ir dėl sverto kyla didelė rizika greitai prarasti pinigus. Trading 212 savo CFD sąlygose rašo, kad 75 proc. mažmeninių investuotojų sąskaitų patiria nuostolių prekiaujant CFD pas šį teikėją. Įvertinkite, ar suprantate, kaip veikia CFD, ir ar galite prisiimti didelę riziką prarasti pinigus.";
 
+export const LT_XTB_CFD_WARNING =
+  "CFD yra sudėtingos priemonės ir dėl sverto kyla didelė rizika greitai prarasti pinigus. XTB Limited Kipro svetainės teisinėje informacijoje rašo, kad 77 proc. mažmeninių investuotojų sąskaitų patiria nuostolių prekiaujant CFD pas šį teikėją. Įvertinkite, ar suprantate, kaip veikia CFD, ir ar galite prisiimti didelę riziką prarasti pinigus.";
+
 const HUB = "/lt/";
 const INVEST = "/lt/investicine-saskaita/";
 const PLATFORMS = "/lt/investavimo-platformos/";
 const T212 = "/lt/trading-212-atsiliepimai/";
 const IBKR = "/lt/interactive-brokers-lietuvoje/";
-const VAT = "/lt/pvm-skaiciuokle/";
-const MB = "/lt/mb-steigimas-ir-mokesciai/";
+const FREEDOM = "/lt/freedom24-atsiliepimai/";
+const XTB_PAGE = "/lt/xtb-atsiliepimai/";
+const ETF = "/lt/etf-investavimas-lietuvoje/";
+const FINBEE = "/lt/finbee-atsiliepimai/";
+const PROFITUS = "/lt/profitus-atsiliepimai/";
+const BEST = "/lt/geriausios-investavimo-platformos/";
 
 export const LT_NAV: readonly LtRelated[] = [
   { href: INVEST, label: "Investicinė sąskaita" },
+  { href: ETF, label: "ETF investavimas" },
+  { href: BEST, label: "Geriausios platformos 2026" },
   { href: PLATFORMS, label: "Investavimo platformos" },
   { href: T212, label: "Trading 212" },
   { href: IBKR, label: "Interactive Brokers" },
-  { href: VAT, label: "PVM skaičiuoklė" },
-  { href: MB, label: "MB steigimas ir mokesčiai" }
+  { href: XTB_PAGE, label: "XTB" },
+  { href: FREEDOM, label: "Freedom24" },
+  { href: PROFITUS, label: "Profitus" },
+  { href: FINBEE, label: "Finbee" }
 ];
 
 export interface LicenceRow {
@@ -288,15 +305,15 @@ export const LT_HUB: LtPageMeta = {
   path: HUB,
   title: "Lietuviški gidai",
   description:
-    "Lietuviški gidai apie investicinę sąskaitą, sutelktinio finansavimo platformas, Trading 212, Interactive Brokers, PVM skaičiuoklę ir MB mokesčius 2026 m.",
+    "Lietuviški gidai apie investicinę sąskaitą, ETF mokesčius, brokerius ir sutelktinio finansavimo platformas. Skaičiai patikrinti 2026 m. spalio 30 d.",
   h1: "Lietuviški gidai",
-  lede: "Čia yra lietuviški kadunas.com gidai apie investicinę sąskaitą, sutelktinio finansavimo platformas, brokerius, PVM ir mažąją bendriją. Skaičiai imti iš VMI, Sodros, Lietuvos banko ir Registrų centro ir patikrinti 2026 m. spalio 30 d. Jei ieškote skaičiuoklės, PVM puslapyje veikia 21, 12 ir 5 proc. tarifai. Tai paaiškinimai, ne asmeninė konsultacija.",
+  lede: "Čia yra lietuviški gidai apie investicinę sąskaitą, brokerius ir sutelktinio finansavimo platformas. Skaičiai patikrinti 2026 m. spalio 30 d. pagal VMI, Lietuvos banką ir pačių teikėjų dokumentus. PVM, mažosios bendrijos steigimas ir buhalterija yra kitame puslapyje, buhalteris.ai. Tai paaiškinimai, ne asmeninė konsultacija.",
   crumb: "Lietuviški gidai",
   investing: true,
   cfd: false,
   disclosure: true,
   placeholder:
-    "Asmeninių brokerio ar steigimo ekrano kopijų šiame skyriuje dar nėra. Kiekviename gide pažymėta, ką turiu papildyti pats.",
+    "Asmeninių brokerio ekrano kopijų šiame skyriuje dar nėra. Kiekviename gide pažymėta, ką turiu papildyti pats.",
   faqs: [
     {
       question: "Kokia kalba parašyti šie puslapiai?",
@@ -306,17 +323,17 @@ export const LT_HUB: LtPageMeta = {
     {
       question: "Ar tai investavimo arba mokesčių patarimas?",
       answer:
-        "Ne. Tekstai paaiškina viešus tarifus ir taisykles. Sprendimą ir deklaraciją turite pasitikrinti pagal savo situaciją, o prireikus su VMI, Sodra arba savo buhalteriu."
+        "Ne. Tekstai paaiškina viešus tarifus ir taisykles. Sprendimą ir deklaraciją turite pasitikrinti pagal savo situaciją, o prireikus su VMI."
     },
     {
       question: "Iš kur paimti skaičiai?",
       answer:
-        "Iš VMI, Sodros, Lietuvos banko, Registrų centro, JAV ir Lietuvos mokesčių sutarties bei pačių brokerių ir platformų puslapių. Patikros data yra 2026 m. spalio 30 d. Nepatvirtinto skaičiaus puslapyje nepalikau."
+        "Iš VMI, Lietuvos banko, JAV ir Lietuvos mokesčių sutarties bei pačių brokerių ir platformų puslapių. Patikros data yra 2026 m. spalio 30 d. Nepatvirtinto skaičiaus puslapyje nepalikau."
     },
     {
-      question: "Kodėl PVM skaičiuoklėje nėra 9 proc. kaip galiojančio tarifo?",
+      question: "Kur rasti PVM ir MB mokesčius?",
       answer:
-        "Nuo 2026 m. sausio 1 d. lengvatinis 9 proc. tarifas nebetaikomas naujiems sandoriams. Vietoje jo yra 12 proc. ir 5 proc. Istorinį 9 proc. skaičiavimą skaičiuoklė vis dar leidžia, bet jis pažymėtas kaip galiojęs iki 2025 m. gruodžio 31 d."
+        "Ši svetainė jų nebedengia. PVM, mažosios bendrijos steigimas ir buhalterija yra buhalteris.ai. Čia lieka tik gyventojo investavimo paaiškinimai."
     }
   ],
   sources: [VMI_GPM, LB_LIST],
@@ -398,10 +415,10 @@ export const LT_INVEST: LtPageMeta = {
     }
   ],
   related: [
+    { href: ETF, label: "ETF investavimas Lietuvoje" },
     { href: T212, label: "Trading 212 atsiliepimai" },
     { href: IBKR, label: "Interactive Brokers Lietuvoje" },
-    { href: PLATFORMS, label: "Investavimo platformos" },
-    { href: HUB, label: "Visi lietuviški gidai" }
+    { href: BEST, label: "Geriausios investavimo platformos" }
   ]
 };
 
@@ -467,10 +484,10 @@ export const LT_PLATFORMS: LtPageMeta = {
     VMI_PRODUCTS
   ],
   related: [
-    { href: INVEST, label: "Investicinė sąskaita" },
-    { href: T212, label: "Trading 212" },
-    { href: IBKR, label: "Interactive Brokers" },
-    { href: HUB, label: "Visi lietuviški gidai" }
+    { href: BEST, label: "Geriausios investavimo platformos" },
+    { href: PROFITUS, label: "Profitus atsiliepimai" },
+    { href: FINBEE, label: "Finbee atsiliepimai" },
+    { href: INVEST, label: "Investicinė sąskaita" }
   ]
 };
 
@@ -540,9 +557,9 @@ export const LT_T212: LtPageMeta = {
   ],
   related: [
     { href: INVEST, label: "Investicinė sąskaita" },
-    { href: IBKR, label: "Interactive Brokers Lietuvoje" },
-    { href: PLATFORMS, label: "Investavimo platformos" },
-    { href: HUB, label: "Visi lietuviški gidai" }
+    { href: BEST, label: "Geriausios investavimo platformos" },
+    { href: XTB_PAGE, label: "XTB atsiliepimai" },
+    { href: IBKR, label: "Interactive Brokers Lietuvoje" }
   ]
 };
 
@@ -609,186 +626,429 @@ export const LT_IBKR: LtPageMeta = {
   ],
   related: [
     { href: INVEST, label: "Investicinė sąskaita" },
+    { href: BEST, label: "Geriausios investavimo platformos" },
     { href: T212, label: "Trading 212 atsiliepimai" },
-    { href: PLATFORMS, label: "Investavimo platformos" },
-    { href: HUB, label: "Visi lietuviški gidai" }
+    { href: FREEDOM, label: "Freedom24 atsiliepimai" }
   ]
 };
 
-export const LT_VAT: LtPageMeta = {
-  path: VAT,
-  title: "PVM skaičiuoklė 2026: 21 %, 12 % ir 5 %",
+export const LT_FREEDOM: LtPageMeta = {
+  path: FREEDOM,
+  title: "Freedom24 atsiliepimai: mokesčiai ir licencija",
   description:
-    "PVM skaičiuoklė 2026 metams. Standartinis tarifas 21 proc., lengvatiniai 12 ir 5 proc. 9 proc. galiojo iki 2025-12-31. Formulė ir pavyzdžiai matomi be JavaScript.",
-  h1: "PVM skaičiuoklė 2026 (21 %, 12 %, 5 %)",
-  lede: "Nuo 2026 m. sausio 1 d. Lietuvoje standartinis PVM tarifas yra 21 proc., o lengvatiniai tarifai yra 12 proc. ir 5 proc. 9 proc. tarifas galiojo iki 2025 m. gruodžio 31 d. ir naujiems sandoriams nebetaikomas. Skaičiuoklė prideda arba išskiria PVM, o pavyzdžiai žemiau yra HTML, todėl matomi ir be JavaScript.",
-  crumb: "PVM skaičiuoklė",
-  investing: false,
+    "Freedom24 yra Freedom Finance Europe Ltd, CySEC 275/15. Smart plane JAV ir Europos akcijoms nuo 2026-08-19 yra 2 eurai už pavedimą ir 0,02 euro už akciją. VMI šios sąskaitos neįvardija.",
+  h1: "Freedom24 atsiliepimai: mokesčiai ir licencija",
+  lede: "Freedom24 yra Freedom Finance Europe Ltd prekės ženklas. Įmonė registruota Kipre, HE 324220, ir turi CySEC licenciją 275/15. Lietuvos bankas ją įrašęs kaip ES finansų maklerio įmonę, teikiančią paslaugas Lietuvoje be filialo. Nuo 2026 m. rugpjūčio 19 d. kainyne JAV ir Europos akcijoms Smart plane yra 2 eurai už pavedimą ir 0,02 euro už akciją. VMI Freedom24 investicinei sąskaitai neįvardija.",
+  crumb: "Freedom24",
+  investing: true,
   cfd: false,
-  disclosure: false,
-  placeholder: "",
-  faqs: [
-    {
-      question: "Kokie PVM tarifai galioja 2026 metais?",
-      answer:
-        "21 proc. standartinis, 12 proc. ir 5 proc. lengvatiniai. VMI tarifų sąraše 9 proc. nurodytas kaip galiojęs iki 2025 m. gruodžio 31 d., o 12 proc. kaip galiojantis nuo 2026 m. sausio 1 d. Yra ir 0 proc. tarifas, bet ši skaičiuoklė jo neskaičiuoja."
-    },
-    {
-      question: "Kam taikomas 12 proc. tarifas?",
-      answer:
-        "Nuo 2026 m. sausio 1 d. apgyvendinimo paslaugoms, keleivių vežimui reguliaraus susisiekimo maršrutais ir jų bagažui bei meno ir kultūros įstaigų ir renginių lankymui, kai netaikomas PVM įstatymo 23 straipsnis."
-    },
-    {
-      question: "Kam taikomas 5 proc. tarifas?",
-      answer:
-        "Vaistams ir medicinos priemonėms VMI išvardytomis sąlygomis, asmenų su negalia techninės pagalbos priemonėms ir jų remontui, periodiniams leidiniams, o nuo 2026 m. sausio 1 d. ir knygoms bei neperiodiniams informaciniams leidiniams. Yra išimčių, pavyzdžiui reklamai ir kalendoriams."
-    },
-    {
-      question: "Kaip prie sumos be PVM pridėti 21 proc.?",
-      answer:
-        "Suma su PVM lygi sumai be PVM, padaugintai iš 1,21. 100 eurų be PVM tampa 121 euru su PVM. Pats mokestis yra 21 euras."
-    },
-    {
-      question: "Kaip iš sumos su PVM išskirti 21 proc.?",
-      answer:
-        "Suma be PVM lygi sumai su PVM, padalytai iš 1,21. 121 euras su PVM yra 100 eurų be PVM ir 21 euras mokesčio."
-    },
-    {
-      question: "Ar 9 proc. dar galima naudoti?",
-      answer:
-        "Naujiems 2026 m. sandoriams ne. VMI nurodo išimtį apgyvendinimui: rezervacijai, užregistruotai iki 2025 m. gruodžio 31 d., dar galėjo būti taikomas 9 proc. Skaičiuoklėje 9 proc. paliktas tik tokiems istoriniams skaičiavimams."
-    }
-  ],
-  sources: [
-    { href: "https://www.vmi.lt/evmi/pvm-tarifai", label: "VMI. PVM tarifai" },
-    {
-      href: "https://www.vmi.lt/evmi/standartinis-21-proc.-pvm-tarifas-19-str.-",
-      label: "VMI. Standartinis 21 proc. tarifas"
-    },
-    {
-      href: "https://www.vmi.lt/evmi/lengvatinis-12-proc.-pvm-tarifas-19-str.-",
-      label: "VMI. Lengvatinis 12 proc. tarifas nuo 2026-01-01"
-    },
-    {
-      href: "https://www.vmi.lt/evmi/lengvatinis-5-proc.-pvm-tarifas-19-str.-",
-      label: "VMI. Lengvatinis 5 proc. tarifas"
-    }
-  ],
-  related: [
-    { href: MB, label: "MB steigimas ir mokesčiai" },
-    { href: HUB, label: "Visi lietuviški gidai" }
-  ]
-};
-
-export const LT_MB: LtPageMeta = {
-  path: MB,
-  title: "MB steigimas ir MB mokesčiai 2026",
-  description:
-    "Mažosios bendrijos įregistravimas kainuoja 17,13 Eur. 2026 m. pelno mokestis 0, 7 arba 17 proc., nario dividendų GPM 15 proc., PSD įmoka 80,48 Eur per mėnesį.",
-  h1: "MB steigimas ir MB mokesčiai 2026",
-  lede: "Mažosios bendrijos įregistravimas Registrų centro įkainių lentelėje kainuoja 17,13 euro. 2026 m. pelno mokestis yra 17 proc., smulkiam vienetui 7 proc., o pirmus du mokestinius laikotarpius gali būti 0 proc., jei pajamos neviršija 300 000 eurų ir tenkinamos kitos sąlygos. MB nario mėnesio PSD įmoka 2026 m. yra 80,48 euro. Aš vadovauju MB „Mažas startuolis“.",
-  crumb: "MB steigimas ir mokesčiai",
-  investing: false,
-  cfd: false,
-  disclosure: false,
+  disclosure: true,
   placeholder:
-    "Čia turėtų atsirasti mano 2022 m. steigimo sąskaita: kiek sumokėjau tada, ne šiandienos 17,13 Eur įkainis, ir kaip dabar klasifikuoju išėmimus. Registrų centras patvirtina tik dokumentų datas ir kodą.",
+    "Čia turėtų atsirasti mano sutarties ekrano kopija, kurioje matyti teisinė įmonė, ir pasirinkto mokesčių plano langas. Kol jų nėra, tai nėra asmeninė naudojimo apžvalga.",
   faqs: [
     {
-      question: "Kiek kainuoja įregistruoti mažąją bendriją?",
+      question: "Ar Freedom24 turi licenciją, galiojančią lietuviui?",
       answer:
-        "Registrų centro juridinių asmenų registravimo įkainių lentelėje mažosios bendrijos įregistravimas kainuoja 17,13 euro. Notaro, buveinės ar banko kainų ta lentelė neapima. 2022 m., kai registravau savąją, įkainis galėjo būti kitas, todėl savo sumos čia neįrašau."
+        "Freedom Finance Europe Ltd yra Kipro įmonė HE 324220 su CySEC licencija 275/15. Lietuvos bankas ją įrašęs kaip ES finansų maklerio įmonę, teikiančią paslaugas Lietuvoje be filialo. Tai nėra Lietuvos banko išduota atskira licencija ir nėra indėlių garantija."
     },
     {
-      question: "Koks pelno mokestis 2026 metais?",
+      question: "Kokie Smart plano mokesčiai akcijoms ir ETF?",
       answer:
-        "17 proc. yra standartinis tarifas. 7 proc. taikomas, jei mokestinio laikotarpio pajamos neviršija 300 000 eurų ir vienetas netenkina PMĮ 5 straipsnio 3 dalies sąlygų. 0 proc. galimas pirmą ir antrą laikotarpį, jei papildomai dalyviai yra tik fiziniai asmenys ir per tris laikotarpius nėra sustabdymo, likvidavimo, reorganizavimo ar dalių perleidimo naujiems dalyviams."
+        "Nuo 2026 m. rugpjūčio 19 d. kainyne JAV ir Europos biržose kotiruojamoms akcijoms ir ETF Smart plane yra 2 USD arba 2 eurai mažiausiai už pavedimą ir 0,02 USD arba euro už akciją. Mėnesinis mokestis paskelbtuose planuose yra 0. All-inclusive plane yra 0,5 proc. apyvartos, 0,012 USD arba euro už akciją ir 1,2 USD arba euro už pavedimą."
     },
     {
-      question: "Kiek GPM nuo pelno, išmokėto nariui?",
+      question: "Ar akcijų akcija be komisinio galioja Lietuvos gyventojui?",
       answer:
-        "Paskirstytasis pelnas apmokestinamas 15 proc. nuo pirmo euro ir neįskaičiuojamas į 20, 25 ar 32 proc. progresiją. VMI 2026 m. pavyzdyje 12 000 eurų, deklaruotų 26 pajamų rūšies kodu, GPM yra 1 800 eurų."
+        "Ne. Kainyne eurais skelbiama akcija taikoma tik fiziniams asmenims, kurie yra Prancūzijos, Italijos, Rumunijos arba Čekijos gyventojai ar piliečiai ir sąskaitą atidarė nuo 2026 m. kovo 1 d. iki 2026 m. rugpjūčio 31 d. Lietuva tame sąraše nėra."
     },
     {
-      question: "Kiek MB narys moka Sodrai 2026 metais?",
+      question: "Kiek kainuoja išėmimas ir saugojimas?",
       answer:
-        "Sodra nurodo 80,48 euro mėnesio PSD įmoką. VSD tarifas yra 20,81 proc.: iki 2026 m. birželio 30 d. nuo 50 proc. asmeniniams poreikiams išimtų lėšų, nuo 2026 m. liepos 1 d. nuo 90 proc. Pensiją kaupiantiems papildomai priskaičiuojami 3 proc. Metinės VSD ir PSD lubos yra 43 VDU, tai yra 99 422,45 euro."
+        "Banko pavedimu išimant bazinėje sąskaitos valiutoje mokestis yra 7 eurai, jei bazė yra eurai, arba 7 JAV doleriai, jei bazė yra doleriai. Tarpininkų mokesčiai gali prisidėti, o partnerių bankai kartais jų atsisako. E-Accounts saugojimas kainyne yra 0,000822 proc. per dieną. Biržoje kotiruojamų akcijų lentelėje atskiro mėnesinio saugojimo mokesčio nėra."
     },
     {
-      question: "Ar reikia minimalaus įstatinio kapitalo?",
+      question: "Ar VMI įvardija Freedom24 investicinei sąskaitai?",
       answer:
-        "Inovacijų agentūra nurodo, kad mažajai bendrijai minimalus įstatinis kapitalas netaikomas, o UAB jis yra 1 000 eurų. Nariai vis tiek moka įnašus, kurių dydį nustato patys. Steigėjų gali būti nuo vieno iki dešimties, ir tik fiziniai asmenys."
+        "Ne. VMI tiesiogiai įvardija Trading 212 ir pateikia Interactive Brokers Ireland pavyzdį. Freedom24 ten nėra. Bendra taisyklė lieka: deklaruojama pinigų sąskaita, naudojama tik tinkamiems produktams."
     },
     {
-      question: "Ką padaryti iškart po įregistravimo?",
+      question: "Ar čia asmeninis atsiliepimas?",
       answer:
-        "VMI įmonę įregistruoja pagal Registrų centro duomenis. Per 5 darbo dienas per Mano VMI reikia pateikti pranešimus FR0791 ir FR0791A. Savo užpildytų formų čia dar neįdėjau."
+        "Ne. Autoriaus sutarties ir mokesčių plano ekrano kopijų nėra. Mažmeninių CFD sąskaitų nuostolių dalies šio teikėjo dokumentuose, kuriuos tikrinau, neradau, todėl jos neįrašiau. Kriptovaliutų šis puslapis nereklamuoja."
     }
   ],
   sources: [
     {
-      href: "https://www.registrucentras.lt/p/ja-registravimo-ikainiai",
-      label: "Registrų centras. Juridinių asmenų registravimo įkainiai, MB 17,13 Eur"
+      href: "https://freedom24.com/download/documents/95/CySEC_License",
+      label: "CySEC patvirtinimas. Freedom Finance Europe Ltd, licencija 275/15"
     },
     {
-      href: "https://www.registrucentras.lt/jar/p/dok.php?kod=306176766",
-      label: "Registrų centras. MB Mažas startuolis, kodas 306176766"
+      href: "https://freedom24.com/download/documents/720/General_Terms_of_Business_29082025",
+      label: "Freedom Finance Europe Ltd. Bendrosios veiklos sąlygos"
     },
     {
-      href: "https://www.registrucentras.lt/jar/atmintines/index.php",
-      label: "Registrų centras. Juridinio asmens steigimas elektroniniu būdu"
+      href: "https://www.lb.lt/lt/finansu-rinku-dalyviai/freedom-finance-europe-ltd",
+      label: "Lietuvos bankas. Freedom Finance Europe Ltd, paslaugos be filialo"
     },
     {
-      href: "https://www.vmi.lt/evmi/5724",
-      label: "VMI. Pelno mokesčio pakeitimai nuo 2026 m."
+      href: "https://freedom24.com/download/documents/1203/Appendix_6_Fee_Schedule_19082026",
+      label: "Freedom24. Kainynas, galiojantis nuo 2026-08-19"
     },
-    {
-      href: "https://www.vmi.lt/evmi/0proc-tarifas",
-      label: "VMI. 0 proc. pelno mokesčio tarifas"
-    },
-    {
-      href: "https://www.vmi.lt/evmi/tarifai-5-str.-",
-      label: "VMI. Pelno mokesčio tarifai, 5 straipsnis"
-    },
-    VMI_GPM,
-    {
-      href: "https://www.vmi.lt/evmi/5725",
-      label: "VMI. GPM tarifų paaiškinimas, įskaitant MB vadovo pajamas"
-    },
-    {
-      href: "https://www.vmi.lt/evmi/documents/20142/391071/2025-09-24+MB+-+apmokestinimas+GPM+ir+deklaravimas.pdf",
-      label: "VMI. MB nario GPM, 12 000 Eur pavyzdys"
-    },
-    {
-      href: "https://www.vmi.lt/evmi/noriu-steigti-%C4%AFmon%C4%99-ar-organizacij%C4%85-kaip-tai-padaryti-",
-      label: "VMI. FR0791 ir FR0791A per 5 darbo dienas"
-    },
-    {
-      href: "https://sodra.lt/sodros-imoku-tarifai-taikomi-nuo-2026-m-sausio-1-d-savarankiskai-dirbantiems-asmenims",
-      label: "Sodra. 2026 m. įmokų tarifai savarankiškai dirbantiems"
-    },
-    {
-      href: "https://sodra.lt/aktuali-informacija-savarankiskai-dirbantiems-asmenims-2026-metais",
-      label: "Sodra. MB narių VSD bazė 50 proc. ir 90 proc."
-    },
-    {
-      href: "https://www.inovacijuagentura.lt/informacija-verslui/pradek-ir-vystyk/mazoji-bendrija/",
-      label: "Inovacijų agentūra. Mažoji bendrija, nariai ir kapitalas"
-    },
-    { href: VAT, label: "PVM skaičiuoklė 2026" }
+    VMI_INVEST
   ],
   related: [
-    { href: VAT, label: "PVM skaičiuoklė" },
-    { href: HUB, label: "Visi lietuviški gidai" }
+    { href: INVEST, label: "Investicinė sąskaita" },
+    { href: BEST, label: "Geriausios investavimo platformos" },
+    { href: XTB_PAGE, label: "XTB atsiliepimai" },
+    { href: IBKR, label: "Interactive Brokers Lietuvoje" }
+  ]
+};
+
+export const LT_XTB: LtPageMeta = {
+  path: XTB_PAGE,
+  title: "XTB atsiliepimai: mokesčiai, licencija ir CFD rizika",
+  description:
+    "XTB Limited turi CySEC licenciją 169/12. Akcijų ir ETF komisinis yra 0 proc. iki 100 000 eurų per mėnesį, paskui 0,2 proc. CFD perspėjimas Kipro svetainėje yra 77 proc.",
+  h1: "XTB atsiliepimai: mokesčiai, licencija ir CFD rizika",
+  lede: "XTB Limited turi CySEC licenciją 169/12, o Lietuvos bankas ją įrašęs kaip įmonę, teikiančią paslaugas Lietuvoje be filialo. Kipro kainyne akcijų ir ETF komisinis yra 0 proc., kol mėnesio apyvarta neviršija 100 000 eurų, paskui 0,2 proc., mažiausiai 10 eurų. Valiutos keitimas yra 0,5 proc. CFD sąlygose ši Kipro svetainė rašo, kad 77 proc. mažmeninių sąskaitų patiria nuostolių.",
+  crumb: "XTB",
+  investing: true,
+  cfd: true,
+  cfdWarning: LT_XTB_CFD_WARNING,
+  disclosure: true,
+  placeholder:
+    "Čia turėtų atsirasti Kipro mokesčių lango ir sutarties, kurioje matyti juridinis asmuo, ekrano kopijos. Tai nėra asmeninė naudojimo apžvalga.",
+  faqs: [
+    {
+      question: "Kuri XTB įmonė aptarnauja klientą Lietuvoje?",
+      answer:
+        "Lietuvos banko įraše yra XTB Limited, Kipro investicinė įmonė, CySEC licencija 169/12, adresas Pikioni 10, Limassol. CySEC registre ta pati licencija išduota 2012 m. balandžio 18 d., įmonės numeris 296794. JK FCA įmonės kainyno čia nenaudoju."
+    },
+    {
+      question: "Kiek kainuoja akcijos ir ETF?",
+      answer:
+        "Kipro kainyne akcijų ir ETF komisinis yra 0 proc., kol mėnesio apyvarta neviršija 100 000 eurų arba JAV dolerių. Viršijus, komisinis yra 0,2 proc., mažiausiai 10 eurų arba 10 JAV dolerių. Mažiausia akcijų investicijos vertė yra 10 eurų arba 10 JAV dolerių. Valiutos keitimas investavimo sąlygose yra 0,5 proc. Minimalios įmokos nėra. Įmokos mokesčio XTB netaiko, bet bankas ar mokėjimo teikėjas gali."
+    },
+    {
+      question: "Ar išėmimas mokamas?",
+      answer:
+        "Kipro kainynas išėmimus aprašo kaip nemokamus. Tame pačiame puslapyje yra ir sakinys, kad išėmimai virš 100 eurų arba JAV dolerių yra nemokami. Atskiro išėmimo tarifo, kurį galėčiau įrašyti kaip XTB mokestį, tame puslapyje neradau."
+    },
+    {
+      question: "Kada taikomas neaktyvumo mokestis?",
+      answer:
+        "Kipro pagalbos centras, atnaujintas 2026 m. gegužės 7 d., nurodo 10 eurų per mėnesį iš investicinės sąskaitos tik tada, kai 365 dienas neatidarėte ir neuždarėte pozicijos ir 90 dienų nepadarėte įmokos. Mokestis netaikomas, jei nėra laisvų lėšų arba jei kuri nors pozicija yra atidaryta."
+    },
+    {
+      question: "Kiek mažmeninių sąskaitų patiria CFD nuostolių?",
+      answer:
+        "XTB Limited teisinės informacijos puslapis rašo, kad 77 proc. mažmeninių investuotojų sąskaitų patiria nuostolių prekiaujant CFD pas šį teikėją. Kituose XTB puslapiuose pasitaiko kitų procentų, nes jie priklauso kitoms įmonėms. Čia naudoju tik Kipro subjekto 77 proc."
+    },
+    {
+      question: "Ar VMI įvardija XTB ir ar čia kalbama apie kriptovaliutas?",
+      answer:
+        "VMI XTB neįvardija. Sąskaita gali tikti investicinės sąskaitos režimui tik jei tai pinigų sąskaita tinkamiems produktams. Šis gidas kriptovaliutų neapima ir jų nereklamuoja."
+    }
+  ],
+  sources: [
+    {
+      href: "https://www.cysec.gov.cy/en-GB/entities/investment-firms/cypriot/37686/",
+      label: "CySEC. XTB Ltd, licencija 169/12"
+    },
+    {
+      href: "https://www.lb.lt/en/sfi-financial-market-participants/xtb-limited",
+      label: "Lietuvos bankas. XTB Limited, paslaugos be filialo"
+    },
+    {
+      href: "https://www.xtb.com/cy/legal-information",
+      label: "XTB Limited. Teisinė informacija ir 77 proc. CFD perspėjimas"
+    },
+    {
+      href: "https://www.xtb.com/cy/account-and-fees",
+      label: "XTB Kipras. Sąskaitos ir mokesčiai"
+    },
+    {
+      href: "https://www.xtb.com/cy/help-center/fees-and-payments/fees-and-commissions-at-xtb",
+      label: "XTB Kipras. Mokesčiai ir 10 eurų neaktyvumo mokestis"
+    },
+    VMI_INVEST
+  ],
+  related: [
+    { href: INVEST, label: "Investicinė sąskaita" },
+    { href: BEST, label: "Geriausios investavimo platformos" },
+    { href: T212, label: "Trading 212 atsiliepimai" },
+    { href: FREEDOM, label: "Freedom24 atsiliepimai" }
+  ]
+};
+
+export const LT_ETF: LtPageMeta = {
+  path: ETF,
+  title: "ETF investavimas Lietuvoje: mokesčiai fiziniams asmenims",
+  description:
+    "Nuo 2026 m. ETF pardavimo pelnas per investicinę sąskaitą apmokestinamas 15 proc. tik išimant daugiau, nei įnešta. Dividendai apmokestinami išmokant. Sąlygos pagal VMI.",
+  h1: "ETF investavimas Lietuvoje: mokesčiai fiziniams asmenims",
+  lede: "Nuo 2026 m. sausio 1 d. per investicinę sąskaitą gautas pelnas, įskaitant ETF pardavimą, apmokestinamas 15 proc. tik tada, kai išimate daugiau, nei esate įnešę. VMI pavyzdyje ETF tinka, jei fondas yra kolektyvinio investavimo subjektas arba jo vienetais prekiaujama biržoje. Dividendai apmokestinami išmokant ir į investicinės sąskaitos atidėjimą neįeina.",
+  crumb: "ETF investavimas",
+  investing: true,
+  cfd: false,
+  disclosure: true,
+  placeholder:
+    "Čia neturėtų atsirasti sugalvoto portfelio. Jei dalinsiuosi, įdėsiu deklaruotos ETF pozicijos ekrano kopiją be sąskaitos numerio. Lentelė remiasi VMI paaiškinimu, ne mano deklaracija.",
+  faqs: [
+    {
+      question: "Kada mokamas GPM nuo ETF pardavimo?",
+      answer:
+        "Jei ETF laikomas per deklaruotą investicinę sąskaitą ir pardavimo pajamos lieka toje sąskaitoje, GPM mokamas ne pardavimo dieną. Nuo 2026 m. sausio 1 d. 15 proc. tarifas taikomas tik tai išimtos sumos daliai, kuri viršija įnašą. Tarifas nuo sumos dydžio nepriklauso. Anksčiau minėta 20 proc. riba virš 120 VDU šiam išėmimui nebetaikoma."
+    },
+    {
+      question: "Ar kaupiamajam ir paskirstomajam ETF taikomas skirtingas tarifas?",
+      answer:
+        "Atskiro tarifo pagal fondo tipą VMI paaiškinime nėra. Yra dvi taisyklės. Dividendai apmokestinami tada, kai išmokami, ir į atidėjimą neįeina. Pardavimo pajamos sąskaitos viduje yra investicinės sąskaitos pajamos ir apmokestinamos tik išimant daugiau, nei įnešta."
+    },
+    {
+      question: "Kada ETF tinka investicinei sąskaitai?",
+      answer:
+        "VMI komentare investavimas į ETF yra naudojimas pagal paskirtį, jei fondas atitinka kolektyvinio investavimo subjekto apibrėžimą arba jo vienetais prekiaujama biržoje. Kolektyvinio investavimo vertybiniams popieriams biržos sąrašo sąlyga nebūtina. Paprastoms akcijoms biržos sąlyga reikalinga."
+    },
+    {
+      question: "Kaip dividendai keičia įnašą?",
+      answer:
+        "Dividendai nėra investicinės sąskaitos pajamos. VMI pavyzdyje nuo 100 eurų dividendų išskaičiuota 15 proc., į sąskaitą įskaityta 85 eurai, ir tie 85 eurai didina įnašą. Vėlesnis išėmimas lyginamas su padidėjusiu įnašu."
+    },
+    {
+      question: "Ar šis puslapis apie įmonės PVM ar mažąją bendriją?",
+      answer:
+        "Ne. Čia tik gyventojo GPM per investicinę sąskaitą. PVM, mažosios bendrijos steigimas ir buhalterija yra buhalteris.ai."
+    },
+    {
+      question: "Ar puslapis apima kriptovaliutas?",
+      answer:
+        "Ne. Šis puslapis kriptovaliutų neapima ir jų nereklamuoja."
+    }
+  ],
+  sources: [
+    VMI_INVEST,
+    {
+      href: "https://www.vmi.lt/evmi/documents/20142/737112/R-3268.pdf",
+      label: "VMI. GPMĮ 12¹ straipsnio komentaras"
+    },
+    VMI_PRODUCTS,
+    VMI_GPM
+  ],
+  related: [
+    { href: INVEST, label: "Investicinė sąskaita" },
+    { href: BEST, label: "Geriausios investavimo platformos" },
+    { href: T212, label: "Trading 212 atsiliepimai" },
+    { href: IBKR, label: "Interactive Brokers Lietuvoje" }
+  ]
+};
+
+export const LT_FINBEE: LtPageMeta = {
+  path: FINBEE,
+  title: "Finbee atsiliepimai: licencija, 5 eurai ir 14,2 proc.",
+  description:
+    "finbee.lt 2026-10-30 neturėjo sutelktinio finansavimo licencijos. Mokėjimų gavėja UAB „Elektroninių pinigų bitė“ turi EMI licenciją Nr. 87. Mažiausia suma 5 eurai, 2025 m. antraštė 14,2 proc.",
+  h1: "Finbee atsiliepimai: licencija, minimali suma ir skelbiama grąža",
+  lede: "2026 m. spalio 30 d. Lietuvos banko sutelktinio finansavimo licencijų sąraše finbee.lt nebuvo. Sąraše Nr. 8 priklauso UAB „Finansų bitė verslui“, svetainė finbeeeverslui.lt. Investuotojų pavedimų gavėja finbee.lt nurodo UAB „Elektroninių pinigų bitė“, kuri turi elektroninių pinigų įstaigos licenciją Nr. 87 nuo 2021 m. birželio 3 d. Mažiausia suma puslapyje yra 5 eurai, o 2025 m. antraštės vidurkis yra 14,2 proc.",
+  crumb: "Finbee",
+  investing: true,
+  cfd: false,
+  disclosure: true,
+  placeholder:
+    "Čia turėtų atsirasti mano portfelio ir realios grąžos po vėlavimų ekrano kopija. 14,2 proc. yra operatoriaus antraštė, ne mano rezultatas.",
+  faqs: [
+    {
+      question: "Ar finbee.lt turi Lietuvos banko sutelktinio finansavimo licenciją?",
+      answer:
+        "2026 m. spalio 30 d. sąraše finbee.lt nebuvo. Licencija Nr. 8 priklauso UAB „Finansų bitė verslui“, kurios svetainė licencijų kortelėje yra finbeeeverslui.lt. Vartotojų svetainės su šia licencija nesutapatinu."
+    },
+    {
+      question: "Kokią licenciją turi mokėjimų įmonė?",
+      answer:
+        "finbee.lt investuotojų puslapis pavedimų gavėja nurodo UAB „Elektroninių pinigų bitė“. Lietuvos bankas šiai įmonei 2021 m. birželio 3 d. išdavė elektroninių pinigų įstaigos licenciją Nr. 87, įmonės kodas 304473256, valdybos sprendimas 03-98. Elektroninių pinigų licencija nėra sutelktinio finansavimo licencija."
+    },
+    {
+      question: "Kokia mažiausia suma ir kokia skelbiama grąža?",
+      answer:
+        "Puslapyje mažiausia investicija ir mažiausias vienas pasiūlymas yra 5 eurai. Antraštėje 2025 m. vidutinė palūkanų norma yra 14,2 proc. Žemiau tas pats puslapis rašo 14,5 proc. privačioms paskoloms ir 13 proc. verslo paskoloms. Tai operatoriaus skaičiai. Skaičiuoklės tame puslapyje pažymėtos kaip nepatikimas būsimų rezultatų rodiklis."
+    },
+    {
+      question: "Kokia 500 eurų riba?",
+      answer:
+        "Vartojimo paskolai vienas investuotojas per 12 mėnesių tam pačiam paskolos gavėjui negali paskolinti daugiau kaip 500 eurų. Puslapis tai sieja su vartojimo kredito įstatymu. Verslo paskoloms tokios ribos ten nenurodyta."
+    },
+    {
+      question: "Kokie įmokų ir išėmimo mokesčiai?",
+      answer:
+        "Puslapis rašo, kad įskaitymas ir išmokėjimas yra nemokami, o lėšos gali būti įskaitomos arba išmokamos per vieną darbo dieną. Atskiro investuotojo komisinio, be šio sakinio, tame puslapyje neradau, todėl jo neįrašiau. Investuotojas turi būti ne jaunesnis kaip 18 metų, turėti EEE banko sąskaitą ir tapatybės dokumentą."
+    },
+    {
+      question: "Ar 14,2 proc. yra pažadas ir ar paskola tinka investicinei sąskaitai?",
+      answer:
+        "Ne. Tai 2025 m. antraštės vidurkis, ne Lietuvos banko garantija ir ne autoriaus rezultatas. Ar konkreti paskola tinka investicinei sąskaitai, tikrinkite pagal VMI produktų sąrašą. Šis puslapis to kiekvienai paskolai netvirtina."
+    }
+  ],
+  sources: [
+    LB_LIST,
+    {
+      href: "https://www.lb.lt/lt/frd-licencijos/view_license?id=2061",
+      label: "Lietuvos bankas. Elektroninių pinigų įstaigos licencija Nr. 87"
+    },
+    {
+      href: "https://www.lb.lt/lt/finansu-rinku-dalyviai/uab-elektroniniu-pinigu-bite",
+      label: "Lietuvos bankas. UAB „Elektroninių pinigų bitė“"
+    },
+    { href: "https://www.finbee.lt/investuok/", label: "Finbee. Investuotojo puslapis" },
+    VMI_PRODUCTS
+  ],
+  related: [
+    { href: PLATFORMS, label: "Visos licencijuotos platformos" },
+    { href: PROFITUS, label: "Profitus atsiliepimai" },
+    { href: BEST, label: "Geriausios investavimo platformos" },
+    { href: INVEST, label: "Investicinė sąskaita" }
+  ]
+};
+
+export const LT_PROFITUS: LtPageMeta = {
+  path: PROFITUS,
+  title: "Profitus atsiliepimai: licencija Nr. 10 ir 9,84 proc.",
+  description:
+    "UAB „Profitus Crowdfunding“ turi Lietuvos banko sutelktinio finansavimo licenciją Nr. 10 nuo 2023-11-10. profitus.lt rašo, kad investuoti galima nuo 100 eurų, vidutinė metinė grąža 9,84 proc.",
+  h1: "Profitus atsiliepimai: licencija, 100 eurų ir 9,84 proc.",
+  lede: "UAB „Profitus Crowdfunding“ 2026 m. spalio 30 d. Lietuvos banko sąraše turi sutelktinio finansavimo licenciją Nr. 10, išduotą 2023 m. lapkričio 10 d. profitus.lt rašo, kad investuoti galima nuo 100 eurų, o vidutinė metinė grąža yra 9,84 proc. Tai operatoriaus skaičius, ne pažadas. Paskola, užtikrinta nekilnojamuoju turtu, vis tiek gali būti negrąžinta.",
+  crumb: "Profitus",
+  investing: true,
+  cfd: false,
+  disclosure: true,
+  placeholder:
+    "Čia turėtų atsirasti mano portfelio ir realios grąžos po vėlavimų ekrano kopija. 9,84 proc. yra operatoriaus vidurkis, ne mano rezultatas.",
+  faqs: [
+    {
+      question: "Ar Profitus turi Lietuvos banko licenciją?",
+      answer:
+        "Taip. 2026 m. spalio 30 d. sąraše Nr. 10 yra UAB „Profitus Crowdfunding“, adresas Lvivo g. 101, licencija išduota 2023 m. lapkričio 10 d. Licencijų kortelėje svetainės adreso nebuvo. profitus.lt yra šios įmonės prekės ženklas."
+    },
+    {
+      question: "Nuo kokios sumos galima investuoti ir kokia skelbiama grąža?",
+      answer:
+        "profitus.lt rašo, kad investuoti galima nuo 100 eurų, o vidutinė metinė grąža yra 9,84 proc. Tame pačiame puslapyje operatorius taip pat skelbia bendruomenės ir surinktų sumų statistiką. Tai nėra pažadas, kad jūsų projektas uždirbs 9,84 proc."
+    },
+    {
+      question: "Ar nekilnojamojo turto užtikrinimas apsaugo nuo nuostolio?",
+      answer:
+        "Ne. Tai operatoriaus aprašymas, kaip užtikrinama paskola. Užtikrinimas nėra Lietuvos banko garantija ir nereiškia, kad paskola bus grąžinta laiku arba visa."
+    },
+    {
+      question: "Kokie investuotojo mokesčiai?",
+      answer:
+        "2026 m. spalio 30 d. profitus.lt pagrindiniame puslapyje bendro investuotojo mokesčio neradau, todėl jo neįrašiau. Prieš pavedimą atidarykite konkretaus projekto sąlygas."
+    },
+    {
+      question: "Ar Profitus yra brokeris?",
+      answer:
+        "Ne. Tai sutelktinio finansavimo platforma su licencija Nr. 10, ne finansų maklerio įmonė ir ne investicinė sąskaita kaip banko produktas."
+    },
+    {
+      question: "Ar projektai tinka investicinei sąskaitai?",
+      answer:
+        "VMI prie tinkamų produktų priskiria sutelktinį finansavimą pagal reglamentą (ES) 2020/1503, jei konkretus produktas atitinka sąrašą. VMI Profitus neįvardija. Kiekvieno projekto tinkamumo čia netvirtinu."
+    }
+  ],
+  sources: [
+    LB_LIST,
+    { href: "https://www.profitus.lt/", label: "Profitus. Pagrindinis puslapis" },
+    VMI_PRODUCTS,
+    VMI_INVEST
+  ],
+  related: [
+    { href: PLATFORMS, label: "Visos licencijuotos platformos" },
+    { href: FINBEE, label: "Finbee atsiliepimai" },
+    { href: BEST, label: "Geriausios investavimo platformos" },
+    { href: INVEST, label: "Investicinė sąskaita" }
+  ]
+};
+
+export const LT_BEST: LtPageMeta = {
+  path: BEST,
+  title: "Geriausios investavimo platformos Lietuvoje 2026",
+  description:
+    "2026 m. eilė pagal šaltinį, ne pagal grąžą: VMI įvardyti brokeriai, Lietuvos banko sąraše esančios ES įmonės be filialo, Profitus licencija Nr. 10 ir atskirai Finbee.",
+  h1: "Geriausios investavimo platformos Lietuvoje 2026",
+  lede: "Ši eilė nėra grąžos reitingas. Pirma eina brokeriai, kuriuos VMI tiesiogiai įvardija investicinei sąskaitai: Interactive Brokers Ireland ir Trading 212. Toliau XTB ir Freedom24, kuriuos Lietuvos bankas įrašęs kaip ES įmones be filialo. Profitus turi sutelktinio finansavimo licenciją Nr. 10. Finbee vartotojų svetainė tos licencijos neturi.",
+  crumb: "Geriausios platformos",
+  investing: true,
+  cfd: false,
+  disclosure: true,
+  placeholder:
+    "Čia neturi atsirasti sakinio, kad naudoju šias platformas, kol neįdėjau savo ekrano kopijų. Eilė sudaryta pagal šaltinio tipą, ne pagal mano portfelį.",
+  faqs: [
+    {
+      question: "Kodėl eilė tokia, o ne pagal grąžą?",
+      answer:
+        "Grąžos reitingo nėra, nes operatorių vidurkiai nėra palyginamas pažadas. Eilė rodo, kurio šaltinio stiprumas patikrintas: pirma VMI įvardijimas, paskui Lietuvos banko įrašas apie ES maklerio įmonę be filialo, tada sutelktinio finansavimo licencija su paskelbta mažiausia suma."
+    },
+    {
+      question: "Kodėl Interactive Brokers ir Trading 212 yra pirmi?",
+      answer:
+        "VMI juos įvardija tiesiogiai. Trading 212 sąskaitą galima deklaruoti, o Interactive Brokers pavyzdyje nurodyta Airijos įmonė Interactive Brokers Ireland Limited. Kiti brokeriai VMI tekste nepaminėti."
+    },
+    {
+      question: "Kodėl Finbee nėra toje pačioje vietoje kaip Profitus?",
+      answer:
+        "Profitus operatorius UAB „Profitus Crowdfunding“ turi sutelktinio finansavimo licenciją Nr. 10. finbee.lt to sąrašo 2026 m. spalio 30 d. nebuvo. Mokėjimų gavėja UAB „Elektroninių pinigų bitė“ turi elektroninių pinigų licenciją Nr. 87. Tai kita licencijos rūšis, todėl Finbee stovi atskirai."
+    },
+    {
+      question: "Kodėl nėra eToro, EstateGuru ir Mintos?",
+      answer:
+        "eToro į šį skyrių neįtraukiamas. EstateGuru ir Mintos 2026 m. spalio 30 d. Lietuvos banko sutelktinio finansavimo licencijų sąraše nebuvo. Nelicencijuotų platformų eilėje nėra. Kriptovaliutų platformų taip pat nėra."
+    },
+    {
+      question: "Ar licencija reiškia, kad pinigai apsaugoti?",
+      answer:
+        "Ne. Licencija patvirtina priežiūrą arba teisę teikti paslaugą. Akcijos, ETF ir paskolos gali nuvertėti arba būti negrąžintos. CFD nuostolių dalis parašyta tik tų brokerių apžvalgose, kuriose teikėjas ją paskelbė."
+    },
+    {
+      question: "Kur visas licencijų sąrašas?",
+      answer:
+        "Septyniolika 2026 m. spalio 30 d. galiojusių sutelktinio finansavimo licencijų yra gide Investavimo platformos. Ši eilė yra trumpas sąrašas, ne visas registras."
+    }
+  ],
+  sources: [
+    VMI_INVEST,
+    LB_LIST,
+    {
+      href: "https://www.lb.lt/en/sfi-financial-market-participants/xtb-limited",
+      label: "Lietuvos bankas. XTB Limited"
+    },
+    {
+      href: "https://www.lb.lt/lt/finansu-rinku-dalyviai/freedom-finance-europe-ltd",
+      label: "Lietuvos bankas. Freedom Finance Europe Ltd"
+    },
+    {
+      href: "https://www.lb.lt/lt/frd-licencijos/view_license?id=2061",
+      label: "Lietuvos bankas. Elektroninių pinigų licencija Nr. 87"
+    }
+  ],
+  related: [
+    { href: PLATFORMS, label: "Visos sutelktinio finansavimo licencijos" },
+    { href: INVEST, label: "Investicinė sąskaita" },
+    { href: ETF, label: "ETF investavimas Lietuvoje" },
+    { href: T212, label: "Trading 212 atsiliepimai" }
   ]
 };
 
 export const LT_PAGES: readonly LtPageMeta[] = [
   LT_HUB,
   LT_INVEST,
+  LT_ETF,
+  LT_BEST,
   LT_PLATFORMS,
   LT_T212,
   LT_IBKR,
-  LT_VAT,
-  LT_MB
+  LT_XTB,
+  LT_FREEDOM,
+  LT_PROFITUS,
+  LT_FINBEE
 ];
+
+
