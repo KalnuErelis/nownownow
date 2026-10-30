@@ -9,6 +9,7 @@
     "test:about": "playwright test tests/about.spec.ts --project=chromium",
     "test:tools": "playwright test tests/tools.spec.ts --project=chromium",
     "test:seo": "playwright test tests/seo.spec.ts --project=chromium",
+    "test:go": "tsx --test tests/go.test.ts && playwright test tests/go.spec.ts --project=chromium",
     "lint": "oxlint src/data public",
     "import:substack": "python3 scripts/import_substack_export.py"
   },
@@ -16,6 +17,7 @@
     "@astrojs/check": "^0.9.6",
     "@astrojs/rss": "^4.0.17",
     "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/vercel": "^9.0.5",
     "astro": "^5.16.6",
     "typescript": "^5.9.3"
   },
@@ -23,6 +25,7 @@
     "@axe-core/playwright": "^4.11.1",
     "@playwright/test": "^1.58.2",
     "axe-core": "^4.11.1",
-    "oxlint": "^1.16.0"
+    "oxlint": "^1.16.0",
+    "tsx": "^4.20.6"
   }
 }
