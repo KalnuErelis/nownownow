@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { href, label, sponsored = true } = Astro.props;
-const rel = sponsored ? "sponsored noopener" : "noopener";
+const rel = sponsored ? "sponsored nofollow noopener" : "noopener";
 ---
 
 <a class="tools-cta" href={href} target="_blank" rel={rel}>

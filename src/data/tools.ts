@@ -48,6 +48,16 @@ export interface Tool {
   affiliateUrl: string;
   homepage: string;
   pricing?: string;
+  notFor?: string;
+  howItWorks?: string[];
+  faq?: ToolFaq[];
+  ctaNote?: string;
+  firstPerson?: string;
+}
+
+export interface ToolFaq {
+  question: string;
+  answer: string;
 }
 
 export const TOOLS_INDEX = {
@@ -90,6 +100,11 @@ interface ToolInput {
   affiliateUrl: string;
   homepage: string;
   pricing?: string;
+  notFor?: string;
+  howItWorks?: readonly string[];
+  faq?: readonly ToolFaq[];
+  ctaNote?: string;
+  firstPerson?: string;
 }
 
 function defineCategory(entry: Omit<ToolCategory, "href">): ToolCategory {
@@ -113,7 +128,12 @@ function defineTool(entry: ToolInput): Tool {
     cons: [...entry.cons],
     affiliateUrl: entry.affiliateUrl,
     homepage: entry.homepage,
-    ...(entry.pricing ? { pricing: entry.pricing } : {})
+    ...(entry.pricing ? { pricing: entry.pricing } : {}),
+    ...(entry.notFor ? { notFor: entry.notFor } : {}),
+    ...(entry.howItWorks ? { howItWorks: [...entry.howItWorks] } : {}),
+    ...(entry.faq ? { faq: entry.faq.map((item) => ({ ...item })) } : {}),
+    ...(entry.ctaNote ? { ctaNote: entry.ctaNote } : {}),
+    ...(entry.firstPerson ? { firstPerson: entry.firstPerson } : {})
   };
 }
 
@@ -138,9 +158,9 @@ export const TOOL_CATEGORIES: readonly ToolCategory[] = [
     id: "email-finders",
     label: "Email finders and enrichment",
     title: `Best email finders and data enrichment tools in ${DIRECTORY_YEAR}`,
-    description: `Best email finders and data enrichment tools in ${DIRECTORY_YEAR}: FullEnrich, Findymail, Prospeo, Databar, and Ocean.io.`,
+    description: `Best email finders and data enrichment tools in ${DIRECTORY_YEAR}: FullEnrich, Findymail, Prospeo, Databar, Ocean.io, and Treg.`,
     intro:
-      "Tools for finding emails and filling in account data before anyone sends. FullEnrich is first when one data vendor is not enough."
+      "Tools for finding emails and filling in account data before anyone sends. FullEnrich is first when one data vendor is not enough. Treg is the pick when an AI agent does the enrichment."
   }),
   defineCategory({
     id: "cold-email-infrastructure",
@@ -401,6 +421,71 @@ const TOOL_INPUTS: readonly ToolInput[] = [
     homepage: "https://www.ocean.io"
   },
   {
+    name: "Treg",
+    slug: "treg",
+    category: "email-finders",
+    summary:
+      "Treg is a tool catalog for AI agents: one token gives an agent pay-per-call access to paid data and generation APIs.",
+    bestFor: "Giving an AI agent paid data APIs without a subscription per provider.",
+    audience:
+      "People running GTM, sales, or SEO work with AI agents like Claude Code, and teams that want agents to use shared API keys without handing the keys out.",
+    notFor:
+      "People who do not work with AI agents and want a point-and-click enrichment app or a sequencer. Anyone who needs an SLA or uptime guarantee, since the hosted service is in early access. Teams that already pay for one data provider and only need that one.",
+    firstPerson:
+      "I use Treg daily for GTM and sales data work with AI agents. I tell the agent the job, such as finding a work email or pulling SERP data, and it finds the tool, checks the price, and calls it. I do not keep a separate subscription or API key for each provider.",
+    howItWorks: [
+      "Install the treg CLI for a local coding agent, or add the MCP connector (https://treg.to/mcp/) to a hosted assistant.",
+      "Top up the prepaid team balance.",
+      "The agent searches the catalog by the job, reads the price, and calls the tool.",
+      "Optionally, register your own API keys, OAuth connections, CLIs, or skills so teammates and agents can use them without seeing the key."
+    ],
+    pros: [
+      "One token covers 4,100+ API endpoints across 123 providers, from SERP data and backlinks to enrichment and media generation.",
+      "The agent never holds provider API keys. Credentials are injected server-side, and every call is logged.",
+      "Pay per call with the price shown first, and no provider signups or subscriptions.",
+      "For jobs like finding or verifying an email, a routed tool picks the provider, falls back when one fails, and bills only the answer returned."
+    ],
+    cons: [
+      "The hosted service is in early access, with no uptime promise in its terms.",
+      "There is a prepaid balance to keep topped up.",
+      "A found email is the provider's best match and still needs verifying before a send.",
+      "It is a layer for AI agents, not a point-and-click app or a sequencer."
+    ],
+    affiliateUrl: "https://treg.to/?ref=jaunius-bpndr",
+    homepage: "https://treg.to",
+    pricing:
+      "Pay per call from a prepaid team balance. The price is shown before each call, and Treg says it adds no markup. New verified accounts get $1.00 of free credit once. Calls on your own keys are not billed.",
+    ctaNote:
+      "Sign up through this link and you get $5 of Treg credit once your first top-up reaches $10.",
+    faq: [
+      {
+        question: "What is Treg?",
+        answer:
+          "Treg is a tool catalog for AI agents, built by Superdesign. It describes itself as \"OpenRouter for agent tools\". One token gives an agent access to 4,100+ API endpoints across 123 providers."
+      },
+      {
+        question: "Do I need my own API keys?",
+        answer:
+          "No. Treg injects provider credentials server-side, so there are no provider signups. You can still bring your own keys or OAuth connections, and calls on your own key are not billed."
+      },
+      {
+        question: "How does pricing work?",
+        answer:
+          "You pay per call from a prepaid team balance. The agent sees the price before it calls, and Treg says it adds no markup. New verified accounts get $1.00 of free credit once."
+      },
+      {
+        question: "Does it work with Claude Code, Cursor, or ChatGPT?",
+        answer:
+          "Local coding agents like Claude Code, Cursor, and Codex use the treg CLI. Hosted assistants connect through the MCP server at https://treg.to/mcp/, so ChatGPT works where it accepts an MCP connector."
+      },
+      {
+        question: "Is it open source?",
+        answer:
+          "Yes. Treg is open source under Apache 2.0 plus additional terms, and it can be self-hosted."
+      }
+    ]
+  },
+  {
     name: "Zapmail",
     slug: "zapmail",
     category: "cold-email-infrastructure",
@@ -586,7 +671,7 @@ export const TOOLS: readonly Tool[] = TOOL_INPUTS.map((entry) => defineTool(entr
 export const CATEGORY_RANKINGS = {
   "cold-email": ["lemlist", "smartlead", "reply", "saleshandy"],
   "linkedin-outreach": ["gojiberry", "la-growth-machine"],
-  "email-finders": ["fullenrich", "findymail", "prospeo", "databar", "ocean"],
+  "email-finders": ["fullenrich", "findymail", "prospeo", "databar", "ocean", "treg"],
   "cold-email-infrastructure": [
     "zapmail",
     "mailforge",
@@ -619,10 +704,15 @@ function assertPublicToolsData(): void {
       tool.bestFor,
       tool.audience,
       tool.pricing ?? "",
+      tool.notFor ?? "",
+      tool.firstPerson ?? "",
+      tool.ctaNote ?? "",
       tool.affiliateUrl,
       tool.homepage,
       ...tool.pros,
-      ...tool.cons
+      ...tool.cons,
+      ...(tool.howItWorks ?? []),
+      ...(tool.faq ?? []).flatMap((item) => [item.question, item.answer])
     ].join("\n");
 
     for (const marker of PRIVATE_MARKERS) {
