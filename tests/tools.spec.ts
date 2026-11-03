@@ -56,7 +56,7 @@ test("renders the tools directory and a ranked category page", async ({ page }) 
 
   const cta = page.locator(`a[href="${lemlist.affiliateUrl}"]`);
   await expect(cta).toBeVisible();
-  await expect(cta).toHaveAttribute("rel", "sponsored noopener");
+  await expect(cta).toHaveAttribute("rel", "sponsored nofollow noopener");
   await expect(cta).toHaveAttribute("target", "_blank");
 
   await page.locator(`#${lemlist.slug} h2 a`).click();
@@ -65,7 +65,7 @@ test("renders the tools directory and a ranked category page", async ({ page }) 
   await expect(page.getByRole("heading", { name: "Who it's for" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Pros" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Cons" })).toBeVisible();
-  await expect(page.locator(`a[href="${lemlist.affiliateUrl}"]`)).toHaveAttribute("rel", "sponsored noopener");
+  await expect(page.locator(`a[href="${lemlist.affiliateUrl}"]`)).toHaveAttribute("rel", "sponsored nofollow noopener");
   await expect(page.getByText(AFFILIATE_DISCLOSURE)).toBeVisible();
 });
 
@@ -80,8 +80,8 @@ test("links Instantly without an affiliate parameter on the comparison page", as
   await expect(instantly).toHaveAttribute("rel", "noopener");
   await expect(instantly).not.toHaveAttribute("rel", /sponsored/);
 
-  await expect(page.locator(`a[href="${smartlead.affiliateUrl}"]`)).toHaveAttribute("rel", "sponsored noopener");
-  await expect(page.locator(`a[href="${lemlist.affiliateUrl}"]`)).toHaveAttribute("rel", "sponsored noopener");
+  await expect(page.locator(`a[href="${smartlead.affiliateUrl}"]`)).toHaveAttribute("rel", "sponsored nofollow noopener");
+  await expect(page.locator(`a[href="${lemlist.affiliateUrl}"]`)).toHaveAttribute("rel", "sponsored nofollow noopener");
 
   const html = await page.content();
   expect(html).not.toContain("instantly.ai/?via=");

@@ -54,7 +54,23 @@ const schema = [
     name: tool.name,
     description: tool.summary,
     url: pageUrl
-  }
+  },
+  ...(tool.faq
+    ? [
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: tool.faq.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer
+            }
+          }))
+        }
+      ]
+    : [])
 ];
 ---
 
@@ -72,6 +88,11 @@ const schema = [
         <p>{tool.summary}</p>
         <AffiliateDisclosure />
         <ToolCta href={tool.affiliateUrl} label={`Visit ${tool.name}`} />
+        {tool.ctaNote && (
+          <p>
+            <small>{tool.ctaNote}</small>
+          </p>
+        )}
       </div>
     </section>
 
@@ -79,6 +100,31 @@ const schema = [
       <h2>Who it's for</h2>
       <p>{tool.audience}</p>
     </section>
+
+    {tool.notFor && (
+      <section class="tools-section">
+        <h2>Who it's not for</h2>
+        <p>{tool.notFor}</p>
+      </section>
+    )}
+
+    {tool.firstPerson && (
+      <section class="tools-section">
+        <h2>How I use it</h2>
+        <p>{tool.firstPerson}</p>
+      </section>
+    )}
+
+    {tool.howItWorks && (
+      <section class="tools-section">
+        <h2>How it works</h2>
+        <ol class="tools-points">
+          {tool.howItWorks.map((step) => (
+            <li>{step}</li>
+          ))}
+        </ol>
+      </section>
+    )}
 
     <div class="tools-split">
       <section class="tools-section">
@@ -103,6 +149,18 @@ const schema = [
       <section class="tools-section">
         <h2>Pricing</h2>
         <p class="tools-pricing">{tool.pricing}</p>
+      </section>
+    )}
+
+    {tool.faq && (
+      <section class="tools-section">
+        <h2>FAQ</h2>
+        {tool.faq.map((item) => (
+          <>
+            <h3>{item.question}</h3>
+            <p>{item.answer}</p>
+          </>
+        ))}
       </section>
     )}
 
