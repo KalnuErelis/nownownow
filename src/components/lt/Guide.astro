@@ -5,6 +5,8 @@ import {
   LT_AUTHOR,
   LT_CAPITAL_WARNING,
   LT_CFD_WARNING,
+  LT_INDEPENDENT_NOTE,
+  LT_PUBLISHED,
   LT_UPDATED,
   LT_UPDATED_LABEL,
   hreflangAlternates,
@@ -27,7 +29,7 @@ const article = {
   name: page.h1,
   description: page.description,
   inLanguage: "lt",
-  datePublished: LT_UPDATED,
+  datePublished: LT_PUBLISHED,
   dateModified: LT_UPDATED,
   author: {
     "@type": "Person",
@@ -56,6 +58,22 @@ const faq = {
     }
   }))
 };
+
+const itemList = page.itemList
+  ? {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: page.h1,
+      inLanguage: "lt",
+      numberOfItems: page.itemList.length,
+      itemListElement: page.itemList.map((entry, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: entry.name,
+        url: entry.url
+      }))
+    }
+  : undefined;
 
 const breadcrumb = {
   "@context": "https://schema.org",
@@ -92,9 +110,9 @@ const breadcrumb = {
   title={`${page.title} | ${LT_AUTHOR.name}`}
   description={page.description}
   ogType={page.path === "/lt/" ? "website" : "article"}
-  publishedTime={page.path === "/lt/" ? undefined : LT_UPDATED}
+  publishedTime={page.path === "/lt/" ? undefined : LT_PUBLISHED}
   alternates={hreflangAlternates(page.path)}
-  schema={[article, faq, breadcrumb]}
+  schema={itemList ? [article, faq, breadcrumb, itemList] : [article, faq, breadcrumb]}
 >
   <main id="main-content" class="page-shell article-page lt-page">
     <article class="article-content">
@@ -112,22 +130,23 @@ const breadcrumb = {
         }
       </p>
       <p class="article-meta">
-        {LT_AUTHOR.name} · atnaujinta {LT_UPDATED_LABEL}
+        {LT_AUTHOR.name} · <time datetime={LT_UPDATED}>Atnaujinta {LT_UPDATED.slice(0, 7)}</time>
       </p>
       <h1>{page.h1}</h1>
       <p class="lt-answer">{page.lede}</p>
-      {page.investing && <p class="lt-warning">{LT_CAPITAL_WARNING}</p>}
-      {page.cfd && <p class="lt-warning">{page.cfdWarning ?? LT_CFD_WARNING}</p>}
-      {page.disclosure && <p class="tools-disclosure">{disclosure}</p>}
       {
-        page.placeholder && (
-          <aside class="lt-placeholder">
+        page.definition && (
+          <aside class="lt-definition" aria-label="Apibrėžimas">
             <p>
-              <strong>Asmeninė patirtis dar neįdėta.</strong> {page.placeholder}
+              <dfn>{page.definition.term}</dfn> – {page.definition.text}
             </p>
           </aside>
         )
       }
+      {page.investing && <p class="lt-warning">{LT_CAPITAL_WARNING}</p>}
+      {page.cfd && <p class="lt-warning">{page.cfdWarning ?? LT_CFD_WARNING}</p>}
+      {page.disclosure && <p class="tools-disclosure">{disclosure}</p>}
+      <p class="lt-note">{LT_INDEPENDENT_NOTE}</p>
       <slot />
       <section class="lt-faq" id="duk">
         <h2>Dažni klausimai</h2>

@@ -1,12 +1,25 @@
 ---
 import BrandLink from "@/components/lt/BrandLink.astro";
+import BrokerComparison from "@/components/lt/BrokerComparison.astro";
 import Guide from "@/components/lt/Guide.astro";
 import { LT_FREEDOM } from "@/data/lt";
 ---
 
 <Guide page={LT_FREEDOM}>
   <!-- JAUNIUS: įdėk sutarties ekrano kopiją, kurioje matyti Freedom Finance Europe Ltd, ir pasirinkto mokesčių plano langą. Kol jų nėra, nevadink šio teksto savo atsiliepimu. -->
-  <h2 id="prieziura">Kas prižiūri</h2>
+  <h2 id="ar-patikimas">Ar Freedom24 patikimas?</h2>
+  <ul>
+    <li>
+      Freedom Finance Europe Ltd turi
+      <a href="https://www.cysec.gov.cy/en-GB/entities/investment-firms/cypriot/73116/" target="_blank" rel="noopener noreferrer">CySEC licenciją 275/15</a>.
+    </li>
+    <li>
+      <a href="https://www.lb.lt/lt/finansu-rinku-dalyviai/freedom-finance-europe-ltd" target="_blank" rel="noopener noreferrer">Lietuvos banko įraše</a>
+      ji yra ES/EEE finansų maklerio įmonė, teikianti paslaugas Lietuvoje neįsisteigusi.
+    </li>
+    <li>Licencija reiškia priežiūrą, ne indėlių garantiją ir ne apsaugą nuo rinkos kritimo.</li>
+  </ul>
+  <h2 id="prieziura">Kas prižiūri Freedom24?</h2>
   <p>
     <BrandLink brand="freedom24" /> yra Freedom Finance Europe Ltd prekės ženklas. Bendrosiose sąlygose įmonė nurodyta kaip Kipro bendrovė HE 324220. CySEC patvirtinime yra licencija 275/15. Lietuvos bankas tą pačią įmonę įrašęs kaip ES finansų maklerio įmonę, teikiančią paslaugas Lietuvoje be filialo.
   </p>
@@ -39,9 +52,9 @@ import { LT_FREEDOM } from "@/data/lt";
       </tbody>
     </table>
   </div>
-  <h2 id="mokesciai">Kainynas nuo 2026 m. rugpjūčio 19 d.</h2>
+  <h2 id="mokesciai">Kokie Freedom24 mokesčiai nuo 2026 m. rugpjūčio 19 d.?</h2>
   <p>
-    Skaičiai yra iš priedo, kuris kainyne pažymėtas kaip galiojantis nuo 2026 m. rugpjūčio 19 d. JAV ir Europos biržose kotiruojamoms akcijoms bei ETF. Kitų rinkų tarifų, kurių tame priede švariai neperskaičiau, čia nėra.
+    Skaičiai yra iš priedo, kuris kainyne pažymėtas kaip galiojantis nuo 2026 m. rugpjūčio 19 d. JAV ir Europos biržose kotiruojamoms akcijoms bei ETF. Kitų rinkų tarifų čia nėra.
   </p>
   <div class="lt-table-wrap">
     <table class="lt-table">
@@ -77,15 +90,46 @@ import { LT_FREEDOM } from "@/data/lt";
     </table>
   </div>
   <p>
-    Eurais skelbiama akcija, kuri sumažina komisinį, taikoma tik fiziniams asmenims, rezidentams arba piliečiams Prancūzijoje, Italijoje, Rumunijoje ar Čekijoje, jei sąskaita atidaryta nuo 2026 m. kovo 1 d. iki 2026 m. rugpjūčio 31 d. Lietuvos gyventojui šios akcijos nepriskiriu. Exclusive planas kainyne yra tik pagal atskirą prašymą, todėl jo kaip įprasto lietuvio plano nelaikau.
+    Eurais skelbiama akcija, kuri sumažina komisinį, taikoma tik fiziniams asmenims, rezidentams arba piliečiams Prancūzijoje, Italijoje, Rumunijoje ar Čekijoje, jei sąskaita atidaryta nuo 2026 m. kovo 1 d. iki 2026 m. rugpjūčio 31 d. Lietuva tame sąraše nėra. Exclusive planas kainyne yra tik pagal atskirą prašymą, todėl jis čia nelaikomas įprastu planu.
   </p>
   <p>
     Automatinio investavimo funkcijoje pasikartojančio pavedimo komisinis gali būti 0, bet tik toje funkcijoje. Kiti pavedimai lieka pagal pasirinktą planą.
   </p>
-  <h2 id="investicine-saskaita">Investicinė sąskaita</h2>
+  <h2 id="privalumai-trukumai">Freedom24 privalumai ir trūkumai</h2>
+  <div class="lt-table-wrap">
+    <table class="lt-table lt-proscons">
+      <caption>Tik oficialiuose šaltiniuose patikrinti faktai, 2026-11-04. Tai nėra rekomendacija</caption>
+      <thead>
+        <tr>
+          <th scope="col">Privalumai</th>
+          <th scope="col">Trūkumai ir rizikos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Svetainė ir iOS programėlė lietuvių kalba.</td>
+          <td>Išėmimas banko pavedimu kainuoja 7 eurus.</td>
+        </tr>
+        <tr>
+          <td>Paskelbtuose planuose mėnesinis mokestis 0.</td>
+          <td>Smart plane mažiausiai 2 eurai už pavedimą, todėl maži pirkimai santykinai brangūs.</td>
+        </tr>
+        <tr>
+          <td>CySEC licencija 275/15 ir Lietuvos banko įrašas.</td>
+          <td>Įmonė yra Kipre, Lietuvoje filialo neturi. VMI Freedom24 neįvardija.</td>
+        </tr>
+        <tr>
+          <td>Viename kainyne aprašyti JAV ir Europos akcijų bei ETF tarifai.</td>
+          <td>Minimali įmoka Lietuvos klientui oficialiame šaltinyje nepatikrinta.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <BrokerComparison />
+  <h2 id="investicine-saskaita">Ar Freedom24 tinka investicinei sąskaitai?</h2>
   <p>
     VMI tiesiogiai įvardija Trading 212 ir pateikia Interactive Brokers Ireland pavyzdį. Freedom24 tame paaiškinime nėra. Jei sąskaita yra pinigų sąskaita ir naudojama tik tinkamiems produktams, vertinate bendrą
     <a href="/lt/investicine-saskaita/">investicinės sąskaitos</a>
-    taisyklę, ne atskirą Freedom24 išimtį. Kriptovaliutų šis puslapis nereklamuoja. Mažmeninių CFD sąskaitų nuostolių procento šio teikėjo dokumentuose neradau, todėl jo neįrašiau.
+    taisyklę, ne atskirą Freedom24 išimtį. Kriptovaliutų šis puslapis nereklamuoja. Mažmeninių CFD sąskaitų nuostolių procento tikrintuose šio teikėjo dokumentuose nėra, todėl jis neįrašytas.
   </p>
 </Guide>

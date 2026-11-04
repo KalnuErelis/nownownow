@@ -1,0 +1,50 @@
+---
+import BrandLink from "@/components/lt/BrandLink.astro";
+import { LT_UNVERIFIED, LT_UPDATED, PLATFORM_TERMS } from "@/data/lt";
+
+interface Props {
+  id?: string;
+  heading?: string;
+}
+
+const { id = "salygos", heading = "Platformų palyginimo lentelė" } = Astro.props;
+---
+
+<h2 id={id}>{heading}</h2>
+<div class="lt-table-wrap">
+  <table class="lt-table lt-compare">
+    <caption>
+      Operatorių paskelbtos sąlygos ir Lietuvos banko įrašai, patikrinta {LT_UPDATED}. Grąža nėra pažadas.
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Platforma</th>
+        <th scope="col">Minimali suma (EUR)</th>
+        <th scope="col">Skelbiama grąža</th>
+        <th scope="col">Mokesčiai</th>
+        <th scope="col">Investicinė sąskaita (VMI)</th>
+        <th scope="col">Priežiūra</th>
+        <th scope="col">Lietuvių kalba</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        PLATFORM_TERMS.map((row) => (
+          <tr>
+            <th scope="row">{row.brandId ? <BrandLink brand={row.brandId} label={row.name} /> : row.name}</th>
+            <td>{row.minimum}</td>
+            <td>{row.publishedReturn}</td>
+            <td>{row.fees}</td>
+            <td>{row.investAccount}</td>
+            <td>
+              <a href={row.registerUrl} target="_blank" rel="noopener noreferrer">
+                {row.licence}
+              </a>
+            </td>
+            <td>{row.language === LT_UNVERIFIED ? <em>{row.language}</em> : row.language}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>

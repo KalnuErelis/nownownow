@@ -1,15 +1,14 @@
 ---
 import BrandLink from "@/components/lt/BrandLink.astro";
+import BrokerComparison from "@/components/lt/BrokerComparison.astro";
 import Guide from "@/components/lt/Guide.astro";
+import PlatformComparison from "@/components/lt/PlatformComparison.astro";
 import { LT_BEST } from "@/data/lt";
 ---
 
 <Guide page={LT_BEST}>
   <!-- JAUNIUS: neįrašyk, kad naudoji šias platformas, kol neįdėjai savo ekrano kopijų. Eilė yra pagal šaltinio tipą, ne pagal portfelį. -->
-  <h2 id="eile">Eilė pagal šaltinį</h2>
-  <p>
-    Vietos nėra balai ir nėra grąžos rikiuotė. Pirma eina tai, ką VMI įvardija investicinei sąskaitai. Toliau ES maklerio įmonės, kurias Lietuvos bankas įrašęs kaip teikiančias paslaugas be filialo ir kurių mokesčius patikrinau. Tada sutelktinio finansavimo licencija su paskelbta mažiausia suma. Finbee stovi atskirai, nes vartotojų svetainė tos licencijos neturi.
-  </p>
+  <h2 id="eile">Geriausios investavimo platformos: eilė pagal šaltinį</h2>
   <div class="lt-table-wrap">
     <table class="lt-table">
       <caption>2026 m. trumpasis sąrašas. Tai nėra „geriausia grąža“</caption>
@@ -45,7 +44,7 @@ import { LT_BEST } from "@/data/lt";
           <td><BrandLink brand="xtb" /></td>
           <td>Lietuvos banko įrašas: paslaugos Lietuvoje be filialo. Mokesčiai patikrinti Kipro kainyne.</td>
           <td>
-            CySEC 169/12. Akcijoms ir ETF 0 proc. iki 100 000 eurų per mėnesį. CFD perspėjimas 77 proc.
+            CySEC 169/12. Akcijoms ir ETF 0 proc. iki 100 000 eurų per mėnesį. CFD perspėjimas 79 proc.
             <a href="/lt/xtb-atsiliepimai/">Atsiliepimai</a>.
           </td>
         </tr>
@@ -63,7 +62,7 @@ import { LT_BEST } from "@/data/lt";
           <td><BrandLink brand="profitus" /></td>
           <td>Sutelktinio finansavimo licencija ir paskelbta mažiausia suma.</td>
           <td>
-            UAB „Profitus Crowdfunding“, Nr. 10 nuo 2023-11-10. Nuo 100 eurų. Operatoriaus vidurkis 9,84 proc.
+            UAB „Profitus Crowdfunding“, Nr. 10 nuo 2023-11-10. Nuo 100 eurų. Operatoriaus vidurkis 9,83 proc.
             <a href="/lt/profitus-atsiliepimai/">Atsiliepimai</a>.
           </td>
         </tr>
@@ -72,21 +71,38 @@ import { LT_BEST } from "@/data/lt";
           <td><BrandLink brand="finbee" label="Finbee" /></td>
           <td>Vartotojų svetainė sutelktinio finansavimo licencijos neturi. Mokėjimų įmonė turi kitą licenciją.</td>
           <td>
-            EMI Nr. 87, UAB „Elektroninių pinigų bitė“. Mažiausia suma 5 eurai. 2025 m. antraštė 14,2 proc. Nr. 8 priklauso finbeeeverslui.lt.
+            EMI Nr. 87, UAB „Elektroninių pinigų bitė“. Mažiausia suma 5 eurai. 2025 m. antraštė 14,2 proc. Nr. 8 priklauso finbeeverslui.lt.
             <a href="/lt/finbee-atsiliepimai/">Atsiliepimai</a>.
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-  <h2 id="ko-nera">Ko eilėje nėra</h2>
   <p>
-    Nėra eToro. Nėra kriptovaliutų platformų. EstateGuru ir Mintos 2026 m. spalio 30 d. Lietuvos banko sutelktinio finansavimo sąraše nebuvo, todėl jų čia nėra. Visos septyniolika tą dieną galiojusių licencijų, įskaitant tas, kurių sąlygų netikrinau, yra gide
+    Vietos nėra balai ir nėra grąžos rikiuotė. Pirma eina tai, ką VMI įvardija investicinei sąskaitai. Toliau ES maklerio įmonės, kurias Lietuvos bankas įrašęs kaip teikiančias paslaugas be filialo. Tada sutelktinio finansavimo licencija su paskelbta mažiausia suma. Finbee stovi atskirai, nes vartotojų svetainė tos licencijos neturi.
+  </p>
+  <h2 id="isvados">Kuri platforma geriausia jums?</h2>
+  <ul class="lt-verdicts">
+    <li><strong>Geriausia Interactive Brokers Ireland</strong>, jei norite Baltijos, ES ir JAV akcijų vienoje sąskaitoje be sąskaitos minimumo ir būtent tos įmonės, kurią VMI naudoja savo pavyzdyje.</li>
+    <li><strong>Geriausia Trading 212</strong>, jei norite 0 komisinių akcijoms ir ETF bei programėlės lietuvių kalba, o 0,15 proc. valiutos keitimas jums priimtinas.</li>
+    <li><strong>Geriausia XTB</strong>, jei mėnesio apyvarta neviršija 100 000 eurų ir norite 0 proc. komisinių; atminkite 0,5 proc. valiutos keitimą ir 10 eurų mėnesio neaktyvumo mokestį po 365 dienų be sandorių ir 90 dienų be įmokų.</li>
+    <li><strong>Geriausia Freedom24</strong>, jei norite svetainės ir programėlės lietuvių kalba ir fiksuoto 2 eurų už pavedimą tarifo; mažoms sumoms 7 eurų išėmimas yra brangus.</li>
+    <li><strong>Geriausia Profitus</strong>, jei norite paskolų, užtikrintų nekilnojamuoju turtu, nuo 100 eurų per Lietuvos banko licencijuotą platformą.</li>
+  </ul>
+  <p>
+    Šis puslapis yra trumpas mišrus sąrašas. Visos 17 Lietuvos banko sutelktinio finansavimo licencijų ir tik paskolų platformų sąlygos yra gide
+    <a href="/lt/investavimo-platformos/">Investavimo platformos</a>.
+  </p>
+  <BrokerComparison />
+  <PlatformComparison />
+  <h2 id="ko-nera">Ko eilėje nėra?</h2>
+  <p>
+    Nėra eToro. Nėra kriptovaliutų platformų. EstateGuru ir Mintos 2026 m. lapkričio 4 d. Lietuvos banko sutelktinio finansavimo sąraše nebuvo, todėl jų čia nėra. Visos septyniolika tą dieną galiojusių licencijų, įskaitant tas, kurių sąlygų netikrinau, yra gide
     <a href="/lt/investavimo-platformos/">Investavimo platformos</a>.
     ETF mokesčiai fiziniam asmeniui yra gide
     <a href="/lt/etf-investavimas-lietuvoje/">ETF investavimas Lietuvoje</a>.
   </p>
   <p>
-    CFD nuostolių dalis parašyta tik Trading 212 ir XTB apžvalgose, nes tik ten radau to teikėjo paskelbtą procentą. Licencija neapsaugo nuo rinkos kritimo ir nuo negrąžintos paskolos.
+    CFD nuostolių dalis parašyta tik Trading 212 ir XTB apžvalgose, nes tik ten teikėjas paskelbė savo procentą. Licencija neapsaugo nuo rinkos kritimo ir nuo negrąžintos paskolos.
   </p>
 </Guide>

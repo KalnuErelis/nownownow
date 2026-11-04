@@ -1,20 +1,36 @@
 ---
 import BrandLink from "@/components/lt/BrandLink.astro";
 import Guide from "@/components/lt/Guide.astro";
-import { LB_CROWDFUNDING_LICENCES, LT_PLATFORMS, PLATFORM_TERMS } from "@/data/lt";
+import PlatformComparison from "@/components/lt/PlatformComparison.astro";
+import { LB_CROWDFUNDING_LICENCES, LT_PLATFORMS } from "@/data/lt";
 ---
 
 <Guide page={LT_PLATFORMS}>
   <!-- JAUNIUS: jei naudoji kurią nors platformą, įdėk savo portfelio ekrano kopiją ir parašyk, kiek realiai grįžo po vėlavimų. Neperrašyk operatoriaus vidurkio kaip savo rezultato. -->
-  <h2 id="licencijos">Lietuvos banko licencijos</h2>
+  <PlatformComparison heading="Sutelktinio finansavimo platformų palyginimas" />
+  <p>
+    Grąžos stulpelis yra operatoriaus paskelbtas vidurkis, ne pažadas. Mokesčio neįrašiau, jei jo nebuvo pagrindiniame operatoriaus puslapyje. Kitų licencijuotų platformų minimumų čia nėra, nes jų sąlygos nebuvo patikrintos.
+  </p>
+  <h2 id="isvados">Kurią platformą rinktis?</h2>
+  <ul class="lt-verdicts">
+    <li><strong>Geriausia Profitus</strong>, jei norite paskolų, užtikrintų nekilnojamuoju turtu, nuo 100 eurų ir kliento paskyros, kurią VMI DUK 59 įvardija investicinei sąskaitai.</li>
+    <li><strong>Geriausia InRento</strong>, jei investuojate nuo 500 eurų į nekilnojamojo turto projektus ir norite, kad palūkanos būtų mokamos kas mėnesį, kaip rašo operatorius.</li>
+    <li><strong>Geriausia InSoil</strong>, jei norite žemės ūkio paskolų nuo 100 eurų pirminėje rinkoje.</li>
+    <li><strong>Geriausia Finbee</strong>, jei norite pradėti nuo 5 eurų vartojimo ir verslo paskolose ir sutinkate, kad finbee.lt vartotojų svetainė sutelktinio finansavimo licencijos neturi.</li>
+  </ul>
+  <p>
+    Šis puslapis lygina tik paskolų platformas. Brokeriai akcijoms ir ETF bei trumpas mišrus sąrašas yra gide
+    <a href="/lt/geriausios-investavimo-platformos/">Geriausios investavimo platformos</a>.
+  </p>
+  <h2 id="licencijos">Kurios platformos turi Lietuvos banko licenciją?</h2>
   <p>
     Sąrašas paimtas iš
     <a href="https://www.lb.lt/lt/frd-licencijos?ff=1&type=116" target="_blank" rel="noopener noreferrer">Lietuvos banko licencijų sąrašo</a>,
-    filtruoto pagal sutelktinio finansavimo paslaugų teikėją, 2026 m. spalio 30 d. Ten, kur sąrašo kortelėje nebuvo pavadinimo, jį sutikrinau su Lietuvos banko įstaigos profiliu arba 2025 m. veiklos apžvalga. UAB Nordstreet pavadinimas yra iš 2025 m. apžvalgos, o licencijos numeris ir data yra iš galiojančio sąrašo.
+    filtruoto pagal sutelktinio finansavimo paslaugų teikėją, 2026 m. lapkričio 4 d. Ten, kur sąrašo kortelėje nebuvo pavadinimo, jį sutikrinau su Lietuvos banko įstaigos profiliu arba 2025 m. veiklos apžvalga. UAB Nordstreet pavadinimas yra iš 2025 m. apžvalgos, o licencijos numeris ir data yra iš galiojančio sąrašo.
   </p>
   <div class="lt-table-wrap">
     <table class="lt-table">
-      <caption>17 sutelktinio finansavimo paslaugų teikėjų licencijų, lb.lt, 2026-10-30</caption>
+      <caption>17 sutelktinio finansavimo paslaugų teikėjų licencijų, lb.lt, 2026-11-04</caption>
       <thead>
         <tr>
           <th scope="col">Operatorius</th>
@@ -42,51 +58,18 @@ import { LB_CROWDFUNDING_LICENCES, LT_PLATFORMS, PLATFORM_TERMS } from "@/data/l
   <p>
     UAB „Bendras finansavimas“ (Savy) tame pačiame Lietuvos banko sąraše 2026 m. spalio 27 d. taip pat turi ribotos veiklos elektroninių pinigų įstaigos licenciją Nr. 12. Tai nėra tas pats dokumentas kaip sutelktinio finansavimo licencija Nr. 6.
   </p>
-  <h2 id="salygos">Patikrintos sąlygos</h2>
-  <p>
-    Grąžos stulpelis yra operatoriaus paskelbtas vidurkis, ne pažadas ir ne mano rezultatas. Mokesčio neįrašiau, jei jo nebuvo pagrindiniame operatoriaus puslapyje. Kitų licencijuotų platformų minimumų čia nėra, nes jų svetainių tą dieną neatidariau.
-  </p>
-  <div class="lt-table-wrap">
-    <table class="lt-table">
-      <caption>Operatorių pačių paskelbtos sąlygos, patikrintos 2026-10-30</caption>
-      <thead>
-        <tr>
-          <th scope="col">Platforma</th>
-          <th scope="col">Minimali suma</th>
-          <th scope="col">Skelbiama grąža</th>
-          <th scope="col">Mokesčiai</th>
-          <th scope="col">Licencija</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          PLATFORM_TERMS.map((row) => (
-            <tr>
-              <th scope="row">
-                {row.brandId ? <BrandLink brand={row.brandId} label={row.name} /> : row.name}
-              </th>
-              <td>{row.minimum}</td>
-              <td>{row.publishedReturn}</td>
-              <td>{row.fees}</td>
-              <td>{row.licence}</td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
-  </div>
   <p>
     Finbee puslapis antraštėje rašo, kad 2025 m. vidutinė palūkanų norma buvo 14,2 proc., o žemiau tame pačiame puslapyje nurodo 14,5 proc. privačioms paskoloms ir 13 proc. verslo paskoloms. Lentelėje palikau antraštės skaičių. Vartojimo paskolai vienas investuotojas per 12 mėnesių negali paskolinti daugiau kaip 500 eurų. Verslo paskoloms šios ribos puslapis nenurodo.
   </p>
   <p>
-    InRento pagrindinis puslapis rašo, kad projektai prasideda nuo 500 eurų, o vidutinė metinė grąža yra 11,56 proc. Lietuvos banko profilyje operatoriaus svetainė yra inrento.lt. Skaičius skaičiau angliškame inrento.com puslapyje.
+    InRento pagrindinis puslapis rašo, kad projektai prasideda nuo 500 eurų, o vidutinė metinė grąža yra 11,56 proc. Lietuvos banko profilyje operatoriaus svetainė yra inrento.lt. Skaičiai patikrinti inrento.lt puslapyje.
   </p>
   <p>
-    InSoil, anksčiau Heavy Finance, rašo, kad pirminėje rinkoje galima pradėti nuo 100 eurų, o svertinė vidutinė palūkanų norma yra 12,95 proc. Antrinėje rinkoje suma gali būti mažesnė. Profitus rašo „vos nuo 100 EUR“ ir „9.84% vidutinė metinė grąža“.
+    InSoil, anksčiau Heavy Finance, rašo, kad pirminėje rinkoje galima pradėti nuo 100 eurų, o svertinė vidutinė palūkanų norma yra 12,95 proc. Antrinėje rinkoje suma gali būti mažesnė. Profitus rašo „vos nuo 100 EUR“ ir „9.83% vidutinė metinė grąža“.
   </p>
-  <h2 id="ko-nera">Ko lentelėje nėra</h2>
+  <h2 id="ko-nera">Kodėl lentelėje nėra EstateGuru ir Mintos?</h2>
   <p>
-    EstateGuru ir Mintos dažnai lyginami lietuviškuose tekstuose, bet 2026 m. spalio 30 d. Lietuvos banko sutelktinio finansavimo licencijų sąraše jų nebuvo. Neįtraukiau ir jų užsienio licencijų, minimumų ar grąžos, nes šio puslapio taisyklė yra cituoti lb.lt arba operatoriaus puslapį, kurį pats atidariau.
+    EstateGuru ir Mintos dažnai lyginami lietuviškuose tekstuose, bet 2026 m. lapkričio 4 d. Lietuvos banko sutelktinio finansavimo licencijų sąraše jų nebuvo. Neįtraukiau ir jų užsienio licencijų, minimumų ar grąžos, nes šio puslapio taisyklė yra cituoti tik lb.lt arba operatoriaus puslapį.
   </p>
   <p>
     Sutelktinis finansavimas ir tarpusavio skolinimas gali tikti

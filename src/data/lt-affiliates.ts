@@ -87,7 +87,7 @@ export const LT_BRANDS: Record<LtBrandId, LtBrand> = {
   "finbee-verslui": {
     id: "finbee-verslui",
     name: "Finbee verslui",
-    officialUrl: "https://www.finbeeeverslui.lt/",
+    officialUrl: "https://www.finbeeverslui.lt/",
     affiliateUrl: ""
   },
   nordstreet: {
