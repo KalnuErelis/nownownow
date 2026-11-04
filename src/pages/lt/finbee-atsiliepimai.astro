@@ -1,18 +1,33 @@
 ---
 import BrandLink from "@/components/lt/BrandLink.astro";
 import Guide from "@/components/lt/Guide.astro";
+import PlatformComparison from "@/components/lt/PlatformComparison.astro";
 import { LT_FINBEE } from "@/data/lt";
 ---
 
 <Guide page={LT_FINBEE}>
   <!-- JAUNIUS: jei investuoji, įdėk savo portfelio ekrano kopiją ir realią grąžą po vėlavimų. 14,2 proc. yra operatoriaus antraštė, ne tavo rezultatas. -->
-  <h2 id="licencija">Dvi skirtingos įmonės</h2>
+  <h2 id="ar-patikimas">Ar Finbee patikimas?</h2>
+  <ul>
+    <li>
+      finbee.lt 2026 m. lapkričio 4 d.
+      <a href="https://www.lb.lt/lt/frd-licencijos?ff=1&type=116" target="_blank" rel="noopener noreferrer">Lietuvos banko sutelktinio finansavimo licencijų sąraše</a>
+      nebuvo. Licenciją Nr. 8 turi kita įmonė, UAB „Finansų bitė verslui“.
+    </li>
+    <li>
+      Investuotojų pavedimus gauna UAB „Elektroninių pinigų bitė“, turinti
+      <a href="https://www.lb.lt/lt/frd-licencijos/view_license?id=2061" target="_blank" rel="noopener noreferrer">elektroninių pinigų įstaigos licenciją Nr. 87</a>
+      (<a href="https://www.lb.lt/lt/finansu-rinku-dalyviai/uab-elektroniniu-pinigu-bite" target="_blank" rel="noopener noreferrer">LB įrašas</a>).
+    </li>
+    <li>Elektroninių pinigų licencija nėra sutelktinio finansavimo licencija ir nėra paskolų grąžinimo garantija.</li>
+  </ul>
+  <h2 id="licencija">Kodėl Finbee yra dvi skirtingos įmonės?</h2>
   <p>
-    <BrandLink brand="finbee" label="finbee.lt" /> 2026 m. spalio 30 d. Lietuvos banko sutelktinio finansavimo licencijų sąraše nebuvo. To sąrašo Nr. 8 yra kita įmonė.
+    <BrandLink brand="finbee" label="finbee.lt" /> 2026 m. lapkričio 4 d. Lietuvos banko sutelktinio finansavimo licencijų sąraše nebuvo. To sąrašo Nr. 8 yra kita įmonė.
   </p>
   <div class="lt-table-wrap">
     <table class="lt-table">
-      <caption>Finbee pavadinimai ir licencijos, patikrinta 2026-10-30</caption>
+      <caption>Finbee pavadinimai ir licencijos, patikrinta 2026-11-04</caption>
       <thead>
         <tr>
           <th scope="col">Įmonė</th>
@@ -26,7 +41,7 @@ import { LT_FINBEE } from "@/data/lt";
         </tr>
         <tr>
           <th scope="row"><BrandLink brand="finbee-verslui" label="UAB „Finansų bitė verslui“" /></th>
-          <td>Sutelktinio finansavimo licencija Nr. 8 nuo 2023-11-10. Svetainė licencijų kortelėje yra finbeeeverslui.lt.</td>
+          <td>Sutelktinio finansavimo licencija Nr. 8 nuo 2023-11-10. Svetainė licencijų kortelėje yra finbeeverslui.lt.</td>
         </tr>
         <tr>
           <th scope="row">UAB „Elektroninių pinigų bitė“</th>
@@ -36,9 +51,9 @@ import { LT_FINBEE } from "@/data/lt";
     </table>
   </div>
   <p>
-    Elektroninių pinigų licencija nėra sutelktinio finansavimo licencija. Sąskaitos numerio čia nekartoju. Pakanka to, kad operatoriaus puslapis įvardija gavėją.
+    Elektroninių pinigų licencija nėra sutelktinio finansavimo licencija. Sąskaitos numeris čia nekartojamas. Pakanka to, kad operatoriaus puslapis įvardija gavėją.
   </p>
-  <h2 id="salygos">Ką skelbia investuotojo puslapis</h2>
+  <h2 id="salygos">Ką skelbia Finbee investuotojo puslapis?</h2>
   <div class="lt-table-wrap">
     <table class="lt-table">
       <caption>finbee.lt/investuok/ sąlygos. Grąža yra operatoriaus skaičius</caption>
@@ -79,6 +94,37 @@ import { LT_FINBEE } from "@/data/lt";
   <p>
     Operatorius rašo, kad paskolą gauna 7 iš 100 pareiškėjų. Tai jo teiginys apie atranką, ne jūsų būsima grąža. Skaičiuoklės tame puslapyje pažymėtos kaip nepatikimas būsimų rezultatų rodiklis. 14,2 proc. nėra pažadas ir nėra autoriaus rezultatas.
   </p>
+  <h2 id="privalumai-trukumai">Finbee privalumai ir trūkumai</h2>
+  <div class="lt-table-wrap">
+    <table class="lt-table lt-proscons">
+      <caption>Tik oficialiuose šaltiniuose patikrinti faktai, 2026-11-04. Tai nėra rekomendacija</caption>
+      <thead>
+        <tr>
+          <th scope="col">Privalumai</th>
+          <th scope="col">Trūkumai ir rizikos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mažiausia suma 5 eurai.</td>
+          <td>finbee.lt sutelktinio finansavimo licencijų sąraše nėra.</td>
+        </tr>
+        <tr>
+          <td>Įskaitymas ir išmokėjimas nemokami.</td>
+          <td>14,2 proc. yra 2025 m. operatoriaus vidurkis, ne pažadas.</td>
+        </tr>
+        <tr>
+          <td>Pavedimus gauna licencijuota elektroninių pinigų įstaiga Nr. 87.</td>
+          <td>Vartojimo paskoloms riba: ne daugiau kaip 500 eurų tam pačiam gavėjui per 12 mėnesių.</td>
+        </tr>
+        <tr>
+          <td>Svetainė lietuvių kalba.</td>
+          <td>VMI Finbee neįvardija; tinkamumą investicinei sąskaitai reikia tikrinti pagal produktą.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <PlatformComparison id="platformu-palyginimas" />
   <p>
     Ar konkreti paskola tinka
     <a href="/lt/investicine-saskaita/">investicinei sąskaitai</a>,

@@ -1,11 +1,12 @@
 ---
+import BrokerComparison from "@/components/lt/BrokerComparison.astro";
 import Guide from "@/components/lt/Guide.astro";
 import { LT_ETF } from "@/data/lt";
 ---
 
 <Guide page={LT_ETF}>
   <!-- JAUNIUS: nekurk portfelio pavyzdžio. Jei dalinsiesi, įdėk deklaruotos ETF pozicijos ekrano kopiją be sąskaitos numerio. -->
-  <h2 id="kada-mokestis">Kada atsiranda 15 proc.</h2>
+  <h2 id="kada-mokestis">Kada mokamas 15 proc. GPM nuo ETF?</h2>
   <p>
     Nuo 2026 m. sausio 1 d. investicinės sąskaitos pajamoms, įskaitant ETF pardavimą sąskaitos viduje, taikomas vienas 15 proc. tarifas. Jis mokamas tik tada, kai išėmimas viršija sukauptą įnašą, ir nuo sumos dydžio nepriklauso. Iki 2026 m. minėta 20 proc. riba virš 120 VDU šiam išėmimui nebetaikoma. GPM311 terminą už 2025 m. ši taisyklė nepaverčia nuolatiniu vėlesnių metų terminu.
   </p>
@@ -38,7 +39,7 @@ import { LT_ETF } from "@/data/lt";
       </tbody>
     </table>
   </div>
-  <h2 id="kada-tinka">Kada ETF tinka</h2>
+  <h2 id="kada-tinka">Kada ETF tinka investicinei sąskaitai?</h2>
   <p>
     VMI komentare apie GPMĮ 12<sup>1</sup> straipsnį investavimas į ETF yra naudojimas pagal paskirtį, jei fondas atitinka kolektyvinio investavimo subjekto apibrėžimą arba jo vienetais prekiaujama biržoje. Kolektyvinio investavimo vertybiniams popieriams biržos sąrašas nebūtinas. Paprastoms akcijoms sąrašo sąlyga reikalinga. Atskiro tarifo kaupiamajam ir paskirstomajam fondui tame komentare nėra: skiriasi tik tai, ar išmokami dividendai.
   </p>
@@ -47,7 +48,8 @@ import { LT_ETF } from "@/data/lt";
     <a href="/lt/investicine-saskaita/">Investicinė sąskaita</a>.
     Brokeriai, kuriuos VMI įvardija tiesiogiai, yra Trading 212 ir Interactive Brokers Ireland. Kiti brokeriai vertinami pagal tą pačią pinigų sąskaitos taisyklę.
   </p>
-  <h2 id="ko-nera">Ko šis puslapis neapima</h2>
+  <BrokerComparison heading="Per kurį brokerį pirkti ETF?" />
+  <h2 id="ko-nera">Ko šis puslapis neapima?</h2>
   <p>
     Kriptovaliutų čia nėra. Įmonės PVM, mažosios bendrijos steigimas ir buhalterija yra
     <a href="https://buhalteris.ai" rel="noopener noreferrer">buhalteris.ai</a>.

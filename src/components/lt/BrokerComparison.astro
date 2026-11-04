@@ -1,0 +1,73 @@
+---
+import BrandLink from "@/components/lt/BrandLink.astro";
+import { BROKER_COMPARISON, LT_UNVERIFIED, LT_UPDATED } from "@/data/lt";
+
+interface Props {
+  /** Optional heading id, so pages can link to the table. */
+  id?: string;
+  heading?: string;
+}
+
+const { id = "palyginimas", heading = "Brokerių palyginimo lentelė" } = Astro.props;
+---
+
+<h2 id={id}>{heading}</h2>
+<div class="lt-table-wrap">
+  <table class="lt-table lt-compare">
+    <caption>
+      Brokeriai Lietuvos gyventojui, patikrinta {LT_UPDATED} oficialiuose šaltiniuose. „{LT_UNVERIFIED}“ reiškia, kad oficialiame
+      šaltinyje skaičiaus nepavyko patvirtinti.
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Brokeris</th>
+        <th scope="col">Mokesčiai (EUR)</th>
+        <th scope="col">Minimali įmoka</th>
+        <th scope="col">Investicinė sąskaita (VMI)</th>
+        <th scope="col">Priežiūra</th>
+        <th scope="col">Lietuvių kalba</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        BROKER_COMPARISON.map((row) => (
+          <tr>
+            <th scope="row">
+              <a href={row.page}>{row.name}</a>
+              <br />
+              <small>
+                <BrandLink brand={row.brandId} label={row.entity} />
+              </small>
+            </th>
+            <td>{row.fees}</td>
+            <td>{row.minimum === LT_UNVERIFIED ? <em>{row.minimum}</em> : row.minimum}</td>
+            <td>{row.investAccount}</td>
+            <td>
+              {row.regulator.map((link, index) => (
+                <>
+                  {index > 0 && <br />}
+                  <a href={link.href} target="_blank" rel="noopener noreferrer">
+                    {link.label}
+                  </a>
+                </>
+              ))}
+            </td>
+            <td>
+              {row.language}
+              {row.languageSource && (
+                <>
+                  {" "}
+                  (
+                  <a href={row.languageSource.href} target="_blank" rel="noopener noreferrer">
+                    {row.languageSource.label}
+                  </a>
+                  )
+                </>
+              )}
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>

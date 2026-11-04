@@ -1,20 +1,32 @@
 ---
 import BrandLink from "@/components/lt/BrandLink.astro";
 import Guide from "@/components/lt/Guide.astro";
+import PlatformComparison from "@/components/lt/PlatformComparison.astro";
 import { LT_PROFITUS } from "@/data/lt";
 ---
 
 <Guide page={LT_PROFITUS}>
-  <!-- JAUNIUS: jei investuoji, įdėk savo portfelio ekrano kopiją ir realią grąžą po vėlavimų. 9,84 proc. yra operatoriaus vidurkis, ne tavo rezultatas. -->
-  <h2 id="licencija">Licencija Nr. 10</h2>
+  <!-- JAUNIUS: jei investuoji, įdėk savo portfelio ekrano kopiją ir realią grąžą po vėlavimų. 9,83 proc. yra operatoriaus vidurkis, ne tavo rezultatas. -->
+  <h2 id="ar-patikimas">Ar Profitus patikimas?</h2>
+  <ul>
+    <li>
+      UAB „Profitus Crowdfunding“ turi
+      <a href="https://www.lb.lt/lt/frd-licencijos?ff=1&type=116" target="_blank" rel="noopener noreferrer">Lietuvos banko sutelktinio finansavimo licenciją Nr. 10</a>
+      nuo 2023 m. lapkričio 10 d.
+      (<a href="https://www.lb.lt/lt/finansu-rinku-dalyviai/uab-profitus-crowdfunding" target="_blank" rel="noopener noreferrer">LB įrašas</a>).
+    </li>
+    <li>VMI DUK 59 klausime Profitus kliento paskyra įvardijama kaip sąskaita, kurią galima deklaruoti investicine.</li>
+    <li>Licencija reiškia priežiūrą, ne paskolų grąžinimo garantiją. Užstatas nekilnojamuoju turtu nereiškia, kad paskola bus grąžinta laiku.</li>
+  </ul>
+  <h2 id="licencija">Kas yra Profitus licencijos Nr. 10 turėtojas?</h2>
   <p>
-    2026 m. spalio 30 d. Lietuvos banko sutelktinio finansavimo licencijų sąraše Nr. 10 yra UAB „Profitus Crowdfunding“, Lvivo g. 101, licencija išduota 2023 m. lapkričio 10 d. Kortelėje svetainės adreso nebuvo.
+    2026 m. lapkričio 4 d. Lietuvos banko sutelktinio finansavimo licencijų sąraše Nr. 10 yra UAB „Profitus Crowdfunding“, Lvivo g. 101, licencija išduota 2023 m. lapkričio 10 d. Licencijų kortelėje svetainės adresas nenurodytas.
     <BrandLink brand="profitus" /> yra šios įmonės prekės ženklas. Tai nėra finansų maklerio įmonė.
   </p>
-  <h2 id="salygos">Ką skelbia operatorius</h2>
+  <h2 id="salygos">Ką skelbia Profitus?</h2>
   <div class="lt-table-wrap">
     <table class="lt-table">
-      <caption>profitus.lt pagrindinio puslapio skaičiai, 2026-10-30. Grąža nėra pažadas</caption>
+      <caption>profitus.lt pagrindinio puslapio skaičiai, 2026-11-04. Grąža nėra pažadas</caption>
       <thead>
         <tr>
           <th scope="col">Sąlyga</th>
@@ -28,23 +40,23 @@ import { LT_PROFITUS } from "@/data/lt";
         </tr>
         <tr>
           <th scope="row">Vidutinė metinė grąža</th>
-          <td>9,84 proc.</td>
+          <td>9,83 proc.</td>
         </tr>
         <tr>
           <th scope="row">Bendruomenė</th>
-          <td>57 260</td>
+          <td>57 375</td>
         </tr>
         <tr>
           <th scope="row">Kartu surinkta</th>
-          <td>433 109 762 eurai</td>
+          <td>434 254 192 eurai</td>
         </tr>
         <tr>
           <th scope="row">Investuotojų uždirbta</th>
-          <td>28 655 420 eurų</td>
+          <td>29 127 149 eurai</td>
         </tr>
         <tr>
           <th scope="row">Investuotojo mokestis</th>
-          <td>Bendro mokesčio pagrindiniame puslapyje nėra. Neįrašiau skaičiaus, kurio neradau.</td>
+          <td>Bendro mokesčio pagrindiniame puslapyje nėra, todėl skaičius neįrašytas.</td>
         </tr>
       </tbody>
     </table>
@@ -52,10 +64,41 @@ import { LT_PROFITUS } from "@/data/lt";
   <p>
     Paskolos užtikrinimas nekilnojamuoju turtu yra operatoriaus aprašymas. Jis nereiškia, kad paskola bus grąžinta, ir nėra Lietuvos banko garantija. Bendruomenės ir sumų eilutės yra operatoriaus statistika, ne jūsų rezultatas.
   </p>
+  <h2 id="privalumai-trukumai">Profitus privalumai ir trūkumai</h2>
+  <div class="lt-table-wrap">
+    <table class="lt-table lt-proscons">
+      <caption>Tik oficialiuose šaltiniuose patikrinti faktai, 2026-11-04. Tai nėra rekomendacija</caption>
+      <thead>
+        <tr>
+          <th scope="col">Privalumai</th>
+          <th scope="col">Trūkumai ir rizikos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lietuvos banko sutelktinio finansavimo licencija Nr. 10.</td>
+          <td>Paskolos gali vėluoti ar būti negrąžintos; licencija to nepašalina.</td>
+        </tr>
+        <tr>
+          <td>Mažiausia suma 100 eurų.</td>
+          <td>9,83 proc. yra operatoriaus vidurkis, ne pažadas.</td>
+        </tr>
+        <tr>
+          <td>VMI DUK 59 įvardija Profitus kliento paskyrą investicinei sąskaitai.</td>
+          <td>Bendro investuotojo mokesčio pagrindiniame puslapyje nėra; reikia skaityti projekto sąlygas.</td>
+        </tr>
+        <tr>
+          <td>Svetainė lietuvių kalba.</td>
+          <td>Tai paskolos, ne akcijos ar ETF; kitokia rizika nei pas brokerį.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <PlatformComparison id="platformu-palyginimas" />
   <p>
-    VMI Profitus neįvardija. Sutelktinis finansavimas pagal reglamentą (ES) 2020/1503 gali tikti
+    Sutelktinis finansavimas pagal reglamentą (ES) 2020/1503 gali tikti
     <a href="/lt/investicine-saskaita/">investicinei sąskaitai</a>,
-    jei konkretus produktas yra VMI sąraše. Kiekvieno projekto tinkamumo čia netvirtinu. Kitos licencijos yra gide
+    jei konkretus produktas yra VMI sąraše. Kiekvieno projekto tinkamumas čia netvirtinamas. Kitos licencijos yra gide
     <a href="/lt/investavimo-platformos/">Investavimo platformos</a>.
   </p>
 </Guide>

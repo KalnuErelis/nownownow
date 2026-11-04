@@ -1,27 +1,48 @@
 ---
 import BrandLink from "@/components/lt/BrandLink.astro";
+import BrokerComparison from "@/components/lt/BrokerComparison.astro";
 import Guide from "@/components/lt/Guide.astro";
 import { LT_IBKR } from "@/data/lt";
 ---
 
 <Guide page={LT_IBKR}>
   <!-- JAUNIUS: įdėk paraiškos, W-8BEN patvirtinimo ir pasirinkto pakopinio arba fiksuoto plano ekrano kopijas. Neįrašyk sąskaitos numerio. -->
-  <h2 id="zingsniai">Kaip atsidaryti sąskaitą</h2>
+  <h2 id="lietuvoje-2026">Interactive Brokers Lietuvoje 2026</h2>
+  <ul>
+    <li>VMI DUK 53 klausimo pavyzdyje Lietuvos gyventojas investicinei sąskaitai priskiria Interactive Brokers Ireland Limited paskyrą ir įnašus deklaruoja su valstybe Airija (IE).</li>
+    <li>Nuo 2026 m. sausio 1 d. išėmimas iš investicinės sąskaitos, viršijantis įnašą, apmokestinamas 15 proc. GPM, nepriklausomai nuo sumos.</li>
+    <li>VMI DUK 23 klausimas: deklaruojama asmeninė pinigų sąskaita, matoma kliento paskyroje, o ne bendra brokerio klientų sąskaita.</li>
+    <li>Interactive Brokers Ireland akcijų kainyne rašoma, kad sąskaitos minimumo nėra.</li>
+    <li>IBKR Mobile programėlės App Store kalbų sąraše lietuvių kalbos nėra. Ar lietuvių kalba yra svetainėje ar paraiškoje, oficialiame šaltinyje nepatikrinta.</li>
+  </ul>
+  <h2 id="ar-patikimas">Ar Interactive Brokers patikimas?</h2>
+  <ul>
+    <li>
+      Interactive Brokers Ireland Limited prižiūri
+      <a href="https://www.interactivebrokers.ie/en/general/security-investor-protection.php" target="_blank" rel="noopener noreferrer">Airijos centrinis bankas, nuorodos numeris C423427</a>.
+    </li>
+    <li>
+      <a href="https://www.lb.lt/en/sfi-financial-market-participants/interactive-brokers-ireland-limited" target="_blank" rel="noopener noreferrer">Lietuvos banko įraše</a>
+      ji yra ES finansų maklerio įmonė, teikianti paslaugas Lietuvoje be filialo, ir kriptoturto paslaugų teikėja be įsisteigimo.
+    </li>
+    <li>Licencija reiškia priežiūrą, ne indėlių garantiją ir ne apsaugą nuo rinkos kritimo.</li>
+  </ul>
+  <h2 id="zingsniai">Kaip atsidaryti Interactive Brokers sąskaitą?</h2>
   <p>
-    VMI pavyzdyje Lietuvos gyventojas deklaruoja Airijoje esančios Interactive Brokers Ireland Limited paskyrą. Žingsniai žemiau yra bendra tvarka iš viešų dokumentų, ne mano užpildyta paraiška. Pradėkite
+    VMI pavyzdyje Lietuvos gyventojas deklaruoja Airijoje esančios Interactive Brokers Ireland Limited paskyrą. Žingsniai žemiau yra bendra tvarka iš viešų dokumentų. Pradėkite
     <BrandLink brand="interactive-brokers" label="interactivebrokers.ie" />.
   </p>
   <ol>
-    <li>Atidarykite individualią sąskaitą Interactive Brokers Ireland svetainėje. Kitų grupės įmonių lietuviui nepriskiriu.</li>
-    <li>Paraiškoje nurodykite tapatybę, adresą ir Lietuvos mokesčių rezidenciją. Kokius dokumentus prašo konkreti paraiška, matysite formoje. Savo dokumentų čia neįdėjau.</li>
+    <li>Atidarykite individualią sąskaitą Interactive Brokers Ireland svetainėje. Kitų grupės įmonių šis gidas lietuviui nepriskiria.</li>
+    <li>Paraiškoje nurodykite tapatybę, adresą ir Lietuvos mokesčių rezidenciją. Kokius dokumentus prašo konkreti paraiška, matysite formoje.</li>
     <li>Užpildykite W-8BEN. Tai fizinio asmens patvirtinimas, kad nesate JAV asmuo, ir prašymas taikyti sutarties lengvatą JAV šaltinio pajamoms.</li>
-    <li>Papildykite sąskaitą. Minimalios įmokos ir neaktyvumo mokesčio Airijos akcijų kainyne, kurį skaičiau, nebuvo, todėl šių skaičių neįrašau.</li>
+    <li>Papildykite sąskaitą. Interactive Brokers Ireland akcijų kainyne rašoma, kad sąskaitos minimumo nėra.</li>
     <li>Jei norite Lietuvos investicinės sąskaitos režimo, pinigų sąskaitą deklaruokite GPM311. Tvarka ir 15 proc. tarifas nuo 2026 m. yra gide <a href="/lt/investicine-saskaita/">Investicinė sąskaita</a>.</li>
     <li>Prieš pirmą sandorį pasirinkite pakopinį arba fiksuotą planą. Skaičiai skiriasi, o pakopiniame plane trečiųjų šalių biržos mokesčiai gali būti perkelti jums.</li>
   </ol>
-  <h2 id="komisiniai">Akcijų komisiniai</h2>
+  <h2 id="komisiniai">Kiek kainuoja akcijos per Interactive Brokers?</h2>
   <p>
-    Lentelė yra iš Interactive Brokers Ireland akcijų kainyno. Tai IBIE paskelbti akcijų komisiniai, ne visų produktų kainoraštis. Fondų, opcionų ir valiutos keitimo įkainių čia nėra, nes jų iš to paties puslapio neėmiau.
+    Lentelė yra iš Interactive Brokers Ireland akcijų kainyno. Tai IBIE paskelbti akcijų komisiniai, ne visų produktų kainoraštis. Fondų, opcionų ir valiutos keitimo įkainių čia nėra.
   </p>
   <div class="lt-table-wrap">
     <table class="lt-table">
@@ -50,9 +71,40 @@ import { LT_IBKR } from "@/data/lt";
   <p>
     Pakopiniame plane biržos, kliringo ir kiti trečiųjų šalių mokesčiai gali būti pridedami prie komisinio. Prieš sandorį peržiūrėkite to instrumento kortelę pačiame brokerio kainyne.
   </p>
-  <h2 id="w8ben">W-8BEN ir Lietuvos bei JAV sutartis</h2>
+  <h2 id="privalumai-trukumai">Interactive Brokers privalumai ir trūkumai</h2>
+  <div class="lt-table-wrap">
+    <table class="lt-table lt-proscons">
+      <caption>Tik oficialiuose šaltiniuose patikrinti faktai, 2026-11-04. Tai nėra rekomendacija</caption>
+      <thead>
+        <tr>
+          <th scope="col">Privalumai</th>
+          <th scope="col">Trūkumai ir rizikos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sąskaitos minimumo nėra.</td>
+          <td>Mažiausias komisinis už pavedimą (pvz., 1,25 euro Baltijos akcijoms) brangina mažus pirkimus.</td>
+        </tr>
+        <tr>
+          <td>VMI savo pavyzdyje naudoja būtent Interactive Brokers Ireland Limited paskyrą.</td>
+          <td>Be W-8BEN JAV dividendams paprastai taikomas 30 proc. išskaitymas.</td>
+        </tr>
+        <tr>
+          <td>Airijos centrinio banko priežiūra ir Lietuvos banko įrašas.</td>
+          <td>Pakopiniame plane biržos ir kliringo mokesčiai perkeliami klientui.</td>
+        </tr>
+        <tr>
+          <td>Baltijos, ES ir JAV akcijų komisiniai skelbiami viename kainyne.</td>
+          <td>IBKR Mobile programėlės kalbų sąraše lietuvių kalbos nėra.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <BrokerComparison />
+  <h2 id="w8ben">Kam reikalinga W-8BEN ir kokia Lietuvos bei JAV sutartis?</h2>
   <p>
-    IBKR paaiškina, kad JAV šaltinio dividendams paprastai taikomas 30 proc. išskaitymas, nebent galioja mokesčių sutartis. W-8BEN yra būdas tą lengvatą užsakyti. Formos galiojimo metų IBKR paaiškinime, kurį skaičiau, nebuvo, todėl termino čia neįrašau.
+    IBKR paaiškina, kad JAV šaltinio dividendams paprastai taikomas 30 proc. išskaitymas, nebent galioja mokesčių sutartis. W-8BEN yra būdas tą lengvatą užsakyti. Formos galiojimo termino tame IBKR paaiškinime nėra, todėl jis čia neįrašytas.
   </p>
   <p>
     JAV iždo paskelbtoje Lietuvos ir JAV sutarties 10 straipsnio redakcijoje dividendai apmokestinami ne daugiau kaip 15 proc. 5 proc. tarifas taikomas tik bendrovei, kuri tiesiogiai valdo bent 10 proc. balsavimo akcijų. Fiziniam asmeniui taikytina 15 proc. riba. RIC ir REIT turi atskiras išimtis, todėl fondo dividendams perskaitykite tą patį straipsnį, ne šį sakinį.

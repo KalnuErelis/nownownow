@@ -1,16 +1,30 @@
 ---
 import BrandLink from "@/components/lt/BrandLink.astro";
+import BrokerComparison from "@/components/lt/BrokerComparison.astro";
 import Guide from "@/components/lt/Guide.astro";
 import { LT_XTB } from "@/data/lt";
 ---
 
 <Guide page={LT_XTB}>
   <!-- JAUNIUS: įdėk Kipro mokesčių lango ir sutarties, kurioje matyti XTB Limited, ekrano kopijas. Kol jų nėra, nevadink šio teksto savo atsiliepimu. -->
-  <h2 id="prieziura">Kuri įmonė</h2>
+  <h2 id="ar-patikimas">Ar XTB patikimas?</h2>
+  <ul>
+    <li>
+      XTB Limited turi
+      <a href="https://www.cysec.gov.cy/en-GB/entities/investment-firms/cypriot/37686/" target="_blank" rel="noopener noreferrer">CySEC licenciją 169/12</a>.
+    </li>
+    <li>
+      <a href="https://www.lb.lt/en/sfi-financial-market-participants/xtb-limited" target="_blank" rel="noopener noreferrer">Lietuvos banko įraše</a>
+      XTB Limited teikia paslaugas Lietuvoje be filialo.
+    </li>
+    <li>XTB Limited teisinėje informacijoje skelbia, kad 79 proc. mažmeninių CFD sąskaitų patiria nuostolių.</li>
+    <li>Licencija reiškia priežiūrą, ne indėlių garantiją ir ne apsaugą nuo rinkos kritimo.</li>
+  </ul>
+  <h2 id="prieziura">Kuri XTB įmonė aptarnauja Lietuvą?</h2>
   <p>
-    <BrandLink brand="xtb" /> grupėje yra daugiau nei viena įmonė. Lietuviui šiame gide naudoju tik XTB Limited: CySEC licencija 169/12, įmonės numeris 296794, licencija išduota 2012 m. balandžio 18 d. Adresas CySEC registre yra Pikioni 10, Highsight Rentals Ltd, 3075 Limassol. Lietuvos bankas šią įmonę įrašęs kaip teikiančią paslaugas Lietuvoje be filialo. JK kainyno ir svarų pavyzdžių čia nėra.
+    <BrandLink brand="xtb" /> grupėje yra daugiau nei viena įmonė. Šis gidas lietuviui naudoja tik XTB Limited duomenis: CySEC licencija 169/12, įmonės numeris 296794, licencija išduota 2012 m. balandžio 18 d. Adresas CySEC registre yra Pikioni 10, Highsight Rentals Ltd, 3075 Limassol. Lietuvos bankas šią įmonę įrašęs kaip teikiančią paslaugas Lietuvoje be filialo. JK kainyno ir svarų pavyzdžių čia nėra.
   </p>
-  <h2 id="mokesciai">Akcijos ir ETF</h2>
+  <h2 id="mokesciai">Kiek kainuoja akcijos ir ETF per XTB?</h2>
   <p>
     Skaičiai yra iš Kipro puslapio apie sąskaitą ir mokesčius. Pilna mokesčių lentelė tame puslapyje nurodyta nuo 2026 m. spalio 16 d.
   </p>
@@ -54,14 +68,45 @@ import { LT_XTB } from "@/data/lt";
   <p>
     Kipro pagalbos centro 0,5 proc. valiutos keitimo sakinys apie CFD priemones yra atskiras nuo investavimo sąlygų 0,5 proc. Abu skaičiai yra iš Kipro puslapių, bet jie aprašo skirtingas paslaugas. Neaktyvumo taisyklė yra iš pagalbos centro, atnaujinto 2026 m. gegužės 7 d.
   </p>
-  <h2 id="cfd">CFD</h2>
+  <h2 id="cfd">Kokia XTB CFD rizika?</h2>
   <p>
-    CFD nėra akcijų pirkimas. XTB Limited teisinėje informacijoje parašyta, kad 77 proc. mažmeninių investuotojų sąskaitų patiria nuostolių prekiaujant CFD pas šį teikėją. CFD vykdymo komisinis tame kainyne yra 0 proc., CFD valiutos keitimas 0,5 proc., o didžiausias svertas 1:30. Tas pats 77 proc. perspėjimas yra ir puslapio viršuje.
+    CFD nėra akcijų pirkimas. XTB Limited teisinėje informacijoje parašyta, kad 79 proc. mažmeninių investuotojų sąskaitų patiria nuostolių prekiaujant CFD pas šį teikėją. CFD vykdymo komisinis tame kainyne yra 0 proc., CFD valiutos keitimas 0,5 proc., o didžiausias svertas 1:30. Tas pats 79 proc. perspėjimas yra ir puslapio viršuje.
   </p>
-  <h2 id="investicine-saskaita">Investicinė sąskaita ir kriptovaliutos</h2>
+  <h2 id="privalumai-trukumai">XTB privalumai ir trūkumai</h2>
+  <div class="lt-table-wrap">
+    <table class="lt-table lt-proscons">
+      <caption>Tik oficialiuose šaltiniuose patikrinti faktai, 2026-11-04. Tai nėra rekomendacija</caption>
+      <thead>
+        <tr>
+          <th scope="col">Privalumai</th>
+          <th scope="col">Trūkumai ir rizikos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0 proc. komisinis akcijoms ir ETF iki 100 000 eurų mėnesio apyvartos.</td>
+          <td>Viršijus ribą 0,2 proc., mažiausiai 10 eurų; valiutos keitimas 0,5 proc.</td>
+        </tr>
+        <tr>
+          <td>Minimalios įmokos nėra, įmokos mokesčio XTB netaiko.</td>
+          <td>10 eurų per mėnesį neaktyvumo mokestis po 365 dienų be sandorių ir 90 dienų be įmokų.</td>
+        </tr>
+        <tr>
+          <td>CySEC licencija 169/12 ir Lietuvos banko įrašas.</td>
+          <td>Įmonė yra Kipre, Lietuvoje filialo neturi. VMI XTB neįvardija.</td>
+        </tr>
+        <tr>
+          <td>Išėmimai aprašyti kaip nemokami.</td>
+          <td>CFD: 79 proc. mažmeninių sąskaitų patiria nuostolių. iOS programėlės kalbų sąraše lietuvių nėra.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <BrokerComparison />
+  <h2 id="investicine-saskaita">Ar XTB tinka investicinei sąskaitai?</h2>
   <p>
     VMI XTB neįvardija. Bendrą deklaravimo tvarką skaitykite gide
     <a href="/lt/investicine-saskaita/">Investicinė sąskaita</a>.
-    Šis gidas kriptovaliutų neapima. Lietuvos banko įraše įmonė turi ir kitų kategorijų, bet čia jų neaptariu ir kriptovaliutų nereklamuoju.
+    Šis gidas kriptovaliutų neapima. Lietuvos banko įraše įmonė turi ir kitų kategorijų, bet šis gidas jų neaptaria ir kriptovaliutų nereklamuoja.
   </p>
 </Guide>
