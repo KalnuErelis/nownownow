@@ -27,7 +27,7 @@ describe("affiliate redirect targets", () => {
   it("keeps every sheet url exact and sends unknown slugs to /tools/", () => {
     const sheetLinks = AFFILIATE_LINKS.filter((link) => link.sheetRow !== null);
     assert.equal(sheetLinks.length, 160);
-    assert.equal(AFFILIATE_LINKS.length, 163);
+    assert.equal(AFFILIATE_LINKS.length, 164);
 
     const lemlist = resolveGoDestination("lemlist");
     assert.equal(lemlist.known, true);
