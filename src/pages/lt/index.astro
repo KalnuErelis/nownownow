@@ -1,0 +1,33 @@
+---
+import Guide from "@/components/lt/Guide.astro";
+import { LT_HUB, LT_NAV } from "@/data/lt";
+---
+
+<Guide page={LT_HUB}>
+  <!-- JAUNIUS: jei norėsi, įdėk trumpą pastraipą, kodėl rašai šiuos gidus lietuviškai (investavimas, skaitytojai). -->
+  <h2 id="gidai">Gidai</h2>
+  <p>
+    Kiekvienas gidas prasideda trumpu atsakymu, turi lentelę ir klausimus, kuriuos žmonės kelia prieš atidarydami sąskaitą, lygindami platformas arba pildydami investicijų deklaraciją.
+  </p>
+  <ul class="lt-hub">
+    {
+      LT_NAV.map((item) => (
+        <li>
+          <a href={item.href}>{item.label}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <h2 id="kaip-skaityti">Kaip skaityti skaičius</h2>
+  <p>
+    Brokerio ar platformos skelbiama grąža nėra Lietuvos banko pažadas. Mokesčio tarifas yra VMI paskelbtas dydis tą dieną, kurią puslapis atnaujintas. Jei šaltinis skaičiaus neberodo, jo čia neturi likti.
+  </p>
+  <p>
+    Investavimo puslapiuose yra kapitalo rizikos perspėjimas. CFD nuostolių dalis įrašyta tik ten, kur ją paskelbė pats teikėjas. Kriptovaliutų šis skyrius nereklamuoja.
+  </p>
+  <p>
+    PVM, mažosios bendrijos steigimas ir buhalterija yra
+    <a href="https://buhalteris.ai" rel="noopener noreferrer">buhalteris.ai</a>.
+    Ši svetainė tų temų nebedengia.
+  </p>
+</Guide>

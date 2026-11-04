@@ -1,0 +1,64 @@
+---
+import BrandLink from "@/components/lt/BrandLink.astro";
+import Guide from "@/components/lt/Guide.astro";
+import { LT_IBKR } from "@/data/lt";
+---
+
+<Guide page={LT_IBKR}>
+  <!-- JAUNIUS: įdėk paraiškos, W-8BEN patvirtinimo ir pasirinkto pakopinio arba fiksuoto plano ekrano kopijas. Neįrašyk sąskaitos numerio. -->
+  <h2 id="zingsniai">Kaip atsidaryti sąskaitą</h2>
+  <p>
+    VMI pavyzdyje Lietuvos gyventojas deklaruoja Airijoje esančios Interactive Brokers Ireland Limited paskyrą. Žingsniai žemiau yra bendra tvarka iš viešų dokumentų, ne mano užpildyta paraiška. Pradėkite
+    <BrandLink brand="interactive-brokers" label="interactivebrokers.ie" />.
+  </p>
+  <ol>
+    <li>Atidarykite individualią sąskaitą Interactive Brokers Ireland svetainėje. Kitų grupės įmonių lietuviui nepriskiriu.</li>
+    <li>Paraiškoje nurodykite tapatybę, adresą ir Lietuvos mokesčių rezidenciją. Kokius dokumentus prašo konkreti paraiška, matysite formoje. Savo dokumentų čia neįdėjau.</li>
+    <li>Užpildykite W-8BEN. Tai fizinio asmens patvirtinimas, kad nesate JAV asmuo, ir prašymas taikyti sutarties lengvatą JAV šaltinio pajamoms.</li>
+    <li>Papildykite sąskaitą. Minimalios įmokos ir neaktyvumo mokesčio Airijos akcijų kainyne, kurį skaičiau, nebuvo, todėl šių skaičių neįrašau.</li>
+    <li>Jei norite Lietuvos investicinės sąskaitos režimo, pinigų sąskaitą deklaruokite GPM311. Tvarka ir 15 proc. tarifas nuo 2026 m. yra gide <a href="/lt/investicine-saskaita/">Investicinė sąskaita</a>.</li>
+    <li>Prieš pirmą sandorį pasirinkite pakopinį arba fiksuotą planą. Skaičiai skiriasi, o pakopiniame plane trečiųjų šalių biržos mokesčiai gali būti perkelti jums.</li>
+  </ol>
+  <h2 id="komisiniai">Akcijų komisiniai</h2>
+  <p>
+    Lentelė yra iš Interactive Brokers Ireland akcijų kainyno. Tai IBIE paskelbti akcijų komisiniai, ne visų produktų kainoraštis. Fondų, opcionų ir valiutos keitimo įkainių čia nėra, nes jų iš to paties puslapio neėmiau.
+  </p>
+  <div class="lt-table-wrap">
+    <table class="lt-table">
+      <caption>Interactive Brokers Ireland akcijų komisiniai, interactivebrokers.ie</caption>
+      <thead>
+        <tr>
+          <th scope="col">Rinka</th>
+          <th scope="col">Pakopinis</th>
+          <th scope="col">Fiksuotas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">JAV akcijos, iki 300 000 akcijų per mėnesį</th>
+          <td>0,0035 USD už akciją. Mažiausiai 0,35 USD už pavedimą. Ne daugiau kaip 1 proc. sandorio vertės.</td>
+          <td>0,005 USD už akciją. Mažiausiai 1,00 USD už pavedimą.</td>
+        </tr>
+        <tr>
+          <th scope="row">Baltijos akcijos</th>
+          <td>0,05 proc. sandorio vertės. Mažiausiai 1,25 euro, daugiausiai 29 eurai.</td>
+          <td>0,2 proc. sandorio vertės. Mažiausiai 10 eurų.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Pakopiniame plane biržos, kliringo ir kiti trečiųjų šalių mokesčiai gali būti pridedami prie komisinio. Prieš sandorį peržiūrėkite to instrumento kortelę pačiame brokerio kainyne.
+  </p>
+  <h2 id="w8ben">W-8BEN ir Lietuvos bei JAV sutartis</h2>
+  <p>
+    IBKR paaiškina, kad JAV šaltinio dividendams paprastai taikomas 30 proc. išskaitymas, nebent galioja mokesčių sutartis. W-8BEN yra būdas tą lengvatą užsakyti. Formos galiojimo metų IBKR paaiškinime, kurį skaičiau, nebuvo, todėl termino čia neįrašau.
+  </p>
+  <p>
+    JAV iždo paskelbtoje Lietuvos ir JAV sutarties 10 straipsnio redakcijoje dividendai apmokestinami ne daugiau kaip 15 proc. 5 proc. tarifas taikomas tik bendrovei, kuri tiesiogiai valdo bent 10 proc. balsavimo akcijų. Fiziniam asmeniui taikytina 15 proc. riba. RIC ir REIT turi atskiras išimtis, todėl fondo dividendams perskaitykite tą patį straipsnį, ne šį sakinį.
+  </p>
+  <p>
+    JAV išskaitymas ir Lietuvos 15 proc. GPM nuo investicinės sąskaitos išėmimo, kuris viršija įnašą, yra du skirtingi mokesčiai. Pirmasis nuskaičiuojamas išmokant JAV dividendus. Antrasis atsiranda Lietuvoje, kai iš sąskaitos išimate daugiau, nei esate įnešę. Dividendų, nuo kurių jau išskaičiuotas mokestis, įskaitymas į įnašą paaiškintas
+    <a href="/lt/investicine-saskaita/">investicinės sąskaitos gide</a>.
+  </p>
+</Guide>

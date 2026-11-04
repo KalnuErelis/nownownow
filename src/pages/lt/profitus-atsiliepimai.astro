@@ -1,0 +1,61 @@
+---
+import BrandLink from "@/components/lt/BrandLink.astro";
+import Guide from "@/components/lt/Guide.astro";
+import { LT_PROFITUS } from "@/data/lt";
+---
+
+<Guide page={LT_PROFITUS}>
+  <!-- JAUNIUS: jei investuoji, įdėk savo portfelio ekrano kopiją ir realią grąžą po vėlavimų. 9,84 proc. yra operatoriaus vidurkis, ne tavo rezultatas. -->
+  <h2 id="licencija">Licencija Nr. 10</h2>
+  <p>
+    2026 m. spalio 30 d. Lietuvos banko sutelktinio finansavimo licencijų sąraše Nr. 10 yra UAB „Profitus Crowdfunding“, Lvivo g. 101, licencija išduota 2023 m. lapkričio 10 d. Kortelėje svetainės adreso nebuvo.
+    <BrandLink brand="profitus" /> yra šios įmonės prekės ženklas. Tai nėra finansų maklerio įmonė.
+  </p>
+  <h2 id="salygos">Ką skelbia operatorius</h2>
+  <div class="lt-table-wrap">
+    <table class="lt-table">
+      <caption>profitus.lt pagrindinio puslapio skaičiai, 2026-10-30. Grąža nėra pažadas</caption>
+      <thead>
+        <tr>
+          <th scope="col">Sąlyga</th>
+          <th scope="col">Operatoriaus tekstas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Mažiausia suma</th>
+          <td>100 eurų</td>
+        </tr>
+        <tr>
+          <th scope="row">Vidutinė metinė grąža</th>
+          <td>9,84 proc.</td>
+        </tr>
+        <tr>
+          <th scope="row">Bendruomenė</th>
+          <td>57 260</td>
+        </tr>
+        <tr>
+          <th scope="row">Kartu surinkta</th>
+          <td>433 109 762 eurai</td>
+        </tr>
+        <tr>
+          <th scope="row">Investuotojų uždirbta</th>
+          <td>28 655 420 eurų</td>
+        </tr>
+        <tr>
+          <th scope="row">Investuotojo mokestis</th>
+          <td>Bendro mokesčio pagrindiniame puslapyje nėra. Neįrašiau skaičiaus, kurio neradau.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Paskolos užtikrinimas nekilnojamuoju turtu yra operatoriaus aprašymas. Jis nereiškia, kad paskola bus grąžinta, ir nėra Lietuvos banko garantija. Bendruomenės ir sumų eilutės yra operatoriaus statistika, ne jūsų rezultatas.
+  </p>
+  <p>
+    VMI Profitus neįvardija. Sutelktinis finansavimas pagal reglamentą (ES) 2020/1503 gali tikti
+    <a href="/lt/investicine-saskaita/">investicinei sąskaitai</a>,
+    jei konkretus produktas yra VMI sąraše. Kiekvieno projekto tinkamumo čia netvirtinu. Kitos licencijos yra gide
+    <a href="/lt/investavimo-platformos/">Investavimo platformos</a>.
+  </p>
+</Guide>
