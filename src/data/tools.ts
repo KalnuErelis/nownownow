@@ -23,6 +23,8 @@ export type ToolCategoryId =
   | "linkedin-outreach"
   | "email-finders"
   | "cold-email-infrastructure"
+  | "email-verification"
+  | "email-warmup"
   | "ai-sdr";
 
 export interface ToolCategory {
@@ -63,7 +65,7 @@ export interface ToolFaq {
 export const TOOLS_INDEX = {
   title: "Tools",
   description:
-    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, and AI SDRs.",
+    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, email verification, warmup, and AI SDRs.",
   eyebrow: "Directory",
   intro:
     "Outbound tools I would actually point someone to. Grouped by the job they do, and ranked within each group."
@@ -150,9 +152,9 @@ export const TOOL_CATEGORIES: readonly ToolCategory[] = [
     id: "linkedin-outreach",
     label: "LinkedIn outreach",
     title: `Best LinkedIn outreach tools in ${DIRECTORY_YEAR}`,
-    description: `Best LinkedIn outreach tools in ${DIRECTORY_YEAR}: Gojiberry and La Growth Machine, with who each one is for.`,
+    description: `Best LinkedIn outreach and automation tools in ${DIRECTORY_YEAR}: Gojiberry, La Growth Machine, Waalaxy, Skylead, and SalesRobot, with who each one is for.`,
     intro:
-      "Gojiberry is an AI agent that contacts people by email and social. La Growth Machine is the sequencer for LinkedIn, email, calls, and X on accounts you connect."
+      "Gojiberry is an AI agent that contacts people by email and social. La Growth Machine is the sequencer for LinkedIn, email, calls, and X on accounts you connect. Waalaxy is the low-cost way to start LinkedIn automation. Skylead and SalesRobot run LinkedIn and email sequences from the cloud. Every tool here acts on a LinkedIn account you connect, so the daily limits you set are your responsibility."
   }),
   defineCategory({
     id: "email-finders",
@@ -169,6 +171,22 @@ export const TOOL_CATEGORIES: readonly ToolCategory[] = [
     description: `Best cold email infrastructure and warmup tools in ${DIRECTORY_YEAR}: domains, inboxes, warmup, and list verification.`,
     intro:
       "Domains, inboxes, warmup, and list verification. Zapmail is first for Google and Microsoft mailboxes. Mailforge and Infraforge are shared and dedicated infrastructure. Warmy, Mailreach, and ZeroBounce prepare or clean what you send."
+  }),
+  defineCategory({
+    id: "email-verification",
+    label: "Email verification",
+    title: `Best email verification tools in ${DIRECTORY_YEAR}`,
+    description: `Best email verification and list cleaning tools in ${DIRECTORY_YEAR}: ZeroBounce, BounceBan, Truelist, Bouncify, and EmailListVerify, with prices from their own pages.`,
+    intro:
+      "Verifiers check a list before a sequencer sends to it, so invalid addresses do not cost you bounces. ZeroBounce is the broad default. BounceBan and Truelist are the picks when a B2B list is full of catch-all domains. Bouncify and EmailListVerify are the low-cost pay-as-you-go options. Prices below were read from each vendor's pricing page on 4 November 2026; accuracy figures are the vendors' own claims, not my tests."
+  }),
+  defineCategory({
+    id: "email-warmup",
+    label: "Email warmup",
+    title: `Best email warmup tools in ${DIRECTORY_YEAR}`,
+    description: `Best email warmup tools in ${DIRECTORY_YEAR}: Warmy, Mailreach, Mailivery, Warmbox, and Warmup Inbox, with how each one prices mailboxes.`,
+    intro:
+      "Warmup tools send and receive emails between your inbox and a network of other inboxes, so a new mailbox builds a sending history before cold campaigns start. Warmy is the most complete deliverability suite here. Mailreach is the focused warmup and spam-test tool. Mailivery prices by daily volume instead of per mailbox. Warmbox and Warmup Inbox are simple per-inbox plans. Many sequencers already include warmup, so check yours before paying for a second tool."
   }),
   defineCategory({
     id: "ai-sdr",
@@ -558,6 +576,7 @@ const TOOL_INPUTS: readonly ToolInput[] = [
     name: "Warmy",
     slug: "warmy",
     category: "cold-email-infrastructure",
+    alsoIn: ["email-warmup"],
     summary:
       "Warmy warms mailboxes and shows whether messages land in the inbox, spam, or promotions.",
     bestFor: "Warming mailboxes and checking inbox placement.",
@@ -573,12 +592,15 @@ const TOOL_INPUTS: readonly ToolInput[] = [
       "List cleaning is a verifier's job, such as ZeroBounce."
     ],
     affiliateUrl: "https://warmy.io?fpr=jaunius90",
-    homepage: "https://warmy.io"
+    homepage: "https://warmy.io",
+    pricing:
+      "Pricing is volume-based: you pay for the number of warmup emails Warmy generates. There is a 7-day free trial with no credit card. Email verification and DMARC monitoring are listed as included in every plan (warmy.io pricing page, checked 4 November 2026)."
   },
   {
     name: "Mailreach",
     slug: "mailreach",
     category: "cold-email-infrastructure",
+    alsoIn: ["email-warmup"],
     summary: "Mailreach warms inboxes used for cold email so a sequencer can send from them.",
     bestFor: "Warming cold-email inboxes.",
     audience: "Senders who want a dedicated warmup tool next to the sequencer.",
@@ -599,6 +621,7 @@ const TOOL_INPUTS: readonly ToolInput[] = [
     name: "ZeroBounce",
     slug: "zerobounce",
     category: "cold-email-infrastructure",
+    alsoIn: ["email-verification"],
     summary: "ZeroBounce verifies email addresses and flags invalid or risky contacts before a send.",
     bestFor: "Verifying a list before anyone hits send.",
     audience:
@@ -614,7 +637,9 @@ const TOOL_INPUTS: readonly ToolInput[] = [
       "Sending still happens in another product."
     ],
     affiliateUrl: "https://www.zerobounce.net?ref=mmeyzde",
-    homepage: "https://www.zerobounce.net"
+    homepage: "https://www.zerobounce.net",
+    pricing:
+      "Pay as you go starts at $39 for 2,000 validations. The ZeroBounce ONE subscription starts at $99 per month. Every account gets 100 free validations a month, and unknown results cost no credits (zerobounce.net pricing page, checked 4 November 2026)."
   },
   {
     name: "Salesforge",
@@ -659,6 +684,252 @@ const TOOL_INPUTS: readonly ToolInput[] = [
     ],
     affiliateUrl: "https://artisan.co/?ref=jaunius",
     homepage: "https://www.artisan.co"
+  },
+  {
+    name: "BounceBan",
+    slug: "bounceban",
+    category: "email-verification",
+    summary:
+      "BounceBan is an email verifier built around catch-all addresses, which most verifiers return as unknown.",
+    bestFor: "Verifying B2B lists with many catch-all domains.",
+    audience:
+      "Outbound teams whose lists come back from other verifiers with a large share of catch-all or unknown results.",
+    pros: [
+      "Verifies catch-all addresses without sending an email to them, according to BounceBan.",
+      "Single checks in its free mode cost no credits.",
+      "Unused credits roll over and do not expire. A Sync add-on can re-verify a CRM such as HubSpot."
+    ],
+    cons: [
+      "The catch-all accuracy figures on its site are BounceBan's own claims.",
+      "CRM Sync is a separate subscription from the credits.",
+      "It verifies addresses. Finding new ones happens in another tool."
+    ],
+    affiliateUrl: "https://bounceban.com/?via=jaunius",
+    homepage: "https://bounceban.com",
+    pricing:
+      "Credits are sold in packs from 10,000 to 1,000,000, with one credit per completed verification. Pack prices are shown on bounceban.com/pricing (checked 4 November 2026).",
+    faq: [
+      {
+        question: "Does BounceBan send emails to verify an address?",
+        answer:
+          "No. Its pricing FAQ says it does not send messages to verify, including for catch-all addresses."
+      }
+    ]
+  },
+  {
+    name: "Truelist",
+    slug: "truelist",
+    category: "email-verification",
+    summary:
+      "Truelist validates email lists and charges extra only on the catch-all addresses it actually resolves.",
+    bestFor: "Pay-as-you-go validation with catch-all resolution.",
+    audience:
+      "Senders who want to start free, pay per list, and move to a flat unlimited plan once volume is steady.",
+    pros: [
+      "Free tier with 100 validations and no credit card.",
+      "Standard checks cost 1 credit. Enhanced catch-all resolution costs 3 credits and runs only where the standard check returns unknown.",
+      "Credits never expire, and the same credits work in bulk and through the API."
+    ],
+    cons: [
+      "The unlimited plans need a 3, 6, or 12-month commitment billed upfront.",
+      "Email finding and phone validation were marked coming soon when checked.",
+      "Sending and warmup happen in other tools."
+    ],
+    affiliateUrl: "https://truelist.io?via=jaunius",
+    homepage: "https://truelist.io",
+    pricing:
+      "Pay as you go is $1.40 per 1,000 credits up to 10,000, falling to $0.70 per 1,000 at up to 1 million. Unlimited starts at $799 per month on a 12-month commitment (truelist.io/pricing, checked 4 November 2026)."
+  },
+  {
+    name: "Bouncify",
+    slug: "bouncify",
+    category: "email-verification",
+    summary:
+      "Bouncify is a bulk and real-time email verifier with pay-as-you-go credits that do not expire.",
+    bestFor: "Cheap bulk list cleaning with credits that keep.",
+    audience:
+      "Marketers and small outbound teams who clean lists now and then and do not want a monthly subscription.",
+    pros: [
+      "100 free credits on signup, with no card required.",
+      "Pay-as-you-go credits never expire, and bulk files and the API share one balance.",
+      "Imports from HubSpot, Mailchimp, and Google Sheets, and lists can be deleted at any time."
+    ],
+    cons: [
+      "Catch-all addresses are flagged rather than resolved.",
+      "The 99%+ accuracy figure is Bouncify's own claim.",
+      "It does not find new emails."
+    ],
+    affiliateUrl: "https://bouncify.io/?ref=e5mno",
+    homepage: "https://bouncify.io",
+    pricing:
+      "Pay-as-you-go credits and monthly plans are both offered, billed in USD, EUR, or INR. Current pack prices are on bouncify.io (checked 4 November 2026)."
+  },
+  {
+    name: "EmailListVerify",
+    slug: "emaillistverify",
+    category: "email-verification",
+    summary:
+      "EmailListVerify is a low-cost list verifier whose credits also work for its email finder.",
+    bestFor: "Low per-address cost on one-off list cleans.",
+    audience:
+      "Budget-conscious senders who verify lists in batches and occasionally need to find an address.",
+    pros: [
+      "Low per-address price on pay-as-you-go credits, which do not expire.",
+      "100 free verifications on signup.",
+      "The same credits work for the email finder, at 5 credits per address found."
+    ],
+    cons: [
+      "No catch-all resolution is described on its pricing page.",
+      "The 97% accuracy figure is the vendor's own claim.",
+      "The minimum purchase is 1,000 credits."
+    ],
+    affiliateUrl: "https://www.emaillistverify.com/?red=mbmaas",
+    homepage: "https://www.emaillistverify.com",
+    pricing:
+      "10,000 pay-as-you-go credits were listed at €27 one-off, or €25 a month on a monthly plan (emaillistverify.com/pricing, checked 4 November 2026)."
+  },
+  {
+    name: "Mailivery",
+    slug: "mailivery",
+    category: "email-warmup",
+    summary:
+      "Mailivery warms mailboxes through a peer-to-peer network and prices by total daily warmup volume, not per mailbox.",
+    bestFor: "Warming many mailboxes on one shared daily volume.",
+    audience:
+      "Agencies and teams with lots of mailboxes who would pay too much on a per-inbox warmup plan.",
+    pros: [
+      "Unlimited mailboxes on every plan, within the plan's shared daily warmup volume.",
+      "Plans bundle blacklist monitoring, email verification credits, and inbox placement tests.",
+      "A REST API can connect mailboxes and start or pause warmup."
+    ],
+    cons: [
+      "Each connected mailbox is capped at a daily warmup limit.",
+      "The Starter plan caps the response rate on warmup emails at 30%.",
+      "It warms and monitors. Campaigns run in your sequencer."
+    ],
+    affiliateUrl: "https://mailivery.io?fpr=j34i00",
+    homepage: "https://mailivery.io",
+    pricing:
+      "Starter is $29 per month for 200 shared warmup emails a day across unlimited mailboxes, with a 7-day free trial. Yearly billing is listed as 25% cheaper (mailivery.io/pricing, checked 4 November 2026)."
+  },
+  {
+    name: "Warmbox",
+    slug: "warmbox",
+    category: "email-warmup",
+    summary:
+      "Warmbox warms inboxes from Gmail, Outlook, and most other providers, with per-inbox plans.",
+    bestFor: "Simple warmup for one to a few inboxes.",
+    audience:
+      "Founders and small sales teams warming a handful of inboxes across Google, Microsoft, or SMTP providers.",
+    pros: [
+      "Connects Gmail and Google Workspace, Microsoft 365, Zoho, SendGrid, Amazon SES, and any SMTP inbox.",
+      "Includes spam score monitoring and a DNS and blacklist checker.",
+      "Warmup schedule can be growth, flat, random, or fully custom."
+    ],
+    cons: [
+      "Pricing is per inbox, which adds up across many mailboxes.",
+      "Warmbox itself says first results usually take 15 to 30 days of uninterrupted warming.",
+      "It does not verify lists or run campaigns."
+    ],
+    affiliateUrl: "https://warmbox.ai?fpr=jaunius-ff54a6",
+    homepage: "https://warmbox.ai",
+    pricing:
+      "Solo is $19 per month for one inbox, or $15 per month billed yearly. Start-up covers 3 inboxes at $79 per month (warmbox.ai/pricing, checked 4 November 2026)."
+  },
+  {
+    name: "Warmup Inbox",
+    slug: "warmup-inbox",
+    category: "email-warmup",
+    summary:
+      "Warmup Inbox warms mailboxes with AI-written messages across a network of real inboxes, priced per inbox.",
+    bestFor: "Per-inbox warmup with spam and category monitoring.",
+    audience: "Senders warming a small number of inboxes who want a dashboard and an API.",
+    pros: [
+      "Spam and category monitoring plus an email reputation check.",
+      "Human-like AI-generated warmup content.",
+      "Developer API on the Basic plan."
+    ],
+    cons: [
+      "Priced per inbox, so larger fleets get expensive.",
+      "The listed Basic price is on yearly billing.",
+      "It is not a list verifier."
+    ],
+    affiliateUrl: "https://www.warmupinbox.com/?refby=4f2ec7cb131d73d9",
+    homepage: "https://www.warmupinbox.com",
+    pricing:
+      "Basic is listed at $15 per inbox per month, billed yearly at $180, with 75 warmup messages a day and a free trial (warmupinbox.com/pricing, checked 4 November 2026)."
+  },
+  {
+    name: "Waalaxy",
+    slug: "waalaxy",
+    category: "linkedin-outreach",
+    summary:
+      "Waalaxy automates LinkedIn invitations and follow-up messages, with cold email on its higher plan.",
+    bestFor: "Starting LinkedIn automation on a small budget.",
+    audience:
+      "Founders, freelancers, and small teams running their first LinkedIn prospecting campaigns.",
+    pros: [
+      "Pre-built sequences and automated LinkedIn follow-ups on every plan.",
+      "Imports leads from LinkedIn search, Sales Navigator, Recruiter Lite, or CSV.",
+      "The Business plan adds cold email sequences and 500 email finder credits a month."
+    ],
+    cons: [
+      "The entry plan is capped at 300 invitations a month.",
+      "The LinkedIn conversation inbox is a paid add-on at €20 a month.",
+      "API access and Make, Zapier, and n8n modules start on the Advanced plan."
+    ],
+    affiliateUrl: "https://waal.ink/9LXYki",
+    homepage: "https://www.waalaxy.com",
+    pricing:
+      "Pro starts at €19 per user per month for 300 invitations a month; the price depends on monthly, quarterly, or yearly billing (waalaxy.com/pricing, checked 4 November 2026)."
+  },
+  {
+    name: "Skylead",
+    slug: "skylead",
+    category: "linkedin-outreach",
+    summary:
+      "Skylead runs LinkedIn and email sequences from the cloud, with email finding, verification, and warmup included.",
+    bestFor: "LinkedIn plus email sequences in one seat, with no extra email tools.",
+    audience:
+      "Agencies and sales teams that want LinkedIn and cold email in the same sequence without buying a separate finder or warmup tool.",
+    pros: [
+      "Unlimited email accounts, email warmup, and an email finder and verifier come with the seat.",
+      "Smart sequences branch between LinkedIn and email steps.",
+      "Agency plan adds a client dashboard, shared inbox, and white-label options."
+    ],
+    cons: [
+      "Priced per seat, which is more than an entry-level LinkedIn tool.",
+      "AI SDR and AI data enrichment are listed as add-ons.",
+      "Domains and mailboxes still come from your provider."
+    ],
+    affiliateUrl: "https://dash.skylead.io?fpr=jaunius",
+    homepage: "https://skylead.io",
+    pricing:
+      "All-in-one is $100 per seat per month, with a 7-day free trial. Agency is $999 a month for 25 seats (skylead.io/pricing, checked 4 November 2026)."
+  },
+  {
+    name: "SalesRobot",
+    slug: "salesrobot",
+    category: "linkedin-outreach",
+    summary:
+      "SalesRobot is a cloud LinkedIn and email automation tool with voice and video messages and an AI reply assistant.",
+    bestFor: "Cloud LinkedIn sequences priced per LinkedIn account.",
+    audience:
+      "Agencies and B2B teams running outreach across several LinkedIn accounts who want a cloud tool that does not need a browser open.",
+    pros: [
+      "Cloud-based, so campaigns run without your browser open.",
+      "Works with a free LinkedIn account; Premium is not required.",
+      "Sequences can mix LinkedIn steps, email, voice notes, and video messages."
+    ],
+    cons: [
+      "The Basic plan allows one active campaign and lower daily limits.",
+      "Pricing is per LinkedIn account, so many accounts add up.",
+      "Claims on its site about account safety are the vendor's own."
+    ],
+    affiliateUrl: "https://app.salesrobot.co/register?fpr=jaunius-4890b7",
+    homepage: "https://www.salesrobot.co",
+    pricing:
+      "Basic is $59 per LinkedIn account per month, or $39 billed annually. Advanced is $79 per month, or $59 billed annually (salesrobot.co/pricing, checked 4 November 2026)."
   }
 ];
 
@@ -670,7 +941,7 @@ export const TOOLS: readonly Tool[] = TOOL_INPUTS.map((entry) => defineTool(entr
  */
 export const CATEGORY_RANKINGS = {
   "cold-email": ["lemlist", "smartlead", "reply", "saleshandy"],
-  "linkedin-outreach": ["gojiberry", "la-growth-machine"],
+  "linkedin-outreach": ["gojiberry", "la-growth-machine", "waalaxy", "skylead", "salesrobot"],
   "email-finders": ["fullenrich", "findymail", "prospeo", "databar", "ocean", "treg"],
   "cold-email-infrastructure": [
     "zapmail",
@@ -680,6 +951,8 @@ export const CATEGORY_RANKINGS = {
     "mailreach",
     "zerobounce"
   ],
+  "email-verification": ["zerobounce", "bounceban", "truelist", "bouncify", "emaillistverify"],
+  "email-warmup": ["warmy", "mailreach", "mailivery", "warmbox", "warmup-inbox"],
   "ai-sdr": ["salesforge", "gojiberry", "la-growth-machine", "artisan"]
 } as const satisfies Record<ToolCategoryId, readonly string[]>;
 
