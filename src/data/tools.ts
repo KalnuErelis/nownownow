@@ -28,7 +28,8 @@ export type ToolCategoryId =
   | "cold-email-infrastructure"
   | "email-verification"
   | "email-warmup"
-  | "ai-sdr";
+  | "ai-sdr"
+  | "website-visitor-identification";
 
 export interface ToolCategory {
   id: ToolCategoryId;
@@ -69,7 +70,7 @@ export interface ToolFaq {
 export const TOOLS_INDEX = {
   title: "Tools",
   description:
-    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, email verification, warmup, and AI SDRs.",
+    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, email verification, warmup, AI SDRs, and website visitor identification.",
   eyebrow: "Directory",
   intro:
     "Outbound tools I would actually point someone to. Grouped by the job they do, and ranked within each group."
@@ -200,6 +201,14 @@ export const TOOL_CATEGORIES: readonly ToolCategory[] = [
     description: `Best AI SDR and multichannel outreach tools in ${DIRECTORY_YEAR}: Salesforge, Gojiberry, La Growth Machine, and Artisan.`,
     intro:
       "Salesforge is the outreach platform with an optional AI SDR. Gojiberry and Artisan run prospecting and first-touch outreach. La Growth Machine is the multichannel sequencer you still design."
+  }),
+  defineCategory({
+    id: "website-visitor-identification",
+    label: "Website visitor identification",
+    title: `Best website visitor identification tools in ${DIRECTORY_YEAR}`,
+    description: `Best website visitor identification tools in ${DIRECTORY_YEAR}: RB2B and Happierleads, with who each one is for and prices from their own pages.`,
+    intro:
+      "Tools that turn anonymous B2B site traffic into named companies or people you can contact. RB2B is the free-to-start pick for US person-level IDs pushed to Slack. Happierleads is the pay-per-identified-visitor option with person-level ID outside the US. Prices below were read from each vendor's pricing page on 5 November 2026; match-rate figures are the vendors' own claims, not my tests."
   })
 ];
 
@@ -935,6 +944,78 @@ const TOOL_INPUTS: readonly ToolInput[] = [
     homepage: "https://www.salesrobot.co",
     pricing:
       "Basic is $59 per LinkedIn account per month, or $39 billed annually. Advanced is $79 per month, or $59 billed annually (salesrobot.co/pricing, checked 4 November 2026)."
+  },
+  {
+    name: "RB2B",
+    slug: "rb2b",
+    category: "website-visitor-identification",
+    summary:
+      "RB2B identifies companies and people who visit your website and can push LinkedIn profiles or emails into Slack, a CRM, or a webhook.",
+    bestFor: "US B2B sites that want a free plan and person-level IDs in Slack.",
+    audience:
+      "Outbound and demand-gen teams whose traffic is mostly US and who want identified visitors in Slack or a CRM without buying an enterprise forensics contract.",
+    pros: [
+      "A free plan covers company-level ID with 150 monthly resolutions, and a 7-day full-featured trial needs no card.",
+      "Starter pushes LinkedIn URLs to Slack or Teams. Pro adds business emails and integrations such as HubSpot, Salesforce, Clay, Zapier, and webhooks.",
+      "Setup is a pixel. Identified visitors can start arriving the same day."
+    ],
+    cons: [
+      "Contact-level (person) ID is US only. Company-level ID is global.",
+      "Vendor coverage claims sit around 15–20% on standard plans and 35–45% on Pro+ Premium Resolution.",
+      "It identifies visitors. Writing and sending the outreach still happens in another tool."
+    ],
+    affiliateUrl: "https://www.rb2b.com/?ref=jaunius",
+    homepage: "https://www.rb2b.com",
+    pricing:
+      "Free is $0 for company-level ID (150 resolutions/mo). Starter is $79/mo. Pro starts at $149/mo. Pro+ starts at $199/mo (rb2b.com/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Does RB2B identify visitors outside the United States?",
+        answer:
+          "Company-level ID is global on every plan. Person-level contact ID is US only, per RB2B's pricing FAQ."
+      },
+      {
+        question: "Is there a free RB2B plan?",
+        answer:
+          "Yes. The free plan includes company-level ID and 150 monthly resolutions, and every account gets a 7-day full-featured trial with no credit card."
+      }
+    ]
+  },
+  {
+    name: "Happierleads",
+    slug: "happierleads",
+    category: "website-visitor-identification",
+    summary:
+      "Happierleads identifies website visitors at the person level, with work email and LinkedIn, and charges per identified visitor rather than per seat.",
+    bestFor: "Teams that need person-level IDs outside the US and want pay-per-lead pricing.",
+    audience:
+      "B2B sites with international traffic that want name, work email, and LinkedIn for people on the site, and that prefer usage-based pricing over a forensics seat contract.",
+    pros: [
+      "Person-level ID across 174+ countries, not only the US, according to Happierleads.",
+      "You pay per identified visitor. Plans start at $99/mo for 300 leads, with a 7-day free trial and no seat fees.",
+      "Exclusion filters can drop industries, countries, and company sizes you do not sell to, so those visits are not billed as leads."
+    ],
+    cons: [
+      "Match-rate claims (40–80%) are Happierleads' own figures, not an independent audit.",
+      "Optional LinkedIn verification and email waterfall add per-lead cost on top of the base plan.",
+      "The product also bundles prospecting and intent features. Teams that only want a pixel may pay for more surface area than they use."
+    ],
+    affiliateUrl: "https://happierleads.com?utm_campaign=QF2hiNZTN9Qz",
+    homepage: "https://happierleads.com",
+    pricing:
+      "Plans start at $99/mo for 300 identified visitors (~$0.33 per lead). Volume lowers the per-lead rate; annual billing takes 30% off (happierleads.com/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Does Happierleads identify people or only companies?",
+        answer:
+          "Both. Its pricing page says it returns name, verified work email, LinkedIn, and job title for the individual visitor, plus company details, across 174+ countries."
+      },
+      {
+        question: "How does Happierleads pricing work?",
+        answer:
+          "You buy a monthly pool of identified-visitor credits. Entry is $99/mo for 300 leads. Unused credits can also be spent in its prospector. There is a 7-day free trial with no credit card."
+      }
+    ]
   }
 ];
 
@@ -958,7 +1039,8 @@ export const CATEGORY_RANKINGS = {
   ],
   "email-verification": ["zerobounce", "bounceban", "truelist", "bouncify", "emaillistverify"],
   "email-warmup": ["warmy", "mailreach", "mailivery", "warmbox", "warmup-inbox"],
-  "ai-sdr": ["salesforge", "gojiberry", "la-growth-machine", "artisan"]
+  "ai-sdr": ["salesforge", "gojiberry", "la-growth-machine", "artisan"],
+  "website-visitor-identification": ["rb2b", "happierleads"]
 } as const satisfies Record<ToolCategoryId, readonly string[]>;
 
 const PRIVATE_MARKERS = ["@", "paypal", "airwallex", "instantly.ai/?via="] as const;
