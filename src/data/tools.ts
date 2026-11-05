@@ -34,7 +34,8 @@ export type ToolCategoryId =
   | "lemlist-alternatives"
   | "seo-aeo"
   | "ai-meeting-notetakers"
-  | "crm";
+  | "crm"
+  | "scheduling";
 
 export interface ToolCategory {
   id: ToolCategoryId;
@@ -75,7 +76,7 @@ export interface ToolFaq {
 export const TOOLS_INDEX = {
   title: "Tools",
   description:
-    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, cold email inbox providers, email verification, warmup, AI SDRs, website visitor identification, lemlist alternatives, SEO and AEO tools, AI meeting notetakers, and CRM.",
+    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, cold email inbox providers, email verification, warmup, AI SDRs, website visitor identification, lemlist alternatives, SEO and AEO tools, AI meeting notetakers, CRM, and scheduling.",
   eyebrow: "Directory",
   intro:
     "Outbound tools I would actually point someone to. Grouped by the job they do, and ranked within each group."
@@ -254,6 +255,14 @@ export const TOOL_CATEGORIES: readonly ToolCategory[] = [
     description: `Best CRM tools for sales teams in ${DIRECTORY_YEAR}: Folk, Breakcold, Salesmate, and OnePageCRM, with who each one is for and prices from their own pages.`,
     intro:
       "CRMs that hold the contacts, deals, and follow-ups outbound creates. Folk is first for a modern relationship CRM with pipelines and integrations. Breakcold is the sales CRM built around LinkedIn and social selling, priced per workspace instead of per seat. Salesmate is the all-in-one pick when sales, marketing, and support should share one system. OnePageCRM is the low-cost, action-focused CRM for small businesses. HubSpot and Salesforce are left off because this list only links to tools with an active affiliate program on this site. Prices below were read from each vendor's site on 5 November 2026."
+  }),
+  defineCategory({
+    id: "scheduling",
+    label: "Scheduling",
+    title: `Best scheduling tools for sales meetings in ${DIRECTORY_YEAR}`,
+    description: `Best scheduling tools for sales meetings in ${DIRECTORY_YEAR}: Cal.com, Zcal, Appointlet, and Harmonizely, with who each one is for and prices from their own pages.`,
+    intro:
+      "Booking links that turn a reply into a meeting on the calendar. Cal.com is first for a free plan with CRM sync and round-robin for teams. Zcal is the low-cost pick with a generous free plan and $7 team seats. Appointlet is the simple per-member option with no card needed to start. Harmonizely is the budget scheduler for small businesses. Calendly is left off because this list only links to tools with an active affiliate program on this site. Prices below were read from each vendor's site on 5 November 2026."
   })
 ];
 
@@ -1761,6 +1770,134 @@ const TOOL_INPUTS: readonly ToolInput[] = [
         answer: "No. Every plan includes unlimited contacts. Plans are priced per user instead."
       }
     ]
+  },
+  {
+    name: "Cal.com",
+    slug: "cal",
+    category: "scheduling",
+    summary:
+      "Cal.com is an open scheduling platform with booking links, round-robin for teams, and Salesforce and HubSpot sync on the free plan.",
+    bestFor: "Sales reps and teams that want a free booking link with CRM sync and room to add round-robin.",
+    audience:
+      "Founders, SDRs, and sales teams who send booking links in outbound and want meetings to land in Salesforce or HubSpot.",
+    pros: [
+      "Free covers 1 user with unlimited links and calendars, email and SMS notifications, and Stripe payments.",
+      "Salesforce and HubSpot sync are on the free plan, not locked behind a paid tier.",
+      "Teams adds shared availability and round-robin, with a 14-day free trial."
+    ],
+    cons: [
+      "Free is for 1 user, so a team needs Teams at $12 per user a month billed yearly.",
+      "The listed paid prices are for yearly billing; monthly costs more.",
+      "Routing and unlimited sub-teams need Organizations at $28 per user a month."
+    ],
+    affiliateUrl: "https://refer.cal.com/jaunius-7oyu",
+    homepage: "https://cal.com",
+    pricing:
+      "Free is $0 forever for 1 user (unlimited links and calendars, notifications, payments, Salesforce and HubSpot sync). Teams is $12/user/mo billed yearly (saves 25% vs monthly; shared availability, round-robin; 14-day free trial). Organizations is $28/user/mo billed yearly (unlimited sub-teams, routing) (cal.com/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Is Cal.com free?",
+        answer:
+          "Yes, for 1 user. The free plan includes unlimited links and calendars plus Salesforce and HubSpot sync. Teams starts at $12 per user per month billed yearly."
+      },
+      {
+        question: "Does Cal.com do round-robin?",
+        answer:
+          "Yes, on Teams and above. Teams adds shared availability and round-robin, with a 14-day free trial."
+      }
+    ]
+  },
+  {
+    name: "Zcal",
+    slug: "zcal",
+    category: "scheduling",
+    summary:
+      "Zcal is a low-cost scheduling tool with a generous free plan that includes unlimited links, meeting polls, and group events.",
+    bestFor: "Solo sellers and small teams that want a strong free plan and cheap team seats.",
+    audience:
+      "Founders and small sales teams who need booking links, polls, and reminders without paying for a solo seat.",
+    pros: [
+      "Free includes unlimited links, unlimited calendar accounts, meeting polls, email reminders, and group events.",
+      "Pro adds teams and round robin at $7 per user a month.",
+      "Paid plans come with a 14-day free trial."
+    ],
+    cons: [
+      "Teams and round robin need Pro; the free plan is for individuals.",
+      "Custom domains and advanced org features need Business at $12 per user a month.",
+      "The listed prices use the annual toggle; monthly billing costs more."
+    ],
+    affiliateUrl: "https://zcal.co?via=jaunius",
+    homepage: "https://zcal.co",
+    pricing:
+      "Free is $0/user/mo (unlimited links and calendar accounts, meeting polls, email reminders, group events). Pro is $7/user/mo on annual pricing (teams, round robin). Business is $12/user/mo (custom domains, advanced org features). 14-day free trial on paid plans (zcal.co/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "What does the Zcal free plan include?",
+        answer:
+          "Unlimited links, unlimited calendar accounts, meeting polls, automated email reminders, and group events, at $0."
+      }
+    ]
+  },
+  {
+    name: "Appointlet",
+    slug: "appointlet",
+    category: "scheduling",
+    summary:
+      "Appointlet is a simple online booking tool with a free plan and per-member Premium pricing.",
+    bestFor: "Small teams that want a straightforward booking page and per-member pricing.",
+    audience:
+      "Consultants and small sales teams who want to start free with no card and upgrade members one at a time.",
+    pros: [
+      "Free costs $0 a month.",
+      "Signup is free and needs no credit card to start.",
+      "Premium is $9 per member a month on the annual price."
+    ],
+    cons: [
+      "Monthly Premium is $12 per member, so annual billing is the cheaper path.",
+      "Priced per member, so cost grows with every seat.",
+      "Enterprise prices are not listed; you have to ask."
+    ],
+    affiliateUrl: "https://www.appointlet.com?tap_a=3391-c9deb2&tap_s=10575102-d0fc04",
+    homepage: "https://www.appointlet.com",
+    pricing:
+      "Free is $0/mo. Premium is $12/member/mo billed monthly, or $9/member/mo on the annual price. Enterprise is priced on inquiry. Free signup, no credit card required (appointlet.com/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Do I need a credit card to try Appointlet?",
+        answer:
+          "No. Signup is free and no credit card is required to start. Premium is $9 per member per month on the annual price."
+      }
+    ]
+  },
+  {
+    name: "Harmonizely",
+    slug: "harmonizely",
+    category: "scheduling",
+    summary:
+      "Harmonizely is a budget scheduling tool for small businesses, with a free plan for getting started.",
+    bestFor: "Small businesses that want a cheap paid scheduler.",
+    audience:
+      "Freelancers and small business owners who want booking links at under $10 per user a month.",
+    pros: [
+      "Free is $0 a month for getting started.",
+      "Pro is $9.99 per user a month and adds features for small businesses.",
+      "Premium at $11.99 per user a month is aimed at growing businesses."
+    ],
+    cons: [
+      "Free connects 1 calendar only.",
+      "Paid plans are priced per user, so cost grows with each seat.",
+      "Premium is only $2 more than Pro, so compare what each adds before you pick."
+    ],
+    affiliateUrl: "https://harmonizely.com?fpr=jaunius",
+    homepage: "https://harmonizely.com",
+    pricing:
+      "Free is $0/mo (1 calendar). Pro is $9.99/user/mo (everything in Free plus small-business features). Premium is $11.99/user/mo (for growing businesses) (harmonizely.com/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "How many calendars can I connect on Harmonizely Free?",
+        answer: "One. Free is $0 a month with 1 calendar. Pro is $9.99 per user per month."
+      }
+    ]
   }
 ];
 
@@ -1809,7 +1946,8 @@ export const CATEGORY_RANKINGS = {
   ],
   "seo-aeo": ["outrank", "aiclicks", "clearscope", "chatseo", "lowfruits", "keysearch"],
   "ai-meeting-notetakers": ["fireflies", "noota", "leexi", "bluedothq"],
-  "crm": ["folk", "breakcold", "salesmate", "onepagecrm"]
+  "crm": ["folk", "breakcold", "salesmate", "onepagecrm"],
+  "scheduling": ["cal", "zcal", "appointlet", "harmonizely"]
 } as const satisfies Record<ToolCategoryId, readonly string[]>;
 
 const PRIVATE_MARKERS = ["@", "paypal", "airwallex", "instantly.ai/?via="] as const;
