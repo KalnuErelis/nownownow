@@ -33,7 +33,8 @@ export type ToolCategoryId =
   | "website-visitor-identification"
   | "lemlist-alternatives"
   | "seo-aeo"
-  | "ai-meeting-notetakers";
+  | "ai-meeting-notetakers"
+  | "crm";
 
 export interface ToolCategory {
   id: ToolCategoryId;
@@ -74,7 +75,7 @@ export interface ToolFaq {
 export const TOOLS_INDEX = {
   title: "Tools",
   description:
-    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, cold email inbox providers, email verification, warmup, AI SDRs, website visitor identification, lemlist alternatives, SEO and AEO tools, and AI meeting notetakers.",
+    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, cold email inbox providers, email verification, warmup, AI SDRs, website visitor identification, lemlist alternatives, SEO and AEO tools, AI meeting notetakers, and CRM.",
   eyebrow: "Directory",
   intro:
     "Outbound tools I would actually point someone to. Grouped by the job they do, and ranked within each group."
@@ -245,6 +246,14 @@ export const TOOL_CATEGORIES: readonly ToolCategory[] = [
     description: `Best AI meeting notetakers in ${DIRECTORY_YEAR}: Fireflies, Noota, Leexi, and Bluedot, with who each one is for and prices from their own pages.`,
     intro:
       "Tools that join or record sales and team calls, then turn them into transcripts, summaries, and CRM follow-up. Fireflies is first for a free plan and broad meeting-bot coverage. Noota is the EU-hosted pick with invisible (no-bot) recording on paid plans. Leexi is the European sales suite with CRM and VoIP sync on Business. Bluedot is the Chrome-extension recorder with MCP on every paid plan. Otter, Gong, and Grain are left off because this list only links to tools with an active affiliate program on this site. Prices below were read from each vendor's site on 5 November 2026."
+  }),
+  defineCategory({
+    id: "crm",
+    label: "CRM",
+    title: `Best CRM tools for sales teams in ${DIRECTORY_YEAR}`,
+    description: `Best CRM tools for sales teams in ${DIRECTORY_YEAR}: Folk, Breakcold, Salesmate, and OnePageCRM, with who each one is for and prices from their own pages.`,
+    intro:
+      "CRMs that hold the contacts, deals, and follow-ups outbound creates. Folk is first for a modern relationship CRM with pipelines and integrations. Breakcold is the sales CRM built around LinkedIn and social selling, priced per workspace instead of per seat. Salesmate is the all-in-one pick when sales, marketing, and support should share one system. OnePageCRM is the low-cost, action-focused CRM for small businesses. HubSpot and Salesforce are left off because this list only links to tools with an active affiliate program on this site. Prices below were read from each vendor's site on 5 November 2026."
   })
 ];
 
@@ -1629,6 +1638,129 @@ const TOOL_INPUTS: readonly ToolInput[] = [
           "No. It records through its Chrome extension or desktop app, so there is no extra attendee in the meeting."
       }
     ]
+  },
+  {
+    name: "Folk",
+    slug: "folk",
+    category: "crm",
+    summary:
+      "Folk is a modern relationship CRM with pipelines and integrations, built for teams that live in their contacts.",
+    bestFor: "Small teams that want a clean, relationship-first CRM with pipelines.",
+    audience:
+      "Founders, agencies, and small sales teams who outgrew a spreadsheet and want contacts, pipelines, and follow-ups in one place.",
+    pros: [
+      "Relationship-first design keeps contacts and pipelines simple to work in.",
+      "Integrations connect it to the tools a small team already uses.",
+      "Free trial, and the FAQ says no credit card is needed during it."
+    ],
+    cons: [
+      "Priced per member, so cost grows with every seat you add.",
+      "Monthly billing costs more: Standard is $30 instead of $24.",
+      "Enterprise starts from $80 per member a month billed yearly."
+    ],
+    affiliateUrl: "https://try.folk.app/886ecrya2pqj",
+    homepage: "https://www.folk.app",
+    pricing:
+      "Standard is $24/member/mo billed yearly ($30 monthly; €22/€27). Premium is $48/member/mo billed yearly ($60 monthly; €43/€54). Enterprise is from $80/member/mo billed yearly ($100 monthly; from €67/€83). Free trial; no credit card required during the trial (folk.app/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Does Folk have a free trial?",
+        answer:
+          "Yes. Folk offers a free trial, and its FAQ says a credit card is not required during it. Standard then starts at $24 per member per month billed yearly."
+      }
+    ]
+  },
+  {
+    name: "Breakcold",
+    slug: "breakcold",
+    category: "crm",
+    summary:
+      "Breakcold is a sales CRM built around social selling, with LinkedIn-oriented workflows and AI on top of the pipeline.",
+    bestFor: "Sales teams that prospect and follow up on LinkedIn.",
+    audience:
+      "Founders and small sales teams whose deals start in LinkedIn conversations and who want those threads next to the pipeline.",
+    pros: [
+      "LinkedIn and social selling workflows sit inside the CRM, not in a separate tool.",
+      "Plans are priced per workspace, with extra seats or accounts at $10/month each.",
+      "A 14-day trial lets you test it on real conversations."
+    ],
+    cons: [
+      "The entry plan is $99/month, high for a solo user next to per-seat CRMs.",
+      "Heavy AI use needs X20 at $499/month.",
+      "Built for social selling, so it is a weaker fit for teams that mostly sell by phone."
+    ],
+    affiliateUrl: "https://www.breakcold.com/?via=jaunius",
+    homepage: "https://www.breakcold.com",
+    pricing:
+      "Breakcold X1 (solo) is $99/month. Breakcold X5 (most teams) is $199/month. Breakcold X20 (heavy AI use) is $499/month. Extra seats or connected accounts are $10/month each. 14-day trial (breakcold.com/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "How does Breakcold pricing work?",
+        answer:
+          "Plans are flat monthly tiers: X1 at $99, X5 at $199, and X20 at $499. Each extra seat or connected account adds $10 a month."
+      }
+    ]
+  },
+  {
+    name: "Salesmate",
+    slug: "salesmate",
+    category: "crm",
+    summary:
+      "Salesmate is an all-in-one CRM for sales, marketing, and support, with pipelines, sequences, a team inbox, and AI agents.",
+    bestFor: "SMBs that want sales, marketing, and support in one CRM.",
+    audience:
+      "Startups and SMB sales teams that want pipeline, email sync, and sequences without stitching several tools together.",
+    pros: [
+      "Basic covers pipeline and email sync from $23 per user a month.",
+      "Pro adds sequences, tickets, and a team inbox, so support sits next to sales.",
+      "Annual billing saves up to 20%, and plans offer a free trial."
+    ],
+    cons: [
+      "Sequences and the team inbox need Pro at $39 per user a month.",
+      "Custom modules, SLAs, and advanced goals need Business at $63 per user a month.",
+      "Broad scope means more setup than a simple contact CRM."
+    ],
+    affiliateUrl: "https://salesmate.io?fpr=jaunius",
+    homepage: "https://www.salesmate.io",
+    pricing:
+      "Basic is $23/user/mo (pipeline, email sync). Pro is $39/user/mo (sequences, tickets, team inbox). Business is $63/user/mo (custom modules, SLAs, advanced goals). Annual billing saves up to 20%; free trial (salesmate.io/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Which Salesmate plan includes sequences?",
+        answer:
+          "Pro, at $39 per user per month. Basic covers pipeline and email sync, and Business adds custom modules and SLAs."
+      }
+    ]
+  },
+  {
+    name: "OnePageCRM",
+    slug: "onepagecrm",
+    category: "crm",
+    summary:
+      "OnePageCRM is an action-focused CRM for small businesses that puts the next step on every contact, with unlimited contacts on every plan.",
+    bestFor: "Small businesses that want a low-cost CRM built around follow-ups.",
+    audience:
+      "Owners and small sales teams who need every lead to have a next action and do not want to pay per contact.",
+    pros: [
+      "Unlimited contacts on every plan.",
+      "Professional starts at €8.95 per user a month on annual billing.",
+      "A 21-day free trial with no credit card."
+    ],
+    cons: [
+      "Prices exclude VAT and the low prices are for annual billing.",
+      "Full email sync and open tracking need Business at €17.95.",
+      "Sequences, multiple email accounts, and unlimited pipelines need Max at €25.95."
+    ],
+    affiliateUrl: "https://www.onepagecrm.com?via=jaunius",
+    homepage: "https://www.onepagecrm.com",
+    pricing:
+      "Professional is €8.95/user/mo billed annually. Business is €17.95/user/mo billed annually (full email sync, open tracking, scheduling). Max is €25.95/user/mo billed annually (sequences, multiple email accounts, unlimited pipelines). Annual billing gives 4 months free vs monthly. Prices exclude VAT; 21-day free trial, no credit card (onepagecrm.com/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Does OnePageCRM limit contacts?",
+        answer: "No. Every plan includes unlimited contacts. Plans are priced per user instead."
+      }
+    ]
   }
 ];
 
@@ -1676,7 +1808,8 @@ export const CATEGORY_RANKINGS = {
     "emailchaser"
   ],
   "seo-aeo": ["outrank", "aiclicks", "clearscope", "chatseo", "lowfruits", "keysearch"],
-  "ai-meeting-notetakers": ["fireflies", "noota", "leexi", "bluedothq"]
+  "ai-meeting-notetakers": ["fireflies", "noota", "leexi", "bluedothq"],
+  "crm": ["folk", "breakcold", "salesmate", "onepagecrm"]
 } as const satisfies Record<ToolCategoryId, readonly string[]>;
 
 const PRIVATE_MARKERS = ["@", "paypal", "airwallex", "instantly.ai/?via="] as const;
