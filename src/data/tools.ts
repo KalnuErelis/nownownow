@@ -31,7 +31,8 @@ export type ToolCategoryId =
   | "email-warmup"
   | "ai-sdr"
   | "website-visitor-identification"
-  | "lemlist-alternatives";
+  | "lemlist-alternatives"
+  | "seo-aeo";
 
 export interface ToolCategory {
   id: ToolCategoryId;
@@ -72,7 +73,7 @@ export interface ToolFaq {
 export const TOOLS_INDEX = {
   title: "Tools",
   description:
-    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, cold email inbox providers, email verification, warmup, AI SDRs, website visitor identification, and lemlist alternatives.",
+    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, cold email inbox providers, email verification, warmup, AI SDRs, website visitor identification, lemlist alternatives, and SEO and AEO tools.",
   eyebrow: "Directory",
   intro:
     "Outbound tools I would actually point someone to. Grouped by the job they do, and ranked within each group."
@@ -227,6 +228,14 @@ export const TOOL_CATEGORIES: readonly ToolCategory[] = [
     description: `Best lemlist alternatives in ${DIRECTORY_YEAR}: Smartlead, Salesforge, Reply, Saleshandy, ReachInbox, SalesBlink, SmartReach, Emelia, Klenty, and Emailchaser, with prices from their own pages.`,
     intro:
       "Cold email and sales engagement sequencers people compare when they look past lemlist. Smartlead is first for cold email across many mailboxes. Salesforge adds an optional AI SDR. Reply and Klenty are the broader sales engagement platforms. Saleshandy, ReachInbox, SalesBlink, and Emailchaser are focused cold email tools with warmup included. SmartReach prices by active prospects instead of seats. Emelia keeps email and LinkedIn on flat plans. Instantly is left off because this list only links to tools with an active affiliate program. None of these sell the mailboxes themselves; see the cold email inbox list for that, and the email warmup and email verification lists for those jobs. The cold email page is the shorter core list, and the AI SDR page covers agents that run outreach for you. Prices below were read from each vendor's site on 5 November 2026."
+  }),
+  defineCategory({
+    id: "seo-aeo",
+    label: "SEO and AEO",
+    title: `Best SEO and AEO tools in ${DIRECTORY_YEAR}`,
+    description: `Best SEO and AEO tools in ${DIRECTORY_YEAR}: Outrank, AIclicks, Clearscope, ChatSEO, LowFruits, and KeySearch, with who each one is for and prices from their own pages.`,
+    intro:
+      "Ranked tools for organic search and AI-answer visibility (AEO/GEO). Outrank is first for autopilot articles and backlinks. AIclicks tracks brand mentions across ChatGPT and other AI engines. Clearscope optimizes drafts for Google and AI search. ChatSEO is the chat-based SEO agent wired to Search Console. LowFruits and KeySearch are the keyword-research picks when you want weak SERPs or a low monthly price. Ahrefs and Semrush are left off because this list only links to tools with an active affiliate program on this site. Prices below were read from each vendor's site on 5 November 2026."
   })
 ];
 
@@ -1288,6 +1297,200 @@ const TOOL_INPUTS: readonly ToolInput[] = [
     homepage: "https://www.emailchaser.com",
     pricing:
       "Starter is $47/mo (5,000 emails, 1,000 contacts). Pro is $97/mo (125,000 emails). Max is $358/mo. Enterprise is $897/mo. Annual billing is 10 months' price. 7-day free trial (emailchaser.com/pricing, checked 5 November 2026)."
+  },
+  {
+    name: "Outrank",
+    slug: "outrank",
+    category: "seo-aeo",
+    summary:
+      "Outrank researches keywords, writes and publishes SEO articles on a schedule, and builds backlinks, with the aim of ranking on Google and getting cited in AI answers.",
+    bestFor: "Founders who want a blog that grows without writing it themselves.",
+    audience:
+      "Founders and small teams who know organic search matters but will not write or commission articles every week.",
+    pros: [
+      "One plan covers keyword research, 30 articles a month, and automated backlinks.",
+      "Articles are published on a schedule, so the blog keeps moving without someone pushing it.",
+      "Annual billing is $999 a year, against $1,188 for twelve monthly payments."
+    ],
+    cons: [
+      "Autopilot articles still need someone to check facts, product claims, and tone before they represent you.",
+      "There is one main plan. More than 30 articles a month is a paid add-on.",
+      "Teams that already write their own content get more from an optimizer like Clearscope."
+    ],
+    affiliateUrl: "https://outrank.so/?via=jaunius",
+    homepage: "https://outrank.so",
+    pricing:
+      "Organic Growth Plan is $99/mo or $999/year: 30 SEO articles/mo, automated keyword research, and automated backlinks. Add-ons are 60 articles/mo for +$85 or 90 articles/mo for +$160 (outrank.so/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "What does the Outrank plan include?",
+        answer:
+          "The Organic Growth Plan includes 30 SEO articles a month, automated keyword research, and automated backlinks for $99/mo or $999/year. More articles are sold as add-ons."
+      }
+    ]
+  },
+  {
+    name: "AIclicks",
+    slug: "aiclicks",
+    category: "seo-aeo",
+    summary:
+      "AIclicks tracks how often your brand is mentioned in answers from ChatGPT, Perplexity, Gemini, Google AI Overviews, and other AI engines, and suggests what to change to show up more.",
+    bestFor: "Measuring and improving brand visibility in AI answers (AEO/GEO).",
+    audience:
+      "Marketing teams and founders who want to know whether AI assistants recommend them, and which prompts competitors win.",
+    pros: [
+      "Tracks the prompts you choose across several AI platforms in one dashboard.",
+      "Gives action recommendations, not only a mention count.",
+      "A 3-day free trial lets you check your brand before paying."
+    ],
+    cons: [
+      "Plans are capped by tracked prompts and AI platforms. Starter covers 30 prompts on 3 platforms.",
+      "It measures and advises. Writing the content and earning the citations still happens elsewhere.",
+      "AI answers change between runs, so treat single results as samples, not rankings."
+    ],
+    affiliateUrl: "https://aiclicks.io?via=jaunius",
+    homepage: "https://aiclicks.io",
+    pricing:
+      "Starter is $59/mo (30 prompts, 3 AI platforms). Pro is $189/mo (150 prompts, 4 platforms). Business is $499/mo (300+ prompts, 6 platforms). 3-day free trial (aiclicks.io/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Which AI engines does AIclicks track?",
+        answer:
+          "AIclicks tracks brand mentions in AI answers such as ChatGPT, Perplexity, Gemini, and Google AI Overviews. The number of platforms depends on the plan: 3 on Starter, 4 on Pro, and 6 on Business."
+      },
+      {
+        question: "Is there a free AIclicks trial?",
+        answer: "Yes. AIclicks offers a 3-day free trial."
+      }
+    ]
+  },
+  {
+    name: "Clearscope",
+    slug: "clearscope",
+    category: "seo-aeo",
+    summary:
+      "Clearscope grades drafts against what ranks for a query, so writers cover the topic fully, and tracks how pages show up in Google and AI search.",
+    bestFor: "Content teams already writing who want each article to rank and get cited.",
+    audience:
+      "In-house content teams and agencies that publish regularly and want a shared standard for what a finished article covers.",
+    pros: [
+      "Content grades give writers a clear target before an article ships.",
+      "Tracks queries and pages for both Google and AI search visibility.",
+      "Monthly plans have no contract, and there is a 14-day free trial."
+    ],
+    cons: [
+      "It does not write or publish for you. Someone still has to do the writing.",
+      "Essentials covers 50 tracked queries and 50 pages, which a busy blog outgrows.",
+      "Pricier than keyword tools if research is the only job."
+    ],
+    affiliateUrl: "https://www.clearscope.io?via=jaunius",
+    homepage: "https://www.clearscope.io",
+    pricing:
+      "Essentials is $129/mo (50 tracked queries, 50 pages). Business is $399/mo (300 tracked queries, 300 pages). Enterprise is custom. 14-day free trial; no contracts on monthly plans (clearscope.io/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Does Clearscope write content?",
+        answer:
+          "No. Clearscope grades and guides drafts that your team writes, and tracks how pages perform in Google and AI search. For done-for-you articles, Outrank is the closer fit."
+      }
+    ]
+  },
+  {
+    name: "ChatSEO",
+    slug: "chatseo",
+    category: "seo-aeo",
+    summary:
+      "ChatSEO is an SEO agent you talk to in chat. It connects to Search Console, Analytics, and your CMS, and has an MCP server for Claude and Cursor.",
+    bestFor: "Asking SEO questions about your own site data in a chat instead of dashboards.",
+    audience:
+      "Founders and marketers who have Search Console data but no SEO specialist, and people who already work in Claude or Cursor.",
+    pros: [
+      "Answers come from your own Search Console and Analytics data, not generic advice.",
+      "The MCP server puts the same agent inside Claude or Cursor.",
+      "A 7-day trial includes 30 credits."
+    ],
+    cons: [
+      "Credits are per message (1 credit = 1 message), so long sessions use the plan quickly.",
+      "Prices are shown in EUR excluding VAT.",
+      "It advises and drafts. Backlinks and a full rank tracker are not the focus."
+    ],
+    affiliateUrl: "https://chatseo.app/?ref=jaunius",
+    homepage: "https://chatseo.app",
+    pricing:
+      "Starter is from €29/mo (100 credits). Pro is from €49/mo. Ranker is from €79/mo. Annual billing takes 20% off. 1 credit = 1 message. 7-day trial with 30 credits. Prices exclude VAT; USD amounts are the same (chatseo.app/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "How do ChatSEO credits work?",
+        answer:
+          "One credit is one message to the agent. Starter includes 100 credits a month, and the 7-day trial includes 30."
+      },
+      {
+        question: "Can I use ChatSEO from Claude or Cursor?",
+        answer: "Yes. ChatSEO offers an MCP server so Claude and Cursor can call it directly."
+      }
+    ]
+  },
+  {
+    name: "LowFruits",
+    slug: "lowfruits",
+    category: "seo-aeo",
+    summary:
+      "LowFruits analyzes search results in bulk to find keywords where weak or low-authority sites already rank, and pulls long-tail ideas from Google autocomplete.",
+    bestFor: "Finding long-tail keywords a newer site can actually rank for.",
+    audience:
+      "Bloggers, niche site owners, and early-stage startups with low domain authority who need keywords they can win.",
+    pros: [
+      "Bulk SERP analysis flags results where weak or low-DA sites rank.",
+      "Long-tail ideas come from Google autocomplete, so they match how people search.",
+      "Pay-as-you-go credits mean you do not need a subscription for occasional research."
+    ],
+    cons: [
+      "Pay-as-you-go credits expire after 1 year.",
+      "It is a keyword research tool. Writing and tracking happen elsewhere.",
+      "The 14-day money-back only applies if you used fewer than 100 credits."
+    ],
+    affiliateUrl: "https://lowfruits.io?via=jaunius",
+    homepage: "https://lowfruits.io",
+    pricing:
+      "Standard is $29.9/mo or $20.75/mo billed yearly. Premium is $79.9/mo or $62.45/mo billed yearly. Pay-as-you-go starts at $25 for 2,000 credits, which expire after 1 year. 14-day money-back if under 100 credits are used (lowfruits.io/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Can I use LowFruits without a subscription?",
+        answer:
+          "Yes. Pay-as-you-go starts at $25 for 2,000 credits. The credits expire after 1 year."
+      }
+    ]
+  },
+  {
+    name: "KeySearch",
+    slug: "keysearch",
+    category: "seo-aeo",
+    summary:
+      "KeySearch is a low-cost keyword research tool with keyword difficulty, competitor analysis, and an AI content editor.",
+    bestFor: "Keyword research on a budget, as a cheaper alternative to Ahrefs or Semrush.",
+    audience:
+      "Solo bloggers, small businesses, and freelancers who need keyword and competitor data but not an enterprise SEO suite.",
+    pros: [
+      "Starter is $24/mo, well below the big SEO suites.",
+      "Keyword research, competitor analysis, and an AI editor sit in one tool.",
+      "Pro raises the limit to 500 searches a day and adds Foresight."
+    ],
+    cons: [
+      "Searches are capped per day: 200 on Starter, 500 on Pro.",
+      "Agency-scale reporting and large backlink audits are a closer fit for the bigger SEO suites.",
+      "It does not write articles or track AI answers."
+    ],
+    affiliateUrl: "https://keysearch.co?via=jaunius",
+    homepage: "https://www.keysearch.co",
+    pricing:
+      "Starter is $24/mo (200 keyword searches/day). Pro is $48/mo (500 searches/day, includes Foresight) (keysearch.co, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Is KeySearch a replacement for Ahrefs or Semrush?",
+        answer:
+          "For keyword research and competitor checks on a small site, often yes, at a much lower price. For large backlink audits or agency-scale reporting, a bigger suite is the closer fit."
+      }
+    ]
   }
 ];
 
@@ -1333,7 +1536,8 @@ export const CATEGORY_RANKINGS = {
     "emelia",
     "klenty",
     "emailchaser"
-  ]
+  ],
+  "seo-aeo": ["outrank", "aiclicks", "clearscope", "chatseo", "lowfruits", "keysearch"]
 } as const satisfies Record<ToolCategoryId, readonly string[]>;
 
 const PRIVATE_MARKERS = ["@", "paypal", "airwallex", "instantly.ai/?via="] as const;
