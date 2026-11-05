@@ -32,7 +32,8 @@ export type ToolCategoryId =
   | "ai-sdr"
   | "website-visitor-identification"
   | "lemlist-alternatives"
-  | "seo-aeo";
+  | "seo-aeo"
+  | "ai-meeting-notetakers";
 
 export interface ToolCategory {
   id: ToolCategoryId;
@@ -73,7 +74,7 @@ export interface ToolFaq {
 export const TOOLS_INDEX = {
   title: "Tools",
   description:
-    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, cold email inbox providers, email verification, warmup, AI SDRs, website visitor identification, lemlist alternatives, and SEO and AEO tools.",
+    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, cold email inbox providers, email verification, warmup, AI SDRs, website visitor identification, lemlist alternatives, SEO and AEO tools, and AI meeting notetakers.",
   eyebrow: "Directory",
   intro:
     "Outbound tools I would actually point someone to. Grouped by the job they do, and ranked within each group."
@@ -236,6 +237,14 @@ export const TOOL_CATEGORIES: readonly ToolCategory[] = [
     description: `Best SEO and AEO tools in ${DIRECTORY_YEAR}: Outrank, AIclicks, Clearscope, ChatSEO, LowFruits, and KeySearch, with who each one is for and prices from their own pages.`,
     intro:
       "Ranked tools for organic search and AI-answer visibility (AEO/GEO). Outrank is first for autopilot articles and backlinks. AIclicks tracks brand mentions across ChatGPT and other AI engines. Clearscope optimizes drafts for Google and AI search. ChatSEO is the chat-based SEO agent wired to Search Console. LowFruits and KeySearch are the keyword-research picks when you want weak SERPs or a low monthly price. Ahrefs and Semrush are left off because this list only links to tools with an active affiliate program on this site. Prices below were read from each vendor's site on 5 November 2026."
+  }),
+  defineCategory({
+    id: "ai-meeting-notetakers",
+    label: "AI meeting notetakers",
+    title: `Best AI meeting notetakers in ${DIRECTORY_YEAR}`,
+    description: `Best AI meeting notetakers in ${DIRECTORY_YEAR}: Fireflies, Noota, Leexi, and Bluedot, with who each one is for and prices from their own pages.`,
+    intro:
+      "Tools that join or record sales and team calls, then turn them into transcripts, summaries, and CRM follow-up. Fireflies is first for a free plan and broad meeting-bot coverage. Noota is the EU-hosted pick with invisible (no-bot) recording on paid plans. Leexi is the European sales suite with CRM and VoIP sync on Business. Bluedot is the Chrome-extension recorder with MCP on every paid plan. Otter, Gong, and Grain are left off because this list only links to tools with an active affiliate program on this site. Prices below were read from each vendor's site on 5 November 2026."
   })
 ];
 
@@ -1491,6 +1500,135 @@ const TOOL_INPUTS: readonly ToolInput[] = [
           "For keyword research and competitor checks on a small site, often yes, at a much lower price. For large backlink audits or agency-scale reporting, a bigger suite is the closer fit."
       }
     ]
+  },
+  {
+    name: "Fireflies",
+    slug: "fireflies",
+    category: "ai-meeting-notetakers",
+    summary:
+      "Fireflies sends a meeting bot into Zoom, Google Meet, and Microsoft Teams calls, then writes the transcript, summary, and action items.",
+    bestFor: "Teams that want a free plan and a notetaker that joins every major meeting app.",
+    audience:
+      "Sales and team leads who run calls across Zoom, Meet, and Teams and want searchable notes without changing how they book meetings.",
+    pros: [
+      "A free plan lets you try it on real calls before paying.",
+      "One bot covers Zoom, Google Meet, and Microsoft Teams.",
+      "AskFred answers questions across your past meetings, and paid plans push notes into CRMs."
+    ],
+    cons: [
+      "The bot joins the call as a visible attendee, which some prospects notice.",
+      "CRM integrations sit on paid plans, not on Free.",
+      "The lowest per-seat prices need annual billing; monthly Pro is $18 instead of $10."
+    ],
+    affiliateUrl: "https://fireflies.ai/?fpr=jaunius-2b4eb6",
+    homepage: "https://fireflies.ai",
+    pricing:
+      "Free is $0. Pro is $10/user/mo billed annually ($18 monthly). Business is $19/user/mo billed annually ($29 monthly). Enterprise is $39/user/mo billed annually (fireflies.ai/pricing and Fireflies billing docs, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Is there a free Fireflies plan?",
+        answer:
+          "Yes. Free is $0. Pro starts at $10 per user per month billed annually, or $18 billed monthly."
+      },
+      {
+        question: "Which meeting apps does Fireflies work with?",
+        answer:
+          "Its bot joins Zoom, Google Meet, and Microsoft Teams calls and records them there."
+      }
+    ]
+  },
+  {
+    name: "Noota",
+    slug: "noota",
+    category: "ai-meeting-notetakers",
+    summary:
+      "Noota records and summarizes meetings with EU-hosted data, and on paid plans it can record without a bot joining the call.",
+    bestFor: "European teams that want EU hosting and bot-free recording.",
+    audience:
+      "Sales and recruiting teams in Europe that care where call data is stored and do not want a bot showing up in the attendee list.",
+    pros: [
+      "Data is hosted in the EU, and Noota says it does not train AI on your data.",
+      "Pro adds invisible recording (no bot), 6 months of storage, and CRM sync.",
+      "Sales and recruiting agents are available as add-ons when you need more than notes."
+    ],
+    cons: [
+      "The free plan keeps recordings for 1 month only.",
+      "Unlimited storage, phone calls, and automations need Business at €39/user/mo.",
+      "Sales and recruiting agents cost extra on top of the plan."
+    ],
+    affiliateUrl: "https://www.noota.io/fr/actions-with-ai?fpr=jaunius-5dbebb",
+    homepage: "https://www.noota.io",
+    pricing:
+      "Free is €0/user/mo billed annually (1 month storage). Pro is €19/user/mo billed annually (invisible recording, 6 months storage, CRM sync). Business is €39/user/mo billed annually (unlimited storage, phone calls, automations). Enterprise is custom (noota.io/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Can Noota record a meeting without a bot?",
+        answer:
+          "Yes, on Pro and above. Invisible recording is listed on Pro at €19 per user per month billed annually. The free plan does not include it."
+      }
+    ]
+  },
+  {
+    name: "Leexi",
+    slug: "leexi",
+    category: "ai-meeting-notetakers",
+    summary:
+      "Leexi is a European AI meeting suite for sales teams that goes past notes into CRM, ATS, and VoIP sync.",
+    bestFor: "European sales teams that want call notes synced to their CRM and phone system.",
+    audience:
+      "Sales managers in Europe who want meeting and phone-call notes in the CRM, with ISO 27001 and GDPR covered.",
+    pros: [
+      "Business syncs with CRM, ATS, and VoIP tools, so phone calls land next to video meetings.",
+      "ISO 27001 certified and GDPR compliant.",
+      "A 7-day free trial lets you test it on real calls."
+    ],
+    cons: [
+      "There is no free plan, only the 7-day trial.",
+      "Starter caps out at 5 licences and 20 hours a month.",
+      "CRM and VoIP sync need Business at €39/mo billed annually. Prices exclude VAT."
+    ],
+    affiliateUrl: "https://www.leexi.ai/?via=jaunius",
+    homepage: "https://www.leexi.ai",
+    pricing:
+      "Starter is €12/licence/mo billed annually (€15 monthly), up to 5 licences and 20h/mo. AI-Meeting is €23/mo billed annually (€29 monthly). Business is €39/mo billed annually (€49 monthly) with CRM/ATS/VoIP sync. Enterprise is custom. Prices exclude VAT; 7-day free trial (leexi.ai/en/pricing/, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Does Leexi sync with my CRM?",
+        answer:
+          "Yes, on Business. That plan adds CRM, ATS, and VoIP sync at €39/mo billed annually, or €49 billed monthly, excluding VAT."
+      }
+    ]
+  },
+  {
+    name: "Bluedot",
+    slug: "bluedothq",
+    category: "ai-meeting-notetakers",
+    summary:
+      "Bluedot records meetings from a Chrome extension or desktop app instead of sending a bot, then writes notes and summaries.",
+    bestFor: "People who want bot-free capture and MCP access to their meeting notes.",
+    audience:
+      "Founders, sales reps, and recruiters who do not want a bot in the call and want to query meeting notes from AI tools over MCP.",
+    pros: [
+      "Records from the browser or desktop, so no bot joins the attendee list.",
+      "MCP is included on every paid plan.",
+      "Business adds CRM/ATS sync plus SSO and SCIM."
+    ],
+    cons: [
+      "The free plan is 5 meetings in total, not per month.",
+      "Basic records audio only. Video needs Pro at $20/user/mo annual.",
+      "Capture depends on the extension or desktop app running on your machine."
+    ],
+    affiliateUrl: "https://www.bluedothq.com/?ref=jaunius",
+    homepage: "https://www.bluedothq.com",
+    pricing:
+      "Free is $0 (5 meetings lifetime). Basic is $14/user/mo annual ($18 monthly), audio-only and unlimited. Pro is $20/user/mo annual ($25 monthly) with video. Business is $32/user/mo annual ($39 monthly) with CRM/ATS and SSO/SCIM (bluedothq.com/pricing, checked 5 November 2026).",
+    faq: [
+      {
+        question: "Does Bluedot join the call as a bot?",
+        answer:
+          "No. It records through its Chrome extension or desktop app, so there is no extra attendee in the meeting."
+      }
+    ]
   }
 ];
 
@@ -1537,7 +1675,8 @@ export const CATEGORY_RANKINGS = {
     "klenty",
     "emailchaser"
   ],
-  "seo-aeo": ["outrank", "aiclicks", "clearscope", "chatseo", "lowfruits", "keysearch"]
+  "seo-aeo": ["outrank", "aiclicks", "clearscope", "chatseo", "lowfruits", "keysearch"],
+  "ai-meeting-notetakers": ["fireflies", "noota", "leexi", "bluedothq"]
 } as const satisfies Record<ToolCategoryId, readonly string[]>;
 
 const PRIVATE_MARKERS = ["@", "paypal", "airwallex", "instantly.ai/?via="] as const;
