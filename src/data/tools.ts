@@ -30,7 +30,8 @@ export type ToolCategoryId =
   | "email-verification"
   | "email-warmup"
   | "ai-sdr"
-  | "website-visitor-identification";
+  | "website-visitor-identification"
+  | "lemlist-alternatives";
 
 export interface ToolCategory {
   id: ToolCategoryId;
@@ -71,7 +72,7 @@ export interface ToolFaq {
 export const TOOLS_INDEX = {
   title: "Tools",
   description:
-    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, cold email inbox providers, email verification, warmup, AI SDRs, and website visitor identification.",
+    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, cold email inbox providers, email verification, warmup, AI SDRs, website visitor identification, and lemlist alternatives.",
   eyebrow: "Directory",
   intro:
     "Outbound tools I would actually point someone to. Grouped by the job they do, and ranked within each group."
@@ -218,6 +219,14 @@ export const TOOL_CATEGORIES: readonly ToolCategory[] = [
     description: `Best website visitor identification tools in ${DIRECTORY_YEAR}: RB2B and Happierleads, with who each one is for and prices from their own pages.`,
     intro:
       "Tools that turn anonymous B2B site traffic into named companies or people you can contact. RB2B is the free-to-start pick for US person-level IDs pushed to Slack. Happierleads is the pay-per-identified-visitor option with person-level ID outside the US. Prices below were read from each vendor's pricing page on 5 November 2026; match-rate figures are the vendors' own claims, not my tests."
+  }),
+  defineCategory({
+    id: "lemlist-alternatives",
+    label: "lemlist alternatives",
+    title: `Best lemlist alternatives in ${DIRECTORY_YEAR}`,
+    description: `Best lemlist alternatives in ${DIRECTORY_YEAR}: Smartlead, Salesforge, Reply, Saleshandy, ReachInbox, SalesBlink, SmartReach, Emelia, Klenty, and Emailchaser, with prices from their own pages.`,
+    intro:
+      "Cold email and sales engagement sequencers people compare when they look past lemlist. Smartlead is first for cold email across many mailboxes. Salesforge adds an optional AI SDR. Reply and Klenty are the broader sales engagement platforms. Saleshandy, ReachInbox, SalesBlink, and Emailchaser are focused cold email tools with warmup included. SmartReach prices by active prospects instead of seats. Emelia keeps email and LinkedIn on flat plans. Instantly is left off because this list only links to tools with an active affiliate program. None of these sell the mailboxes themselves; see the cold email inbox list for that, and the email warmup and email verification lists for those jobs. The cold email page is the shorter core list, and the AI SDR page covers agents that run outreach for you. Prices below were read from each vendor's site on 5 November 2026."
   })
 ];
 
@@ -248,6 +257,7 @@ const TOOL_INPUTS: readonly ToolInput[] = [
     name: "Smartlead",
     slug: "smartlead",
     category: "cold-email",
+    alsoIn: ["lemlist-alternatives"],
     summary:
       "Smartlead is a cold email platform for campaigns across many mailboxes, with warmup in the same product.",
     bestFor: "Cold email across many mailboxes.",
@@ -270,6 +280,7 @@ const TOOL_INPUTS: readonly ToolInput[] = [
     name: "Reply",
     slug: "reply",
     category: "cold-email",
+    alsoIn: ["lemlist-alternatives"],
     summary:
       "Reply is a sales engagement platform for email sequences, calls, tasks, and LinkedIn steps.",
     bestFor: "Sales engagement beyond email-only sequences.",
@@ -292,6 +303,7 @@ const TOOL_INPUTS: readonly ToolInput[] = [
     name: "Saleshandy",
     slug: "saleshandy",
     category: "cold-email",
+    alsoIn: ["lemlist-alternatives"],
     summary: "Saleshandy is a cold email tool for sequences and finding emails.",
     bestFor: "Straightforward cold email sequences.",
     audience:
@@ -774,6 +786,7 @@ const TOOL_INPUTS: readonly ToolInput[] = [
     name: "Salesforge",
     slug: "salesforge",
     category: "ai-sdr",
+    alsoIn: ["lemlist-alternatives"],
     summary:
       "Salesforge runs email and LinkedIn outreach, with an optional AI SDR. Mailboxes are a separate purchase.",
     bestFor: "Email and LinkedIn outreach, with an AI SDR if you want one.",
@@ -1131,6 +1144,150 @@ const TOOL_INPUTS: readonly ToolInput[] = [
           "You buy a monthly pool of identified-visitor credits. Entry is $99/mo for 300 leads. Unused credits can also be spent in its prospector. There is a 7-day free trial with no credit card."
       }
     ]
+  },
+  {
+    name: "ReachInbox",
+    slug: "reachinbox",
+    category: "lemlist-alternatives",
+    summary:
+      "ReachInbox is a cold email sequencer with unlimited email accounts on paid plans, built-in AI warmup, and AI reply features.",
+    bestFor: "High-volume cold email with many mailboxes and AI assist.",
+    audience:
+      "Senders running many mailboxes who want warmup and AI help with replies inside the sequencer.",
+    pros: [
+      "Paid plans connect unlimited email accounts, so adding mailboxes does not add seats.",
+      "Warmup is built in, so a second warmup tool is optional.",
+      "A free plan with 3 accounts and 250 emails a month lets you test it first."
+    ],
+    cons: [
+      "Plans are capped by active leads and monthly emails, so check both limits.",
+      "The listed monthly prices are for yearly billing.",
+      "Mailboxes and domains still come from an inbox provider."
+    ],
+    affiliateUrl: "https://www.reachinbox.ai/?via=jaunius",
+    homepage: "https://www.reachinbox.ai",
+    pricing:
+      "Free is $0 (3 accounts, 250 emails/mo). Starter is $30/mo billed yearly (2,000 active leads, 10,000 emails/mo). Growth is $75/mo billed yearly (50,000 leads, 250,000 emails). Pro is $225/mo billed yearly. Enterprise starts at $999/mo (reachinbox.ai/pricing, checked 5 November 2026)."
+  },
+  {
+    name: "SalesBlink",
+    slug: "salesblink",
+    category: "lemlist-alternatives",
+    summary:
+      "SalesBlink is an AI-powered cold email outreach tool with unlimited email accounts, unlimited warmup, and an MCP server for AI agents.",
+    bestFor: "Teams that want AI sequences and agent/MCP access from day one.",
+    audience:
+      "Small teams that want AI-written sequences and plan to run outreach from an AI agent as well as the app.",
+    pros: [
+      "Unlimited email accounts and warmup are included.",
+      "An MCP server lets AI agents work with campaigns.",
+      "A 14-day free trial needs no card."
+    ],
+    cons: [
+      "Starter caps sending at 10,000 emails a month.",
+      "Growth is limited to 3 team members; more users means Business.",
+      "Mailboxes and domains still come from an inbox provider."
+    ],
+    affiliateUrl: "https://salesblink.io?aff=uYoCKxZXXTO5",
+    homepage: "https://salesblink.io",
+    pricing:
+      "Starter is $25/mo billed yearly ($29 monthly) for up to 10,000 emails. Growth is $79/mo billed yearly ($99 monthly) with unlimited emails and up to 3 team members. Business is $179/mo billed yearly ($199 monthly) with unlimited team members. 14-day free trial, no card (salesblink.io/pricing, checked 5 November 2026)."
+  },
+  {
+    name: "SmartReach",
+    slug: "smartreach",
+    category: "lemlist-alternatives",
+    summary:
+      "SmartReach is a cold email and sales engagement platform priced by active prospects, not seats, with optional LinkedIn, calling, and WhatsApp.",
+    bestFor: "Teams that want no per-seat pricing and multichannel options beyond email.",
+    audience:
+      "Growing sales teams that add users often and may want calls, LinkedIn, or WhatsApp next to email.",
+    pros: [
+      "Pricing is by active prospects, and plans above Basic have unlimited users.",
+      "LinkedIn, calling, and WhatsApp are available on Sales Engagement plans.",
+      "The Email Outreach plans keep a cold-email-only option cheaper."
+    ],
+    cons: [
+      "Basic covers 1,000 active prospects, so list size moves you up plans fast.",
+      "Email Outreach and Sales Engagement are separate plan lines, which takes a moment to compare.",
+      "Mailboxes and domains still come from an inbox provider."
+    ],
+    affiliateUrl: "https://smartreach.io?fpr=jaunius-a83fee",
+    homepage: "https://www.smartreach.io",
+    pricing:
+      "Email Outreach Basic is $29/mo (1,000 active prospects, 10,000 emails). Plus is $89/mo. Pro is $199/mo. Scale is $499/mo. Sales Engagement plans start at $39/mo. No per-seat pricing; unlimited users above Basic (smartreach.io/pricing, checked 5 November 2026)."
+  },
+  {
+    name: "Emelia",
+    slug: "emelia",
+    category: "lemlist-alternatives",
+    summary:
+      "Emelia runs cold email and LinkedIn outreach with unlimited sending on flat plans, plus optional enrichment credits.",
+    bestFor: "Flat-price email + LinkedIn sequences without paying per email sent.",
+    audience:
+      "Small teams and agencies that want email and LinkedIn steps together, the job lemlist is often picked for, at a flat price.",
+    pros: [
+      "Email sending is unlimited on every plan.",
+      "Start covers up to 50 mailboxes and 3 LinkedIn accounts.",
+      "A 7-day free trial needs no card."
+    ],
+    cons: [
+      "Enrichment is paid separately in credits.",
+      "LinkedIn steps run from the LinkedIn account you connect, so the limits you set are your responsibility.",
+      "Mailboxes and domains still come from an inbox provider."
+    ],
+    affiliateUrl: "https://emelia.io/?_by=jaunius",
+    homepage: "https://emelia.io",
+    pricing:
+      "Start is $37/mo ($31/mo yearly) for up to 50 mailboxes and up to 3 LinkedIn accounts. Grow is $97/mo. Scale is $297/mo. Email sending is unlimited; enrichment uses optional credits. 7-day free trial, no card (emelia.io/pricing, checked 5 November 2026)."
+  },
+  {
+    name: "Klenty",
+    slug: "klenty",
+    category: "lemlist-alternatives",
+    summary:
+      "Klenty is a sales engagement platform for email cadences, with a dialer and CRM sync on higher plans.",
+    bestFor: "SDR teams that want sales engagement email plus optional calling/CRM.",
+    audience:
+      "SDR teams that work from a CRM and want email cadences first, with calling added later.",
+    pros: [
+      "Starter includes unlimited users and mailboxes.",
+      "Dialer add-ons put calls in the same cadence.",
+      "CRM sync is available on higher plans."
+    ],
+    cons: [
+      "The dialer is a per-user add-on, so calling raises the bill per rep.",
+      "The listed prices are for annual billing.",
+      "Mailbox rotation at high volume is a closer fit for Smartlead or ReachInbox."
+    ],
+    affiliateUrl: "http://klenty.com?fpr=jaunius-62132f",
+    homepage: "https://www.klenty.com",
+    pricing:
+      "Starter is $50/mo billed annually (15,000 monthly contacts, unlimited users and mailboxes on that plan). Growth is $70/mo billed annually. Dialer add-ons start at about $45/user/mo. 14-day free trial (klenty.com/pricing, checked 5 November 2026)."
+  },
+  {
+    name: "Emailchaser",
+    slug: "emailchaser",
+    category: "lemlist-alternatives",
+    summary:
+      "Emailchaser is a cold email platform with unlimited email accounts, built-in warmup, lead finder credits, and discounts for switching from Instantly, Smartlead, or lemlist.",
+    bestFor: "Switchers from Instantly or similar sequencers who want flat plans with unlimited accounts.",
+    audience:
+      "Senders leaving another sequencer who want unlimited accounts, warmup, and some lead data in one plan.",
+    pros: [
+      "Unlimited email accounts and warmup are included.",
+      "Lead finder credits come with the plan.",
+      "Annual billing costs 10 months' price, and there is a 7-day free trial."
+    ],
+    cons: [
+      "Starter allows 5,000 emails and 1,000 contacts a month.",
+      "The jump from Pro to Max is large.",
+      "Mailboxes and domains still come from an inbox provider."
+    ],
+    affiliateUrl: "https://www.emailchaser.com/?ref=jaunius",
+    homepage: "https://www.emailchaser.com",
+    pricing:
+      "Starter is $47/mo (5,000 emails, 1,000 contacts). Pro is $97/mo (125,000 emails). Max is $358/mo. Enterprise is $897/mo. Annual billing is 10 months' price. 7-day free trial (emailchaser.com/pricing, checked 5 November 2026)."
   }
 ];
 
@@ -1164,7 +1321,19 @@ export const CATEGORY_RANKINGS = {
   "email-verification": ["zerobounce", "bounceban", "truelist", "bouncify", "emaillistverify"],
   "email-warmup": ["warmy", "mailreach", "mailivery", "warmbox", "warmup-inbox"],
   "ai-sdr": ["salesforge", "gojiberry", "la-growth-machine", "artisan"],
-  "website-visitor-identification": ["rb2b", "happierleads"]
+  "website-visitor-identification": ["rb2b", "happierleads"],
+  "lemlist-alternatives": [
+    "smartlead",
+    "salesforge",
+    "reply",
+    "saleshandy",
+    "reachinbox",
+    "salesblink",
+    "smartreach",
+    "emelia",
+    "klenty",
+    "emailchaser"
+  ]
 } as const satisfies Record<ToolCategoryId, readonly string[]>;
 
 const PRIVATE_MARKERS = ["@", "paypal", "airwallex", "instantly.ai/?via="] as const;
@@ -1178,8 +1347,9 @@ function assertPublicToolsData(): void {
     }
     slugs.add(tool.slug);
 
-    if (!tool.affiliateUrl.startsWith("https://") || /\s/.test(tool.affiliateUrl)) {
-      throw new Error(`Affiliate URL must be a single https URL for ${tool.slug}`);
+    // Klenty's registered link is http://; the /go/ check below limits URLs to the registry.
+    if (!/^https?:\/\//.test(tool.affiliateUrl) || /\s/.test(tool.affiliateUrl)) {
+      throw new Error(`Affiliate URL must be a single http(s) URL for ${tool.slug}`);
     }
     if (tool.outboundHref !== goPathForAffiliateUrl(tool.affiliateUrl) || !tool.outboundHref.startsWith("/go/")) {
       throw new Error(`Affiliate CTA for ${tool.slug} must use /go/`);
