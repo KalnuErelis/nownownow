@@ -26,6 +26,7 @@ export type ToolCategoryId =
   | "linkedin-outreach"
   | "email-finders"
   | "cold-email-infrastructure"
+  | "cold-email-inbox"
   | "email-verification"
   | "email-warmup"
   | "ai-sdr"
@@ -70,7 +71,7 @@ export interface ToolFaq {
 export const TOOLS_INDEX = {
   title: "Tools",
   description:
-    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, email verification, warmup, AI SDRs, and website visitor identification.",
+    "A ranked directory of outbound tools for cold email, LinkedIn, email finding, infrastructure, cold email inbox providers, email verification, warmup, AI SDRs, and website visitor identification.",
   eyebrow: "Directory",
   intro:
     "Outbound tools I would actually point someone to. Grouped by the job they do, and ranked within each group."
@@ -177,6 +178,14 @@ export const TOOL_CATEGORIES: readonly ToolCategory[] = [
     description: `Best cold email infrastructure and warmup tools in ${DIRECTORY_YEAR}: domains, inboxes, warmup, and list verification.`,
     intro:
       "Domains, inboxes, warmup, and list verification. Zapmail is first for Google and Microsoft mailboxes. Mailforge and Infraforge are shared and dedicated infrastructure. Warmy, Mailreach, and ZeroBounce prepare or clean what you send."
+  }),
+  defineCategory({
+    id: "cold-email-inbox",
+    label: "Cold email inboxes",
+    title: `Best cold email inbox providers in ${DIRECTORY_YEAR}`,
+    description: `Best cold email inbox providers in ${DIRECTORY_YEAR}: Zapmail, Mailforge, Infraforge, Mailpool, Inframail, IceMail, and Winnr, ranked for domains and mailboxes.`,
+    intro:
+      "Providers that sell the domains and mailboxes cold email sends from, either Google Workspace and Microsoft 365 seats or cold-email SMTP inboxes. Zapmail is first for Google and Microsoft mailboxes with DNS handled. Mailforge and Infraforge are the shared and dedicated-IP Forge options. Mailpool sells its own inboxes next to Google and Microsoft at per-inbox prices. Inframail is the flat-price unlimited-inbox plan. IceMail and Winnr are the low per-mailbox options. None of these run the sequence, and warmup and list cleaning have their own lists: see the email warmup and email verification pages. Prices below were read from each vendor's site on 5 November 2026."
   }),
   defineCategory({
     id: "email-verification",
@@ -521,6 +530,7 @@ const TOOL_INPUTS: readonly ToolInput[] = [
     name: "Zapmail",
     slug: "zapmail",
     category: "cold-email-infrastructure",
+    alsoIn: ["cold-email-inbox"],
     summary:
       "Zapmail sets up Google and Microsoft mailboxes and domains for cold email, with automated DNS.",
     bestFor: "Google and Microsoft mailboxes for cold email.",
@@ -543,6 +553,7 @@ const TOOL_INPUTS: readonly ToolInput[] = [
     name: "Mailforge",
     slug: "mailforge",
     category: "cold-email-infrastructure",
+    alsoIn: ["cold-email-inbox"],
     summary:
       "Mailforge provides cold-email domains and mailboxes on shared infrastructure, with automated DNS.",
     bestFor: "Domains and mailboxes on shared cold-email infrastructure.",
@@ -567,6 +578,7 @@ const TOOL_INPUTS: readonly ToolInput[] = [
     name: "Infraforge",
     slug: "infraforge",
     category: "cold-email-infrastructure",
+    alsoIn: ["cold-email-inbox"],
     summary:
       "Infraforge provides cold-email domains and mailboxes on dedicated IPs, with automated DNS.",
     bestFor: "Dedicated-IP mailboxes when shared infrastructure is not enough.",
@@ -585,6 +597,109 @@ const TOOL_INPUTS: readonly ToolInput[] = [
     homepage: "https://infraforge.ai",
     pricing:
       "Infraforge lists $651 per month for 200 mailboxes on its homepage (checked 29 October 2026)."
+  },
+  {
+    name: "Mailpool",
+    slug: "mailpool",
+    category: "cold-email-inbox",
+    summary:
+      "Mailpool sells cold-email inboxes from three sources in one account: its own Mailpool inboxes, Google Workspace, and Microsoft 365.",
+    bestFor: "Mixing Google, Microsoft, and lower-cost inboxes under one provider.",
+    audience:
+      "Senders and agencies who want to split volume across inbox types without managing three vendors.",
+    pros: [
+      "Mailpool, Google Workspace, and Microsoft 365 inboxes are sold side by side.",
+      "Pricing is per inbox, with a lower rate on annual billing.",
+      "Dedicated IP servers are available when shared sending is not enough."
+    ],
+    cons: [
+      "Microsoft 365 inboxes cost more per seat than the Mailpool or Google options.",
+      "A dedicated IP is priced per server, which only pays off at volume.",
+      "The sequence still runs in a separate sending tool."
+    ],
+    affiliateUrl: "https://mailpool.ai?fpr=jaunius-bd95d6",
+    homepage: "https://mailpool.ai",
+    pricing:
+      "Mailpool inboxes are $3/inbox/mo ($2.60 billed annually). Google Workspace is $4/inbox/mo ($3.40 billed annually). Microsoft 365 is $5/inbox/mo. A dedicated IP is $200/server/mo (mailpool.ai/pricing, checked 5 November 2026)."
+  },
+  {
+    name: "Inframail",
+    slug: "inframail",
+    category: "cold-email-inbox",
+    summary:
+      "Inframail sells cold-email inboxes on flat monthly plans with unlimited inboxes, and sets them up for you.",
+    bestFor: "High inbox counts at a flat monthly price.",
+    audience:
+      "Agencies and high-volume senders whose per-inbox bill has grown past what a flat plan costs.",
+    pros: [
+      "The Unlimited Plan covers unlimited inboxes for one monthly price.",
+      "Setup is done for you.",
+      "An Agency Pack exists for teams running many client domains."
+    ],
+    cons: [
+      "A flat plan costs more than per-inbox pricing until you run enough inboxes.",
+      "It supplies inboxes. Warmup and list cleaning are separate jobs.",
+      "The sequence still runs in a separate sending tool."
+    ],
+    affiliateUrl: "https://inframail.io?via=jaunius",
+    homepage: "https://inframail.io",
+    pricing:
+      "The Unlimited Plan is $147/mo for unlimited inboxes. The Agency Pack is $387/mo. Its homepage compares this with Google Workspace or Microsoft at about $3/inbox, using $600/mo examples (inframail.io, checked 5 November 2026).",
+    faq: [
+      {
+        question: "When does Inframail's unlimited plan make sense?",
+        answer:
+          "When per-inbox pricing elsewhere would pass $147 a month. At about $3 per inbox, that is roughly 50 inboxes."
+      }
+    ]
+  },
+  {
+    name: "IceMail",
+    slug: "icemail",
+    category: "cold-email-inbox",
+    summary:
+      "IceMail sells cold-email mailboxes and domains at a low per-mailbox price, and its site says there is no lock-in subscription.",
+    bestFor: "Low per-mailbox cost without a long commitment.",
+    audience:
+      "Smaller senders and testers who want a handful of mailboxes cheaply and may not keep them for long.",
+    pros: [
+      "Mailboxes start at $2.5 per month.",
+      "Domains are sold alongside the mailboxes.",
+      "The site positions it as no lock-in, so you can stop when a test ends."
+    ],
+    cons: [
+      "Several price tiers sit above the entry price, so check which mailbox type you are buying.",
+      "It supplies inboxes. Warmup and list cleaning are separate jobs.",
+      "The sequence still runs in a separate sending tool."
+    ],
+    affiliateUrl: "https://icemail.ai/?ref=jaunius",
+    homepage: "https://icemail.ai",
+    pricing:
+      "Mailboxes start at $2.5/mailbox/month, with $3.9 and $5+ per mailbox tiers also listed. Domain deals start around $3.5/mo (icemail.ai, checked 5 November 2026)."
+  },
+  {
+    name: "Winnr",
+    slug: "winnr",
+    category: "cold-email-inbox",
+    summary:
+      "Winnr sells cold-email inboxes in packs, with an API for managing them and warming as a paid add-on.",
+    bestFor: "Inbox packs managed through an API.",
+    audience:
+      "Technical teams and agencies that want to create and manage inboxes from their own tooling.",
+    pros: [
+      "Startup and Enterprise packs bundle 50 or 200 inboxes for one monthly price.",
+      "An API lets you manage inboxes from your own systems.",
+      "Extra accounts cost $1 a month on top of a pack."
+    ],
+    cons: [
+      "Warming is billed per mailbox, so the real cost is above the pack price.",
+      "Packs make sense at 50 inboxes or more. A few inboxes are cheaper elsewhere.",
+      "The sequence still runs in a separate sending tool."
+    ],
+    affiliateUrl: "https://winnr.app/?ref=WIN-F53F",
+    homepage: "https://winnr.app",
+    pricing:
+      "Startup is $69/mo for 50 inboxes. Enterprise is $189/mo for 200 inboxes. Extra accounts are $1/month, and warming is $0.60 per mailbox (winnr.app/pricing, checked 5 November 2026)."
   },
   {
     name: "Warmy",
@@ -1036,6 +1151,15 @@ export const CATEGORY_RANKINGS = {
     "warmy",
     "mailreach",
     "zerobounce"
+  ],
+  "cold-email-inbox": [
+    "zapmail",
+    "mailforge",
+    "infraforge",
+    "mailpool",
+    "inframail",
+    "icemail",
+    "winnr"
   ],
   "email-verification": ["zerobounce", "bounceban", "truelist", "bouncify", "emaillistverify"],
   "email-warmup": ["warmy", "mailreach", "mailivery", "warmbox", "warmup-inbox"],
